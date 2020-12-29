@@ -1,5 +1,6 @@
 ---
-title: Install Duplicity with AWS S3 support from Source on a Raspberry Pi
+layout: page
+title: "Install Duplicity with AWS S3 support from Source on a Raspberry Pi"
 categories:
   - Tutorials
   - AWS

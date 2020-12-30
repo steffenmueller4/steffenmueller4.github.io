@@ -1,7 +1,1 @@
 theme: jekyll-theme-cayman
-menu:
-  nav:
-    - Name: "Blog"
-      Weight: -100
-      Identifier: "post"
-      URL: "/"

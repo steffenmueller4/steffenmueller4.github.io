@@ -1,7 +1,3 @@
 ---
-layout: page
-title: Test
+layout: home
 ---
-# Test
-
-# Test 1

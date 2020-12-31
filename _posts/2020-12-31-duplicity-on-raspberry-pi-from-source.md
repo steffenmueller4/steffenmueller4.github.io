@@ -113,6 +113,8 @@ export AWS_ACCESS_KEY_ID="${AWS_ACCESS_KEY_ID}"
 export AWS_SECRET_ACCESS_KEY="${AWS_SECRET_ACCESS_KEY}"
 
 DUPOPTS=""
+# Preparing the actual duplicity command
+# Please refer to http://duplicity.nongnu.org/vers8/duplicity.1.html for finding out about the options
 DUPEXEC="duplicity --encrypt-key ${ENCRKEY} --sign-key ${SIGNKEY} --s3-use-new-style --s3-use-ia --s3-use-multiprocessing $DUPOPTS"
 BACKUP_SOURCE="<SOME_DIRECTORY_YOU_WOULD_LIKE_TO_BACKUP"
 BACKUP_DESTINATION="boto3+s3://<THE_AWS_S3_BUCKET_NAME>/<SOME_SUBDIRECTORY_YOU_WANT_TO_USE>"

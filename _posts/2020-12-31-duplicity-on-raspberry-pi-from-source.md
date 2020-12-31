@@ -147,7 +147,7 @@ Finally, I created a crontab entry via `crontab -e` to run the backups every nig
 
 That is it. In this howto, I described how to backup files from a Raspberry Pi (Raspbian Buster - up-to-date on 2020-12-30) with Duplicity to AWS S3. For that, I installed Duplicity 0.8.17 from source with Python3 and Boto3 due to Debian/Raspbian Duplicity and Python-boto packages being out of date for my purposes.
 
-As with every howto/tutorial, updates to the used software may change the entire approach and solution. So, please reason about the steps when reading and applying the howto. If you want to report issues with the steps/scripts (I cannot promise that I will fix them ;-)), please use the Issues functionality at the [underlying GitHub repository][pages-github-repo].
+As with every howto/tutorial, updates to the used software may change the entire approach and solution. So, please reason about the steps when reading and applying the howto. If you want to report issues with the steps/scripts (I cannot promise that I will fix them ;-)), please use the issues functionality at the [underlying GitHub repository][pages-github-repo].
 
 [//]: # (#)
 [//]: # (References)
@@ -166,4 +166,4 @@ As with every howto/tutorial, updates to the used software may change the entire
 [aws-signature-4]: https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html
 [pip]: https://en.wikipedia.org/wiki/Pip_(package_manager)
 [boto3]: https://github.com/boto/boto3
-[pages-github-repo]: https://github.com/steffenmueller4/steffenmueller4
+[pages-github-repo]: https://github.com/steffenmueller4/steffenmueller4.github.io/issues

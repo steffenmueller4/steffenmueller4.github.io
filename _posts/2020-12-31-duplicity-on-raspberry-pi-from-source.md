@@ -50,7 +50,7 @@ This, however, will very likely still not work when you want to use, for example
 
 While it seems that there is a new Debian/Raspbian package based on Duplicity 0.8.17-1+b1 on the way (as of 2020-12-31), I do not want to wait until the release of the new Debian/Raspbian package. I decided to build and install Duplicity series 0.8 with Python 3 and Boto3 on my own. The next section is about doing that.
 
-## Build Duplicity series 0.8 with Python3 and Boto3 from source
+## Build Duplicity series 0.8 with Python 3 and Boto3 from source
 
 For building and installing Duplicity series 0.8 with Python 3 and Boto3 from source, you can run the following commands (tested on an up-to-date Raspbian Buster on 2020-12-30 - run as root user):
 ```
@@ -145,7 +145,7 @@ Finally, I created a crontab entry via `crontab -e` to run the backups every nig
 
 That is it. In this howto, I described how to backup files from a Raspberry Pi (Raspbian Buster - up-to-date on 2020-12-30) with Duplicity to AWS S3. For that, I installed Duplicity 0.8.17 from source with Python3 and Boto3 due to Debian/Raspbian Duplicity and Python-boto packages being out of date for my purposes.
 
-As with every howto/tutorial, updates to the used software may change the entire approach and solution. So, please reason about the steps when reading and applying the howto. If you want to report issues with the steps/scripts, please use the Issues functionality on the underlying GitHub repository at https://github.com/steffenmueller4/steffenmueller4.github.io/issues.
+As with every howto/tutorial, updates to the used software may change the entire approach and solution. So, please reason about the steps when reading and applying the howto. If you want to report issues with the steps/scripts (I can not promise that I will fix them ;-)), please use the Issues functionality at the underlying GitHub repository at https://github.com/steffenmueller4/steffenmueller4.github.io/issues.
 
 [//]: # (#)
 [//]: # (References)

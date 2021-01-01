@@ -28,7 +28,7 @@ If you want to have a look at some other people's howtos and tutorials to set up
 # Installation
 
 As explained, for example, in [Igor Cicimov's post about using AWS S3 with Duplicity][igor-duplicity], you can install Duplicity with AWS S3 support on Debian/Raspbian Buster easily via:
-```Shell
+```shell
 sudo apt install -y duplicity python-boto
 ```
 
@@ -39,7 +39,7 @@ The next section is about diverse issues with the given simple way to install Du
 ## Issues with the Duplicity/Python-boto Debian/Raspbian Packages (as of 2020-12-31)
 
 As of 2020-12-31, the Debian/Raspbian package `Duplicity` is based on [Duplicity 0.7.18.2-1](https://packages.debian.org/buster/duplicity) (series 0.7). The Debian/Raspbian package `Python-boto` is based on [Boto 2.44.0-1.1](https://packages.debian.org/buster/python-boto). When you want to use newer AWS S3 features such as [storage class Infrequent Access or Glacier](https://aws.amazon.com/s3/features/?nc=sn&loc=2) to save costs, you need to use a newer Boto version (>= Boto 2.7.0, see also: [Duplicity][duplicity]). You may be able to install this combination via installing Duplicity and newest Boto version via [Pip - a Python package installer][pip] instead of the Debian/Raspbian package `Python-boto` via the apt command given in the previous section (Warning: I did not try this out eventually, so it may not work completely):
-```Shell
+```shell
 sudo apt install duplicity python-pip
 pip install boto
 ```
@@ -51,7 +51,7 @@ While it seems that there is a new Debian/Raspbian package based on Duplicity 0.
 ## Build Duplicity series 0.8 with Python 3 and Boto3 from source
 
 For building and installing Duplicity series 0.8 with Python 3 and Boto3 from source, you can run the following commands (tested on an up-to-date Raspbian Buster on 2020-12-30 - run as root user):
-```Shell
+```shell
 # Install various dependencies such as curl, tar, and Pip as well as
 # build dependencies for Duplicity such as the Python3 development library
 apt install -y curl tar python3-pip python3-dev librsync-dev gettext
@@ -82,7 +82,7 @@ Before pushing backups to AWS S3, an AWS S3 bucket needs to be configured proper
 ## Configuring Backups
 
 In order to not expose credentials and reuse them in other backup scripts, I created a separate credentials file in the root user's home directory (backup will be run as root) at `/root/backup_auth.cfg`:
-```Shell
+```shell
 # Passphrase for accessing the GPG key, see also: Igor Cicimov's post about using Duplicity with AWS S3
 PASSPHRASE="<A_SECURE_PASSPHRASE>"
 # The GPG key id for encrypting the backup
@@ -133,7 +133,7 @@ unset AWS_SECRET_ACCESS_KEY
 Please replace the values for the variables `BACKUP_SOURCE` and `BACKUP_DESTINATION` in the above script according to your requirements.
 
 Finally, I created a crontab entry via `crontab -e` to run the backups every night at 01:30:
-```Shell
+```shell
 [...]
 # For more information see the manual pages of crontab(5) and cron(8)
 #

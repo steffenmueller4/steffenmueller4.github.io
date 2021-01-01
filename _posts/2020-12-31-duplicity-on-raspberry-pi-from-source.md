@@ -95,7 +95,7 @@ AWS_SECRET_ACCESS_KEY="<THE_AWS_SECRET_ACCESS_KEY>"
 Please set the values for the variables according to your values.
 
 Next, I created a bash script to run the actual backup at `/root/backup.sh`:
-```Shell
+```shell
 #!/bin/bash
 set +eu
 

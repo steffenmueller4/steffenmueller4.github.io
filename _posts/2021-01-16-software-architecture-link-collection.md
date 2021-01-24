@@ -13,7 +13,8 @@ In this post, I gathered different sources---I think are worth to be gathered---
 
 * [Martin Fowler's keynote at OSCon 2015 about the "what", the "why", and the "how" of software architecture](https://www.youtube.com/watch?v=DngAZyWMGR0)
 * [Gregor Hohpe's talk at YOW! 2017 about Enterprise Architecture](https://www.youtube.com/watch?v=mS0AJLqmnvQ)
-* [Stefan Tilkov's talk at GOTO 2019 about "Good Enough" Architecture](https://www.youtube.com/watch?v=PzEox3szeRc)
+* [Stefan Tilkov's talk at GOTO 2019 about "Good Enough" Architecture](https://www.youtube.com/watch?v=PzEox3szeRc) and [Stefan Tilkov's talk at GOTO 2020 about "Good Enough" Architecture Part I](https://www.youtube.com/watch?v=RtRpL3Ndi0c)
+* [Eberhard Wolff's talk at GOTO 2019 about How to Become a Great Software Architect](https://www.youtube.com/watch?v=v_nhv6aY1Kg)
 
 ## Articles
 
@@ -27,6 +28,16 @@ In this post, I gathered different sources---I think are worth to be gathered---
 * Ford, Parsons, Kua: "Building Evolutionary Architectures - Support Constant Change", 2017.
 
 # Specific Architecture Topics
+
+## Frontend Architecture
+
+### YoutTube Videos
+
+* [Monica Lent's talk at GOTO 2019 about Building Resilient Frontend Architecture](https://www.youtube.com/watch?v=TqfbAXCCVwE)
+
+### Articles
+
+* [My article about an architecture to make full use of Server-Side Rendering in the trivago Magazine](https://tech.trivago.com/2020/01/29/trivago-magazines-journey-to-server-side-rendering/)
 
 ## Microservices
 
@@ -43,6 +54,10 @@ In this post, I gathered different sources---I think are worth to be gathered---
 ### Books
 
 * Newman: "Monolith to Microservices", 2020.
+
+### Other
+
+* [Chris Richardson's site about Microservices](https://microservices.io)
 
 ## Conway's Law
 

@@ -12,7 +12,7 @@ In this post, I gathered different sources---I think are worth to be gathered---
 ## YouTube Videos
 
 * [Martin Fowler's keynote at OSCon 2015 about the "what", the "why", and the "how" of software architecture](https://www.youtube.com/watch?v=DngAZyWMGR0)
-* [Gregor Hohpe's talk at YOW! 2017 about Enterprise Architecture](https://www.youtube.com/watch?v=mS0AJLqmnvQ)
+* [Gregor Hohpe's talk at YOW! 2017 about Enterprise Architecture](https://www.youtube.com/watch?v=mS0AJLqmnvQ) and [Gregor Hohpe's talk at TNG about the Architect's Elevator](https://www.youtube.com/watch?v=Zq2VcRZmz78)
 * [Stefan Tilkov's talk at GOTO 2019 about "Good Enough" Architecture](https://www.youtube.com/watch?v=PzEox3szeRc) and [Stefan Tilkov's talk at GOTO 2020 about "Good Enough" Architecture Part I](https://www.youtube.com/watch?v=RtRpL3Ndi0c)
 * [Eberhard Wolff's talk at GOTO 2019 about How to Become a Great Software Architect](https://www.youtube.com/watch?v=v_nhv6aY1Kg)
 

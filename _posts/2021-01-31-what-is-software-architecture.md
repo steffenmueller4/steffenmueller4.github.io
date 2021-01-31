@@ -5,7 +5,7 @@ title: "Software Architecture in a very Agile Environment"
 categories:
   - Architecture
   - Domain-driven Design
-published: true
+published: false
 ---
 In recent months, my team and me are rebuilding parts of a ca. 8 year-old monolithic three-tier PHP application using a microservice-based architecture. Goal is to get a better maintainable architecture fitting the very agile environment we are confronted with. Before we started and even during our ongoing efforts, I often thought and still thinking about our desired software architecture, the important characteristics we need to achieve, and about how can we come up with a good software architecture for our purposes. In this post, I would like to describe my experience so far and describe a little bit our reasoning.
 

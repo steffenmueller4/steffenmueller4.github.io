@@ -2,7 +2,10 @@
 layout: post
 date:   2020-12-31 09:59:36 +0530
 title: "Backups to AWS S3 with Duplicity built from source on a Raspberry Pi"
-categories: Backup HowTo Raspberry-Pi
+categories:
+  - Backup
+  - HowTo
+  - Raspberry Pi
 published: true
 ---
 Recently, my Raspberry Pi and the attached hard drive crashed. Both, I am using as a network attached storage for storing a lot of my data. Fortunately, I was able to restore most of the data. As a lesson-learned from that incident, I started to look out for a backup solution for my freshly set up Raspberry Pi (Raspbian Buster). This post is my howto for setting up backups with [Duplicity][duplicity] using [AWS Simple Storage Service (S3)][aws-s3] as the remote backup destination on Raspbian Buster built from source with Python 3 and Boto3.

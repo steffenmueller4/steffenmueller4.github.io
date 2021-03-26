@@ -2,7 +2,9 @@
 layout: post
 date:   2020-12-30 16:30:36 +0530
 title: "My Thoughts and Consequences on typical Issues with usual HowTo's on the Internet"
-categories: Thoughts HowTo
+categories:
+  - Thoughts
+  - HowTo
 published: false
 ---
 Recently, my Raspberry Pi and the attached hard drive crashed. Both, I am using as a network attached storage for storing a lot of my data. Fortunately, I was able to restore most of the data. As a lesson-learned from this, I started to look out for a backup solution for my freshly set up Raspberry Pi.

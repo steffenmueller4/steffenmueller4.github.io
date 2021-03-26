@@ -52,6 +52,7 @@ plainwhite:
 # this and add the path to the pages in order as they should show up
 #header_pages:
 # - about.md
+permalink: /:year/:month/:day/:title:output_ext
 
 # Build settings
 theme: plainwhite

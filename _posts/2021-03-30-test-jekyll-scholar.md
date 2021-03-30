@@ -5,7 +5,7 @@ title: "Test Jekyll Scholar"
 categories: Architecture
 published: true
 ---
-Blabla {% cite test %}
+Test {% cite test %}
 
 # References
 

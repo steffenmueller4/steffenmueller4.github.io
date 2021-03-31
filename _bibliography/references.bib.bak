@@ -112,12 +112,4 @@
   year   = {2018},
 }
 
-@Article{Steinegger2017,
-  author  = {Roland H. Steinegger and Pascal Giessler and Benjamin Hippchen and Sebastian Abeck},
-  journal = {The Thrid International Conference on Advances and Trends in Software Engineering},
-  title   = {Overview of a Domain-Driven Design Approachto Build Microservice-Based Applications},
-  year    = {2017},
-  url     = {https://cm.tm.kit.edu/download/domain_driven_microservice-architecture_17-03-15.pdf},
-}
-
 @Comment{jabref-meta: databaseType:bibtex;}

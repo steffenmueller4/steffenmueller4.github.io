@@ -112,4 +112,42 @@
   year   = {2018},
 }
 
+@Article{Steinegger2017,
+  author  = {Roland H. Steinegger and Pascal Giessler and Benjamin Hippchen and Sebastian Abeck},
+  journal = {The Thrid International Conference on Advances and Trends in Software Engineering},
+  title   = {Overview of a Domain-Driven Design Approachto Build Microservice-Based Applications},
+  year    = {2017},
+  url     = {https://cm.tm.kit.edu/download/domain_driven_microservice-architecture_17-03-15.pdf},
+}
+
+@Electronic{Ardalis2020,
+  author   = {Steve Smith},
+  month    = aug,
+  title    = {Conway's Law, DDD, and Microservices},
+  url      = {https://ardalis.com/conways-law-ddd-and-microservices/},
+  year     = {2020},
+  keywords = {DDD, Conway's Law,},
+}
+
+@Electronic{Skelton2020,
+  author   = {Matthew Skelton and Manuel Pais},
+  month    = nov,
+  title    = {Conway’s Law - Critical for Efficient Team Design in Tech},
+  url      = {https://itrevolution.com/conways-law-critical-for-efficient-team-design-in-tech/},
+  year     = {2020},
+  keywords = {Conway's Law, Organization},
+}
+
+@Article{Herbsleb1999,
+  author    = {James D Herbsleb and Rebecca E Grinter},
+  journal   = {IEEE software},
+  title     = {Architectures, coordination, and distance: Conway's law and beyond},
+  year      = {1999},
+  number    = {5},
+  pages     = {63--70},
+  volume    = {16},
+  publisher = {IEEE},
+  url       = {http://www.cs.cmu.edu/afs/cs/Web/People/jdh/collaboratory/research_papers/IEEE99_final.pdf},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

@@ -30,9 +30,10 @@ Then, "architecture, plans, and processes are all vital coordination mechanisms 
 In 2007/2012, MacCormack, Baldwin, and Rusnak publihsed a study where they investigated about the validity of Conway's Law {% cite MacCormack2012 %}.
 In their study, they compared open source projects and communities with commercial product development teams.
 Based on Conway's Law, they assumed open source software (OSS) products to be more modular than commercial software products, because OSS products are developed in "loosely-coupled" organizational units and often do not have formal organisation structures to govern development activities.
-Subject of their investigations were 12 products where MacCormack, Baldwin, and Rusnak build pairs of similar products such as [GnuCash 1.8.4](https://www.gnucash.org) vs. MyBooks in the category of financial management software, [AbiWord](https://www.abisource.com/) (see also: [AbiWord](https://en.wikipedia.org/wiki/AbiWord)) vs. StarWriter (see also: [StarOffice](https://de.wikipedia.org/wiki/StarOffice#Versionen)) in the category of word processing, Linux 2.1.32 vs. Solaris in the first of two categories of operating systems, etc.
+Subject of their investigations were 12 products where MacCormack, Baldwin, and Rusnak build pairs of similar products such as [GnuCash 1.8.4](https://www.gnucash.org) vs. MyBooks in the category of financial management software, [AbiWord](https://www.abisource.com/) vs. StarWriter (see also: [StarOffice](https://de.wikipedia.org/wiki/StarOffice#Versionen)) in the category of word processing, Linux 2.1.32 vs. Solaris in the first of two categories of operating systems, etc.
 Based on their analysis, they found strong evidence that the "[...] product's architecture tends to mirror the structure
 of the organization in which it is developed [...]" {% cite MacCormack2012 %} and, thus, Conway's Law holds true.
+Although the study definitely has their limits, managers changing organizations should consider the influences of organizations on product designs.
 
 # Inverse Conway Maneuver
 

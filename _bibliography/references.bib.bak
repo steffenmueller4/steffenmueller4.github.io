@@ -199,4 +199,43 @@
   url       = {http://www.cs.cmu.edu/afs/cs.cmu.edu/Web/People/jdh/collaboratory/research_papers/ICSE99.pdf},
 }
 
+@Article{MacCormack2012,
+  author    = {MacCormack, Alan and Baldwin, Carliss and Rusnak, John},
+  journal   = {Research Policy},
+  title     = {Exploring the duality between product and organizational architectures: A test of the “mirroring” hypothesis},
+  year      = {2012},
+  number    = {8},
+  pages     = {1309--1324},
+  volume    = {41},
+  publisher = {Elsevier},
+  url       = {http://www.hbs.edu/research/pdf/08-039.pdf},
+}
+
+@Electronic{ThoughtWorks2015InverseConway,
+  author   = {ThoughtWorks},
+  month    = jul,
+  title    = {Inverse Conway Maneuver},
+  url      = {https://www.thoughtworks.com/radar/techniques/inverse-conway-maneuver},
+  year     = {2014},
+  keywords = {Inverse Conway Maneuver, Conway's Law, Organization, Architecture},
+}
+
+@Electronic{Bloomberg2015,
+  author   = {Jason Bloomberg},
+  month    = jun,
+  title    = {DevOps Insights into Conway’s Law},
+  url      = {https://intellyx.com/2015/06/22/devops-insights-into-conways-law/},
+  year     = {2015},
+  keywords = {Conway's Law, DevOps, Inverse Conway Maneuver},
+}
+
+@Electronic{Leroy2010,
+  author   = {onny Leroy and Matt Simons},
+  month    = dec,
+  title    = {Dealing with creaky legacy platforms},
+  url      = {http://jonnyleroy.com/2011/02/03/dealing-with-creaky-legacy-platforms/},
+  year     = {2010},
+  keywords = {Inverse Conway Maneuver},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

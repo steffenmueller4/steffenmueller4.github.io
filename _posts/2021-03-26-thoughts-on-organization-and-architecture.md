@@ -33,9 +33,16 @@ Based on Conway's Law, they assumed open source software (OSS) products to be mo
 Subject of their investigations were 12 products where MacCormack, Baldwin, and Rusnak build pairs of similar products such as [GnuCash 1.8.4](https://www.gnucash.org) vs. MyBooks in the category of financial management software, [AbiWord](https://www.abisource.com/) vs. StarWriter (see also: [StarOffice](https://de.wikipedia.org/wiki/StarOffice#Versionen)) in the category of word processing, Linux 2.1.32 vs. Solaris in the first of two categories of operating systems, etc.
 Based on their analysis, they found strong evidence that the "[...] product's architecture tends to mirror the structure
 of the organization in which it is developed [...]" {% cite MacCormack2012 %} and, thus, Conway's Law holds true.
-Although the study definitely has their limits, managers changing organizations should consider the influences of organizations on product designs.
+Although the study definitely has their limits, managers changing organizations should consider the influences of the organizational structure on product design and architecture.
 
 # Inverse Conway Maneuver
+
+Due to the interdepencies between organization and architecture stated by Conway's Law, the Inverse Conway Maneuver emerged in recent time.
+The Inverse Conway Maneuver is about making use of and, therefore, "inverting" Conway’s Law for improving the architecture of a product.
+So, the core idea is to structure an organizational unit so that a desired architecture emerges.
+
+The term Inverse Conway Maneuver was coined by Leroy and Simons in an article in the Cutter IT Journal in 2010 {% cite Leroy2010 %}.
+
 
 # Domain-driven Design
 
@@ -45,6 +52,8 @@ Although the study definitely has their limits, managers changing organizations 
 
 This article is definitely not the first article about the interdependencies of organization and architecture.
 In {% cite Wolff2020 %} (it is only available in German), {% cite Ardalis2020 %}, and {% cite Skelton2020 %}, the authors describe the different aspects of interdependencies between an organizational structure and software architecture in terms of the modules and components.
+
+In {% cite Bloomberg2015 %}, Bloomberg summarizes Conway's Law and the Inverse Conway Maneuver in the context of the DevOps movement.
 
 # References
 

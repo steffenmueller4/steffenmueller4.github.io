@@ -25,16 +25,25 @@ Specifically in combination with Parnas' approach to modularize software to clar
 For example, Herbsleb and Grinter based their recommendations of allocating teams and modules properly in geographically distributed software development on Conway's Law {% cite Herbsleb1999a Herbsleb1999 %}.
 Herbsleb and Grinter state that work should be assigned to different teams and sites according to the "[...] greatest possible architectural separation in a design that is as modular as possible." {% cite Herbsleb1999a %}
 But such an allocation should only be done if the product and the development processes are stable and well-understood.
-"Architecture, plans, and processes are all vital coordination mechanisms in software projects." {% cite Herbsleb1999 %}
+Then, "architecture, plans, and processes are all vital coordination mechanisms in software projects." {% cite Herbsleb1999 %}
 
-This article is definitely not the first article about interdependencies of organization and architecture.
-In {% cite Wolff2020 %} (the YouTube video is, however, only available in German), {% cite Ardalis2020 %}, and {% cite Skelton2020 %}, the authors describe the different aspects of interdependencies between an organizational structure and software architecture in terms of the modules and components.
+In 2007/2012, MacCormack, Baldwin, and Rusnak publihsed a study where they investigated about the validity of Conway's Law {% cite MacCormack2012 %}.
+In their study, they compared open source projects and communities with commercial product development teams.
+Based on Conway's Law, they assumed open source software (OSS) products to be more modular than commercial software products, because OSS products are developed in "loosely-coupled" organizational units and often do not have formal organisation structures to govern development activities.
+Subject of their investigations were 12 products where MacCormack, Baldwin, and Rusnak build pairs of similar products such as [GnuCash 1.8.4](https://www.gnucash.org) vs. MyBooks in the category of financial management software, [AbiWord](https://www.abisource.com/) (see also: [AbiWord](https://en.wikipedia.org/wiki/AbiWord)) vs. StarWriter (see also: [StarOffice](https://de.wikipedia.org/wiki/StarOffice#Versionen)) in the category of word processing, Linux 2.1.32 vs. Solaris in the first of two categories of operating systems, etc.
+Based on their analysis, they found strong evidence that the "[...] product's architecture tends to mirror the structure
+of the organization in which it is developed [...]" {% cite MacCormack2012 %} and, thus, Conway's Law holds true.
 
 # Inverse Conway Maneuver
 
-## Domain-driven Design
+# Domain-driven Design
 
-## Other Influence Factors
+# Other Influence Factors
+
+# Further Articles and Talks about this Topic
+
+This article is definitely not the first article about the interdependencies of organization and architecture.
+In {% cite Wolff2020 %} (it is only available in German), {% cite Ardalis2020 %}, and {% cite Skelton2020 %}, the authors describe the different aspects of interdependencies between an organizational structure and software architecture in terms of the modules and components.
 
 # References
 

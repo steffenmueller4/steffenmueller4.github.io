@@ -27,13 +27,15 @@ Herbsleb and Grinter state that work should be assigned to different teams and s
 But such an allocation should only be done if the product and the development processes are stable and well-understood.
 Then, "architecture, plans, and processes are all vital coordination mechanisms in software projects." {% cite Herbsleb1999 %}
 
-In 2007/2012, MacCormack, Baldwin, and Rusnak publihsed a study where they investigated about the validity of Conway's Law {% cite MacCormack2012 %}.
+In 2007/2012, MacCormack, Baldwin, and Rusnak published a study where they investigated about the validity of Conway's Law {% cite MacCormack2012 %}.
 In their study, they compared open source projects and communities with commercial product development teams.
 Based on Conway's Law, they assumed open source software (OSS) products to be more modular than commercial software products, because OSS products are developed in "loosely-coupled" organizational units and often do not have formal organisation structures to govern development activities.
 Subject of their investigations were 12 products where MacCormack, Baldwin, and Rusnak build pairs of similar products such as [GnuCash 1.8.4](https://www.gnucash.org) vs. MyBooks in the category of financial management software, [AbiWord](https://www.abisource.com/) vs. StarWriter (see also: [StarOffice](https://de.wikipedia.org/wiki/StarOffice#Versionen)) in the category of word processing, Linux 2.1.32 vs. Solaris in the first of two categories of operating systems, etc.
 Based on their analysis, they found strong evidence that the "[...] product's architecture tends to mirror the structure
-of the organization in which it is developed [...]" {% cite MacCormack2012 %} and, thus, Conway's Law holds true.
-Although the study definitely has their limits, managers changing organizations should consider the influences of the organizational structure on product design and architecture.
+of the organization in which it is developed [...]" {% cite MacCormack2012 %} and, thus, Conway's Law holds true oftentimes.
+
+Although MacCormack's, Baldwin's, and Rusnak's study definitely has their limits in their approach, in explaining the different causalities involved, or checking other properties than modularity, managers should consider the influences of the organizational structure and goals on product design and architecture.
+So, when the organizational unit in which you are building a software product is siloed and organized based on a strict functional team design such as a separation into frontend, backend, and operations teams, you will very likely not get an overly customer-focused product which is considering a DevOps approach.
 
 # Inverse Conway Maneuver
 
@@ -42,6 +44,7 @@ The Inverse Conway Maneuver is about making use of and, therefore, "inverting" C
 So, the core idea is to structure an organizational unit so that a desired architecture emerges.
 
 The term Inverse Conway Maneuver was coined by Leroy and Simons in an article in the Cutter IT Journal in 2010 {% cite Leroy2010 %}.
+Their goal was to break down silos 
 
 
 # Domain-driven Design

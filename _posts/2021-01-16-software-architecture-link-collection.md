@@ -78,3 +78,7 @@ Conway's law is roughly about how an organizational structure influences softwar
 ### YouTube Videos
 
 * [Eberhard Wolff's and Patrick Kua's talk about Evolutionary Architecture](https://www.youtube.com/watch?v=ttL7MiF8VZw&t=153s)
+
+# Architecture Tools
+
+* Drawing tools: [Overview article](https://www.redhat.com/architect/diagramming-tools-cloud-infrastructure)

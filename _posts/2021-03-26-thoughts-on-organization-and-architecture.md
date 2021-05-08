@@ -43,11 +43,14 @@ Due to the interdepencies between organization and architecture stated by Conway
 The Inverse Conway Maneuver is about making use of and, therefore, "inverting" Conway’s Law for improving the architecture of a product.
 So, the core idea is to structure an organizational unit so that a desired architecture emerges.
 
-The term Inverse Conway Maneuver was coined by Leroy and Simons in an article in the Cutter IT Journal in 2010 {% cite Leroy2010 %}.
-Their goal was to break down silos 
-
+The term Inverse Conway Maneuver was coined by Leroy and Simons in an article in 2010 {% cite Leroy2010 %}.
+Their goal was to change organizations in order to build better software based on interdisciplinary independent teams which can collaborate with business effectively.
+They wanted to change the organization's communication structures - please remember that Conway's Law phrased that system's architecture is a copy of the organization's communication structure - using technology.
+"Conway’s Law, therefore, does work both ways. Organizational structures impact system design, and system architectures impact organizational structures as well." {% cite Bloomberg2015 %}
 
 # Domain-driven Design
+
+Another stream of building software that is better aligned with the business domain.
 
 # Other Influence Factors
 

@@ -50,7 +50,22 @@ They wanted to change the organization's communication structures - please remem
 
 # Domain-driven Design
 
-Another stream of building software that is better aligned with the business domain.
+The recent rise of microservice architectures often lead to problems of finding the right scope for those microservices when migrating old legacy application to microservices or building new applications in the microservice style.
+Thereby, overlapping or unknown domains as well as unclear interrelationships between teams were often the underlying reasons of such problems.
+Thus, the underlying reasons were of an organizational nature.
+
+Here, Domain-driven Design (DDD) can help.
+Originally developed by Eric Evans in the 2000er years (see also: {% cite Evans2003 %}), DDD is about designing software based on models of the domain.
+The domain models, therefore, act as a Ubiquitious Language and as a conceptual foundation for the design of the software {% cite Fowler2014 %}.
+
+A central pattern in DDD is the Bounded Context.
+Bounded Contexts should encapsulate a certain set of assumptions, a common Ubiquitous Language, and a particular domain model in a coherent environment.
+Via those Bounded Contexts, the software can be divided into smaller parts with clear boundaries and interfaces between each other.
+
+DDD, furthermore, tries to define the interfaces between those smaller parts - so, relationships between Bounded Contexts - in a variety of ways {% cite Fowler2014 %} (see also: {% cite Brandolini2009 %}).
+Via so-called Context Mapping, the
+
+In a nutshell, DDD can help you to map interdependencies between organization and software architecture and, thus, to tailor organizations, teams, and software.
 
 # Other Influence Factors
 

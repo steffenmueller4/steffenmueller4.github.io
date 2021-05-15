@@ -65,7 +65,9 @@ Bounded Contexts should encapsulate a certain set of assumptions, a common Ubiqu
 Via those Bounded Contexts, the software can be divided into smaller parts with clear boundaries and interfaces between each other.
 
 DDD, furthermore, tries to define the interfaces between those smaller parts - so, relationships between Bounded Contexts - in a variety of ways {% cite Fowler2014 %} (see also: {% cite Brandolini2009 %}).
-Via so-called Context Mapping, the
+Via so-called Context Mapping,
+
+...TODO...
 
 In a nutshell, DDD can help to map interdependencies between organization and software architecture and, thus, to tailor organizations, teams, and software.
 
@@ -85,7 +87,7 @@ For example, specific quirks of how to deploy an application in the organization
 Last but not least, germane is the cognitive load which stems from the business problem that we are trying to solve.
 It can be considered as the domain focus in software engineering {% cite Skelton2019a %}.
 
-TODO: Goal of team's cognitive load setup: Limit the size of software services/products to the cognitive load that the team can handle
+...TODO: Goal of team's cognitive load setup: Limit the size of software services/products to the cognitive load that the team can handle
 
 They consider basics and principles stemming from newer experiences and knowledge of the DevOps movement and modern software engineering management approaches.
 Examples:

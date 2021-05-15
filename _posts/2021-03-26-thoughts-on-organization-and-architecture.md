@@ -12,10 +12,9 @@ categories:
 published: true
 ---
 How does the organization influence the software architecture and vice versa?
-How do we best tailor our organization and build a proper software architecture?
+How do we best tailor our organization and teams as well as build a proper software architecture?
 There are different approaches, theories, and methods such as Conway's Law, the Inverse Conway Maneuver, Domain-driven Design (DDD), and the Team Topologies approach.
-In this article, we will summarize those basics of the interdependencies between the organization and software architecture.
-It is the first part (part 1) of an article series of 2 articles about the interdependencies of organization and software architecture.
+In this article, we will summarize the different approaches, theories, and methods.
 
 # Conway's Law
 
@@ -72,17 +71,24 @@ In a nutshell, DDD can help to map interdependencies between organization and so
 
 # Team Topology Approach
 
-In 2019, Skelton and Pais described another approach focusing on the interdependencies between the organization and software architecture {% cite Skelton2019 %}.
-The approach focuses on the team size, the so-called team's cognitive load, and organization before tailoring defining applications and their architectures from a technical perspective or domain perspective.
-Thereby, the team's cognitive load means "[...] the total amount of mental effort being used in the working memory" {% cite Skelton2019 %}.
+In 2019, Skelton and Pais described another approach focusing on the interdependencies between the organization and software architecture {% cite Skelton2019 %}: the Team Topology approach (see also: Skelton's and Pais' talk at the DevOps Enterprise Summit 2019 at {% cite Skelton2019b %} and the corresponding blog entry at {% cite Skelton2019a %}).
+The Team Topology approach focuses on the team and the "team's cognitive load" before tailoring and defining the organization, application boundaries, and architectures from a technical perspective or domain perspective.
+Here, they consider a couple of basic organizational requirements stemming from newer experiences and knowledge of the DevOps movement and modern software engineering management approaches.
 
+Thereby, the team's cognitive load means "[...] the total amount of mental effort being used in the working memory" {% cite Skelton2019a %}.
 For cognitive load, we can distinguish between intrinsic, extraneous, and germane cognitive load.
-
+In a software engineering context, intrinsic can be understood as skills that a team member needs to have.
+It "[...] comes naturally and becomes an intrinsic part of how we work." {% cite Skelton2019a %}
+Extraneous, however, is something working against what we are doing that is effectively valueless.
+You can consider it as the "[...] mechanisms of how we do things in a software world." {% cite Skelton2019a %}
+For example, specific quirks of how to deploy an application in the organization's Kubernetes cluster or how to pass a specific system property to the application.
+Last but not least, germane is the cognitive load which stems from the business problem that we are trying to solve.
+It can be considered as the domain focus in software engineering {% cite Skelton2019a %}.
 
 https://itrevolution.com/author/mattandmanuel/
 {% cite Lane2020 %}
 
-# Related Work
+# Conclusion
 
 This article is definitely not the first article about the interdependencies of organization and architecture.
 In {% cite Wolff2020 %} (it is only available in German), {% cite Ardalis2020 %}, and {% cite Skelton2020 %}, the authors describe the different aspects of interdependencies between an organizational structure and software architecture in terms of the modules and components.

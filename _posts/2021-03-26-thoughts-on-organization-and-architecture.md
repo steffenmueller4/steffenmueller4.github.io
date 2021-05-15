@@ -99,6 +99,8 @@ Examples:
 Thereby, the teams should be split up into stream-aligned product, platform, enabling, and complicated subsystem teams.
 "The team that is aligned to part of the value stream for the business and they have end-to-end responsibility for building, deploying, running, supporting, and eventually retiring that slice of the business domain or that slice of service. The other types of teams listed below are effectively there to reduce the cognitive load of the Stream-aligned team." {% cite Skelton2019a %}
 
+...TODO: 3 interaction modes of teams
+
 # Conclusion
 
 This article is definitely not the first article about the interdependencies of organization and architecture.

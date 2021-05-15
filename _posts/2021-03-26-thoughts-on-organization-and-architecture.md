@@ -1,16 +1,19 @@
 ---
 layout: post
 date:   2021-03-26 10:11:08 +0100
-title: "Interdependencies between Organization and Software Architecture (Part 1)"
+title: "Interdependencies between Organization and Software Architecture"
 categories:
   - Architecture
-  - Domain-driven Design
-  - Thoughts
   - Organization
+  - Conway's Law
+  - Inverse Conway Maneuver
+  - Domain-driven Design
+  - Team Topologies Approach
 published: true
 ---
-How does the organization of an organizational unit influence the software architecture of applications and vice versa?
-There are different rules of thumb and theories such as Conway's Law, the Inverse Conway Maneuver, and methods which indicate the interdependencies.
+How does the organization influence the software architecture and vice versa?
+How do we best tailor our organization and build a proper software architecture?
+There are different approaches, theories, and methods such as Conway's Law, the Inverse Conway Maneuver, Domain-driven Design (DDD), and the Team Topologies approach.
 In this article, we will summarize those basics of the interdependencies between the organization and software architecture.
 It is the first part (part 1) of an article series of 2 articles about the interdependencies of organization and software architecture.
 
@@ -44,8 +47,8 @@ The Inverse Conway Maneuver is about making use of and, therefore, "inverting" C
 So, the core idea is to structure an organizational unit so that a desired architecture emerges.
 
 The term Inverse Conway Maneuver was coined by Leroy and Simons in an article in 2010 {% cite Leroy2010 %}.
-Their goal was to change organizations in order to build better software based on interdisciplinary independent teams which can collaborate with business effectively.
-They wanted to change the organization's communication structures - please remember that Conway's Law phrased that system's architecture is a copy of the organization's communication structure - using technology.
+Their goal was to change organizations in order to build better software based on interdisciplinary independent teams which can collaborate with business effectively in the beginning of the DevOps movement.
+Leroy and Simons wanted to change the organization's communication structures - please remember that Conway's Law phrased that system's architecture is a copy of the organization's communication structure - using technology.
 "Conway’s Law, therefore, does work both ways. Organizational structures impact system design, and system architectures impact organizational structures as well." {% cite Bloomberg2015 %}
 
 # Domain-driven Design
@@ -65,11 +68,21 @@ Via those Bounded Contexts, the software can be divided into smaller parts with 
 DDD, furthermore, tries to define the interfaces between those smaller parts - so, relationships between Bounded Contexts - in a variety of ways {% cite Fowler2014 %} (see also: {% cite Brandolini2009 %}).
 Via so-called Context Mapping, the
 
-In a nutshell, DDD can help you to map interdependencies between organization and software architecture and, thus, to tailor organizations, teams, and software.
+In a nutshell, DDD can help to map interdependencies between organization and software architecture and, thus, to tailor organizations, teams, and software.
 
-# Other Influence Factors
+# Team Topology Approach
 
-# Further Articles and Talks about this Topic
+In 2019, Skelton and Pais described another approach focusing on the interdependencies between the organization and software architecture {% cite Skelton2019 %}.
+The approach focuses on the team size, the so-called team's cognitive load, and organization before tailoring defining applications and their architectures from a technical perspective or domain perspective.
+Thereby, the team's cognitive load means "[...] the total amount of mental effort being used in the working memory" {% cite Skelton2019 %}.
+
+For cognitive load, we can distinguish between intrinsic, extraneous, and germane cognitive load.
+
+
+https://itrevolution.com/author/mattandmanuel/
+{% cite Lane2020 %}
+
+# Related Work
 
 This article is definitely not the first article about the interdependencies of organization and architecture.
 In {% cite Wolff2020 %} (it is only available in German), {% cite Ardalis2020 %}, and {% cite Skelton2020 %}, the authors describe the different aspects of interdependencies between an organizational structure and software architecture in terms of the modules and components.

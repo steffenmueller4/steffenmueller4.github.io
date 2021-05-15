@@ -274,4 +274,25 @@
   keywords = {Team Topologies, Team Cognitive Load},
 }
 
+@Electronic{Skelton2019b,
+  author    = {Matthew Skelton and Manuel Pais},
+  month     = jul,
+  title     = {Monoliths vs Microservices is Missing the Point—Start with Team Cognitive Load - Team Topologies},
+  url       = {https://www.youtube.com/watch?v=haejb5rzKsM},
+  year      = {2019},
+  timestamp = {2021-05-15},
+}
+
+@Book{Cagan2017,
+  author    = {Cagan, Marty},
+  publisher = {Wiley},
+  title     = {INSPIRED - How to Create Tech Products Customers Love},
+  year      = {2017},
+  isbn      = {978-1119387503},
+  date      = {2017-12-27},
+  ean       = {9781119387503},
+  pagetotal = {368},
+  url       = {https://www.ebook.de/de/product/29451374/marty_cagan_inspired.html},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

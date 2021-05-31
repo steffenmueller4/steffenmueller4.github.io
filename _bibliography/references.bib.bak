@@ -371,12 +371,4 @@
   year   = {2019},
 }
 
-@Electronic{Ubl2015,
-  author = {Malte Ubl},
-  month  = may,
-  title  = {Design docs - A design doc},
-  url    = {https://www.industrialempathy.com/posts/design-doc-a-design-doc/},
-  year   = {2015},
-}
-
 @Comment{jabref-meta: databaseType:bibtex;}

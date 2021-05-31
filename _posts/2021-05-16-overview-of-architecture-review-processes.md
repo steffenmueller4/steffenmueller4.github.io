@@ -11,7 +11,7 @@ published: true
 ---
 Recently, I was asked what software architecture review processes exist in order to better steer architecture work.
 An architecture review aims at different goals such as finding software design issues early in the development before they get costly.
-Architecture review processes formalize different steps, involved parties, or input and output to architecture reviews.
+Architecture review processes, for example, formalize different steps as well as input and output of architecture reviews.
 This article describes my findings about different architecture review process approaches.
 
 # What are Architecture Reviews and Architecture Review Processes?
@@ -50,7 +50,7 @@ The approach considers three primary parties in an architecture review:
   1. the review team (consists of experts, assembled for the review on the basis of their expertise, their independence from the specific project, and their ability to conduct themselves appropriately in a potentially difficult interpersonal situation), and
   1. the architecture review board (ARB) (a standing team that oversees the review process and its effect on the organization).
 
-### Process
+## Process
 
 The review process follows the roughly four phases.
 The specific implementation may vary.
@@ -59,13 +59,13 @@ The specific implementation may vary.
   1. Review Meeting Phase: During the review, the project team presents its problem statement and outlines how the proposed architecture solves it. The reviewers ask questions and record issues they believe could make the project an incomplete or inadequate solution to the problem. Finally, a report is generated and presented to the project team. Furthermore, management alerts can be raised, etc.
   1. Follow-Up Phase: The review team delivers a report with the review’s findings to the project team within 15 days of the review. The project team (and, if a management alert has been raised, the management) must respond within two weeks.
 
-### Artifacts
+## Artifacts
 
 Formalized process to make the review work Architecture review checklist(s).
 Input to the review such as system requirements, functional requirements, etc.
 Output from the review such as the review report, an optional management alert letter, an optional set of issues, etc.
 
-### Conclusion
+## Conclusion
 
 The "classical" approach is a well-established and formalized process which is (still) widely used.
 Especially, bigger companies or, at least, companies with dedicated architects often make use of such a process in some variation.
@@ -79,7 +79,7 @@ On the other hand, the formalized process and the overall overhead for the "clas
 The overall process makes a lot of overhead for smaller projects or architecture changes which have to be reviewed.
 In sum, the entire original approach does not appear to be very agile, but there are also ways to improve this as well.
 
-## Architecture Decision Records
+# Architecture Decision Records
 
 Architecture Decision Records (ADR) were initially proposed by Nygard in 2011. Nygard stated that architecture in an agile context has to be described and defined differently.
 In an agile context, decisions are made step by step alongside the project progress.
@@ -94,13 +94,13 @@ The ADR form a "decision log" {% cite ADR2021 %}.
 
 For more information, we refer to [https://adr.github.io/](https://adr.github.io/).
 
-### Parties
+## Parties
 
 Although, the proposal does not really differentiates between parties, you can distiguish between:
   1. the project team or creator of an ADR,
   1. the ADR reviewer(s)
 
-### Process
+## Process
 
 When there is an architecturally significant decision made, the project team, the involved architect, or - in general - persons who are involved in the decision create the ADR.
 ADR can be stored in GIT (there is also tool support available, e.g., [https://github.com/npryce/adr-tools](https://github.com/npryce/adr-tools)) or in a wiki.
@@ -120,18 +120,18 @@ Every ADR is an own small document.
 ADR can get an ID and, thus, be referenced in other documentation.
 New ADR can change aspects of a previous ADR. If that happens, they can change the status of the previous ADR.
 
-### Artifacts
+## Artifacts
 
 Just the ADR in a central place per project or at a public place.
 Reviews on the ADR should be done on the ADR itself when the ADR is created.
 ADR can be combined with other documents such as Design Documents (Kuenzli, 2019).
 "A decision record should not be used to try and capture all of the information relevant to an architecture or design topic. [...] The creators of an architecture or design should author a document that describes it in detail (whether facilitated by a guild or not)." {% cite Kuenzli2019 %}
 
-### Conclusion
+## Conclusion
 
 TODO
 
-## Design Documents
+# Design Documents
 
 Evangelized by Google, Design Documents (DD) are a more informal way of documenting software architecture at a certain point in time {% cite Ubl2020 %} - originally, considered for the design phase but can be applied to any rework of architectural aspects (solution idea) before the actual (code) work is done.
 Also, Amazon, Facebook, and Netflix make use of a similar approach {% cite Orosz2021 %}.
@@ -158,26 +158,26 @@ If there are benefits in organizational consensus around a design, a documentati
 
 An example, of a DD is available at {% cite Ubl2015 %}.
 
-### Parties
+## Parties
 
 The DD should be written by the team actually working on the solution idea.
 The DD should be created during the work on finding the solution idea, before the implementation really starts.
 
 Ubl and Orosz suggest that the DD should be shared with the entire company - or at least with a huge amount of interested people - as soon as the solution idea stabilizes. The interested people should review and discuss the DD and the solution idea to improve it in an company-open and lightweight process.
 
-### Process
+## Process
 
 Ubl and Orosz suggest roughly the following process (see: {% cite Ubl2020 %} and {% cite Orosz2021 %}):
   1. The team start with the business problem and brainstorm solution ideas. During that phase, the DD shoud be started and iterated rapidly within the team itself until the solution idea/DD stabilizes.
   1. The stable DD should be shared with the company or, at least, with a wider audience of interested people who review the DD and the solution idea in, maybe, multiple rounds of feedback.
   1. "When things have progressed sufficiently to have confidence that further reviews are unlikely to require major changes to the design, it is time to begin implementation." {% cite Ubl2020 %}
 
-### Artifacts
+## Artifacts
 
 Just the DD and conversations/feedback.
 Thereby, the DD should be openly accessible - for example, at a common location in a wiki.
 
-### Conclusion
+## Conclusion
 
 The DD approach described by Ubl and Orosz
 

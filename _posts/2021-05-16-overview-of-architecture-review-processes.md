@@ -11,7 +11,7 @@ published: true
 ---
 Recently, I was asked what software architecture review processes exist in order to better steer architecture work.
 An architecture review aims at different goals such as finding software design issues early in the development before they get costly.
-Architecture review processes, for example, formalize different steps as well as input and output of architecture reviews.
+Architecture review processes, for example, formalize different steps as well as input and output to/from architecture reviews.
 This article describes my findings about different architecture review process approaches.
 
 # What are Architecture Reviews and Architecture Review Processes?
@@ -29,7 +29,7 @@ Essentially, architecture reviews aim at {% cite Maranzano2005 %}:
 Architecture review processes formalize different steps, involved parties, or input and output to architecture reviews.
 Over the last decades, different architecture review processes have been evolved.
 They can be distinguished, for example, in involved parties, the overall process, used artifacts, and, finally, in complexity.
-Although every process can be modified and adapted to the unique requirements of a company, there are, at least, three different prototypical process in literature:
+Although every process can be modified and adapted to the unique requirements of a company, there are, at least, three different "prototypical" process in literature:
   1. The "classical" architecture review process explained by Maranzano et al. in {% cite Maranzano2005 %}.
   1. The Architecture Decision Records initially described by Nygard in {% cite Nygard2011 %}.
   1. The Design Document approach explained by Ubl in {% cite Ubl2020 %} and Orosz in {% cite Orosz2021 %}.

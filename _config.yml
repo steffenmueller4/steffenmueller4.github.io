@@ -12,7 +12,7 @@ sass:
 scholar:
   source: ./_bibliography
   bibliography: references.bib
-  style: ieee
+  style: _bibliography/my.cls
 plainwhite:
   name: Steffen Mueller
   tagline: Software Engineer

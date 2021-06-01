@@ -1,0 +1,11 @@
+% Encoding: UTF-8
+---
+---
+
+@article{test,
+  author = {test, tester and tester, test},
+  title = {Test Jekyll Scholar},
+  year = {2021}
+}
+
+@Comment{jabref-meta: databaseType:bibtex;}

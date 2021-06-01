@@ -1,0 +1,27 @@
+[
+  
+    {
+      "title"    : "Backups to AWS S3 with Duplicity built from source on a Raspberry Pi",
+      "title-lower"    : "backups to aws s3 with duplicity built from source on a raspberry pi",
+      "sub-titile" : "",
+      "sub-titile-lower" : "",
+      "categories" : "BackupHowToRaspberry Pi",
+      "tags"     : "",
+      "url"      : "/2020/12/31/duplicity-on-raspberry-pi-from-source.html",
+      "date"     : "2020-12-31 04:29:36 +0000",
+      "content"     : "Recently, my Raspberry Pi and the attached hard drive crashed. Both, I am using as a network attached storage for storing a lot of my data. Fortunately, I was able to restore most of the data. As a..."
+    } ,
+  
+    {
+      "title"    : "Welcome - Under construction",
+      "title-lower"    : "welcome - under construction",
+      "sub-titile" : "",
+      "sub-titile-lower" : "",
+      "categories" : "Thoughts",
+      "tags"     : "",
+      "url"      : "/2020/12/30/welcome.html",
+      "date"     : "2020-12-30 11:00:36 +0000",
+      "content"     : "Welcome to my site. I am Steffen. Here, I will try to blog a little bit about different personal experiences, will share tutorials and howto’s about things I am interested in, etc. Let’s see…"
+    } 
+  
+]

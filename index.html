@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href="https://fonts.googleapis.com/css?family=Merriweather:300|Raleway:400,700" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<title>Steffen's Tech Blog</title>
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Steffen’s Tech Blog | A tech blog about different personal experiences, tutorials and howto’s about things I am interested in, etc.</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="Steffen’s Tech Blog" />
+<meta name="author" content="Steffen Mueller" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A tech blog about different personal experiences, tutorials and howto’s about things I am interested in, etc." />
+<meta property="og:description" content="A tech blog about different personal experiences, tutorials and howto’s about things I am interested in, etc." />
+<meta property="og:site_name" content="Steffen’s Tech Blog" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Steffen’s Tech Blog" />
+<script type="application/ld+json">
+{"description":"A tech blog about different personal experiences, tutorials and howto’s about things I am interested in, etc.","headline":"Steffen’s Tech Blog","url":"/","@type":"WebSite","author":{"@type":"Person","name":"Steffen Mueller"},"name":"Steffen’s Tech Blog","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<script type="text/javascript" src="/assets/js/darkmode.js"></script>
+
+</head><body>
+  <main class="container">
+    <section class="about">
+      <div class="about-header ">
+      <div class="about-title">
+      <a href="/">
+        
+        <img src="/assets/me.jpg" alt="Steffen Mueller" />
+        
+      </a>
+      <h2 id="title">
+        <a href="/">Steffen Mueller</a>
+      </h2>
+      </div><p class="tagline">Software Engineer</p></div>
+      
+      <ul class="social about-footer "><a href="https://github.com/steffenmueller4" target="_blank">
+          <li>
+            <i class="icon-github-circled"></i>
+          </li>
+        </a><a href="https://www.linkedin.com/in/steffen-mueller-139b8b191" target="_blank">
+          <li>
+            <i class="icon-linkedin-squared"></i>
+          </li>
+        </a></ul><p class="about-footer ">&copy;
+        2021</p><div class="about-footer ">
+        <p>Dark Mode
+          <i class="icon-moon"></i>
+          <label class="switch">
+            <input type="checkbox" class="dark-mode-toggle">
+            <span class="slider round" onclick="toggleDarkMode()"></span>
+          </label>
+        </p>
+      </div>
+    </section>
+    <section class="content">
+      
+<ul class="posts">
+    <li class="posts-labelgroup" id="posts-labelgroup">
+      <h1 id="posts-label">posts</h1>
+      
+      <div class="search-container">
+        <div class="search-section">
+          <i class="icon-search"></i>
+          <input type="text" name="search" id="searchbar" autocomplete="off" aria-label="search in posts">
+        </div>
+        <div class="search-results" id="search-results" data-placeholder="No Results" style="display: none;"></div>
+      </div>
+      
+    </li><li><a class="post-link" href="/2020/12/31/duplicity-on-raspberry-pi-from-source.html">
+          <h2 class="post-title">Backups to AWS S3 with Duplicity built from source on a Raspberry Pi</h2>
+        </a>
+        <div class="post-meta">
+          <div class="post-date">
+            <i class="icon-calendar"></i>
+            Dec 31, 2020
+          </div><ul class="post-categories"><li>Backup</li><li>HowTo</li><li>Raspberry Pi</li></ul></div>
+        <div class="post"><p>Recently, my Raspberry Pi and the attached hard drive crashed. Both, I am using as a network attached storage for storing a lot of my data. Fortunately, I was able to restore most of the data. As a lesson-learned from that incident, I started to look out for a backup solution for my freshly set up Raspberry Pi (Raspbian Buster). This post is my howto for setting up backups with <a href="http://duplicity.nongnu.org/">Duplicity</a> using <a href="https://aws.amazon.com/s3/">AWS Simple Storage Service (S3)</a> as the remote backup destination on Raspbian Buster built from source with Python 3 and Boto3.</p>
+
+</div>
+      </li><li><a class="post-link" href="/2020/12/30/welcome.html">
+          <h2 class="post-title">Welcome - Under construction</h2>
+        </a>
+        <div class="post-meta">
+          <div class="post-date">
+            <i class="icon-calendar"></i>
+            Dec 30, 2020
+          </div><ul class="post-categories"><li>Thoughts</li></ul></div>
+        <div class="post"><p>Welcome to my site. I am Steffen. Here, I will try to blog a little bit about different personal experiences, will share tutorials and howto’s about things I am interested in, etc. Let’s see…</p>
+</div>
+      </li></ul>
+
+  <!-- <p class="feed-subscribe"><svg class="svg-icon orange">
+		<use xlink:href="/assets/minima-social-icons.svg#rss"></use>
+	</svg><a href="/feed.xml">Subscribe</a></p> -->
+    </section>
+    <footer class="">
+      <ul class="social about-footer "><a href="https://github.com/steffenmueller4" target="_blank">
+          <li>
+            <i class="icon-github-circled"></i>
+          </li>
+        </a><a href="https://www.linkedin.com/in/steffen-mueller-139b8b191" target="_blank">
+          <li>
+            <i class="icon-linkedin-squared"></i>
+          </li>
+        </a></ul><p class="about-footer ">&copy;
+        2021</p><div class="about-footer ">
+        <p>Dark Mode
+          <i class="icon-moon"></i>
+          <label class="switch">
+            <input type="checkbox" class="dark-mode-toggle">
+            <span class="slider round" onclick="toggleDarkMode()"></span>
+          </label>
+        </p>
+      </div>
+    </footer>
+  </main>
+  
+  <script type="text/javascript" src="/assets/js/darkmode.js"></script>
+  
+  <script src="/assets/js/simple-jekyll-search.min.js"></script>
+  <script src="/assets/js/search.js"></script>
+  
+</body>
+
+</html>

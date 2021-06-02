@@ -1,6 +1,6 @@
 ---
 layout: post
-date:   2021-03-26 10:11:08 +0100
+date:   2021-06-02 22:47:08 +0100
 title: "Interdependencies between Organization and Software Architecture"
 categories:
   - Architecture
@@ -13,17 +13,17 @@ published: true
 ---
 How does the organization influence the software architecture and vice versa?
 How do we best tailor our organization and teams as well as build a proper software architecture?
-There are different approaches, theories, and methods such as Conway's Law, the Inverse Conway Maneuver, Domain-driven Design (DDD), and the Team Topologies approach.
-In this article, we will summarize the different approaches, theories, and methods.
+There are different theories and approaches such as Conway's Law, the Inverse Conway Maneuver, Domain-driven Design (DDD), and the Team Topologies approach.
+In this article, we will summarize the different theories and approaches.
 
 # Conway's Law
 
 The basic understanding of the interdependencies between an organizational structure and software architecture was first explained by Melvin Conway in Conway's Law {% cite ConwayUrl2021 %} in 1967.
 Conway stated that "Any organization that designs a system (defined broadly) will produce a design whose structure is a copy of the organization's communication structure." {% cite ConwayUrl2021 %}
 Furthermore, he concluded that "[...] the interface structure of a software system necessarily will show a congruence with the social structure of the organization that produced it." {% cite ConwayUrl2021 %}
-Other people (Eric S. Raymond and Tom Cheatham) explained this law more plastically by giving examples based on Conway's Law: ["If you have four groups working on a compiler, you'll get a 4-pass compiler" (Raymond)](http://catb.org/%7Eesr/jargon/html/C/Conways-Law.html) or "If a group of N persons implements a COBOL compiler, there will be N-1 passes. Someone in the group has to be the manager." (Cheatham)
+Other people such as Eric S. Raymond and Tom Cheatham explained this law more plastically by giving examples based on Conway's Law: ["If you have four groups working on a compiler, you'll get a 4-pass compiler" (Raymond)](http://catb.org/%7Eesr/jargon/html/C/Conways-Law.html) or "If a group of N persons implements a COBOL compiler, there will be N-1 passes. Someone in the group has to be the manager." (Cheatham)
 
-Specifically in combination with Parnas' approach to modularize software to clarify responsibilities described in {% cite Parnas1972 %}, Conway's Law was used to explain a lot of organizational issues and recommendations in software projects and organizations in recent decades.
+Specifically, in combination with Parnas' approach to modularize software to clarify responsibilities described in {% cite Parnas1972 %}, Conway's Law was used to explain a lot of organizational issues and recommendations in software projects and organizations in recent decades.
 For example, Herbsleb and Grinter based their recommendations of allocating teams and modules properly in geographically distributed software development on Conway's Law {% cite Herbsleb1999a Herbsleb1999 %}.
 Herbsleb and Grinter state that work should be assigned to different teams and sites according to the "[...] greatest possible architectural separation in a design that is as modular as possible." {% cite Herbsleb1999a %}
 But such an allocation should only be done if the product and the development processes are stable and well-understood.
@@ -36,8 +36,8 @@ Subject of their investigations were 12 products where MacCormack, Baldwin, and 
 Based on their analysis, they found strong evidence that the "[...] product's architecture tends to mirror the structure
 of the organization in which it is developed [...]" {% cite MacCormack2012 %} and, thus, Conway's Law holds true oftentimes.
 
-Although MacCormack's, Baldwin's, and Rusnak's study definitely has their limits in their approach, in explaining the different causalities involved, or checking other properties than modularity, managers should consider the influences of the organizational structure and goals on product design and architecture.
-So, when the organizational unit in which you are building a software product is siloed and organized based on a strict functional team design such as a separation into frontend, backend, and operations teams, you will very likely not get an overly customer-focused product which is considering a DevOps approach.
+Although MacCormack's, Baldwin's, and Rusnak's study definitely has their limits in their approach, in explaining the different causalities involved, or in checking other properties than modularity, managers should consider the influences of the organizational structure and goals on product design and architecture.
+Translated to new software engineering approaches: when the organizational unit in which you are building a software product is siloed and organized based on a strict functional team design such as a separation into frontend, backend, and operations teams, you will very likely not get an overly customer-focused product which is considering a DevOps approach.
 
 # Inverse Conway Maneuver
 

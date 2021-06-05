@@ -55,17 +55,16 @@ For example, James Lewis, Technical Director at Thoughtworks, used the term Inve
 Following Lewis' and Fowler's article at {% cite Lewis2014 %} from 2014, Microservices should be designed "[...] as suites of independently deployable services [...]" and built "[...] around business capability, automated deployment, intelligence in the endpoints, and decentralized control of languages and data." {% cite Lewis2014 %}
 Teams that build and maintain microservices should be cross-functional and organized around products - not projects - that are aligned with the customer {% cite Lewis2014 %}.
 
-While every company builds architectures based on the Microservices architecture style nowadays, still not everybody has understood the interdependencies between organization and architecture.
+While nearly every company builds architectures based on the Microservices architecture style nowadays, still not everybody has understood that organization and architecture cannot be changed isolated.
 
 # Domain-driven Design
 
-The recent rise of microservice architectures often lead to problems of finding the right scope for those microservices when migrating old legacy application to microservices or building new applications in the microservice style.
-Thereby, overlapping or unknown domains as well as unclear interrelationships between teams were often the underlying reasons of such problems.
-Thus, the underlying reasons were of an organizational nature.
-
-Here, Domain-driven Design (DDD) can help.
-Originally developed by Eric Evans in the 2000er years (see also: {% cite Evans2003 %}), DDD is about designing software based on models of the domain.
+Originally developed by Eric Evans in the 2000er years (see also: {% cite Evans2003 %}), Domain-driven Design (DDD) is about designing software based on models of the domain.
 The domain models, therefore, act as a Ubiquitious Language and as a conceptual foundation for the design of the software {% cite Fowler2014 %}.
+
+When building Microservices, a very important thing is to find the right scope for these microservices when migrating an old legacy application to microservices or building new applications.
+Thereby, overlapping or unknown domains as well as unclear interrelationships between teams were often the underlying reasons of such problems.
+Here, Domain-driven Design (DDD) may be a tool which can help.
 
 A central pattern in DDD is the Bounded Context.
 Bounded Contexts should encapsulate a certain set of assumptions, a common Ubiquitous Language, and a particular domain model in a coherent environment.

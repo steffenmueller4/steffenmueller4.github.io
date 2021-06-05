@@ -296,4 +296,21 @@
   url       = {https://www.ebook.de/de/product/29451374/marty_cagan_inspired.html},
 }
 
+@Electronic{Choi2018,
+  author = {Janet Choi},
+  month  = dec,
+  title  = {Why Jeff Bezos’ Two-Pizza Team Rule Still Holds True in 2018},
+  url    = {http://blog.idonethis.com/two-pizza-team/},
+  year   = {2018},
+}
+
+@Electronic{Lewis2014,
+  author   = {James Lewis and Martin Fowler},
+  month    = mar,
+  title    = {Microservices - a definition of this new architectural term},
+  url      = {https://martinfowler.com/articles/microservices.html},
+  year     = {2014},
+  keywords = {Microservices, Fowler},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

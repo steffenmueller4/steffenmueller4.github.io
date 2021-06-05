@@ -45,10 +45,17 @@ Due to the interdepencies between organization and architecture stated by Conway
 The Inverse Conway Maneuver is about making use of and, therefore, "inverting" Conway’s Law for improving the architecture of a product.
 So, the core idea is to structure an organizational unit so that a desired architecture emerges.
 
-The term Inverse Conway Maneuver was coined by Leroy and Simons in an article in 2010 {% cite Leroy2010 %}.
+The term Inverse Conway Maneuver was first used by Leroy and Simons in an article in 2010 {% cite Leroy2010 %}.
 Their goal was to change organizations in order to build better software based on interdisciplinary independent teams which can collaborate with business effectively in the beginning of the DevOps movement.
-Leroy and Simons wanted to change the organization's communication structures - please remember that Conway's Law phrased that system's architecture is a copy of the organization's communication structure - using technology.
+Goal was to change the organization's communication structures - please remember that Conway's Law phrased that system's architecture is a copy of the organization's communication structure - driven by technology.
 "Conway’s Law, therefore, does work both ways. Organizational structures impact system design, and system architectures impact organizational structures as well." {% cite Bloomberg2015 %}
+
+Later on, the idea of the Inverse Conway Maneuver came to more popularity when Microservices were on the rise.
+For example, James Lewis, Technical Director at Thoughtworks, used the term Inverse Conway Maneuver in his talk at the Goto Con 2015 {% cite Lewis2015 %}).
+Following Lewis' and Fowler's article at {% cite Lewis2014 %} from 2014, Microservices should be designed "[...] as suites of independently deployable services [...]" and built "[...] around business capability, automated deployment, intelligence in the endpoints, and decentralized control of languages and data." {% cite Lewis2014 %}
+Teams that build and maintain microservices should be cross-functional and organized around products - not projects - that are aligned with the customer {% cite Lewis2014 %}.
+
+While every company builds architectures based on the Microservices architecture style nowadays, still not everybody has understood the interdependencies between organization and architecture.
 
 # Domain-driven Design
 

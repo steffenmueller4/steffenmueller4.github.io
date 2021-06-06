@@ -313,4 +313,23 @@
   keywords = {Microservices, Fowler},
 }
 
+@Electronic{Lewis2015,
+  author = {James Lewis},
+  month  = oct,
+  title  = {Presentation at the GOTO Con 2015: Microservices and the inverse Conway manoeuvre},
+  url    = {https://gotocon.com/cph-2015/presentation/Microservices and the inverse Conway manoeuvre},
+  year   = {2015},
+}
+
+@Book{Newman2019,
+  author    = {Newman, Sam},
+  publisher = {O'Reilly},
+  title     = {Monolith to Microservices},
+  year      = {2019},
+  isbn      = {1492047848},
+  date      = {2019-12-01},
+  ean       = {9781492047841},
+  url       = {https://www.ebook.de/de/product/35455770/sam_newman_monolith_to_microservices.html},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

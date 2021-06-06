@@ -14,7 +14,8 @@ published: true
 How does the organization influence the software architecture and vice versa?
 How do we best tailor our organization and teams as well as build a proper software architecture?
 There are different theories and approaches such as Conway's Law, the Inverse Conway Maneuver, Domain-driven Design (DDD), and the Team Topologies approach.
-In this article, we will summarize the different theories and approaches.
+In this article, we will see how the different theories and approaches can be used to explain those interdependencies.
+The key lesson that the article should make clear to you is that team organization and architecture are intertwined.
 
 # Conway's Law
 
@@ -50,9 +51,9 @@ Their goal was to change organizations in order to build better software based o
 Goal was to change the organization's communication structures - please remember that Conway's Law phrased that system's architecture is a copy of the organization's communication structure - driven by technology.
 "Conway’s Law, therefore, does work both ways. Organizational structures impact system design, and system architectures impact organizational structures as well." {% cite Bloomberg2015 %}
 
-Later on, the idea of the Inverse Conway Maneuver came to more popularity when Microservices were on the rise.
-For example, James Lewis, Technical Director at Thoughtworks, used the term Inverse Conway Maneuver in his talk at the Goto Con 2015 {% cite Lewis2015 %}).
-Following Lewis' and Fowler's article at {% cite Lewis2014 %} from 2014, Microservices should be designed "[...] as suites of independently deployable services [...]" and built "[...] around business capability, automated deployment, intelligence in the endpoints, and decentralized control of languages and data." {% cite Lewis2014 %}
+Later on, the idea of the Inverse Conway Maneuver came to more popularity when microservices were on the rise.
+For example, James Lewis, Technical Director at Thoughtworks, used the term Inverse Conway Maneuver in his talk at the Goto Con 2015 {% cite Lewis2015 %}.
+Following Lewis' and Fowler's article at {% cite Lewis2014 %} from 2014, microservices should be designed "[...] as suites of independently deployable services [...]" and built "[...] around business capability, automated deployment, intelligence in the endpoints, and decentralized control of languages and data." {% cite Lewis2014 %}
 Teams that build and maintain microservices should be cross-functional and organized around products - not projects - that are aligned with the customer {% cite Lewis2014 %}.
 
 While nearly every company builds architectures based on the Microservices architecture style nowadays, still not everybody has understood that organization and architecture cannot be changed isolated.
@@ -62,13 +63,13 @@ While nearly every company builds architectures based on the Microservices archi
 Originally developed by Eric Evans in the 2000er years (see also: {% cite Evans2003 %}), Domain-driven Design (DDD) is about designing software based on models of the domain.
 The domain models, therefore, act as a Ubiquitious Language and as a conceptual foundation for the design of the software {% cite Fowler2014 %}.
 
-When building Microservices, a very important thing is to find the right scope for these microservices when migrating an old legacy application to microservices or building new applications.
-Thereby, overlapping or unknown domains as well as unclear interrelationships between teams were often the underlying reasons of such problems.
-Here, Domain-driven Design (DDD) may be a tool which can help.
+When building microservices, a very important thing is to find the right scope for these microservices.
+Overlapping or unknown domains as well as unclear interrelationships between teams are often the underlying reasons of problems with microservices.
+Here, Domain-driven Design (DDD) is considered to be a "tool" which can help (see also: {% cite Newman2019 %}).
 
 A central pattern in DDD is the Bounded Context.
-Bounded Contexts should encapsulate a certain set of assumptions, a common Ubiquitous Language, and a particular domain model in a coherent environment.
-Via those Bounded Contexts, the software can be divided into smaller parts with clear boundaries and interfaces between each other.
+Bounded Contexts encapsulate a certain set of assumptions, a common Ubiquitous Language, and a particular domain model in a coherent environment.
+Via Bounded Contexts, the software can be divided into smaller parts with clear boundaries and interfaces between each other.
 
 DDD, furthermore, tries to define the interfaces between those smaller parts - so, relationships between Bounded Contexts - in a variety of ways {% cite Fowler2014 %} (see also: {% cite Brandolini2009 %}).
 Via so-called Context Mapping,

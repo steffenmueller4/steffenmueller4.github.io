@@ -9,9 +9,10 @@ categories:
   - Digital Transformation
 published: true
 ---
-Recently, I was asked what software architecture review processes exist in order to better steer architecture work.
+Recently, I was asked about what software architecture review processes exist in order to better steer architecture work.
 An architecture review aims at different goals such as finding software design issues early in the development before they get costly.
-Architecture review processes, for example, formalize different steps as well as input and output to/from architecture reviews.
+Architecture review processes, for example, formalize different steps.
+They, furthermore, define input and output to/from architecture reviews.
 This article describes my findings about different architecture review process approaches.
 
 # What are Architecture Reviews and Architecture Review Processes?
@@ -26,15 +27,16 @@ Essentially, architecture reviews aim at {% cite Maranzano2005 %}:
   1. building projects based on best practices and transfer this knowledge across the organization.
   1. improving the organization's software quality and operations (-> documentation).
 
-Architecture review processes formalize different steps, involved parties, or input and output to architecture reviews.
-Over the last decades, different architecture review processes have been evolved.
-They can be distinguished, for example, in involved parties, the overall process, used artifacts, and, finally, in complexity.
-Although every process can be modified and adapted to the unique requirements of a company, there are, at least, three different "prototypical" process in literature:
-  1. The "classical" architecture review process explained by Maranzano et al. in {% cite Maranzano2005 %}.
-  1. The Architecture Decision Records initially described by Nygard in {% cite Nygard2011 %}.
-  1. The Design Document approach explained by Ubl in {% cite Ubl2020 %} and Orosz in {% cite Orosz2021 %}.
+Therefore, Architecture review processes formalize different steps, involved parties, or input and output to architecture reviews.
+Over the last decades, different architecture review processes have emerged.
+They can be distinguished, for example, in the overall process, parties involved, artifacts, and, finally, in complexity.
 
-In the next sections, we will describe those three different prototypical architecture review processes.
+As every such process can be modified and adapted to the unique requirements of a specific company, we will focus on three different "prototypical" processes in literature and at the Web:
+  1. The "classical" architecture review process explained by Maranzano et al. in {% cite Maranzano2005 %}.
+  1. The Architecture Decision Records (ADR) initially described by Nygard in {% cite Nygard2011 %}.
+  1. The Design Document or Lightweight Request for Comment (RFC) approach explained by Ubl in {% cite Ubl2020 %} and Winters et al. in {% cite Winters2020 %} from the perspective of Google (called Design Documents), Orosz in {% cite Orosz2020 %} and {% cite Orosz2021 %} form the perspective of Uber (called RFC, Lightweight RFC, or Design Documents), Zimmermann in {% cite Zimmermann2019 %} from the perspective of Casper (called RFC), and Gonchar in {% cite Gonchar2020 %} from the perspective of eBay (called Lightweight RFC). The approach has also been mentioned in the ThoughWorks Tech Radar Vol. 24 trial area as Lightweight RFC approach in {% cite ThoughtWorks2021 %}.
+
+In the next sections, we will describe these three different prototypical architecture review processes.
 
 # The "Classical" Architecture Review Process
 
@@ -81,7 +83,8 @@ In sum, the entire original approach does not appear to be very agile, but there
 
 # Architecture Decision Records
 
-Architecture Decision Records (ADR) were initially proposed by Nygard in 2011. Nygard stated that architecture in an agile context has to be described and defined differently.
+Architecture Decision Records (ADR) were initially proposed by Nygard in 2011.
+Nygard stated that architecture in an agile context has to be described and defined differently.
 In an agile context, decisions are made step by step alongside the project progress.
 They will not be made at once, nor will all of them be done when the project begins.
 So, the architecture documentation should also be done incrementally.
@@ -131,7 +134,18 @@ ADR can be combined with other documents such as Design Documents (Kuenzli, 2019
 
 TODO
 
-# Design Documents
+# Design Document or Lightweight Request for Comment Approach
+
+Essentially, the Design Document or Lightweight Request for Comment (RFC) approach is about writing a design document as the review artifact and sharing this design document across the developer community in a company with the request to comment and challenge the design.
+
+The approach bases on the strong belief that the community knows more than an individual.
+Thus, the entire developer community at a company should be included into the designing of the systems.
+Ubl explains the thoughts behind that nicely in {% cite Ubl2020 %}.
+He states that "[...] it did establish a relatively uniform software design culture across the company [at Google]." {% cite Ubl2020 %}
+Orosz additionally states that the "[...] type of information pushed to people in an organization shapes the culture considerably. [...] [It] sets a tone of trust and responsibility." {%cite Orosz2020 %}
+
+On top of that community thinking, the approach considers the power of the written word.
+"Writing and sharing that writing with others creates accountability. It also almost always leads to more thorough decisions." {% cite Orosz2020 %}
 
 Evangelized by Google, Design Documents (DD) are a more informal way of documenting software architecture at a certain point in time {% cite Ubl2020 %} - originally, considered for the design phase but can be applied to any rework of architectural aspects (solution idea) before the actual (code) work is done.
 Also, Amazon, Facebook, and Netflix make use of a similar approach {% cite Orosz2021 %}.
@@ -190,3 +204,7 @@ TODO
 # References
 
 {% bibliography --cited %}
+
+# Acknowledgements
+
+Huge thanks go to [Andy Grunwald](https://andygrunwald.com/) who helped me to improve this article by reviewing it.

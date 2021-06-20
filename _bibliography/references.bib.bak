@@ -380,4 +380,40 @@
   year   = {2015},
 }
 
+@Electronic{ThoughtWorks2021,
+  author = {{ThoughtWorks Inc.}},
+  month  = jun,
+  title  = {Technology Radar Volume 24 - Lightweight approach to RFCs},
+  url    = {https://www.thoughtworks.com/radar/techniques?blipid=202104044},
+  year   = {2021},
+}
+
+@Electronic{Orosz2020,
+  author = {Gergely Orosz},
+  month  = aug,
+  title  = {Scaling Engineering Teams via RFCs: Writing Things Down},
+  url    = {https://blog.pragmaticengineer.com/scaling-engineering-teams-via-writing-things-down-rfcs/},
+  year   = {2020},
+}
+
+@Electronic{Zimmermann2019,
+  author = {Carsten Zimmermann},
+  month  = aug,
+  title  = {RFCs: Lightweight Technical Designs},
+  url    = {https://medium.com/caspertechteam/rfcs-lightweight-technical-designs-a508d93ccd34},
+  year   = {2019},
+}
+
+@Book{Winters2020,
+  author    = {Winters, Titus and Manshreck, Tom and Wright, Hyrum},
+  publisher = {O'Reilly UK Ltd.},
+  title     = {Software Engineering at Google: Lessons Learned from Programming Over Time},
+  year      = {2020},
+  isbn      = {978-1492082798},
+  date      = {2020-03-01},
+  ean       = {9781492082798},
+  pagetotal = {583},
+  url       = {https://www.ebook.de/de/product/38080523/titus_winters_tom_manshreck_hyrum_wright_software_engineering_at_google_lessons_learned_from_programming_over_time.html},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

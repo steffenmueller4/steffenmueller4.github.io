@@ -41,13 +41,19 @@ Essentially, we try to look at who is doing architecture work.
 # Who is Organizing Architecture Work in your Organization
 
 In {% cite Hohpe2021 %}, Hohpe explains the different options of organizing architecture work in organizations.
-He summarizes four options using a model based on Plöd as well on Toth:
+He summarizes four options using a model based on Plöd as well as Toth:
   1. Benevolent dictator: An architect or architect team tells the developers what and how to do architecture.
   1. Primus inter pares: Architects are embedded into development teams where they are just-another-team-member but focus on architecture.
   1. Architecture without architects: Architecture work is a shared responsibility and done within teams by the developers.
-  1. Inmates running the asylum: Although, this option looks like the previous option "architecture without architects", the difference is that nobody is doing architecture. This often results in a complex architecture with a lot of cruft and long development cycles.
+  1. Inmates running the asylum: Although, this option may look like the previous option "architecture without architects", the difference is that nobody is really doing architecture. This often results in a complex architecture with a lot of cruft and long development cycles.
 
-The different architecture review processes that we will describe in the next sections, typically were 
+Hohpe also explains nicely that different architecture maturity stages of an organization may require a different choice such as a benevolent dictator when there is a lot of cruft to be cleaned up before going over to the option "architecture without architects".
+
+Essentially, you shoud consider what model is persistent in your organization, before thinking about implementing a specific architecture review process that we will present in the next sections.
+The different architecture review processes include different parties and, thus, different pros and cons.
+The parties in the processes such as the Architecture Review Board in the "classical" architecture review process can be represented by a group of knowledgable architects (benevolent dictator option), an competent architecture guild (architecture without architects option), or even a group of inmates running the asylum.
+However, the option that is persistent in your organization defines the quality of the review output.
+So, be careful about your choice.
 
 # The "Classical" Architecture Review Process
 

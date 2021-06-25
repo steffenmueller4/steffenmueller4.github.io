@@ -416,4 +416,21 @@
   url       = {https://www.ebook.de/de/product/38080523/titus_winters_tom_manshreck_hyrum_wright_software_engineering_at_google_lessons_learned_from_programming_over_time.html},
 }
 
+@Electronic{Gonchar2020,
+  author       = {Grygoriy Gonchar},
+  month        = apr,
+  organization = {Ebay Tech},
+  title        = {Making healthy technical decisions},
+  url          = {https://ebaytech.berlin/making-healthy-technical-decisions-1f52a2df47a9},
+  year         = {2020},
+}
+
+@Electronic{Mozilla2020,
+  author = {{Mozilla Android Components}},
+  month  = jul,
+  title  = {RFC process},
+  url    = {https://mozac.org/rfc/0001-rfc-process},
+  year   = {2020},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

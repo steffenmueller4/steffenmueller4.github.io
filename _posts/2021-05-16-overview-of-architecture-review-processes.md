@@ -36,6 +36,8 @@ As every such process can be modified and adapted to the unique requirements of 
   1. The Architecture Decision Records (ADR) initially described by Nygard in {% cite Nygard2011 %}.
   1. The Design Document or Lightweight Request for Comment (RFC) approach explained by Ubl in {% cite Ubl2020 %} and Winters et al. in {% cite Winters2020 %} from the perspective of Google (called Design Documents), Orosz in {% cite Orosz2020 %} and {% cite Orosz2021 %} form the perspective of Uber (called RFC, Lightweight RFC, or Design Documents), Zimmermann in {% cite Zimmermann2019 %} from the perspective of Casper (called RFC), and Gonchar in {% cite Gonchar2020 %} from the perspective of eBay (called Lightweight RFC). The approach has also been mentioned in the ThoughWorks Tech Radar Vol. 24 trial area as Lightweight RFC approach in {% cite ThoughtWorks2021 %}.
 
+TODO: Maybe add {% cite Hohpe2021 %}: model for organizing architects.
+
 In the next sections, we will describe these three different prototypical architecture review processes.
 
 # The "Classical" Architecture Review Process
@@ -171,6 +173,8 @@ As writing DD is overhead, the decision whether to write a DD comes down to the 
 If there are benefits in organizational consensus around a design, a documentation or in having a review from other parties, the extra work of a design doc is worth the effort.
 
 An example, of a DD is available at {% cite Ubl2015 %}.
+
+See also: {% cite Mozilla2020 %}
 
 ## Parties
 

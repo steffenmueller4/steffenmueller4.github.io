@@ -6,14 +6,13 @@ categories:
   - Architecture
   - Organization
   - Architecture Review Process
-  - Digital Transformation
 published: true
 ---
-Recently, I was asked about what software architecture review processes exist in order to better steer architecture work.
+Recently, I was asked about what software architecture review processes exist in order to better steer architecture.
 An architecture review aims at different goals such as finding software design issues early in the development before they get costly.
 Architecture review processes, for example, formalize different steps.
 They, furthermore, define input and output to/from architecture reviews.
-This article describes my findings about different architecture review process approaches.
+This article describes the different architecture review process approaches.
 
 # What are Architecture Reviews and Architecture Review Processes?
 
@@ -27,18 +26,28 @@ Essentially, architecture reviews aim at {% cite Maranzano2005 %}:
   1. building projects based on best practices and transfer this knowledge across the organization.
   1. improving the organization's software quality and operations (-> documentation).
 
-Therefore, Architecture review processes formalize different steps, involved parties, or input and output to architecture reviews.
+Therefore, architecture review processes formalize different steps, involved parties, or input and output to architecture reviews.
 Over the last decades, different architecture review processes have emerged.
-They can be distinguished, for example, in the overall process, parties involved, artifacts, and, finally, in complexity.
 
-As every such process can be modified and adapted to the unique requirements of a specific company, we will focus on three different "prototypical" processes in literature and at the Web:
+As every such process can be modified and adapted to the unique requirements of a specific company, we will focus on three different "prototypical" processes that are described in literature and at the Web:
   1. The "classical" architecture review process explained by Maranzano et al. in {% cite Maranzano2005 %}.
   1. The Architecture Decision Records (ADR) initially described by Nygard in {% cite Nygard2011 %}.
-  1. The Design Document or Lightweight Request for Comment (RFC) approach explained by Ubl in {% cite Ubl2020 %} and Winters et al. in {% cite Winters2020 %} from the perspective of Google (called Design Documents), Orosz in {% cite Orosz2020 %} and {% cite Orosz2021 %} form the perspective of Uber (called RFC, Lightweight RFC, or Design Documents), Zimmermann in {% cite Zimmermann2019 %} from the perspective of Casper (called RFC), and Gonchar in {% cite Gonchar2020 %} from the perspective of eBay (called Lightweight RFC). The approach has also been mentioned in the ThoughWorks Tech Radar Vol. 24 trial area as Lightweight RFC approach in {% cite ThoughtWorks2021 %}.
-
-TODO: Maybe add {% cite Hohpe2021 %}: model for organizing architects.
+  1. The Lightweight Request for Comment (RFC)/Design Document approach explained in {% cite Ubl2020 %}, {% cite Winters2020 %}, {% cite Orosz2020 %}, {% cite Orosz2021 %}, {% cite Zimmermann2019 %}, {% cite Gonchar2020 %}, and {% cite Mozilla2020 %} from the perspectives of different organizations - sometimes called Lightweight RFC and sometimes Design Document approach. The approach has also been mentioned in the ThoughWorks Tech Radar Vol. 24 trial area as Lightweight RFC approach in {% cite ThoughtWorks2021 %}.
 
 In the next sections, we will describe these three different prototypical architecture review processes.
+But before we start to explain these prototypical architecture review processes, we have to look shortly at different ways to organize architecture work in an organization.
+Essentially, we try to look at who is doing architecture work.
+
+# Who is Organizing Architecture Work in your Organization
+
+In {% cite Hohpe2021 %}, Hohpe explains the different options of organizing architecture work in organizations.
+He summarizes four options using a model based on Plöd as well on Toth:
+  1. Benevolent dictator: An architect or architect team tells the developers what and how to do architecture.
+  1. Primus inter pares: Architects are embedded into development teams where they are just-another-team-member but focus on architecture.
+  1. Architecture without architects: Architecture work is a shared responsibility and done within teams by the developers.
+  1. Inmates running the asylum: Although, this option looks like the previous option "architecture without architects", the difference is that nobody is doing architecture. This often results in a complex architecture with a lot of cruft and long development cycles.
+
+The different architecture review processes that we will describe in the next sections, typically were 
 
 # The "Classical" Architecture Review Process
 

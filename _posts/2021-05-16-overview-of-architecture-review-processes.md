@@ -30,7 +30,7 @@ Therefore, architecture review processes formalize different steps, involved par
 Over the last decades, different architecture review processes have emerged.
 
 As every such process can be modified and adapted to the unique requirements of a specific company, we will focus on three different "prototypical" processes that are described in literature and at the Web:
-  1. The "classical" architecture review process explained by Maranzano et al. in {% cite Maranzano2005 %}.
+  1. The "Classical" Architecture Review process explained by Maranzano et al. in {% cite Maranzano2005 %}.
   1. The Architecture Decision Records (ADR) initially described by Nygard in {% cite Nygard2011 %}.
   1. The Lightweight Request for Comment (RFC)/Design Document approach explained in {% cite Ubl2020 %}, {% cite Winters2020 %}, {% cite Orosz2020 %}, {% cite Orosz2021 %}, {% cite Zimmermann2019 %}, {% cite Gonchar2020 %}, and {% cite Mozilla2020 %} from the perspectives of different organizations - sometimes called Lightweight RFC and sometimes Design Document approach. The approach has also been mentioned in the ThoughWorks Tech Radar Vol. 24 trial area as Lightweight RFC approach in {% cite ThoughtWorks2021 %}.
 
@@ -38,26 +38,33 @@ In the next sections, we will describe these three different prototypical archit
 But before we start to explain these prototypical architecture review processes, we have to look shortly at different ways to organize architecture work in an organization.
 Essentially, we try to look at who is doing architecture work.
 
-# Who is Organizing Architecture Work in your Organization
+# Who is Organizing Architecture in your Organization
 
-In {% cite Hohpe2021 %}, Hohpe explains the different options of organizing architecture work in organizations.
-He summarizes four options using a model based on Plöd as well as Toth:
+In {% cite Hohpe2021 %}, Hohpe explains the different options of organizing architecture in organizations.
+He summarizes four options using a model based on Plöd as well as Toth {% cite Toth2020 %}:
   1. Benevolent dictator: An architect or architect team tells the developers what and how to do architecture.
   1. Primus inter pares: Architects are embedded into development teams where they are just-another-team-member but focus on architecture.
   1. Architecture without architects: Architecture work is a shared responsibility and done within teams by the developers.
   1. Inmates running the asylum: Although, this option may look like the previous option "architecture without architects", the difference is that nobody is really doing architecture. This often results in a complex architecture with a lot of cruft and long development cycles.
 
-Hohpe also explains nicely that different architecture maturity stages of an organization may require a different choice such as a benevolent dictator when there is a lot of cruft to be cleaned up before going over to the option "architecture without architects".
+Hohpe also suggests that different architecture maturity stages of an organization may require a different choices.
+For example, the "benevolent dictator" may be required when there is a lot of cruft accumulated before going over to the option "architecture without architects".
+Especially, the differences between the options "architecture without architects" and "inmates running the asylum" may be quite fluid and not recognizable easily {% cite Hohpe2020 %}.
 
-Essentially, you shoud consider what model is persistent in your organization, before thinking about implementing a specific architecture review process that we will present in the next sections.
-The different architecture review processes include different parties and, thus, different pros and cons.
-The parties in the processes such as the Architecture Review Board in the "classical" architecture review process can be represented by a group of knowledgable architects (benevolent dictator option), an competent architecture guild (architecture without architects option), or even a group of inmates running the asylum.
-However, the option that is persistent in your organization defines the quality of the review output.
-So, be careful about your choice.
+In a nutshell, you shoud consider what architecture organization model is persistent in your organization.
+The different architecture review processes include different parties involved and, thus, different pros and cons.
+The parties involved in the processes such as the Architecture Review Board in the "classical" architecture review process can be represented by a group of knowledgable architects (benevolent dictator option), a well-organized architecture guild (architecture without architects option), or even a group of inmates running the asylum.
+However, the people involved in the parties and, therefore, in the processes define the quality of the review output and, thus, the quality of an organization's architecture.
+
+Also, some architecture review processes may not be possible in your organization due to political reasons.
+A group of architects (benevolent dictator) may not be interested in giving up power to strengthen development teams independence based on processes suggesting more the "primus inter pares" or "architecture without architects" options.
+We will discuss these issues in more detail in the respective sections of the approaches.
+
+In the next section, we describe the different prototypical architecture review processes.
 
 # The "Classical" Architecture Review Process
 
-The "classical" approach is the approach described by Maranzano et al. based on common architecture review processes at AT&T, Avaya, Lucent, and Millenium Services {% cite Maranzano2005 %}.
+The "classical" architecture review process is the approach described by Maranzano et al. based on common architecture review processes at AT&T, Avaya, Lucent, and Millenium Services {% cite Maranzano2005 %}.
 The paper stems from 2005, the idea is based on AT&T's practices from the 1990s.
 A lot of further established companies still use this approach in some variation.
 Some more insights can also be gained by [this blog post](https://techwithtech.com/it-architecture-review/).

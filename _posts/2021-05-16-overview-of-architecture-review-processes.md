@@ -69,14 +69,24 @@ A lot of established companies (still) use this approach in some variation.
 
 ### Parties
 
-The approach considers three primary parties in an architecture review:
-  1. the project team (requested architecture review),
-  1. the review team (consists of experts, assembled for the review on the basis of their expertise, their independence from the specific project, and their ability to conduct themselves appropriately in a potentially difficult interpersonal situation), and
-  1. the architecture review board (ARB) (a standing team that oversees the review process and its effect on the organization).
+The approach considers three primary parties in an architecture review {% cite Maranzano2005 %}:
+  1. The project team which requests the architecture review.
+  1. The review team which consists of experts assembled for the review on the basis of their expertise, their independence from the specific project, and their ability to conduct themselves appropriately in a potentially difficult interpersonal situation.
+  1. The Architecture Review Board (ARB) which is a standing team that oversees the review process and its effect on the organization.
+
+Moreover, the project team and the ARB have further roles in the overall process.
+The project team has the roles:
+  1. The review client who is often the project team. The review client pays for the development or is the architecture review’s sponsor.
+  1. The project members who present the architecture to the review team in the process.
+  1. The project management encompasses all the managers responsible for the project’s success.
+
+The ARB has the roles:
+  1. The review angel is selected by the ARB being responsible to work with the project team addressing any organizational or political issues that may arise.
+  1. The ARB chair is the architecture review process advocate. The ARB chair is responsible for ensuring the effectiveness of the review.
 
 ### Process
 
-The review process follows the roughly four phases.
+The review process follows roughly four phases.
 The specific implementation may vary.
   1. Screening Phase: The project team requests a review. The project staff and ARB review the request to determine whether a review would benefit the project. If they recommend a review, the ARB selects a "review angel" (supporter for the project team in cases of issues political issues, etc. that may arise during the review) to oversee the project’s review process.
   1. Preparation Phase: The ARB selects a "review team", including a "review leader", and works with the project to determine the number of reviews and the initial review’s date and agenda. The staff, project team, review leader, and review angel verify that the project has an adequately clear problem statement and appropriate documentation.
@@ -84,6 +94,8 @@ The specific implementation may vary.
   1. Follow-Up Phase: The review team delivers a report with the review’s findings to the project team within 15 days of the review. The project team (and, if a management alert has been raised, the management) must respond within two weeks.
 
 ### Artifacts
+
+In the paper, Maranzano et al. mention that the architecture should be designed based on a clear problem statement tackling the functional and qualitative requirements, the costs, and the timeline.
 
 Formalized process to make the review work Architecture review checklist(s).
 Input to the review such as system requirements, functional requirements, etc.

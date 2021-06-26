@@ -14,7 +14,7 @@ Architecture review processes, for example, formalize different steps.
 They, furthermore, define input and output to/from architecture reviews.
 This article describes the different architecture review process approaches.
 
-# What are Architecture Reviews and Architecture Review Processes?
+## What are Architecture Reviews and Architecture Review Processes?
 
 An architecture review, in a nutshell, is a mechanism for increasing the likelihood that a software/system architecture will be complete, consistent, and, thus, good {% cite Maranzano2005 %}.
 A good software architecture is important, otherwise the development can become slower.
@@ -26,19 +26,18 @@ Essentially, architecture reviews aim at {% cite Maranzano2005 %}:
   1. building projects based on best practices and transfer this knowledge across the organization.
   1. improving the organization's software quality and operations (-> documentation).
 
-Therefore, architecture review processes formalize different steps, involved parties, or input and output to architecture reviews.
+Therefore, architecture review processes formalize different steps, the parties involved, or input and output to architecture reviews.
 Over the last decades, different architecture review processes have emerged.
 
-As every such process can be modified and adapted to the unique requirements of a specific company, we will focus on three different "prototypical" processes that are described in literature and at the Web:
+As every such process can be modified and adapted to the unique requirements of a specific company, we will focus on three different prototypical processes that are described in literature:
   1. The "Classical" Architecture Review process explained by Maranzano et al. in {% cite Maranzano2005 %}.
   1. The Architecture Decision Records (ADR) initially described by Nygard in {% cite Nygard2011 %}.
   1. The Lightweight Request for Comment (RFC)/Design Document approach explained in {% cite Ubl2020 %}, {% cite Winters2020 %}, {% cite Orosz2020 %}, {% cite Orosz2021 %}, {% cite Zimmermann2019 %}, {% cite Gonchar2020 %}, and {% cite Mozilla2020 %} from the perspectives of different organizations - sometimes called Lightweight RFC and sometimes Design Document approach. The approach has also been mentioned in the ThoughWorks Tech Radar Vol. 24 trial area as Lightweight RFC approach in {% cite ThoughtWorks2021 %}.
 
 In the next sections, we will describe these three different prototypical architecture review processes.
-But before we start to explain these prototypical architecture review processes, we have to look shortly at different ways to organize architecture work in an organization.
-Essentially, we try to look at who is doing architecture work.
+But before we start to explain the prototypical architecture review processes, we have to look shortly at different ways to organize architecture work in an organization.
 
-# Who is Organizing Architecture in your Organization
+## Who is Organizing Architecture in your Organization
 
 In {% cite Hohpe2021 %}, Hohpe explains the different options of organizing architecture in organizations.
 He summarizes four options using a model based on Plöd as well as Toth {% cite Toth2020 %}:
@@ -48,35 +47,34 @@ He summarizes four options using a model based on Plöd as well as Toth {% cite 
   1. Inmates running the asylum: Although, this option may look like the previous option "architecture without architects", the difference is that nobody is really doing architecture. This often results in a complex architecture with a lot of cruft and long development cycles.
 
 Hohpe also suggests that different architecture maturity stages of an organization may require a different choices.
-For example, the "benevolent dictator" may be required when there is a lot of cruft accumulated before going over to the option "architecture without architects".
-Especially, the differences between the options "architecture without architects" and "inmates running the asylum" may be quite fluid and not recognizable easily {% cite Hohpe2020 %}.
+For example, the "benevolent dictator" may be required when there is a lot of cruft accumulated before going over to the option 3 (architecture without architects).
+Especially, the differences between the options 3 (architecture without architects) and 4 (inmates running the asylum) may be quite fluid and not recognizable easily {% cite Hohpe2020 %}.
 
 In a nutshell, you shoud consider what architecture organization model is persistent in your organization.
 The different architecture review processes include different parties involved and, thus, different pros and cons.
-The parties involved in the processes such as the Architecture Review Board in the "classical" architecture review process can be represented by a group of knowledgable architects (benevolent dictator option), a well-organized architecture guild (architecture without architects option), or even a group of inmates running the asylum.
-However, the people involved in the parties and, therefore, in the processes define the quality of the review output and, thus, the quality of an organization's architecture.
+The parties involved in the processes such as the Architecture Review Board in the "Classical" Architecture Review process can be represented by a group of knowledgable architects (option 1 - benevolent dictator), a well-organized architecture guild based on option 3, or even a group of inmates running the asylum (option 4).
+However, the people involved in the parties of the processes define the quality of the review output and, thus, the quality of an organization's architecture.
 
 Also, some architecture review processes may not be possible in your organization due to political reasons.
-A group of architects (benevolent dictator) may not be interested in giving up power to strengthen development teams independence based on processes suggesting more the "primus inter pares" or "architecture without architects" options.
-We will discuss these issues in more detail in the respective sections of the approaches.
+A group of architects (option 1 - benevolent dictator) may not be interested in giving up power to strengthen development teams power based on processes suggesting more the option 2 (primus inter pares) or 3 (architecture without architects).
+We will discuss such issues in more detail in the respective sections of the different processes.
 
 In the next section, we describe the different prototypical architecture review processes.
 
-# The "Classical" Architecture Review Process
+## The "Classical" Architecture Review Process
 
-The "classical" architecture review process is the approach described by Maranzano et al. based on common architecture review processes at AT&T, Avaya, Lucent, and Millenium Services {% cite Maranzano2005 %}.
-The paper stems from 2005, the idea is based on AT&T's practices from the 1990s.
-A lot of further established companies still use this approach in some variation.
-Some more insights can also be gained by [this blog post](https://techwithtech.com/it-architecture-review/).
+The "Classical" Architecture Review process is described by Maranzano et al. in a paper based on common architecture review processes at AT&T, Avaya, Lucent, and Millenium Services {% cite Maranzano2005 %}.
+The paper stems from 2005, the idea is based on AT&T's practices from the late 1980s.
+A lot of established companies (still) use this approach in some variation.
 
-## Parties
+### Parties
 
 The approach considers three primary parties in an architecture review:
   1. the project team (requested architecture review),
   1. the review team (consists of experts, assembled for the review on the basis of their expertise, their independence from the specific project, and their ability to conduct themselves appropriately in a potentially difficult interpersonal situation), and
   1. the architecture review board (ARB) (a standing team that oversees the review process and its effect on the organization).
 
-## Process
+### Process
 
 The review process follows the roughly four phases.
 The specific implementation may vary.
@@ -85,13 +83,13 @@ The specific implementation may vary.
   1. Review Meeting Phase: During the review, the project team presents its problem statement and outlines how the proposed architecture solves it. The reviewers ask questions and record issues they believe could make the project an incomplete or inadequate solution to the problem. Finally, a report is generated and presented to the project team. Furthermore, management alerts can be raised, etc.
   1. Follow-Up Phase: The review team delivers a report with the review’s findings to the project team within 15 days of the review. The project team (and, if a management alert has been raised, the management) must respond within two weeks.
 
-## Artifacts
+### Artifacts
 
 Formalized process to make the review work Architecture review checklist(s).
 Input to the review such as system requirements, functional requirements, etc.
 Output from the review such as the review report, an optional management alert letter, an optional set of issues, etc.
 
-## Conclusion
+### Conclusion
 
 The "classical" approach is a well-established and formalized process which is (still) widely used.
 Especially, bigger companies or, at least, companies with dedicated architects often make use of such a process in some variation.
@@ -105,7 +103,7 @@ On the other hand, the formalized process and the overall overhead for the "clas
 The overall process makes a lot of overhead for smaller projects or architecture changes which have to be reviewed.
 In sum, the entire original approach does not appear to be very agile, but there are also ways to improve this as well.
 
-# Architecture Decision Records
+## Architecture Decision Records
 
 Architecture Decision Records (ADR) were initially proposed by Nygard in 2011.
 Nygard stated that architecture in an agile context has to be described and defined differently.
@@ -121,13 +119,13 @@ The ADR form a "decision log" {% cite ADR2021 %}.
 
 For more information, we refer to [https://adr.github.io/](https://adr.github.io/).
 
-## Parties
+### Parties
 
 Although, the proposal does not really differentiates between parties, you can distiguish between:
   1. the project team or creator of an ADR,
   1. the ADR reviewer(s)
 
-## Process
+### Process
 
 When there is an architecturally significant decision made, the project team, the involved architect, or - in general - persons who are involved in the decision create the ADR.
 ADR can be stored in GIT (there is also tool support available, e.g., [https://github.com/npryce/adr-tools](https://github.com/npryce/adr-tools)) or in a wiki.
@@ -147,18 +145,18 @@ Every ADR is an own small document.
 ADR can get an ID and, thus, be referenced in other documentation.
 New ADR can change aspects of a previous ADR. If that happens, they can change the status of the previous ADR.
 
-## Artifacts
+### Artifacts
 
 Just the ADR in a central place per project or at a public place.
 Reviews on the ADR should be done on the ADR itself when the ADR is created.
 ADR can be combined with other documents such as Design Documents (Kuenzli, 2019).
 "A decision record should not be used to try and capture all of the information relevant to an architecture or design topic. [...] The creators of an architecture or design should author a document that describes it in detail (whether facilitated by a guild or not)." {% cite Kuenzli2019 %}
 
-## Conclusion
+### Conclusion
 
 TODO
 
-# Design Document or Lightweight Request for Comment Approach
+## Design Document or Lightweight Request for Comment Approach
 
 Essentially, the Design Document or Lightweight Request for Comment (RFC) approach is about writing a design document as the review artifact and sharing this design document across the developer community in a company with the request to comment and challenge the design.
 
@@ -198,39 +196,39 @@ An example, of a DD is available at {% cite Ubl2015 %}.
 
 See also: {% cite Mozilla2020 %}
 
-## Parties
+### Parties
 
 The DD should be written by the team actually working on the solution idea.
 The DD should be created during the work on finding the solution idea, before the implementation really starts.
 
 Ubl and Orosz suggest that the DD should be shared with the entire company - or at least with a huge amount of interested people - as soon as the solution idea stabilizes. The interested people should review and discuss the DD and the solution idea to improve it in an company-open and lightweight process.
 
-## Process
+### Process
 
 Ubl and Orosz suggest roughly the following process (see: {% cite Ubl2020 %} and {% cite Orosz2021 %}):
   1. The team start with the business problem and brainstorm solution ideas. During that phase, the DD shoud be started and iterated rapidly within the team itself until the solution idea/DD stabilizes.
   1. The stable DD should be shared with the company or, at least, with a wider audience of interested people who review the DD and the solution idea in, maybe, multiple rounds of feedback.
   1. "When things have progressed sufficiently to have confidence that further reviews are unlikely to require major changes to the design, it is time to begin implementation." {% cite Ubl2020 %}
 
-## Artifacts
+### Artifacts
 
 Just the DD and conversations/feedback.
 Thereby, the DD should be openly accessible - for example, at a common location in a wiki.
 
-## Conclusion
+### Conclusion
 
 The DD approach described by Ubl and Orosz
 
 TODO
 
-# Summary
+## Summary
 
 TODO
 
-# References
+## References
 
 {% bibliography --cited %}
 
-# Acknowledgements
+## Acknowledgements
 
 Huge thanks go to [Andy Grunwald](https://andygrunwald.com/) who helped me to improve this article by reviewing it.

@@ -35,31 +35,6 @@ As every such process can be modified and adapted to the unique requirements of 
   1. The Lightweight Request for Comment (RFC)/Design Document approach explained in {% cite Ubl2020 %}, {% cite Winters2020 %}, {% cite Orosz2020 %}, {% cite Orosz2021 %}, {% cite Zimmermann2019 %}, {% cite Gonchar2020 %}, and {% cite Mozilla2020 %} from the perspectives of different organizations - sometimes called Lightweight RFC and sometimes Design Document approach. The approach has also been mentioned in the ThoughWorks Tech Radar Vol. 24 trial area as Lightweight RFC approach in {% cite ThoughtWorks2021 %}.
 
 In the next sections, we will describe these three different prototypical architecture review processes.
-But before we start to explain the prototypical architecture review processes, we have to look shortly at different ways to organize architecture work in an organization.
-
-## Who is Organizing Architecture in your Organization
-
-In {% cite Hohpe2021 %}, Hohpe explains the different options of organizing architecture in organizations.
-He summarizes four options using a model based on Plöd as well as Toth {% cite Toth2020 %}:
-  1. Benevolent dictator: An architect or architect team tells the developers what and how to do architecture.
-  1. Primus inter pares: Architects are embedded into development teams where they are just-another-team-member but focus on architecture.
-  1. Architecture without architects: Architecture work is a shared responsibility and done within teams by the developers.
-  1. Inmates running the asylum: Although, this option may look like the previous option "architecture without architects", the difference is that nobody is really doing architecture. This often results in a complex architecture with a lot of cruft and long development cycles.
-
-Hohpe also suggests that different architecture maturity stages of an organization may require a different choices.
-For example, the "benevolent dictator" may be required when there is a lot of cruft accumulated before going over to the option 3 (architecture without architects).
-Especially, the differences between the options 3 (architecture without architects) and 4 (inmates running the asylum) may be quite fluid and not recognizable easily {% cite Hohpe2020 %}.
-
-In a nutshell, you shoud consider what architecture organization model is persistent in your organization.
-The different architecture review processes include different parties involved and, thus, different pros and cons.
-The parties involved in the processes such as the Architecture Review Board in the "Classical" Architecture Review process can be represented by a group of knowledgable architects (option 1 - benevolent dictator), a well-organized architecture guild based on option 3, or even a group of inmates running the asylum (option 4).
-However, the people involved in the parties of the processes define the quality of the review output and, thus, the quality of an organization's architecture.
-
-Also, some architecture review processes may not be possible in your organization due to political reasons.
-A group of architects (option 1 - benevolent dictator) may not be interested in giving up power to strengthen development teams power based on processes suggesting more the option 2 (primus inter pares) or 3 (architecture without architects).
-We will discuss such issues in more detail in the respective sections of the different processes.
-
-In the next section, we describe the different prototypical architecture review processes.
 
 ## The "Classical" Architecture Review Process
 
@@ -74,24 +49,25 @@ The approach considers three primary parties in an architecture review {% cite M
   1. The review team which consists of experts assembled for the review on the basis of their expertise, their independence from the specific project, and their ability to conduct themselves appropriately in a potentially difficult interpersonal situation.
   1. The Architecture Review Board (ARB) which is a standing team that oversees the review process and its effect on the organization.
 
-Moreover, the project team and the ARB have further roles in the overall process.
-The project team has the roles:
-  1. The review client who is often the project team. The review client pays for the development or is the architecture review’s sponsor.
+Moreover, there are further roles in the overall process - depending on the size of the enterprise and if these roles are required:
+  1. There is a review client which is often the project team. The review client pays for the development or is the architecture review’s sponsor.
   1. The project members who present the architecture to the review team in the process.
   1. The project management encompasses all the managers responsible for the project’s success.
-
-The ARB has the roles:
   1. The review angel is selected by the ARB being responsible to work with the project team addressing any organizational or political issues that may arise.
   1. The ARB chair is the architecture review process advocate. The ARB chair is responsible for ensuring the effectiveness of the review.
 
 ### Process
 
+The overall review process bases on a few general principles such as that a clearly defined problem statement as the basis of the architecture, reviews are open processes, and companies conduct reviews for the project’s benefit (see also: {% cite Maranzano2005 %} for the full list of five principles).
+
 The review process follows roughly four phases.
 The specific implementation may vary.
-  1. Screening Phase: The project team requests a review. The project staff and ARB review the request to determine whether a review would benefit the project. If they recommend a review, the ARB selects a "review angel" (supporter for the project team in cases of issues political issues, etc. that may arise during the review) to oversee the project’s review process.
-  1. Preparation Phase: The ARB selects a "review team", including a "review leader", and works with the project to determine the number of reviews and the initial review’s date and agenda. The staff, project team, review leader, and review angel verify that the project has an adequately clear problem statement and appropriate documentation.
-  1. Review Meeting Phase: During the review, the project team presents its problem statement and outlines how the proposed architecture solves it. The reviewers ask questions and record issues they believe could make the project an incomplete or inadequate solution to the problem. Finally, a report is generated and presented to the project team. Furthermore, management alerts can be raised, etc.
-  1. Follow-Up Phase: The review team delivers a report with the review’s findings to the project team within 15 days of the review. The project team (and, if a management alert has been raised, the management) must respond within two weeks.
+  1. Screening Phase: The project team requests a review. The project staff and ARB review the request to determine whether a review would benefit the project. If a review should be conducted, the ARB selects a review angel (see also: previous section) to oversee the project’s review process.
+  1. Preparation Phase: The ARB selects a review team and a review leader. Togehter with the project team, they determine the number of reviews and the initial review’s date and agenda. The review team, project team, review leader, and review angel verify that the project that should be reviewed has a clearly defined problem statement driving the architecture and an appropriate documentation as a basis for the review.
+  1. Review Meeting Phase: During the review, the members of the project present the mentioned problem statement and how the proposed architecture solves it. The reviewers ask further questions in order to figure out issues they believe could make the project an incomplete or inadequate solution to the problem. Finally, the review team meets privately and generates a report. The report is presented to the project team. Furthermore, management alerts can be raised, etc.
+  1. Follow-Up Phase: The review team delivers the report with the review’s findings to the project team within certain time frame such as 15 days after the review meetings are done. The project team (and, if a management alert has been raised, the management) must respond within two weeks.
+
+For more details, we refer to {% cite Maranzano2005 %}.
 
 ### Artifacts
 

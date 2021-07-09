@@ -97,51 +97,56 @@ Nevertheless, it has the potential to balance architectural as well as company-p
 
 ## Architecture Decision Records
 
-Architecture Decision Records (ADR) were initially proposed by Nygard in 2011.
+Architecture Decision Records (ADR) were initially proposed by Nygard in 2011 in {% cite Nygard2011 %}.
 Nygard stated that architecture in an agile context has to be described and defined differently.
 In an agile context, decisions are made step by step alongside the project progress.
-They will not be made at once, nor will all of them be done when the project begins.
+They will not be made at once, they will also not be made when the project begins.
 So, the architecture documentation should also be done incrementally.
-This is also supported by the fact that nobody ever reads large documents {% cite Nygard2011 %}.
+Nygard states that this is also supported by the fact that nobody ever reads large documents {% cite Nygard2011 %}.
 
-Therefore, Nygard proposes ADR as small documents which concentrate on tracking the motivation, rationale, and consequences behind certain architectural decisions made during different points in time in the project in a very structured way.
+Therefore, Nygard proposes ADR as small documents which concentrate on tracking the motivation, rationale, and consequences behind certain architectural decisions made during different points in time in the project in a very structured and agile way.
 "We will keep a collection of records for 'architecturally significant' decisions: those that affect the structure, non-functional characteristics, dependencies, interfaces, or construction techniques." (Nygard, 2011)
-Essentially, the small and structured form of ADR should help finding out about motivation, rationale, and consequences of previous decisions.
+Essentially, the small and structured ADR help to find out about motivation, rationale, and consequences of previous decisions at the time being written and reviewed as well as later on.
 The ADR form a "decision log" {% cite ADR2021 %}.
 
 For more information, we refer to [https://adr.github.io/](https://adr.github.io/).
 
 ### Parties
 
-Although, the proposal does not really differentiates between parties, you can distiguish between:
-  1. the project team or creator of an ADR,
-  1. the ADR reviewer(s)
+When working with ADR, we can distiguish the following parties:
+  1. The project team/creator(s) of an ADR,
+  1. The ADR reviewer(s)
 
 ### Process
 
-When there is an architecturally significant decision made, the project team, the involved architect, or - in general - persons who are involved in the decision create the ADR.
-ADR can be stored in GIT (there is also tool support available, e.g., [https://github.com/npryce/adr-tools](https://github.com/npryce/adr-tools)) or in a wiki.
-For better accessibility from an potentially interested audience, it is recommended to store ADR in a wiki or another public location - changes to the ADR, however, should be tracked.
+When there is an architecturally significant decision made, the project team, the involved architect, or - in general - persons who are involved in the decision making create the ADR.
+ADR can be stored in GIT or in a wiki.
+There are tools for managing ADR in GIT, e.g., [https://github.com/npryce/adr-tools](https://github.com/npryce/adr-tools).
+In my personal opinion, it is recommendable to store ADR in a public location such as a wiki for better accessibility from an potentially interested audience.
+However, the tool should be able to track changes to the ADR in a history to identify authors and revert changes if needed.
+Moreover, a comment functionality for reviewing an ADR is beneficial.
 
-An ADR typically contains:
+Based on Nygard's proposal, ADR typically contain 5 sections {% cite Nygard2011 %}:
   * Title
   * Status
   * Context
   * Decision
   * Consequences
-  * Compliance description
-  * Notes
 
-An example with a slightly different structure can be found here.
-Every ADR is an own small document.
-ADR can get an ID and, thus, be referenced in other documentation.
-New ADR can change aspects of a previous ADR. If that happens, they can change the status of the previous ADR.
+In recent years, different templates have appeared.
+In {% cite Henderson2021 %}, Henderson gathered different ADR example templates.
+
+Every ADR and, thus, every decision is an own small document.
+ADR can get an ID and be referenced in other documentation or wiki pages.
+New ADR can change aspects of a previous ADR.
+If that happens, they can change the status of the previous ADR.
 
 ### Artifacts
 
-Just the ADR in a central place per project or at a public place.
+The ADR is the only artifact in this architecture review process.
 Reviews on the ADR should be done on the ADR itself when the ADR is created.
-ADR can be combined with other documents such as Design Documents (Kuenzli, 2019).
+
+However, ADR can be combined with other ways to document architectures such as Design Documents (see also: Design Document or Lightweight Request for Comment Approach):
 "A decision record should not be used to try and capture all of the information relevant to an architecture or design topic. [...] The creators of an architecture or design should author a document that describes it in detail (whether facilitated by a guild or not)." {% cite Kuenzli2019 %}
 
 ### Conclusion

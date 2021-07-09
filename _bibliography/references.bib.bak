@@ -441,4 +441,17 @@
   year   = {2021},
 }
 
+@Book{Toth2020,
+  author    = {Toth, Stefan},
+  publisher = {Hanser Fachbuchverlag},
+  title     = {Vorgehensmuster für Softwarearchitektur},
+  year      = {2020},
+  isbn      = {978-3446460041},
+  date      = {2020-09-01},
+  ean       = {9783446460041},
+  issn      = {978-3446460041},
+  pagetotal = {308},
+  url       = {https://www.ebook.de/de/product/36685506/stefan_toth_vorgehensmuster_fuer_softwarearchitektur.html},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

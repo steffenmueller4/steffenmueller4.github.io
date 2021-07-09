@@ -71,25 +71,29 @@ For more details, we refer to {% cite Maranzano2005 %}.
 
 ### Artifacts
 
-In the paper, Maranzano et al. mention that the architecture should be designed based on a clear problem statement tackling the functional and qualitative requirements, the costs, and the timeline.
-
-Formalized process to make the review work Architecture review checklist(s).
-Input to the review such as system requirements, functional requirements, etc.
-Output from the review such as the review report, an optional management alert letter, an optional set of issues, etc.
+As artifacts, Maranzano et al. mention three different types of artifacts {% cite Maranzano2005 %}:
+  1. There are checklists for architects to prepare for the review and checklists for the reviewers to do the review and figure out more of the architecture. The checklists serve as a collection of organizational knowledge and should be maintained.
+  1. There is input to the review. This can be documentation of the system requirements, functional requirements, or informal documentation. Maranzano et al. mention specifically that the architecture should be designed based on a clear problem statement tackling the functional and qualitative requirements, the costs, and the timeline. A document describing these points may be a specific design document or something like that.
+  1. There is output from the review such as the review report, an optional management alert letter, an optional set of issues, etc.
 
 ### Conclusion
 
-The "classical" approach is a well-established and formalized process which is (still) widely used.
-Especially, bigger companies or, at least, companies with dedicated architects often make use of such a process in some variation.
+The "Classical" Architecture Review process is a well-established and formalized process.
+It is (still) widely used.
+Especially, bigger companies or, at least, companies with dedicated architects often make use of a process explained by Maranzano et al. in some variation.
 
 On the one hand, the formalized process as well as the clear roles within the process help to achieve the goals of architecture reviews.
 Also, there are different options to vary the process in order to, for example, have less parties involved or reduce the overhead.
 In some companies, there is, for instance, no ARB or review team but an architecture guild which is performing architecture reviews instead.
-Another option is to reduce the overhead of the artifacts and, therefore, only give a presentation about the architecture to be reviewed - however, I think that there should be a written architecture document.
+Another option is to reduce the overhead of the artifacts and, therefore, only give a presentation about the architecture to be reviewed - however, I personally think that there should be a written architecture/design document.
 
-On the other hand, the formalized process and the overall overhead for the "classical" approach is also often the point to be critizied mostly.
+On the other hand, the formalized process and the overall overhead for the "Classical" Architecture Review process is also often the point to be critizied mostly.
 The overall process makes a lot of overhead for smaller projects or architecture changes which have to be reviewed.
-In sum, the entire original approach does not appear to be very agile, but there are also ways to improve this as well.
+In the paper, Maranzano et al. mention that the review preparation time may take up to 6 weeks, the review itself between 1 and 5 days.
+So, the overhead can be substantial to a company in the prototypical form.
+
+In sum, the entire prototypical approach does not appear to be very agile, but there are also ways to improve the overall process.
+Nevertheless, it has the potential to balance architectural as well as company-political aspects.
 
 ## Architecture Decision Records
 

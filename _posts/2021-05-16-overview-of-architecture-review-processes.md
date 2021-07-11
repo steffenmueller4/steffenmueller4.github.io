@@ -8,7 +8,7 @@ categories:
   - Architecture Review Process
 published: true
 ---
-Recently, I was asked about what software architecture review processes exist in order to better steer architecture.
+Recently, I have been asked about what software architecture review processes exist in order to better steer architecture.
 An architecture review aims at different goals such as finding software design issues early in the development before they get costly.
 Architecture review processes, for example, formalize different steps.
 They, furthermore, define input and output to/from architecture reviews.

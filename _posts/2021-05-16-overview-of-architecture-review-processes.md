@@ -168,8 +168,9 @@ A good ADR should be written neatly and to the point.
 This, however, may lead to important aspects of changes not being properly described in an ADR.
 "The ADR is a snapshot of information uncovered during the creation process." {% cite Kuenzli2019 %}
 Kuenzli suggests in {% cite Kuenzli2019 %} that also other types of documents should be created in an architecture design process in addition to the ADR.
-He suggests Design Documents which should be more verbose and capture more information gathered during research phases.
-The ADR can be created as a short documentation of the decision itself as the outcome of the architecture design process.
+For example, Design Documents can complement ADR.
+Design Documents are more verbose and capture more information gathered during research phases.
+The ADR can be created as the outcome of the overall architecture design process.
 
 ## Design Document or Lightweight Request for Comment Approach
 

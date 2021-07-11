@@ -119,39 +119,57 @@ When working with ADR, we can distiguish the following parties:
 
 ### Process
 
-When there is an architecturally significant decision made, the project team, the involved architect, or - in general - persons who are involved in the decision making create the ADR.
+When there is an architecturally significant decision to be made, the project team, the involved architect, or - in general - persons who are involved in the decision making create an ADR.
+Based on Nygard's proposal, ADR typically contain 5 sections {% cite Nygard2011 %}:
+  * Title: It is typically describing the architecture decision shortly.
+  * Status: May be "Proposed", "Request for Comment", "Accepted", or "Superseded".
+  * Context: The reasons of the decision to be made.
+  * Decision: A description of the decision itself and its justification.
+  * Consequences: The impact of the decision such as the benefits and downsides regarding architecture characteristics, etc.
+
+In general, it is a good idea to let others review an ADR.
+For that, you use the status of the ADR.
+A newly created ADR, then, can be in status "Proposed".
+When you want other to review the ADR, you can set the status to "Request for Comment".
+The ADR can be reviewed by other parties such as other project members, other teams, the (lead) architect, the architecture guild, or persons in the company who are good in architecture work.
+As soon as the review is done, the ADR status can be changed to "Accepted" and should be stored somewhere at a public location.
+
 ADR can be stored in GIT or in a wiki.
 There are tools for managing ADR in GIT, e.g., [https://github.com/npryce/adr-tools](https://github.com/npryce/adr-tools).
 In my personal opinion, it is recommendable to store ADR in a public location such as a wiki for better accessibility from an potentially interested audience.
 However, the tool should be able to track changes to the ADR in a history to identify authors and revert changes if needed.
 Moreover, a comment functionality for reviewing an ADR is beneficial.
 
-Based on Nygard's proposal, ADR typically contain 5 sections {% cite Nygard2011 %}:
-  * Title
-  * Status
-  * Context
-  * Decision
-  * Consequences
-
-In recent years, different templates have appeared.
-In {% cite Henderson2021 %}, Henderson gathered different ADR example templates.
-
-Every ADR and, thus, every decision is an own small document.
+Every ADR and, thus, every decision is an own small document (see also: "Decision log" in the previous section).
 ADR can get an ID and be referenced in other documentation or wiki pages.
-New ADR can change aspects of a previous ADR.
-If that happens, they can change the status of the previous ADR.
+New ADR can change aspects of previous ADR.
+If that happens, they can change the status of the previous ADR to "Superseded".
 
 ### Artifacts
 
-The ADR is the only artifact in this architecture review process.
+The ADR itself is the only artifact in this prototypical architecture review process.
 Reviews on the ADR should be done on the ADR itself when the ADR is created.
 
+In recent years, different templates have appeared for ADR.
+In {% cite Henderson2021 %}, Henderson gathered different ADR example templates.
 However, ADR can be combined with other ways to document architectures such as Design Documents (see also: Design Document or Lightweight Request for Comment Approach):
 "A decision record should not be used to try and capture all of the information relevant to an architecture or design topic. [...] The creators of an architecture or design should author a document that describes it in detail (whether facilitated by a guild or not)." {% cite Kuenzli2019 %}
 
 ### Conclusion
 
-TODO
+ADR are well-suited and widely accepted for documenting architecture decisions {% cite Richards2020 %}.
+The decision log formed by ADR can be a very essential part to understand the history and the current state of an architecture.
+Based on the history and the current state, you can make better decisions in the future.
+ADR and their proposed templates condense architecture decisions to the essential parts.
+Specifically, when they are stored publicly accessible as a basis for discussions, they are a very good tool for architecture work.
+
+ADR and their strict templates are limited when it comes to the bigger picture of changes.
+A good ADR should be written neatly and to the point.
+This, however, may lead to important aspects of changes not being properly described in an ADR.
+"The ADR is a snapshot of information uncovered during the creation process." {% cite Kuenzli2019 %}
+Kuenzli suggests in {% cite Kuenzli2019 %} that also other types of documents should be created in an architecture design process in addition to the ADR.
+He suggests Design Documents which should be more verbose and capture more information gathered during research phases.
+The ADR can be created as a short documentation of the decision itself as the outcome of the architecture design process.
 
 ## Design Document or Lightweight Request for Comment Approach
 

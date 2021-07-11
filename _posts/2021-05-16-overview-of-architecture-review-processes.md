@@ -229,7 +229,7 @@ Recommendations reach from 1 up to 20 pages depending on the problem and solutio
 As writing a DD is overhead, the decision whether to write a DD comes down to the core trade-off of deciding whether a review is beneficial.
 If there are benefits in an organizational consensus around a design, a documentation or in having a review from other parties, the extra work of a design doc is worth the effort.
 
-An example, of a DD is available at {% cite Ubl2015 %}.
+An example DD is available [here](https://www.industrialempathy.com/posts/design-doc-a-design-doc/).
 
 ### Conclusion
 

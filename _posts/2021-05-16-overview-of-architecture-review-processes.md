@@ -172,12 +172,19 @@ For example, Design Documents can complement ADR.
 Design Documents are more verbose and capture more information gathered during research phases.
 The ADR can be created as the outcome of the overall architecture design process.
 
-## Design Document or Lightweight Request for Comment Approach
+## Lightweight Request for Comment/Design Document Approach
 
-Essentially, the Design Document or Lightweight Request for Comment (RFC) approach is about writing a design document as the review artifact and sharing this design document across the developer community in a company with the request to comment and challenge the design.
+Another approach is the Lightweight Request for Comment (RFC)/Design Document (DD) approach.
+Essentially, this approach is about writing a DD as the review artifact, sharing this document across the organization in some way, and discussing as well as improving the DD - and the system in design - together with the reviewers.
+It is a more informal way of documenting software architecture at a certain point in time {% cite Ubl2020 %} - originally, considered for the design phase but can be applied to any rework of architectural aspects (solution idea) before the actual (code) work is done.
+
+The Lightweight RFC/DD approach is called differently by various authors - sometimes called Lightweight RFC and sometimes DD approach.
+Ubl {% cite Ubl2020 %} and Winters et al. {% cite Winters2020 %} describe it from the perspective of Google (called DD).
+Orosz mentions the approach in {% cite Orosz2020 %} and {% cite Orosz2021 %} from the perspective of Uber (called RFC, Lightweight RFC, or DD).
+Zimmermann {% cite Zimmermann2019 %} and Gonchar {% cite Gonchar2020 %} mention it from the perspective of Casper (called RFC) from eBay (called Lightweight RFC).
 
 The approach bases on the strong belief that the community knows more than an individual.
-Thus, the entire developer community at a company should be included into the designing of the systems.
+Thus, the entire developer community at an organization should be included into the design of the systems.
 Ubl explains the thoughts behind that nicely in {% cite Ubl2020 %}.
 He states that "[...] it did establish a relatively uniform software design culture across the company [at Google]." {% cite Ubl2020 %}
 Orosz additionally states that the "[...] type of information pushed to people in an organization shapes the culture considerably. [...] [It] sets a tone of trust and responsibility." {%cite Orosz2020 %}
@@ -185,11 +192,25 @@ Orosz additionally states that the "[...] type of information pushed to people i
 On top of that community thinking, the approach considers the power of the written word.
 "Writing and sharing that writing with others creates accountability. It also almost always leads to more thorough decisions." {% cite Orosz2020 %}
 
-Evangelized by Google, Design Documents (DD) are a more informal way of documenting software architecture at a certain point in time {% cite Ubl2020 %} - originally, considered for the design phase but can be applied to any rework of architectural aspects (solution idea) before the actual (code) work is done.
-Also, Amazon, Facebook, and Netflix make use of a similar approach {% cite Orosz2021 %}.
+### Parties
 
-Main goal of DD is the communication aspect: A DD should identify issues of a solution idea as early as possible in the project lifecycle, help to achieve consensus around a design in the organization, ensure the consideration of cross-cutting concerns, distribute knowledge about solution ideas, and document the solution.
-In order to achieve that, a certain structure has emerged focusing on architecturally important aspects of a solution idea at Google (see also: {% cite Ubl2020 %}):
+The DD should be written by the team actually working on the solution idea during the work on finding the solution idea, but before implementating the solution (see also: {% cite Ubl2020 %} and {% cite Orosz2021 %}).
+
+As soon as the solution idea stabilizes, the DD is shared with the entire company - or at least with a huge amount of interested people.
+The interested people should review and discuss the DD and the solution idea to improve it in an company-open and lightweight process.
+
+### Process
+
+Ubl {% cite Ubl2020 %} and Orosz {% cite Orosz2021 %} suggest roughly the following process (see: {% cite Ubl2020 %} and {% cite Orosz2021 %}):
+  1. The team starts with the business problem and brainstorms solution ideas. During that phase, the DD shoud be started and iterated rapidly within the team itself until the solution idea/DD stabilizes.
+  1. The stable DD should be shared with the company or, at least, with a wider audience of interested people who review the DD and the solution idea in multiple rounds of feedback.
+  1. "When things have progressed sufficiently to have confidence that further reviews are unlikely to require major changes to the design, it is time to begin implementation." {% cite Ubl2020 %}
+
+### Artifacts
+
+The entire Lightweight RFC/DD approach is about the DD.
+Main goal of the DD is the communication aspect: A DD should identify issues of a solution idea as early as possible in the project lifecycle, help to achieve consensus around a design in the organization, ensure the consideration of cross-cutting concerns, distribute knowledge about solution ideas, and document the solution.
+In order to achieve that, a certain structure has emerged focusing on architecturally important aspects of a solution idea at Google (see, e.g.: {% cite Ubl2020 %}):
   * Context and Scope Goals and Non-goals
   * The actual Design
     * System-context Diagram
@@ -199,37 +220,16 @@ In order to achieve that, a certain structure has emerged focusing on architectu
   * Alternatives Considered
   * Cross-cutting Concerns
 
-Thereby, those points are optional and depend on the actual solution idea.
-Also, solution ideas may require other aspects to be described - as already explained, DD are informal.
-In general, focus in DD should be the discussion of trade-offs of the solution ideas that were considered during decisions.
-"Design docs should be sufficiently detailed but short enough to actually be read by busy people." {% cite Ubl2020 %}
+Thereby, the template is not fixed and sections are optional depending on the actual solution idea.
+Also, solution ideas may require other aspects to be described.
+In general, the DD should focus on the discussion of trade-offs of the solution ideas that were considered during decisions.
 
+"Design docs should be sufficiently detailed but short enough to actually be read by busy people." {% cite Ubl2020 %}
 Recommendations reach from 1 up to 20 pages depending on the problem and solution idea.
-As writing DD is overhead, the decision whether to write a DD comes down to the core trade-off of deciding whether a review is beneficial.
-If there are benefits in organizational consensus around a design, a documentation or in having a review from other parties, the extra work of a design doc is worth the effort.
+As writing a DD is overhead, the decision whether to write a DD comes down to the core trade-off of deciding whether a review is beneficial.
+If there are benefits in an organizational consensus around a design, a documentation or in having a review from other parties, the extra work of a design doc is worth the effort.
 
 An example, of a DD is available at {% cite Ubl2015 %}.
-
-See also: {% cite Mozilla2020 %}
-
-### Parties
-
-The DD should be written by the team actually working on the solution idea.
-The DD should be created during the work on finding the solution idea, before the implementation really starts.
-
-Ubl and Orosz suggest that the DD should be shared with the entire company - or at least with a huge amount of interested people - as soon as the solution idea stabilizes. The interested people should review and discuss the DD and the solution idea to improve it in an company-open and lightweight process.
-
-### Process
-
-Ubl and Orosz suggest roughly the following process (see: {% cite Ubl2020 %} and {% cite Orosz2021 %}):
-  1. The team start with the business problem and brainstorm solution ideas. During that phase, the DD shoud be started and iterated rapidly within the team itself until the solution idea/DD stabilizes.
-  1. The stable DD should be shared with the company or, at least, with a wider audience of interested people who review the DD and the solution idea in, maybe, multiple rounds of feedback.
-  1. "When things have progressed sufficiently to have confidence that further reviews are unlikely to require major changes to the design, it is time to begin implementation." {% cite Ubl2020 %}
-
-### Artifacts
-
-Just the DD and conversations/feedback.
-Thereby, the DD should be openly accessible - for example, at a common location in a wiki.
 
 ### Conclusion
 

@@ -31,7 +31,7 @@ Over the last decades, different architecture review processes have emerged.
 
 As every such process can be modified and adapted to the unique requirements of a specific company, we will focus on three different prototypical processes that are described in literature:
   1. The "Classical" Architecture Review process explained by Maranzano et al. in {% cite Maranzano2005 %}.
-  1. The Architecture Decision Records (ADR) initially described by Nygard in {% cite Nygard2011 %}.
+  1. The Architecture Decision Records initially described by Nygard in {% cite Nygard2011 %}.
   1. The Lightweight Request for Comment (RFC)/Design Document approach explained in {% cite Ubl2020 %}, {% cite Winters2020 %}, {% cite Orosz2020 %}, {% cite Orosz2021 %}, {% cite Zimmermann2019 %}, {% cite Gonchar2020 %}, and {% cite Mozilla2020 %} from the perspectives of different organizations - sometimes called Lightweight RFC and sometimes Design Document approach. The approach has also been mentioned in the ThoughWorks Tech Radar Vol. 24 trial area as Lightweight RFC approach in {% cite ThoughtWorks2021 %}.
 
 In the next sections, we will describe these three different prototypical architecture review processes.
@@ -178,7 +178,7 @@ Another approach is the Lightweight Request for Comment (RFC)/Design Document (D
 Essentially, this approach is about writing a DD as the review artifact, sharing this document across the organization in some way, and discussing as well as improving the DD - and the system in design - together with the reviewers.
 It is a more informal way of documenting software architecture at a certain point in time {% cite Ubl2020 %} - originally, considered for the design phase but can be applied to any rework of architectural aspects (solution idea) before the actual (code) work is done.
 
-The Lightweight RFC/DD approach is called differently by various authors - sometimes called Lightweight RFC and sometimes DD approach.
+The Lightweight RFC/DD approach is called differently by various authors - sometimes called Lightweight RFC (or only RFC) and sometimes DD approach.
 Ubl {% cite Ubl2020 %} and Winters et al. {% cite Winters2020 %} describe it from the perspective of Google (called DD).
 Orosz mentions the approach in {% cite Orosz2020 %} and {% cite Orosz2021 %} from the perspective of Uber (called RFC, Lightweight RFC, or DD).
 Zimmermann {% cite Zimmermann2019 %} and Gonchar {% cite Gonchar2020 %} mention it from the perspective of Casper (called RFC) from eBay (called Lightweight RFC).
@@ -233,13 +233,16 @@ An example DD is available [here](https://www.industrialempathy.com/posts/design
 
 ### Conclusion
 
-The DD approach described by Ubl and Orosz
+The Lightweight RFC/DD approach is a good way to let the entire company participate in and improve the design of the company's systems.
+Examples from big software companies such as Google show that this approach works well and can produce good system designs while spreading the knowledge in the company.
 
-TODO
+However, the approach requires active participation of the company's developers or architect's.
+Not every company is ready for such an approach - this may also originate from a different working style or culture such as a very hierarchical organization or a company with a strong and well-established architecture team that does not want to involve other parties.
 
-## Summary
-
-TODO
+Another challenge for the Lightweight RFC/DD approach is the question about when a DD should be created and how much work should be put into a DD.
+Here, a company needs to allow teams to spend time in writing DD and gathering the feedback.
+If that is not possible, the entire approach may not work well.
+Adaptations to the process may prescribe the when to write a DD and how much time for feedback is allowed.
 
 ## References
 

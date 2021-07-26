@@ -29,7 +29,7 @@ Essentially, architecture reviews aim at {% cite Maranzano2005 %}:
 Therefore, architecture review processes formalize different steps, the parties involved, or input and output to architecture reviews.
 Over the last decades, different architecture review processes have emerged.
 
-Every such process can be modified and adapted to the unique requirements of a specific company.
+Every such process can be modified and adapted to the unique requirements of a specific organization.
 We will focus on three different prototypical processes that are described in literature:
   1. The "Classical" Architecture Review process.
   1. The Architecture Decision Records.
@@ -50,7 +50,7 @@ The approach considers three primary parties in an architecture review {% cite M
   1. The review team which consists of experts assembled for the review on the basis of their expertise, their independence from the specific project, and their ability to conduct themselves appropriately in a potentially difficult interpersonal situation.
   1. The Architecture Review Board (ARB) which is a standing team that oversees the review process and its effect on the organization.
 
-Moreover, there are further roles in the overall process - depending on the size of the enterprise and if these roles are required:
+Moreover, there are further roles in the overall process - depending on the size of the organization and if these roles are required:
   1. There is a review client which is often the project team. The review client pays for the development or is the architecture review’s sponsor.
   1. The project members who present the architecture to the review team in the process.
   1. The project management encompasses all the managers responsible for the project’s success.
@@ -59,7 +59,7 @@ Moreover, there are further roles in the overall process - depending on the size
 
 ### Process
 
-The overall review process bases on a few general principles such as that a clearly defined problem statement as the basis of the architecture, reviews are open processes, and companies conduct reviews for the project’s benefit (see also: {% cite Maranzano2005 %} for the full list of five principles).
+The overall review process bases on a few general principles such as a clearly defined problem statement as the basis of the architecture, that reviews are open processes, and that organizations conduct reviews for the project’s or product's benefit (see also: {% cite Maranzano2005 %} for the full list of five principles).
 
 The review process follows roughly four phases.
 The specific implementation may vary.
@@ -91,10 +91,10 @@ Another option is to reduce the overhead of the artifacts and, therefore, only g
 On the other hand, the formalized process and the overall overhead for the "Classical" Architecture Review process is also often the point to be critizied mostly.
 The overall process makes a lot of overhead for smaller projects or architecture changes which have to be reviewed.
 In the paper, Maranzano et al. mention that the review preparation time may take up to 6 weeks, the review itself between 1 and 5 days.
-So, the overhead can be substantial to a company in the prototypical form.
+So, the overhead can be substantial to an organization in the prototypical form.
 
 In sum, the entire prototypical approach does not appear to be very agile, but there are also ways to improve the overall process.
-Nevertheless, it has the potential to balance architectural as well as company-political aspects.
+Nevertheless, it has the potential to balance architectural as well as political aspects in an organiztion.
 
 ## Architecture Decision Records
 
@@ -132,7 +132,7 @@ In general, it is a good idea to let others review an ADR.
 For that, you use the status of the ADR.
 A newly created ADR, then, can be in status "Proposed".
 When you want other to review the ADR, you can set the status to "Request for Comment".
-The ADR can be reviewed by other parties such as other project members, other teams, the (lead) architect, the architecture guild, or persons in the company who are good in architecture work.
+The ADR can be reviewed by other parties such as other project members, other teams, the (lead) architect, the architecture guild, or persons in the organization who are good in architecture work.
 As soon as the review is done, the ADR status can be changed to "Accepted" and should be stored somewhere at a public location.
 
 ADR can be stored in GIT or in a wiki.
@@ -200,14 +200,14 @@ On top of that community thinking, the approach considers the power of the writt
 
 The DD should be written by the team actually working on the solution idea during the work on finding the solution idea, but before implementating the solution (see also: {% cite Ubl2020 %} and {% cite Orosz2021 %}).
 
-As soon as the solution idea stabilizes, the DD is shared with the entire company - or at least with a huge amount of interested people.
-The interested people should review and discuss the DD and the solution idea to improve it in an company-open and lightweight process.
+As soon as the solution idea stabilizes, the DD is shared with the entire organization - or at least with a huge amount of interested people.
+The interested people should review and discuss the DD and the solution idea to improve it in an open and lightweight process.
 
 ### Process
 
 Ubl {% cite Ubl2020 %} and Orosz {% cite Orosz2021 %} suggest roughly the following process (see: {% cite Ubl2020 %} and {% cite Orosz2021 %}):
   1. The team starts with the business problem and brainstorms solution ideas. During that phase, the DD shoud be started and iterated rapidly within the team itself until the solution idea/DD stabilizes.
-  1. The stable DD should be shared with the company or, at least, with a wider audience of interested people who review the DD and the solution idea in multiple rounds of feedback.
+  1. The stable DD should be shared with the organization or, at least, with a wider audience of interested people who review the DD and the solution idea in multiple rounds of feedback.
   1. "When things have progressed sufficiently to have confidence that further reviews are unlikely to require major changes to the design, it is time to begin implementation." {% cite Ubl2020 %}
 
 ### Artifacts
@@ -237,14 +237,14 @@ An example DD is available [here](https://www.industrialempathy.com/posts/design
 
 ### Conclusion
 
-The Lightweight RFC/DD approach is a good way to let the entire company participate in and improve the design of the company's systems.
-Examples from big software companies such as Google show that this approach works well and can produce good system designs while spreading the knowledge in the company.
+The Lightweight RFC/DD approach is a good way to let the entire organization participate in and improve the design of the organization's systems.
+Examples from big software companies such as Google show that this approach works well and can produce good system designs while spreading the knowledge in the organization.
 
-However, the approach requires active participation of the company's developers or architect's.
-Not every company is ready for such an approach - this may also originate from a different working style or culture such as a very hierarchical organization or a company with a strong and well-established architecture team that does not want to involve other parties.
+However, the approach requires active participation of people in the organization.
+Not every organization is ready for such an approach - this may also originate from a different working style or culture such as a very hierarchical organization with a strong and well-established architecture team that does not want to involve other parties.
 
 Another challenge for the Lightweight RFC/DD approach is the question about when a DD should be created and how much work should be put into a DD.
-Here, a company needs to allow teams to spend time in writing DD and gathering the feedback.
+Here, an organization needs to allow teams to spend time in writing DD and gathering the feedback.
 If that is not possible, the entire approach may not work well.
 Adaptations to the process may prescribe the when to write a DD and how much time for feedback is allowed.
 

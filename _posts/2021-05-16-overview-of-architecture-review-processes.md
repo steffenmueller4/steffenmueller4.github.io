@@ -8,7 +8,7 @@ categories:
   - Architecture Review Process
 published: true
 ---
-Recently, I have been asked about what software architecture review processes exist in order to better steer architecture.
+Recently, I have been asked about what software architecture review processes exist to steer architecture work.
 An architecture review aims at different goals such as finding software design issues early in the development before they get costly.
 Architecture review processes, for example, formalize different steps.
 They, furthermore, define input and output to/from architecture reviews.
@@ -17,8 +17,8 @@ This article describes the different architecture review process approaches.
 ## What are Architecture Reviews and Architecture Review Processes?
 
 An architecture review, in a nutshell, is a mechanism for increasing the likelihood that a software/system architecture will be complete, consistent, and, thus, good {% cite Maranzano2005 %}.
-A good software architecture is important, otherwise the development can become slower.
-It can get more expensive to add new capabilities in the future.
+Good software architecture is important, otherwise the development speed can slow down.
+It can get more expensive to add new features in the future.
 High internal quality, on the other side, can lead to faster delivery of new features; simply, because there is less cruft to get in the way {% cite Fowler2019 %}.
 
 Essentially, architecture reviews aim at {% cite Maranzano2005 %}:
@@ -29,10 +29,11 @@ Essentially, architecture reviews aim at {% cite Maranzano2005 %}:
 Therefore, architecture review processes formalize different steps, the parties involved, or input and output to architecture reviews.
 Over the last decades, different architecture review processes have emerged.
 
-As every such process can be modified and adapted to the unique requirements of a specific company, we will focus on three different prototypical processes that are described in literature:
-  1. The "Classical" Architecture Review process explained by Maranzano et al. in {% cite Maranzano2005 %}.
-  1. The Architecture Decision Records initially described by Nygard in {% cite Nygard2011 %}.
-  1. The Lightweight Request for Comment (RFC)/Design Document approach explained in {% cite Ubl2020 %}, {% cite Winters2020 %}, {% cite Orosz2020 %}, {% cite Orosz2021 %}, {% cite Zimmermann2019 %}, {% cite Gonchar2020 %}, and {% cite Mozilla2020 %} from the perspectives of different organizations - sometimes called Lightweight RFC and sometimes Design Document approach. The approach has also been mentioned in the ThoughWorks Tech Radar Vol. 24 trial area as Lightweight RFC approach in {% cite ThoughtWorks2021 %}.
+Every such process can be modified and adapted to the unique requirements of a specific company.
+We will focus on three different prototypical processes that are described in literature:
+  1. The "Classical" Architecture Review process.
+  1. The Architecture Decision Records.
+  1. The Lightweight Request for Comment/Design Document approach.
 
 In the next sections, we will describe these three different prototypical architecture review processes.
 
@@ -175,7 +176,10 @@ The ADR can be created as the outcome of the overall architecture design process
 ## Lightweight Request for Comment/Design Document Approach
 
 Another approach is the Lightweight Request for Comment (RFC)/Design Document (DD) approach.
-Essentially, this approach is about writing a DD as the review artifact, sharing this document across the organization in some way, and discussing as well as improving the DD - and the system in design - together with the reviewers.
+The approach is sometimes called Lightweight RFC and sometimes DD approach.
+It has been mentioned in the ThoughWorks Tech Radar Vol. 24 trial area as Lightweight RFC approach in {% cite ThoughtWorks2021 %} as well as in {% cite Ubl2020 %}, {% cite Winters2020 %}, {% cite Orosz2020 %}, {% cite Orosz2021 %}, {% cite Zimmermann2019 %}, {% cite Gonchar2020 %}, and {% cite Mozilla2020 %} from the perspectives of different organizations using different names.
+
+Essentially, the Lightweight RFC/DD approach is about writing a DD as the review artifact, sharing this document across the organization in some way, and discussing as well as improving the DD - and the system in design - together with the reviewers.
 It is a more informal way of documenting software architecture at a certain point in time {% cite Ubl2020 %} - originally, considered for the design phase but can be applied to any rework of architectural aspects (solution idea) before the actual (code) work is done.
 
 The Lightweight RFC/DD approach is called differently by various authors - sometimes called Lightweight RFC (or only RFC) and sometimes DD approach.

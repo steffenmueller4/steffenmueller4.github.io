@@ -64,10 +64,28 @@ For example, these princilples are that a clearly defined problem statement is r
 
 The review process follows roughly four phases.
 The specific implementation may vary.
-  1. Screening Phase: The project team requests a review. The project staff and ARB review the request to determine whether a review would benefit the project. If a review should be conducted, the ARB selects a review angel to oversee the project’s review process.
-  1. Preparation Phase: The ARB selects a review team and a review leader. Togehter with the project team, they determine the number of reviews and the initial review’s date and agenda. The review team, project team, review leader, and review angel verify that the project that should be reviewed has a clearly defined problem statement driving the architecture and an appropriate documentation as a basis for the review.
-  1. Review Meeting Phase: During the review, the members of the project present the mentioned problem statement and how the proposed architecture solves it. The reviewers ask further questions in order to figure out issues they believe could make the project an incomplete or inadequate solution to the problem. Finally, the review team meets privately and generates a report. The report is presented to the project team. Furthermore, management alerts can be raised.
-  1. Follow-Up Phase: The review team delivers the report with the review’s findings to the project team within certain time frame such as 15 days after the review meetings are done. The project team (and, if a management alert has been raised, the management) must respond within two weeks.
+The process is depicted in the figure below.
+
+![Overview of the "classical" architecture review process](/assets/classical-architecture-review-process-overview.png)
+
+In the Screening phase, the project team requests a review.
+The project staff and ARB review the request to determine whether a review would benefit the project.
+If a review should be conducted, the ARB selects a review angel to oversee the project’s review process.
+
+The next phase is the Preparation phase.
+The ARB selects a review team and a review leader.
+Togehter with the project team, they determine the number of reviews and the initial review’s date and agenda.
+The review team, project team, review leader, and review angel verify that the project that should be reviewed has a clearly defined problem statement driving the architecture and an appropriate documentation as a basis for the review.
+
+In the Review Meeting phase, the project team presents the mentioned problem statement and how the proposed architecture solves it.
+The reviewers ask further questions to figure out issues they believe could make the project an incomplete or inadequate solution to the problem.
+Finally, the review team meets privately and generates a report.
+The report is presented to the project team.
+Furthermore, management alerts can be raised.
+
+The final phase, the Follow-Up Phase, starts with the review team delivering the review report to the project team.
+The report report should be sent to the project team within a certain time frame such as 15 days after the review meetings are done.
+The project team (and, if a management alert has been raised, the management) must respond to the report within two weeks.
 
 ### Artifacts
 
@@ -175,18 +193,14 @@ The ADR can be created as the outcome of the overall architecture design process
 ## Lightweight Request for Comment/Design Document Approach
 
 Another approach is the Lightweight Request for Comment (RFC)/Design Document (DD) approach.
-The approach is sometimes called Lightweight RFC and sometimes DD approach.
-For example, it has been mentioned in the ThoughWorks Tech Radar Vol. 24 trial area as Lightweight RFC approach {% cite ThoughtWorks2021 %}.
-Ubl {% cite Ubl2020 %} and Winters {% cite Winters2020 %} call it DD approach, while Orosz uses both names in {% cite Orosz2020 %} and {% cite Orosz2021 %}.
-Further authors describe the approach from the perspectives of different organizations using slightly different names such as RFCs {% cite Zimmermann2019 %}, Lightweight RFC {% cite Gonchar2020 %}, or RFC Process {% cite Mozilla2020 %}.
+The approach is called differently by various authors - sometimes Lightweight RFC (or only RFC) and sometimes DD.
+Ubl {% cite Ubl2020 %} and Winters et al. {% cite Winters2020 %} describe it from the perspective of Google (called DD).
+Orosz mentions the approach in {% cite Orosz2020 %} and {% cite Orosz2021 %} from the perspective of Uber (called RFC, Lightweight RFC, or DD).
+Zimmermann {% cite Zimmermann2019 %} and Gonchar {% cite Gonchar2020 %} mention it from the perspective of Casper (called RFC) and from eBay (called Lightweight RFC).
+The approach has also been mentioned in the ThoughWorks Tech Radar Vol. 24 trial area as Lightweight RFC approach {% cite ThoughtWorks2021 %}.
 
 Essentially, the Lightweight RFC/DD approach is about writing a DD as the review artifact, sharing this document across the organization, and discussing as well as improving the DD - and the system in design - together with the reviewers.
 It is a more informal way of documenting software architecture at a certain point in time {% cite Ubl2020 %} - originally, considered for the design phase but can be applied to any rework of architectural aspects (solution idea) before the actual (code) work is done.
-
-The Lightweight RFC/DD approach is called differently by various authors - sometimes called Lightweight RFC (or only RFC) and sometimes DD approach.
-Ubl {% cite Ubl2020 %} and Winters et al. {% cite Winters2020 %} describe it from the perspective of Google (called DD).
-Orosz mentions the approach in {% cite Orosz2020 %} and {% cite Orosz2021 %} from the perspective of Uber (called RFC, Lightweight RFC, or DD).
-Zimmermann {% cite Zimmermann2019 %} and Gonchar {% cite Gonchar2020 %} mention it from the perspective of Casper (called RFC) from eBay (called Lightweight RFC).
 
 The approach bases on the strong belief that the community knows more than an individual.
 Thus, the entire developer community at an organization should be included into the design of the systems.

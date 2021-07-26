@@ -51,7 +51,7 @@ The approach considers three primary parties in an architecture review {% cite M
   1. The Architecture Review Board (ARB) which is a standing team that oversees the review process and its effect on the organization.
 
 Moreover, there are further roles in the overall process - depending on the size of the organization and if these roles are required:
-  1. There is a review client which is often the project team. The review client pays for the development or is the architecture review’s sponsor.
+  1. The review client which is often the project team. The review client pays for the development or is the architecture review’s sponsor.
   1. The project members who present the architecture to the review team in the process.
   1. The project management encompasses all the managers responsible for the project’s success.
   1. The review angel is selected by the ARB being responsible to work with the project team addressing any organizational or political issues that may arise.
@@ -59,23 +59,22 @@ Moreover, there are further roles in the overall process - depending on the size
 
 ### Process
 
-The overall review process bases on a few general principles such as a clearly defined problem statement as the basis of the architecture, that reviews are open processes, and that organizations conduct reviews for the project’s or product's benefit (see also: {% cite Maranzano2005 %} for the full list of five principles).
+The overall review process bases on a few general principles.
+For example, these princilples are that a clearly defined problem statement is required as the basis of the architecture, reviews are open processes, and organizations conduct reviews for the project’s or product's benefit (see also: {% cite Maranzano2005 %} for the full list of five principles).
 
 The review process follows roughly four phases.
 The specific implementation may vary.
-  1. Screening Phase: The project team requests a review. The project staff and ARB review the request to determine whether a review would benefit the project. If a review should be conducted, the ARB selects a review angel (see also: previous section) to oversee the project’s review process.
+  1. Screening Phase: The project team requests a review. The project staff and ARB review the request to determine whether a review would benefit the project. If a review should be conducted, the ARB selects a review angel to oversee the project’s review process.
   1. Preparation Phase: The ARB selects a review team and a review leader. Togehter with the project team, they determine the number of reviews and the initial review’s date and agenda. The review team, project team, review leader, and review angel verify that the project that should be reviewed has a clearly defined problem statement driving the architecture and an appropriate documentation as a basis for the review.
-  1. Review Meeting Phase: During the review, the members of the project present the mentioned problem statement and how the proposed architecture solves it. The reviewers ask further questions in order to figure out issues they believe could make the project an incomplete or inadequate solution to the problem. Finally, the review team meets privately and generates a report. The report is presented to the project team. Furthermore, management alerts can be raised, etc.
+  1. Review Meeting Phase: During the review, the members of the project present the mentioned problem statement and how the proposed architecture solves it. The reviewers ask further questions in order to figure out issues they believe could make the project an incomplete or inadequate solution to the problem. Finally, the review team meets privately and generates a report. The report is presented to the project team. Furthermore, management alerts can be raised.
   1. Follow-Up Phase: The review team delivers the report with the review’s findings to the project team within certain time frame such as 15 days after the review meetings are done. The project team (and, if a management alert has been raised, the management) must respond within two weeks.
-
-For more details, we refer to {% cite Maranzano2005 %}.
 
 ### Artifacts
 
-As artifacts, Maranzano et al. mention three different types of artifacts {% cite Maranzano2005 %}:
+Three different types of artifacts are getting created {% cite Maranzano2005 %}:
   1. There are checklists for architects to prepare for the review and checklists for the reviewers to do the review and figure out more of the architecture. The checklists serve as a collection of organizational knowledge and should be maintained.
-  1. There is input to the review. This can be documentation of the system requirements, functional requirements, or informal documentation. Maranzano et al. mention specifically that the architecture should be designed based on a clear problem statement tackling the functional and qualitative requirements, the costs, and the timeline. A document describing these points may be a specific design document or something like that.
-  1. There is output from the review such as the review report, an optional management alert letter, an optional set of issues, etc.
+  1. There is input to the review. This can be documentation of the system requirements, functional requirements, or informal documentation. The architecture should be designed based on a clear problem statement tackling the functional and qualitative requirements, the costs, and the timeline.
+  1. There is output from the review such as the review report, an optional management alert letter, an optional set of issues that the project team has to work on, etc.
 
 ### Conclusion
 
@@ -84,14 +83,14 @@ It is (still) widely used.
 Especially, bigger companies or, at least, companies with dedicated architects often make use of a process explained by Maranzano et al. in some variation.
 
 On the one hand, the formalized process as well as the clear roles within the process help to achieve the goals of architecture reviews.
-Also, there are different options to vary the process in order to, for example, have less parties involved or reduce the overhead.
-In some companies, there is, for instance, no ARB or review team but an architecture guild which is performing architecture reviews instead.
-Another option is to reduce the overhead of the artifacts and, therefore, only give a presentation about the architecture to be reviewed - however, I personally think that there should be a written architecture/design document.
+Also, there are different options to vary the process in order to, for example, have less parties involved.
+In some companies, there is, for instance, no ARB or review team but an architecture guild (see, e.g.: [this article about guilds](https://tech.trivago.com/2016/03/24/team-work-made-simple-with-guilds/)) which is performing architecture reviews instead.
+Another option is to reduce the number of artifacts and only give a presentation about the architecture to be reviewed - however, I personally think that there should be a written architecture/design document.
 
-On the other hand, the formalized process and the overall overhead for the "Classical" Architecture Review process is also often the point to be critizied mostly.
-The overall process makes a lot of overhead for smaller projects or architecture changes which have to be reviewed.
+On the other hand, the formalized process and the overall overhead of the "Classical" Architecture Review process is also often the point to be critizied mostly.
+Running through the overall process, may take too much time for smaller projects or architecture changes which have to be reviewed.
 In the paper, Maranzano et al. mention that the review preparation time may take up to 6 weeks, the review itself between 1 and 5 days.
-So, the overhead can be substantial to an organization in the prototypical form.
+So, the overhead can be substantial to an organization.
 
 In sum, the entire prototypical approach does not appear to be very agile, but there are also ways to improve the overall process.
 Nevertheless, it has the potential to balance architectural as well as political aspects in an organiztion.
@@ -99,7 +98,7 @@ Nevertheless, it has the potential to balance architectural as well as political
 ## Architecture Decision Records
 
 Architecture Decision Records (ADR) were initially proposed by Nygard in 2011 in {% cite Nygard2011 %}.
-Nygard stated that architecture in an agile context has to be described and defined differently.
+Nygard stated that architecture in an agile context has to be described and defined differently in comparison to the practice steming from the times before the agile movement.
 In an agile context, decisions are made step by step alongside the project progress.
 They will not be made at once, they will also not be made when the project begins.
 So, the architecture documentation should also be done incrementally.
@@ -121,7 +120,7 @@ When working with ADR, we can distiguish the following parties:
 ### Process
 
 When there is an architecturally significant decision to be made, the project team, the involved architect, or - in general - persons who are involved in the decision making create an ADR.
-Based on Nygard's proposal, ADR typically contain 5 sections {% cite Nygard2011 %}:
+An ADR typically contains 5 sections {% cite Nygard2011 %}:
   * Title: It is typically describing the architecture decision shortly.
   * Status: May be "Proposed", "Request for Comment", "Accepted", or "Superseded".
   * Context: The reasons of the decision to be made.
@@ -152,8 +151,8 @@ The ADR itself is the only artifact in this prototypical architecture review pro
 Reviews on the ADR should be done on the ADR itself when the ADR is created.
 
 In recent years, different templates have appeared for ADR.
-In {% cite Henderson2021 %}, Henderson gathered different ADR example templates.
-However, ADR can be combined with other ways to document architectures such as Design Documents (see also: Design Document or Lightweight Request for Comment Approach):
+In {% cite Henderson2021 %}, Henderson gathered [different ADR example templates](https://github.com/joelparkerhenderson/architecture-decision-record#adr-example-templates).
+However, ADR can be combined with other ways to document architectures such as Design Documents (see also: Lightweight Request for Comment/Design Document Approach):
 "A decision record should not be used to try and capture all of the information relevant to an architecture or design topic. [...] The creators of an architecture or design should author a document that describes it in detail (whether facilitated by a guild or not)." {% cite Kuenzli2019 %}
 
 ### Conclusion
@@ -177,9 +176,11 @@ The ADR can be created as the outcome of the overall architecture design process
 
 Another approach is the Lightweight Request for Comment (RFC)/Design Document (DD) approach.
 The approach is sometimes called Lightweight RFC and sometimes DD approach.
-It has been mentioned in the ThoughWorks Tech Radar Vol. 24 trial area as Lightweight RFC approach in {% cite ThoughtWorks2021 %} as well as in {% cite Ubl2020 %}, {% cite Winters2020 %}, {% cite Orosz2020 %}, {% cite Orosz2021 %}, {% cite Zimmermann2019 %}, {% cite Gonchar2020 %}, and {% cite Mozilla2020 %} from the perspectives of different organizations using different names.
+For example, it has been mentioned in the ThoughWorks Tech Radar Vol. 24 trial area as Lightweight RFC approach {% cite ThoughtWorks2021 %}.
+Ubl {% cite Ubl2020 %} and Winters {% cite Winters2020 %} call it DD approach, while Orosz uses both names in {% cite Orosz2020 %} and {% cite Orosz2021 %}.
+Further authors describe the approach from the perspectives of different organizations using slightly different names such as RFCs {% cite Zimmermann2019 %}, Lightweight RFC {% cite Gonchar2020 %}, or RFC Process {% cite Mozilla2020 %}.
 
-Essentially, the Lightweight RFC/DD approach is about writing a DD as the review artifact, sharing this document across the organization in some way, and discussing as well as improving the DD - and the system in design - together with the reviewers.
+Essentially, the Lightweight RFC/DD approach is about writing a DD as the review artifact, sharing this document across the organization, and discussing as well as improving the DD - and the system in design - together with the reviewers.
 It is a more informal way of documenting software architecture at a certain point in time {% cite Ubl2020 %} - originally, considered for the design phase but can be applied to any rework of architectural aspects (solution idea) before the actual (code) work is done.
 
 The Lightweight RFC/DD approach is called differently by various authors - sometimes called Lightweight RFC (or only RFC) and sometimes DD approach.
@@ -206,7 +207,7 @@ The interested people should review and discuss the DD and the solution idea to 
 ### Process
 
 Ubl {% cite Ubl2020 %} and Orosz {% cite Orosz2021 %} suggest roughly the following process (see: {% cite Ubl2020 %} and {% cite Orosz2021 %}):
-  1. The team starts with the business problem and brainstorms solution ideas. During that phase, the DD shoud be started and iterated rapidly within the team itself until the solution idea/DD stabilizes.
+  1. The team starts with the business problem and brainstorms solution ideas. During that phase, the DD should be started and iterated rapidly within the team itself until the solution idea/DD stabilizes.
   1. The stable DD should be shared with the organization or, at least, with a wider audience of interested people who review the DD and the solution idea in multiple rounds of feedback.
   1. "When things have progressed sufficiently to have confidence that further reviews are unlikely to require major changes to the design, it is time to begin implementation." {% cite Ubl2020 %}
 

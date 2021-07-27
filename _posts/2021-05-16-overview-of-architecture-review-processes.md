@@ -59,40 +59,36 @@ Moreover, there are further roles in the overall process - depending on the size
 
 ### Process
 
-The overall review process bases on a few general principles.
-For example, these princilples are that a clearly defined problem statement is required as the basis of the architecture, reviews are open processes, and organizations conduct reviews for the project’s or product's benefit (see also: {% cite Maranzano2005 %} for the full list of five principles).
-
-The review process follows roughly four phases.
-The specific implementation may vary.
+The review process follows four phases {% cite Maranzano2005 %}.
 The process is depicted in the figure below.
 
 ![Overview of the "classical" architecture review process](/assets/classical-architecture-review-process-overview.png)
 
-In the Screening phase, the project team requests a review.
+The Screening Phase starts with the project team requesting a review.
 The project staff and ARB review the request to determine whether a review would benefit the project.
 If a review should be conducted, the ARB selects a review angel to oversee the project’s review process.
 
-The next phase is the Preparation phase.
-The ARB selects a review team and a review leader.
+In the Preparation Phase, the ARB selects a review team and a review leader.
 Togehter with the project team, they determine the number of reviews and the initial review’s date and agenda.
-The review team, project team, review leader, and review angel verify that the project that should be reviewed has a clearly defined problem statement driving the architecture and an appropriate documentation as a basis for the review.
+The review team, review leader, project team, and review angel verify that the project which should be reviewed has a clearly defined problem statement (goal) driving the architecture.
+Furthermore, they check for an appropriate documentation as a basis for the review.
 
-In the Review Meeting phase, the project team presents the mentioned problem statement and how the proposed architecture solves it.
-The reviewers ask further questions to figure out issues they believe could make the project an incomplete or inadequate solution to the problem.
-Finally, the review team meets privately and generates a report.
-The report is presented to the project team.
-Furthermore, management alerts can be raised.
+In the Review Meeting Phase, the project team presents the mentioned problem statement and how the proposed architecture solves it.
+The review team asks further questions to figure out issues they believe could make the project an incomplete or inadequate solution to the problem statement.
+Afterwards, the review team meets privately and generates a report which is then presented to the project team.
+Additionally, management alerts can be raised by the review team about problems with the project.
 
-The final phase, the Follow-Up Phase, starts with the review team delivering the review report to the project team.
-The report report should be sent to the project team within a certain time frame such as 15 days after the review meetings are done.
+The final phase, the Follow-Up Phase, starts with the review team delivering the final review report to the project team.
+This should be done within a certain time frame such as 15 days after the review meetings are done.
+The goal of this phase is to address issues that arose from the review.
 The project team (and, if a management alert has been raised, the management) must respond to the report within two weeks.
 
 ### Artifacts
 
 Three different types of artifacts are getting created {% cite Maranzano2005 %}:
   1. There are checklists for architects to prepare for the review and checklists for the reviewers to do the review and figure out more of the architecture. The checklists serve as a collection of organizational knowledge and should be maintained.
-  1. There is input to the review. This can be documentation of the system requirements, functional requirements, or informal documentation. The architecture should be designed based on a clear problem statement tackling the functional and qualitative requirements, the costs, and the timeline.
-  1. There is output from the review such as the review report, an optional management alert letter, an optional set of issues that the project team has to work on, etc.
+  1. There is input to the review. This can be documentation of the system requirements, functional requirements, or informal documentation. The architecture should be designed based on a clear problem statement (goal) tackling the functional and qualitative requirements, the costs, and the timeline.
+  1. There is output from the review such as the review report, an optional management alert letter, an optional set of issues that the project team has to work on.
 
 ### Conclusion
 

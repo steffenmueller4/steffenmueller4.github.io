@@ -41,7 +41,7 @@ In the next sections, we will describe these three different prototypical archit
 
 The "Classical" Architecture Review process is described by Maranzano et al. in a paper based on common architecture review processes at AT&T, Avaya, Lucent, and Millenium Services {% cite Maranzano2005 %}.
 The paper stems from 2005, the idea is based on AT&T's practices from the late 1980s.
-A lot of established companies (still) use this approach in some variation.
+A lot of established organizations (still) use this approach in some variation.
 
 ### Parties
 
@@ -94,11 +94,11 @@ Three different types of artifacts are getting created {% cite Maranzano2005 %}:
 
 The "Classical" Architecture Review process is a well-established and formalized process.
 It is (still) widely used.
-Especially, bigger companies or, at least, companies with dedicated architects often make use of a process explained by Maranzano et al. in some variation.
+Especially, bigger organization or, at least, organizations with dedicated architects often make use of this process in some variation.
 
 On the one hand, the formalized process as well as the clear roles within the process help to achieve the goals of architecture reviews.
 Also, there are different options to vary the process in order to, for example, have less parties involved.
-In some companies, there is, for instance, no ARB or review team but an architecture guild (see, e.g.: [this article about guilds](https://tech.trivago.com/2016/03/24/team-work-made-simple-with-guilds/)) which is performing architecture reviews instead.
+In some organizations, there is, for instance, no ARB or review team but an architecture guild (see, e.g.: [this article about guilds](https://tech.trivago.com/2016/03/24/team-work-made-simple-with-guilds/)) which is performing architecture reviews instead.
 Another option is to reduce the number of artifacts and only give a presentation about the architecture to be reviewed - however, I personally think that there should be a written architecture/design document.
 
 On the other hand, the formalized process and the overall overhead of the "Classical" Architecture Review process is also often the point to be critizied mostly.
@@ -147,6 +147,8 @@ A newly created ADR, then, can be in status "Proposed".
 When you want other to review the ADR, you can set the status to "Request for Comment".
 The ADR can be reviewed by other parties such as other project members, other teams, the (lead) architect, the architecture guild, or persons in the organization who are good in architecture work.
 As soon as the review is done, the ADR status can be changed to "Accepted" and should be stored somewhere at a public location.
+
+![Overview of the Architecture Decision Record review process](/assets/architecture-decision-record-process.png)
 
 ADR can be stored in GIT or in a wiki.
 There are tools for managing ADR in GIT, e.g., [https://github.com/npryce/adr-tools](https://github.com/npryce/adr-tools).

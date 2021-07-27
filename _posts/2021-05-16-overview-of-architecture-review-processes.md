@@ -223,6 +223,8 @@ Ubl {% cite Ubl2020 %} and Orosz {% cite Orosz2021 %} suggest roughly the follow
   1. The stable DD should be shared with the organization or, at least, with a wider audience of interested people who review the DD and the solution idea in multiple rounds of feedback.
   1. "When things have progressed sufficiently to have confidence that further reviews are unlikely to require major changes to the design, it is time to begin implementation." {% cite Ubl2020 %}
 
+![Overview of the Lightweight RFC/DD process](/assets/lightweight-rfc-dd-review-process.png)
+
 ### Artifacts
 
 The entire Lightweight RFC/DD approach is about the DD.

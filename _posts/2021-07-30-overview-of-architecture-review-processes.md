@@ -1,6 +1,6 @@
 ---
 layout: post
-date:   2021-05-29 09:02:08 +0100
+date:   2021-07-30 07:50:08 +0100
 title: "Overview of different Architecture Review Processes"
 categories:
   - Architecture

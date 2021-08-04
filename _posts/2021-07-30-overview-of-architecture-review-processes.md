@@ -230,7 +230,8 @@ Ubl {% cite Ubl2020 %} and Orosz {% cite Orosz2021 %} suggest roughly the follow
 The entire Lightweight RFC/DD approach is about the DD.
 Main goal of the DD is the communication aspect: A DD should identify issues of a solution idea as early as possible in the project lifecycle, help to achieve consensus around a design in the organization, ensure the consideration of cross-cutting concerns, distribute knowledge about solution ideas, and document the solution.
 In order to achieve that, a certain structure has emerged focusing on architecturally important aspects of a solution idea at Google (see, e.g.: {% cite Ubl2020 %}):
-  * Context and Scope Goals and Non-goals
+  * Context and Scope
+  * Goals and Non-goals
   * The actual Design
     * System-context Diagram
     * APIs

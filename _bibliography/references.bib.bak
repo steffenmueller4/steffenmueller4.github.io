@@ -304,32 +304,154 @@
   year   = {2018},
 }
 
-@Electronic{Lewis2014,
-  author   = {James Lewis and Martin Fowler},
-  month    = mar,
-  title    = {Microservices - a definition of this new architectural term},
-  url      = {https://martinfowler.com/articles/microservices.html},
-  year     = {2014},
-  keywords = {Microservices, Fowler},
+@Electronic{Orosz2021,
+  author   = {Gergely Orosz},
+  month    = apr,
+  title    = {Software Architecture is Overrated, Clear and Simple Design is Underrated},
+  url      = {https://blog.pragmaticengineer.com/software-architecture-is-overrated/},
+  year     = {2021},
+  keywords = {Architecture, Software Architecture, Criticism, Architecture Review Process, Design Documents},
 }
 
-@Electronic{Lewis2015,
-  author = {James Lewis},
-  month  = oct,
-  title  = {Presentation at the GOTO Con 2015: Microservices and the inverse Conway manoeuvre},
-  url    = {https://gotocon.com/cph-2015/presentation/Microservices and the inverse Conway manoeuvre},
+@Article{Maranzano2005,
+  author  = {Maranzano, J.F. and Rozsypal, Sandra and Zimmerman, G.H. and Warnken, G.W. and Wirth, P.E. and Weiss, David},
+  journal = {Software, IEEE},
+  title   = {Architecture Reviews: Practice and Experience},
+  year    = {2005},
+  month   = {04},
+  pages   = {34-43},
+  volume  = {22},
+  doi     = {10.1109/MS.2005.28},
+}
+
+@Electronic{Nygard2011,
+  author = {Michael Nygard},
+  month  = nov,
+  title  = {Documenting Architecture Decisions},
+  url    = {https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions},
+  year   = {2011},
+}
+
+@Electronic{ADR2021,
+  author       = {{ADR GitHub organization}},
+  month        = may,
+  organization = {ADR GitHub organization},
+  title        = {adr.github.io - Homepage of the ADR GitHub organization},
+  url          = {https://adr.github.io/},
+  year         = {2021},
+}
+
+@Electronic{Kuenzli2019,
+  author = {Stephen Kuenzli},
+  month  = may,
+  title  = {ADRs are not the only doc in an Architecture process},
+  url    = {https://nodramadevops.com/2019/05/adrs-are-not-the-only-doc-in-an-architecture-process/},
+  year   = {2019},
+}
+
+@Electronic{Ubl2020,
+  author = {Malte Ubl},
+  title  = {Design Docs at Google},
+  url    = {https://www.industrialempathy.com/posts/design-docs-at-google/},
+  year   = {2020},
+}
+
+@Electronic{Orosz2021,
+  author = {Gergely Orosz},
+  month  = apr,
+  title  = {Software Architecture is Overrated, Clear and Simple Design is Underrated},
+  url    = {https://blog.pragmaticengineer.com/software-architecture-is-overrated/},
+  year   = {2021},
+}
+
+@Electronic{Fowler2019,
+  author = {Martin Fowler},
+  month  = aug,
+  title  = {Software Architecture Guide},
+  url    = {https://martinfowler.com/architecture/},
+  year   = {2019},
+}
+
+@Electronic{Ubl2015,
+  author = {Malte Ubl},
+  month  = may,
+  title  = {Design docs - A design doc},
+  url    = {https://www.industrialempathy.com/posts/design-doc-a-design-doc/},
   year   = {2015},
 }
 
-@Book{Newman2019,
-  author    = {Newman, Sam},
-  publisher = {O'Reilly},
-  title     = {Monolith to Microservices},
-  year      = {2019},
-  isbn      = {1492047848},
-  date      = {2019-12-01},
-  ean       = {9781492047841},
-  url       = {https://www.ebook.de/de/product/35455770/sam_newman_monolith_to_microservices.html},
+@Electronic{ThoughtWorks2021,
+  author = {{ThoughtWorks Inc.}},
+  month  = jun,
+  title  = {Technology Radar Volume 24 - Lightweight approach to RFCs},
+  url    = {https://www.thoughtworks.com/radar/techniques?blipid=202104044},
+  year   = {2021},
+}
+
+@Electronic{Orosz2020,
+  author = {Gergely Orosz},
+  month  = aug,
+  title  = {Scaling Engineering Teams via RFCs: Writing Things Down},
+  url    = {https://blog.pragmaticengineer.com/scaling-engineering-teams-via-writing-things-down-rfcs/},
+  year   = {2020},
+}
+
+@Electronic{Zimmermann2019,
+  author = {Carsten Zimmermann},
+  month  = aug,
+  title  = {RFCs: Lightweight Technical Designs},
+  url    = {https://medium.com/caspertechteam/rfcs-lightweight-technical-designs-a508d93ccd34},
+  year   = {2019},
+}
+
+@Book{Winters2020,
+  author    = {Winters, Titus and Manshreck, Tom and Wright, Hyrum},
+  publisher = {O'Reilly UK Ltd.},
+  title     = {Software Engineering at Google: Lessons Learned from Programming Over Time},
+  year      = {2020},
+  isbn      = {978-1492082798},
+  date      = {2020-03-01},
+  ean       = {9781492082798},
+  pagetotal = {583},
+  url       = {https://www.ebook.de/de/product/38080523/titus_winters_tom_manshreck_hyrum_wright_software_engineering_at_google_lessons_learned_from_programming_over_time.html},
+}
+
+@Electronic{Gonchar2020,
+  author       = {Grygoriy Gonchar},
+  month        = apr,
+  organization = {Ebay Tech},
+  title        = {Making healthy technical decisions},
+  url          = {https://ebaytech.berlin/making-healthy-technical-decisions-1f52a2df47a9},
+  year         = {2020},
+}
+
+@Electronic{Mozilla2020,
+  author = {{Mozilla Android Components}},
+  month  = jul,
+  title  = {RFC process},
+  url    = {https://mozac.org/rfc/0001-rfc-process},
+  year   = {2020},
+}
+
+@Electronic{Hohpe2021,
+  author = {Gregor Hohpe},
+  month  = jun,
+  title  = {Would you like architects with your architecture? - Architecting your organization to do architecture with or without architects},
+  url    = {https://architectelevator.com/architecture/organizing-architecture/},
+  year   = {2021},
+}
+
+@Book{Toth2020,
+  author    = {Toth, Stefan},
+  publisher = {Hanser Fachbuchverlag},
+  title     = {Vorgehensmuster für Softwarearchitektur},
+  year      = {2020},
+  isbn      = {978-3446460041},
+  date      = {2020-09-01},
+  ean       = {9783446460041},
+  issn      = {978-3446460041},
+  pagetotal = {308},
+  url       = {https://www.ebook.de/de/product/36685506/stefan_toth_vorgehensmuster_fuer_softwarearchitektur.html},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}

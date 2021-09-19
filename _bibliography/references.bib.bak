@@ -8,4 +8,450 @@
   year = {2021}
 }
 
+@Book{hohpe2020,
+  author    = {Hohpe, Gregor},
+  publisher = {O'Reilly},
+  title     = {The Software Architect Elevator},
+  year      = {2020},
+  isbn      = {9781492077541},
+  date      = {2020-04-24},
+  ean       = {9781492077541},
+  keywords  = {Architecture, Software Architecture, Digital Transformation},
+  pagetotal = {350},
+  url       = {https://www.ebook.de/de/product/38462648/gregor_hohpe_the_software_architect_elevator.html},
+}
+
+@Book{Richards2020,
+  author    = {Richards, Mark and Ford, Neil},
+  publisher = {O'Reilly},
+  title     = {Fundamentals of Software Architecture},
+  year      = {2020},
+  isbn      = {9781492043454},
+  date      = {2020-03-06},
+  ean       = {9781492043454},
+  keywords  = {Software Architecture, Architecture, Architect},
+  url       = {https://www.ebook.de/de/product/35637227/neal_ford_mark_richards_fundamentals_of_software_architecture.html},
+}
+
+@Book{Martin2018,
+  author    = {Martin, Robert C.},
+  publisher = {Prentice Hall},
+  title     = {Clean Architecture},
+  year      = {2017},
+  isbn      = {9780134494166},
+  date      = {2017-09-10},
+  ean       = {9780134494166},
+  pagetotal = {432},
+  url       = {https://www.ebook.de/de/product/26274524/robert_c_martin_clean_architecture.html},
+}
+
+@Book{9781942788331,
+  author    = {Forsgren, Nicole and Humble, Jez and Kim, Gene},
+  publisher = {IT Revolution Press},
+  title     = {Accelerate},
+  year      = {2018},
+  isbn      = {9781942788331},
+  date      = {2018},
+  ean       = {9781942788331},
+  keywords  = {DevOps, Study, High Performing Team},
+  pagetotal = {288},
+  url       = {https://www.ebook.de/de/product/29828802/nicole_forsgren_phd_jez_humble_gene_kim_accelerate.html},
+}
+
+@Electronic{Miller2021,
+  author   = {Miller, Justin},
+  title    = {Path to a Software Architect},
+  url      = {https://github.com/justinamiller/SoftwareArchitect},
+  year     = {2021},
+  keywords = {Software Architecture, Architecture, Architect},
+}
+
+@Book{Evans2003,
+  author    = {Evans, Eric J.},
+  publisher = {Addison Wesley},
+  title     = {Domain-Driven Design},
+  year      = {2003},
+  isbn      = {9780321125217},
+  date      = {2003-08-01},
+  ean       = {9780321125217},
+  pagetotal = {529},
+  url       = {https://www.ebook.de/de/product/3258737/eric_j_evans_domain_driven_design.html},
+}
+
+@Book{Vernon2016,
+  author    = {Vernon, Vaughn},
+  publisher = {Addison Wesley},
+  title     = {Domain-Driven Design Distilled},
+  year      = {2016},
+  isbn      = {9780134434421},
+  date      = {2016-05-23},
+  ean       = {9780134434421},
+  pagetotal = {176},
+  url       = {https://www.ebook.de/de/product/25662445/vaughn_vernon_domain_driven_design_distilled.html},
+}
+
+@Electronic{ConwayUrl2021,
+  author   = {Conway, Melvin},
+  title    = {Conway’s Law},
+  url      = {http://www.melconway.com/Home/Conways_Law.html},
+  year     = {1967},
+  keywords = {Conway's Law, Organization, Software Architecture},
+}
+
+@Electronic{Wolff2020,
+  author   = {Wolff, Eberhard},
+  month    = jun,
+  title    = {Organisation und Architektur},
+  url      = {https://www.youtube.com/watch?v=Too4oMv3Vkc},
+  year     = {2020},
+  keywords = {Organization, Software Architecture, Architecture},
+}
+
+@Electronic{Niklas2018,
+  author = {Niklas, Kai},
+  title  = {Modern Software Architecture (#1): Domain Driven Design},
+  url    = {https://medium.com/modern-software-architecture/modern-software-architecture-1-domain-driven-design-f06fad8695f9},
+  year   = {2018},
+}
+
+@Article{Steinegger2017,
+  author  = {Roland H. Steinegger and Pascal Giessler and Benjamin Hippchen and Sebastian Abeck},
+  journal = {The Thrid International Conference on Advances and Trends in Software Engineering},
+  title   = {Overview of a Domain-Driven Design Approachto Build Microservice-Based Applications},
+  year    = {2017},
+  url     = {https://cm.tm.kit.edu/download/domain_driven_microservice-architecture_17-03-15.pdf},
+}
+
+@Electronic{Ardalis2020,
+  author   = {Steve Smith},
+  month    = aug,
+  title    = {Conway's Law, DDD, and Microservices},
+  url      = {https://ardalis.com/conways-law-ddd-and-microservices/},
+  year     = {2020},
+  keywords = {DDD, Conway's Law,},
+}
+
+@Electronic{Skelton2020,
+  author   = {Matthew Skelton and Manuel Pais},
+  month    = nov,
+  title    = {Conway’s Law - Critical for Efficient Team Design in Tech},
+  url      = {https://itrevolution.com/conways-law-critical-for-efficient-team-design-in-tech/},
+  year     = {2020},
+  keywords = {Conway's Law, Organization},
+}
+
+@Article{Herbsleb1999,
+  author    = {James Herbsleb and Rebecca Grinter},
+  journal   = {IEEE software},
+  title     = {Architectures, coordination, and distance: Conway's law and beyond},
+  year      = {1999},
+  number    = {5},
+  pages     = {63--70},
+  volume    = {16},
+  publisher = {IEEE},
+  url       = {http://www.cs.cmu.edu/afs/cs/Web/People/jdh/collaboratory/research_papers/IEEE99_final.pdf},
+}
+
+@Book{Skelton2019,
+  author    = {Matthew Skelton and Manuel Pais},
+  publisher = {It Revolution Press},
+  title     = {Team Topologies - Organizing Business and Technology Teams for Fast Flow},
+  year      = {2019},
+  isbn      = {9781942788812},
+  date      = {2019-09-07},
+  ean       = {9781942788812},
+  pagetotal = {240},
+  url       = {https://www.ebook.de/de/product/35368508/matthew_skelton_manuel_pais_team_topologies.html},
+}
+
+@Article{Parnas1972,
+  author     = {Parnas, David L.},
+  journal    = {Commun. ACM},
+  title      = {On the Criteria to Be Used in Decomposing Systems into Modules},
+  year       = {1972},
+  issn       = {0001-0782},
+  month      = dec,
+  number     = {12},
+  pages      = {1053–1058},
+  volume     = {15},
+  abstract   = {This paper discusses modularization as a mechanism for improving the flexibility and comprehensibility of a system while allowing the shortening of its development time. The effectiveness of a “modularization” is dependent upon the criteria used in dividing the system into modules. A system design problem is presented and both a conventional and unconventional decomposition are described. It is shown that the unconventional decompositions have distinct advantages for the goals outlined. The criteria used in arriving at the decompositions are discussed. The unconventional decomposition, if implemented with the conventional assumption that a module consists of one or more subroutines, will be less efficient in most cases. An alternative approach to implementation which does not have this effect is sketched.},
+  address    = {New York, NY, USA},
+  doi        = {10.1145/361598.361623},
+  issue_date = {Dec. 1972},
+  keywords   = {software design, modularity, KWIC index, software engineering, software, modules},
+  numpages   = {6},
+  publisher  = {Association for Computing Machinery},
+  url        = {https://doi.org/10.1145/361598.361623},
+}
+
+@InProceedings{Herbsleb1999a,
+  author    = {Herbsleb, James D. and Grinter, Rebecca E.},
+  booktitle = {Proceedings of the 21st International Conference on Software Engineering},
+  title     = {Splitting the Organization and Integrating the Code: Conway's Law Revisited},
+  year      = {1999},
+  address   = {New York, NY, USA},
+  pages     = {85–95},
+  publisher = {Association for Computing Machinery},
+  series    = {ICSE '99},
+  doi       = {10.1145/302405.302455},
+  isbn      = {1581130740},
+  keywords  = {coordination, systems integration, collaboration, qualitative research},
+  location  = {Los Angeles, California, USA},
+  numpages  = {11},
+  url       = {http://www.cs.cmu.edu/afs/cs.cmu.edu/Web/People/jdh/collaboratory/research_papers/ICSE99.pdf},
+}
+
+@Article{MacCormack2012,
+  author    = {MacCormack, Alan and Baldwin, Carliss and Rusnak, John},
+  journal   = {Research Policy},
+  title     = {Exploring the duality between product and organizational architectures: A test of the “mirroring” hypothesis},
+  year      = {2012},
+  number    = {8},
+  pages     = {1309--1324},
+  volume    = {41},
+  publisher = {Elsevier},
+  url       = {http://www.hbs.edu/research/pdf/08-039.pdf},
+}
+
+@Electronic{ThoughtWorks2015InverseConway,
+  author   = {ThoughtWorks},
+  month    = jul,
+  title    = {Inverse Conway Maneuver},
+  url      = {https://www.thoughtworks.com/radar/techniques/inverse-conway-maneuver},
+  year     = {2014},
+  keywords = {Inverse Conway Maneuver, Conway's Law, Organization, Architecture},
+}
+
+@Electronic{Bloomberg2015,
+  author   = {Jason Bloomberg},
+  month    = jun,
+  title    = {DevOps Insights into Conway’s Law},
+  url      = {https://intellyx.com/2015/06/22/devops-insights-into-conways-law/},
+  year     = {2015},
+  keywords = {Conway's Law, DevOps, Inverse Conway Maneuver},
+}
+
+@Electronic{Leroy2010,
+  author   = {Jonny Leroy and Matt Simons},
+  month    = dec,
+  title    = {Dealing with creaky legacy platforms},
+  url      = {http://jonnyleroy.com/2011/02/03/dealing-with-creaky-legacy-platforms/},
+  year     = {2010},
+  keywords = {Inverse Conway Maneuver},
+}
+
+@Electronic{Fowler2014,
+  author   = {Martin Fowler},
+  month    = jan,
+  title    = {Bounded Context},
+  url      = {https://martinfowler.com/bliki/BoundedContext.html},
+  year     = {2014},
+  keywords = {DDD, Domain-driven Design, Bounded Context},
+}
+
+@Electronic{Brandolini2009,
+  author = {Alberto Brandolini},
+  month  = nov,
+  title  = {Strategic Domain Driven Design with Context Mapping},
+  url    = {https://www.infoq.com/articles/ddd-contextmapping/},
+  year   = {2009},
+}
+
+@Electronic{Lane2020,
+  author   = {Matt Lane},
+  month    = jun,
+  title    = {How to Structure Teams for Building Better Software Products - Team Topologies Book Summary},
+  url      = {https://medium.com/swlh/how-to-structure-teams-for-building-better-software-products-91e4dea021d},
+  year     = {2020},
+  keywords = {Team Topologies, Software, Organization},
+}
+
+@Electronic{Skelton2019a,
+  author   = {Matthew Skelton and Manuel Pais},
+  month    = sep,
+  title    = {Monoliths vs Microservices is Missing the Point—Start with Team Cognitive Load},
+  url      = {https://itrevolution.com/team-cognitive-load-team-topologies/},
+  year     = {2019},
+  keywords = {Team Topologies, Team Cognitive Load},
+}
+
+@Electronic{Skelton2019b,
+  author    = {Matthew Skelton and Manuel Pais},
+  month     = jul,
+  title     = {Monoliths vs Microservices is Missing the Point—Start with Team Cognitive Load - Team Topologies},
+  url       = {https://www.youtube.com/watch?v=haejb5rzKsM},
+  year      = {2019},
+  timestamp = {2021-05-15},
+}
+
+@Book{Cagan2017,
+  author    = {Cagan, Marty},
+  publisher = {Wiley},
+  title     = {INSPIRED - How to Create Tech Products Customers Love},
+  year      = {2017},
+  isbn      = {978-1119387503},
+  date      = {2017-12-27},
+  ean       = {9781119387503},
+  pagetotal = {368},
+  url       = {https://www.ebook.de/de/product/29451374/marty_cagan_inspired.html},
+}
+
+@Electronic{Choi2018,
+  author = {Janet Choi},
+  month  = dec,
+  title  = {Why Jeff Bezos’ Two-Pizza Team Rule Still Holds True in 2018},
+  url    = {http://blog.idonethis.com/two-pizza-team/},
+  year   = {2018},
+}
+
+@Electronic{Orosz2021,
+  author   = {Gergely Orosz},
+  month    = apr,
+  title    = {Software Architecture is Overrated, Clear and Simple Design is Underrated},
+  url      = {https://blog.pragmaticengineer.com/software-architecture-is-overrated/},
+  year     = {2021},
+  keywords = {Architecture, Software Architecture, Criticism, Architecture Review Process, Design Documents},
+}
+
+@Article{Maranzano2005,
+  author  = {Maranzano, J.F. and Rozsypal, Sandra and Zimmerman, G.H. and Warnken, G.W. and Wirth, P.E. and Weiss, David},
+  journal = {Software, IEEE},
+  title   = {Architecture Reviews: Practice and Experience},
+  year    = {2005},
+  month   = {04},
+  pages   = {34-43},
+  volume  = {22},
+  doi     = {10.1109/MS.2005.28},
+}
+
+@Electronic{Nygard2011,
+  author = {Michael Nygard},
+  month  = nov,
+  title  = {Documenting Architecture Decisions},
+  url    = {https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions},
+  year   = {2011},
+}
+
+@Electronic{ADR2021,
+  author       = {{ADR GitHub organization}},
+  month        = may,
+  organization = {ADR GitHub organization},
+  title        = {adr.github.io - Homepage of the ADR GitHub organization},
+  url          = {https://adr.github.io/},
+  year         = {2021},
+}
+
+@Electronic{Kuenzli2019,
+  author = {Stephen Kuenzli},
+  month  = may,
+  title  = {ADRs are not the only doc in an Architecture process},
+  url    = {https://nodramadevops.com/2019/05/adrs-are-not-the-only-doc-in-an-architecture-process/},
+  year   = {2019},
+}
+
+@Electronic{Ubl2020,
+  author = {Malte Ubl},
+  title  = {Design Docs at Google},
+  url    = {https://www.industrialempathy.com/posts/design-docs-at-google/},
+  year   = {2020},
+}
+
+@Electronic{Orosz2021,
+  author = {Gergely Orosz},
+  month  = apr,
+  title  = {Software Architecture is Overrated, Clear and Simple Design is Underrated},
+  url    = {https://blog.pragmaticengineer.com/software-architecture-is-overrated/},
+  year   = {2021},
+}
+
+@Electronic{Fowler2019,
+  author = {Martin Fowler},
+  month  = aug,
+  title  = {Software Architecture Guide},
+  url    = {https://martinfowler.com/architecture/},
+  year   = {2019},
+}
+
+@Electronic{Ubl2015,
+  author = {Malte Ubl},
+  month  = may,
+  title  = {Design docs - A design doc},
+  url    = {https://www.industrialempathy.com/posts/design-doc-a-design-doc/},
+  year   = {2015},
+}
+
+@Electronic{ThoughtWorks2021,
+  author = {{ThoughtWorks Inc.}},
+  month  = jun,
+  title  = {Technology Radar Volume 24 - Lightweight approach to RFCs},
+  url    = {https://www.thoughtworks.com/radar/techniques?blipid=202104044},
+  year   = {2021},
+}
+
+@Electronic{Orosz2020,
+  author = {Gergely Orosz},
+  month  = aug,
+  title  = {Scaling Engineering Teams via RFCs: Writing Things Down},
+  url    = {https://blog.pragmaticengineer.com/scaling-engineering-teams-via-writing-things-down-rfcs/},
+  year   = {2020},
+}
+
+@Electronic{Zimmermann2019,
+  author = {Carsten Zimmermann},
+  month  = aug,
+  title  = {RFCs: Lightweight Technical Designs},
+  url    = {https://medium.com/caspertechteam/rfcs-lightweight-technical-designs-a508d93ccd34},
+  year   = {2019},
+}
+
+@Book{Winters2020,
+  author    = {Winters, Titus and Manshreck, Tom and Wright, Hyrum},
+  publisher = {O'Reilly UK Ltd.},
+  title     = {Software Engineering at Google: Lessons Learned from Programming Over Time},
+  year      = {2020},
+  isbn      = {978-1492082798},
+  date      = {2020-03-01},
+  ean       = {9781492082798},
+  pagetotal = {583},
+  url       = {https://www.ebook.de/de/product/38080523/titus_winters_tom_manshreck_hyrum_wright_software_engineering_at_google_lessons_learned_from_programming_over_time.html},
+}
+
+@Electronic{Gonchar2020,
+  author       = {Grygoriy Gonchar},
+  month        = apr,
+  organization = {Ebay Tech},
+  title        = {Making healthy technical decisions},
+  url          = {https://ebaytech.berlin/making-healthy-technical-decisions-1f52a2df47a9},
+  year         = {2020},
+}
+
+@Electronic{Mozilla2020,
+  author = {{Mozilla Android Components}},
+  month  = jul,
+  title  = {RFC process},
+  url    = {https://mozac.org/rfc/0001-rfc-process},
+  year   = {2020},
+}
+
+@Electronic{Hohpe2021,
+  author = {Gregor Hohpe},
+  month  = jun,
+  title  = {Would you like architects with your architecture? - Architecting your organization to do architecture with or without architects},
+  url    = {https://architectelevator.com/architecture/organizing-architecture/},
+  year   = {2021},
+}
+
+@Book{Toth2020,
+  author    = {Toth, Stefan},
+  publisher = {Hanser Fachbuchverlag},
+  title     = {Vorgehensmuster für Softwarearchitektur},
+  year      = {2020},
+  isbn      = {978-3446460041},
+  date      = {2020-09-01},
+  ean       = {9783446460041},
+  issn      = {978-3446460041},
+  pagetotal = {308},
+  url       = {https://www.ebook.de/de/product/36685506/stefan_toth_vorgehensmuster_fuer_softwarearchitektur.html},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

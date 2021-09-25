@@ -12,9 +12,11 @@ categories:
 published: true
 ---
 How does the organization influence the software architecture and vice versa?
-How do we best tailor our organization and teams as well as build a proper software architecture?
-There are different theories and approaches such as Conway's Law, the Inverse Conway Maneuver, Domain-driven Design (DDD), and the Team Topologies approach.
-In this article, we discuss Conway's Law, the Inverse Conway Maneuver, DDD, and the Team Topologies approach and how these theories and approaches can be used to explain those interdependencies.
+How do we best tailor our software organization, i.e., the different teams and their relations between each other?
+Does it work when we design an organization and think of the software architecture in a later step?
+There are different theories and approaches which can help you to think about your organization in general such as Conway's Law, the Inverse Conway Maneuver, Domain-driven Design (DDD) with its strategic design, and the Team Topologies approach.
+What approach does what?
+In this article, we discuss Conway's Law, the Inverse Conway Maneuver, DDD, and the Team Topologies approach and how these theories and approaches can be used to explain those interdependencies and what can help you to design your organisation.
 
 ## Conway's Law
 

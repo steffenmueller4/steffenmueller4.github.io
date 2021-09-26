@@ -1,22 +1,29 @@
 ---
 layout: post
 date:   2021-08-15 07:47:08 +0100
-title: "Interdependencies between Organization and Software Architecture"
+title: "How to best structure your Organization? - Interdependencies between Organization and Software Architecture"
 categories:
   - Architecture
   - Organization
-  - Conway's Law
-  - Inverse Conway Maneuver
-  - Domain-driven Design
-  - Team Topologies Approach
 published: true
 ---
+As an architect or engineering manager, you are often facing situations where you realize interdependencies between your organization and software architecture.
 How does the organization influence the software architecture and vice versa?
-How do we best tailor our software organization, i.e., the different teams and their relations between each other?
-Does it work when we design an organization and think of the software architecture in a later step?
-There are different theories and approaches which can help you to think about your organization in general such as Conway's Law, the Inverse Conway Maneuver, Domain-driven Design (DDD) with its strategic design, and the Team Topologies approach.
-What approach does what?
-In this article, we discuss Conway's Law, the Inverse Conway Maneuver, DDD, and the Team Topologies approach and how these theories and approaches can be used to explain those interdependencies and what can help you to design your organisation.
+In this series of three articles, we discuss different approaches to describe those interdependencies between  organization and software architecture.
+We will have a look at Conway's Law, the Inverse Conway Maneuver, Domain-driven Design (DDD), and the Team Topologies approach and how these approaches can be used to explain those interdependencies and help you to design your organisation or software architecture.
+
+## Introduction
+
+Recently, I was, as an architect, involved in a project where two teams had to closely work together to build up a brand new strategical application.
+The first team was a support team that maintained core data required as input for the purposes of the new application that the second should build and maintain.
+Unfortunately, both teams - including me ;-) - had different ideas of the overall software architecture.
+There were different architecture proposals leading to different degrees of dependencies between those two teams.
+One architecture proposal was about to intertwine both teams in a way that both teams would have to be merged as otherwise major inefficiencies would arise.
+Another architecture proposal considered both teams to stay independent but required to change the overall process of data management.
+What architecture should we choose?
+
+Another example stems from my time as an engineering manager.
+I was building up a new organizational unit which should build a new application.
 
 ## Conway's Law
 

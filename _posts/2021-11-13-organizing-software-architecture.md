@@ -1,11 +1,11 @@
 ---
 layout: post
-date:   2021-05-29 09:02:08 +0100
-title: "Overview of different Architecture Review Processes"
+date:   2021-11-13 11:21:50 +0100
+title: "Organizing Software Architecture"
 categories:
   - Architecture
   - Organization
-  - Architecture Review Process
+  - Documentation
 published: true
 ---
 Recently, I was asked about what software architecture review processes exist in order to better steer architecture.

@@ -10,33 +10,19 @@ published: true
 As an architect or engineering manager, you are often facing situations where you realize interdependencies between your organization and software architecture.
 What team should maintain a specific component within a larger architecture or organization?
 How to (re-)structure teams when facing a bigger architecture rework or a new project?
-In this series of three articles, we discuss different approaches to describe those interdependencies between organization and software architecture.
-We will have a look at Conway's Law, the Inverse Conway Maneuver, Domain-driven Design (DDD), and the Team Topologies approach and how these approaches can be used to explain those interdependencies and help you to design your organisation or software architecture.
+This is part V within a series of five articles where we discuss different approaches to describe those interdependencies between organization and software architecture.
+In this part, we will summarize and conclude the previous parts about Conway's Law, the Inverse Conway Maneuver, Domain-driven Design (DDD), and the Team Topologies approach.
+When an in what situation do the different approaches help?
 
 ## Introduction
 
-Domain-driven Design (DDD).
+TODO Describe in short:
+ * Conway's Law
+ * Inverse Conway Maneuvre
+ * Domain-driven Design (DDD)
+ * Team Topologies approach
 
-## Domain-driven Design
-
-Besides Conway's Law and the Inverse Conway Maneuver, also Domain-driven Design (DDD) can be used to explain the interdependencies between organization and architecture.
-Originally developed by Eric Evans in the 2000er years (see also: {% cite Evans2003 %}), DDD is about designing software based on models of the domain.
-The domain models, therefore, act as a Ubiquitious Language and as a conceptual foundation for the design of the software {% cite Fowler2014 %}.
-
-When building microservices, a very important thing is to find the right scope for these microservices.
-Overlapping or unknown domains as well as unclear interrelationships between teams are often the underlying reasons of problems with microservices.
-Here, Domain-driven Design (DDD) is considered to be a "tool" which can help (see also: {% cite Newman2019 %}).
-
-A central pattern in DDD is the Bounded Context.
-Bounded Contexts encapsulate a certain set of assumptions, a common Ubiquitous Language, and a particular domain model in a coherent environment.
-Via Bounded Contexts, the software can be divided into smaller parts with clear boundaries and interfaces between each other.
-
-DDD, furthermore, tries to define the interfaces between those smaller parts - so, relationships between Bounded Contexts - in a variety of ways {% cite Fowler2014 %} (see also: {% cite Brandolini2009 %}).
-Via so-called Context Mapping,
-
-...TODO...
-
-In a nutshell, DDD can help to map interdependencies between organization and software architecture and, thus, to tailor organizations, teams, and software.
+## Limits
 
 ## Conclusion
 

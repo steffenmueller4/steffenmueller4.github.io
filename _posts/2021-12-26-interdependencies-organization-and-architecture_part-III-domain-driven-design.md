@@ -11,8 +11,8 @@ published: true
 As an architect or engineering manager, you are often facing situations where you realize interdependencies between your organization and software architecture.
 What team should maintain a specific component within a larger architecture or organization?
 How to (re-)structure teams when facing a bigger architecture rework or a new project?
-In this series of three articles, we discuss different approaches to describe those interdependencies between organization and software architecture.
-We will have a look at Conway's Law, the Inverse Conway Maneuver, Domain-driven Design (DDD), and the Team Topologies approach and how these approaches can be used to explain those interdependencies and help you to design your organisation or software architecture.
+This is part III within a series of five articles where we discuss different approaches to describe those interdependencies between organization and software architecture.
+It is about Domain-driven Design (DDD) an approach invented by Evans in his book "Domain-driven Design" in 2003.
 
 ## Introduction
 

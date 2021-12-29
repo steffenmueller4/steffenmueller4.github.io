@@ -10,7 +10,7 @@ published: true
 As an architect or engineering manager, you are often facing situations where you realize interdependencies between your organization and software architecture.
 What team should maintain a specific component within a larger architecture or organization?
 How to (re-)structure teams when facing a bigger architecture rework or a new project?
-This is part V within a series of five articles where we discuss different approaches to describe those interdependencies between organization and software architecture.
+This is part V within a [series of five articles]({% post_url 2021-12-26-interdependencies-organization-and-architecture_part-I-overview %}) (see also: [part IV]({% post_url 2021-12-26-interdependencies-organization-and-architecture_part-IV-team-topologies-approach %})) where we discuss different approaches to describe those interdependencies between organization and software architecture.
 In this part, we will summarize and conclude the previous parts about Conway's Law, the Inverse Conway Maneuver, Domain-driven Design (DDD), and the Team Topologies approach.
 When an in what situation do the different approaches help?
 

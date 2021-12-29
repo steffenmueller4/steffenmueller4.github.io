@@ -11,7 +11,7 @@ published: true
 As an architect or engineering manager, you are often facing situations where you realize interdependencies between your organization and software architecture.
 What team should maintain a specific component within a larger architecture or organization?
 How to (re-)structure teams when facing a bigger architecture rework or a new project?
-This is part II within the series of five articles where we discuss different approaches to describe those interdependencies between organization and software architecture.
+This is part II within a [series of five articles]({% post_url 2021-12-26-interdependencies-organization-and-architecture_part-I-overview %}) where we discuss different approaches to describe those interdependencies between organization and software architecture.
 It is about Conway's Law and the Inverse Conway Maneuver.
 
 ## Introduction
@@ -42,7 +42,7 @@ Then, "architecture, plans, and processes are all vital coordination mechanisms 
 
 In 2007/2012, MacCormack, Baldwin, and Rusnak published a study where they investigated about the validity of Conway's Law {% cite MacCormack2012 %}.
 In their study, they compared open source projects and communities with commercial product development teams.
-Based on Conway's Law, they assumed open source software (OSS) products to be more modular than commercial software products, because OSS products are developed in "loosely-coupled" organizational units and often do not have formal organisation structures to govern development activities.
+Based on Conway's Law, they assumed open source software (OSS) products to be more modular than commercial software products, because OSS products are developed in "loosely-coupled" organizational units and often do not have formal organization structures to govern development activities.
 Subject of their investigations were 12 products where MacCormack, Baldwin, and Rusnak build pairs of similar products such as [GnuCash 1.8.4](https://www.gnucash.org) vs. MyBooks in the category of financial management software, [AbiWord](https://www.abisource.com/) vs. StarWriter (see also: [StarOffice](https://de.wikipedia.org/wiki/StarOffice#Versionen)) in the category of word processing, Linux 2.1.32 vs. Solaris in the first of two categories of operating systems, etc.
 Based on their analysis, they found strong evidence that the "[...] product's architecture tends to mirror the structure
 of the organization in which it is developed [...]" {% cite MacCormack2012 %} and, thus, Conway's Law holds true oftentimes.
@@ -67,7 +67,7 @@ Later on, the idea of the Inverse Conway Maneuver became more popular when micro
 For example, James Lewis, Technical Director at Thoughtworks, used the term Inverse Conway Maneuver in his talk at the Goto Con 2015 {% cite Lewis2015 %} (see also: {% cite Lewis2014 %}).
 Microservices should be designed "[...] as suites of independently deployable services [...]" and built "[...] around business capability, automated deployment, intelligence in the endpoints, and decentralized control of languages and data." {% cite Lewis2014 %}
 Teams that build and maintain microservices should be cross-functional and organized around products - not projects - that are aligned with the customer.
-To achieve that, the organisation should to be chunked up "[...] from team to value stream to line of business to organisation [...]" {% cite Lewis2015 %} - so, the Inverse Conway Maneuver.
+To achieve that, the organization should to be chunked up "[...] from team to value stream to line of business to organization [...]" {% cite Lewis2015 %} - so, the Inverse Conway Maneuver.
 
 While nearly every company builds architectures based on the Microservices architecture style nowadays, still not everybody has understood that organization and architecture cannot be changed isolated.
 

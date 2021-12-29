@@ -11,7 +11,7 @@ published: true
 As an architect or engineering manager, you are often facing situations where you realize interdependencies between your organization and software architecture.
 What team should maintain a specific component within a larger architecture or organization?
 How to (re-)structure teams when facing a bigger architecture rework or a new project?
-This is part IV within a series of five articles where we discuss different approaches to describe those interdependencies between organization and software architecture.
+This is part IV within a [series of five articles]({% post_url 2021-12-26-interdependencies-organization-and-architecture_part-I-overview %}) (see also: [part III]({% post_url 2021-12-26-interdependencies-organization-and-architecture_part-III-domain-driven-design %})) where we discuss different approaches to describe those interdependencies between organization and software architecture.
 It is about the Team Topologies approach initially described by Skelton and Pais in their book "Team Topologies" in 2019.
 
 ## Introduction

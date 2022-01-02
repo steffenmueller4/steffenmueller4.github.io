@@ -18,21 +18,19 @@ We will have a look at [Conway's Law and the Inverse Conway Maneuver]({% post_ur
 Recently, I have read Marianne Bellotti's post about [hunting tech debt via org charts](https://bellmar.medium.com/hunting-tech-debt-via-org-charts-92df0b253145).
 And... unfortunately, I have to say: yes, I observed similar things, too.
 From my work experience in consulting, in the public sector, and in several product-focussed companies, I have to back her in her observations that there is common tech debt stemming from different organization setup.
-The organization setup drives and shapes the incentive structure and, therefore, the entire technical setup such as the communication structure of teams as well as the architecture based on the day to day work in the organzation.
-It simply drives what the organization is prioritizing.
 
-In this series of five articles, I will try to explain you why I think that Marianne Bellotti is right that there is typical tech debt arising from the different organization structures.
-I will try to give you examples from my work experience.
-Additionally, I will try to describe the backgrounds why there are strong interdependencies between organization and architecture and, thus, piling up different problems.
-
-But first let's look at Marianne Bellotti's post in more detail.
 In her post, Marianne Bellotti writes about blowing "[...] peoples’ minds with a fairly simple party trick." {%cite Bellotti2021 %}
 She writes about being able to predict several key details of organization's problems only by looking at people's titles meeting her for talking about legacy modernization and by looking at the organzation chart of a the company.
-The core reason is that "the types of problems organizations have are heavily influenced by their incentive structure and the easiest way to figure out their incentive structure is by looking at the org chart." {%cite Bellotti2021 %}
-The incentive structure is driving and shaping the organization, because it drives and shapes what the organization prioritizes in the day to day work and how people in the organization get ahead.
+She explains the core reasons in the fact that "the types of problems organizations have are heavily influenced by their incentive structure and the easiest way to figure out their incentive structure is by looking at the org chart." {%cite Bellotti2021 %}
+The incentive structure is driving and shaping the organization, because it simply drives and shapes what the organization prioritizes in the day to day work and how people in the organization get ahead.
 In the day to day work, then the tech debt is going to accrue {%cite Bellotti2021 %}.
 
+In the post, Marianne Bellotti gives several examples of such technical debt.
+The first example is the "Engineering First Organizations" where the engineering team accrues technical debt in introducing unnecessary complexity via abstractions.
+The second example is the "Engineering Reports To Product Organizations" where product dominates tech and is typically priorizing features over reducing technical debt {%cite Bellotti2021 %}.
 
+Similar mechanisms appear when it comes to software architecture.
+The organization structure is shaping the architecture of 
 
 ## Examples from my Work Experience
 

@@ -19,20 +19,31 @@ Recently, I have read Marianne Bellotti's post about [hunting tech debt via org 
 And... yes, I observed similar things in my work experience.
 After working as an IT consultant in the public sector, as a research associate in big a research project, and in several product-focussed companies in various roles, I can definitely back Marianne Bellotti's observations that there is common tech debt stemming from different organization setup.
 
-Marianne Bellotti writes about being able to predict several key details of organization's problems by looking at people's titles meeting her for talking about legacy modernization and by looking at the organzation chart of the company.
-She, furthermore, explains that "the types of problems organizations have are heavily influenced by their incentive structure and the easiest way to figure out their incentive structure is by looking at the org chart." {%cite Bellotti2021 %}
+Marianne Bellotti writes about being able to predict several key details of organization's problems by just looking at people's titles meeting her for talking about legacy modernization and by looking at the organzation chart of the company.
+She, furthermore, explains that "[...] the types of problems organizations have are heavily influenced by their incentive structure and the easiest way to figure out their incentive structure is by looking at the org chart." {%cite Bellotti2021 %}
 The incentive structure is driving and shaping the organization, because it drives and shapes what the organization prioritizes in the day to day work and how people in the organization get ahead.
 The tech debt is then going to accrue in the day to day work of people in the organization due to their priorities {%cite Bellotti2021 %}.
 
-Similar mechanisms appear when it comes to organization and software architecture.
-The organization structure is shaping the architecture in various ways.
-When, for example, two teams are architecting a new solution, they will typically come up with at least two independent components.
-This seems to be quite natural.
-However, when you consider this from an 
-As the organization is driven by the incentive structure, this, in turn, also falls back to the architecture.
-In the following parts, I will give you different approaches that describe the interdepencies 
+Similar mechanisms emerge when it comes to the interdependencies between organization and software architecture.
+The organization structure is shaping the system's architecture of a company's IT in various ways.
+When, for example, two teams are architecting a new solution, they will typically come up with at least two independent components within the architecture.
+From such an architecture, different architecture challenges may arise in the future which you can also predict when you know about the mechanisms laying behind.
+Initially, this architecture may work well, but when team priorities or even the organization changes, the architecture may be difficult to be maintained.
+I will give examples about that in the next section of this article.
+The mechanisms behind that are well described in Conway's Law which we are going to tackle in [part II of this article series]({% post_url 2021-12-26-interdependencies-organization-and-architecture_part-II-conway %}).
 
-## Examples from my Work Experience
+In general, there are strong dependencies between organization and architecture.
+The organization is driven by the incentive structure, this, in turn, also falls back to the architecture.
+In the following parts, I will give you different approaches that describe the interdepencies between organization and architecture.
+In the next section, I will first give you some examples about those interdepencies.
+
+## Examples from the Real World
+
+### Organization Changes Frequently and the Architecture Decays
+
+TODO: trv example...
+
+### Architecture Determines the Relationship of Two Teams
 
 As an architect, I was involved in a strategical project where two teams should develop a brand new solution to model terraces, fences, etc. in the garden.
 From that model of the terrace, fences, etc., the application ought to derive the construction plan and the bill of material, so the terraces, fences, etc. could be constructed.

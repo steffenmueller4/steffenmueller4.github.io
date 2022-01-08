@@ -71,58 +71,7 @@ To achieve that, the organization should to be chunked up "[...] from team to va
 
 While nearly every company builds architectures based on the Microservices architecture style nowadays, still not everybody has understood that organization and architecture cannot be changed isolated.
 
-## Domain-driven Design
-
-Besides Conway's Law and the Inverse Conway Maneuver, also Domain-driven Design (DDD) can be used to explain the interdependencies between organization and architecture.
-Originally developed by Eric Evans in the 2000er years (see also: {% cite Evans2003 %}), DDD is about designing software based on models of the domain.
-The domain models, therefore, act as a Ubiquitious Language and as a conceptual foundation for the design of the software {% cite Fowler2014 %}.
-
-When building microservices, a very important thing is to find the right scope for these microservices.
-Overlapping or unknown domains as well as unclear interrelationships between teams are often the underlying reasons of problems with microservices.
-Here, Domain-driven Design (DDD) is considered to be a "tool" which can help (see also: {% cite Newman2019 %}).
-
-A central pattern in DDD is the Bounded Context.
-Bounded Contexts encapsulate a certain set of assumptions, a common Ubiquitous Language, and a particular domain model in a coherent environment.
-Via Bounded Contexts, the software can be divided into smaller parts with clear boundaries and interfaces between each other.
-
-DDD, furthermore, tries to define the interfaces between those smaller parts - so, relationships between Bounded Contexts - in a variety of ways {% cite Fowler2014 %} (see also: {% cite Brandolini2009 %}).
-Via so-called Context Mapping,
-
-...TODO...
-
-In a nutshell, DDD can help to map interdependencies between organization and software architecture and, thus, to tailor organizations, teams, and software.
-
-## Team Topology Approach
-
-In 2019, Skelton and Pais described another approach focusing on the interdependencies between the organization and software architecture {% cite Skelton2019 %}: the Team Topology approach (see also: Skelton's and Pais' talk at the DevOps Enterprise Summit 2019 at {% cite Skelton2019b %} and the corresponding blog entry at {% cite Skelton2019a %}).
-The Team Topology approach focuses on the team and the "team's cognitive load" before tailoring and defining the organization, application boundaries, and architectures from a technical perspective or domain perspective.
-Thus, it is a socio-technical approach to building software systems (see also: {% cite Lane2020 %}).
-
-Thereby, the team's cognitive load means "[...] the total amount of mental effort being used in the working memory" {% cite Skelton2019a %}.
-For cognitive load, we can distinguish between intrinsic, extraneous, and germane cognitive load.
-In a software engineering context, intrinsic can be understood as skills that a team member needs to have.
-It "[...] comes naturally and becomes an intrinsic part of how we work." {% cite Skelton2019a %}
-Extraneous, however, is something working against what we are doing that is effectively valueless.
-You can consider it as the "[...] mechanisms of how we do things in a software world." {% cite Skelton2019a %}
-For example, specific quirks of how to deploy an application in the organization's Kubernetes cluster or how to pass a specific system property to the application.
-Last but not least, germane is the cognitive load which stems from the business problem that we are trying to solve.
-It can be considered as the domain focus in software engineering {% cite Skelton2019a %}.
-
-...TODO: Goal of team's cognitive load setup: Limit the size of software services/products to the cognitive load that the team can handle
-
-They consider basics and principles stemming from newer experiences and knowledge of the DevOps movement and modern software engineering management approaches.
-Examples:
-  * Maximum team size should follow the principle of the two-pizza-team, so 9 to max. 12-15 people (see also: a summary of the science behind that rule can be found, for example, at {% cite Choi2018 %}).
-  * The teams should be fully responsible for the software artifact/product. Thus, the software/product should have a proper developer and operator experience that the team supports. From a DevOps perspective, it should follow the "you build it, you run it"-approach. From the product perspective, you can consider the approach as the fully empowered product teams (see also: {% cite Cagan2017 %})
-  * The teams should be cross-functional 
-  * Well-chosen domain boundaries (see: DDD)
-
-Thereby, the teams should be split up into stream-aligned product, platform, enabling, and complicated subsystem teams.
-"The team that is aligned to part of the value stream for the business and they have end-to-end responsibility for building, deploying, running, supporting, and eventually retiring that slice of the business domain or that slice of service. The other types of teams listed below are effectively there to reduce the cognitive load of the Stream-aligned team." {% cite Skelton2019a %}
-
-...TODO: 3 interaction modes of teams
-
-## Conclusion
+## Summary
 
 This article is definitely not the first article about the interdependencies of organization and architecture.
 In {% cite Wolff2020 %} (it is only available in German), {% cite Ardalis2020 %}, and {% cite Skelton2020 %}, the authors describe the different aspects of interdependencies between an organizational structure and software architecture in terms of the modules and components.

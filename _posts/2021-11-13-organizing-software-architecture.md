@@ -8,6 +8,8 @@ categories:
   - Documentation
 published: true
 ---
+In {% cite Pureur2021 %}, Pierre Pureur, the co-author of 'Continuous Architecture in Practice', mentions that "Architecture is a skill, not a role [...] The whole concept of being an architect is morphing into architecture belongs to the team.".
+What does that mean for your organization?
 Recently, I was asked about what software architecture review processes exist in order to better steer architecture.
 An architecture review aims at different goals such as finding software design issues early in the development before they get costly.
 Architecture review processes, for example, formalize different steps.

@@ -8,8 +8,8 @@ categories:
 published: true
 ---
 As an architect or engineering manager, you are often facing situations where you realize interdependencies between your organization and software architecture.
-What team should maintain a specific component within a larger architecture or organization?
-How to (re-)structure teams when facing a bigger architecture rework or a new project?
+What team should maintain a specific component within the overall system's architecture?
+How do we best (re-)structure teams when facing a bigger architecture rework or a new project?
 In this series of five articles, we discuss different approaches to describe those interdependencies between organization and software architecture.
 We will have a look at [Conway's Law and the Inverse Conway Maneuver]({% post_url 2021-12-26-interdependencies-organization-and-architecture_part-II-conway %}), [Domain-driven Design (DDD)]({% post_url 2021-12-26-interdependencies-organization-and-architecture_part-III-domain-driven-design %}), and the [Team Topologies approach]({% post_url 2021-12-26-interdependencies-organization-and-architecture_part-IV-team-topologies-approach %}) and how these approaches can be used to explain those interdependencies and help you to better understand or design your organization or software architecture.
 
@@ -17,40 +17,28 @@ We will have a look at [Conway's Law and the Inverse Conway Maneuver]({% post_ur
 
 Recently, I have read Marianne Bellotti's post about [hunting tech debt via org charts](https://bellmar.medium.com/hunting-tech-debt-via-org-charts-92df0b253145) with delight.
 And... yes, I observed similar things in my work experience.
-After working as an IT consultant in the public sector, as a research associate in big a research project, and in several product-focussed companies in various roles, I can definitely back Marianne Bellotti's observations that there is common tech debt stemming from different organization setup.
+After working as an IT consultant in the public sector, as a research associate in a publicly founded research project, and in several product-focussed companies in various roles, I can definitely back Marianne Bellotti's observations that there is common tech debt stemming from different organization setup.
 
-Marianne Bellotti writes about being able to predict several key details of organization's problems by just looking at people's titles meeting her for talking about legacy modernization and by looking at the organzation chart of the company.
+Marianne Bellotti writes about being able to predict several key details of an organization's problems by just looking at people's titles meeting her for talking about legacy modernization and by looking at the organzation chart of the company.
 She, furthermore, explains that "[...] the types of problems organizations have are heavily influenced by their incentive structure and the easiest way to figure out their incentive structure is by looking at the org chart." {%cite Bellotti2021 %}
 The incentive structure is driving and shaping the organization, because it drives and shapes what the organization prioritizes in the day to day work and how people in the organization get ahead.
-The tech debt is then going to accrue in the day to day work of people in the organization due to their priorities {%cite Bellotti2021 %}.
+The tech debt is, then, going to accrue in the day to day work of people in the organization due to their priorities {%cite Bellotti2021 %}.
 
-Similar mechanisms emerge when it comes to the interdependencies between organization and software architecture.
-The organization structure is shaping the system's architecture of a company's IT in various ways.
-When, for example, two teams are architecting a new solution, they will typically come up with at least two independent components within the architecture.
+With that in mind, we can also conclude that the incentive structure of the organization also reflects on software architecture.
+Thus, we have interdependencies between organization and software architecture.
+The organization structure is shaping the organization's architecture in various ways.
+When, for example, two teams of an organization are architecting a new solution, they may come up with two components where each component is maintained by one of the teams.
 From such an architecture, different architecture challenges may arise which you can also predict when you know about the mechanisms laying behind.
 Initially, this architecture may work well, but when team priorities shift or the organization changes, the architecture may be difficult to be maintained.
-I will give examples about that in the next section of this article.
-The mechanisms behind that can, for example, be described based on Conway's Law which we are going to tackle in [part II of this article series]({% post_url 2021-12-26-interdependencies-organization-and-architecture_part-II-conway %}).
 
 In general, there are strong dependencies between organization and architecture that we will show you in this article series.
 The organization is driven by the incentive structure and this, in turn, also falls back to the architecture.
-In the following parts, I will give you different approaches that describe the interdepencies between organization and architecture.
+In the following parts, I will give you different approaches to describe the interdepencies between organization and architecture.
 In the next section, I will first give you some examples about those interdepencies.
 
 ## Examples from the Real World
 
-In this section, we will talk about two examples from my work life where I try to explain you the different interdepencies between organization and architecture.
-
-The first example is about an organization that restructured multiple times while I was working there.
-Thereby, the organization was typically changed based on various consideration such as business processes and values.
-However, the management oftentimes forgot about the architecture and what challenges were related to changing the tech all the tech teams needed to work with.
-I will describe the difficulties that changing the organization without respecting the architecture lead to.
-
-The second example will be about a situation when I worked as an architect at a retail company.
-The company wanted to develop a brand new tool with a strategic business advantage.
-For that, there were two teams involved which should closely work together to build that tool.
-But when designing the architecture, we were facing issues that different architectural options would lead to different organizational issues due to coupling of components.
-I will explain you the overall situation, the organizational and architectural challenges that we were facing, and the way the team solved the issues.
+In this section, we will talk about two examples from my work life where I try to explain you the different interdepencies between an organization and its architecture.
 
 ### Organization Changes Frequently but the Architecture Decays
 

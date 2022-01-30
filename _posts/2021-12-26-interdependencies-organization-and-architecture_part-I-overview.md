@@ -40,9 +40,9 @@ In the next section, I will first give you some examples about those interdepenc
 
 In this section, we will talk about two examples from my work life where I try to explain you the different interdepencies between an organization and its architecture.
 
-### Organization Changes Frequently but the Architecture Decays
+### Issues Arise when Architecture does not follow Re-Organizations
 
-When I was working as a software and site reliability engineer at a travel company, that travel company was restructuring multiple times during my time there.
+When I was working at a travel company, that travel company was restructuring multiple times during my time there.
 The travel company was driven by technology as the business was enabled by technology.
 Unfortunately, I think that the company was not doing well with most of the restructurings.
 The example I will give you, is a restructuring from the beginning of 2017.

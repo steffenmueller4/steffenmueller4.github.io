@@ -27,7 +27,19 @@ Anyways, we wanted to go towards an event-driven microservice-style application 
 
 ## The Whole Development in an Overview
 
-When we started with the development in October 2021, ...
+When we have started with the development in October 2021, we started to develop a _domain model_.
+Based on Domain-driven Design (DDD), a domain model is a software model of the business domain typically containing well-known nouns – often implemented as an object model.
+Such a domain model acts as a _ubiquitous language_ to improve the communication between software developers and domain experts within a _bounded context_.
+The bounded context encapsulates a certain set of assumptions, a common ubiquitous language, and a particular domain model in a coherent environment.
+It is used for defining conceptual boundaries between applications/microservices {% cite Vernon2016 %}, {% cite Fowler2014 %}.
+
+Collectively, we also defined _domain events_ in this domain model.
+A domain event is a record of a business-significant occurrence in a bounded context {% cite Vernon2016 %}.
+
+
+## The Domain Model
+
+## The Actual Architecture
 
 ## References
 

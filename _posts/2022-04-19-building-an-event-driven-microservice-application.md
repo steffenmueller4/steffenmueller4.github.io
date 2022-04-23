@@ -51,11 +51,13 @@ Although we had to cross a lot of obstacles during the entire development, we ev
 The core microservice that emits the booking domain event is not directly connected with the other systems involved such as the Customer Relationship Management (CRM) tool that the support team uses.
 The development team developed another independent microservice that listens to the domain events and uses the API of the CRM system to make the booking information available to the support team.
 Another microservice listening to the booking domain events cummulates business metrics for the product team.
-Soon, we will implement a data lake to which the booking domain events will be written to persist them for further analytics.
+Soon, we will implement a data lake to which the booking domain events will also be written to persist them for further analytics.
 
 In the next sections, you can read about further details of the overall solution such as the [domain model](#the-domain-model) or the [actual architecture](#the-actual-architecture).
 
 ## The Domain Model
+
+![Partial Domain Model of HUK-Autoservice](/assets/autoservice-domain-model.png)
 
 ## The Actual Architecture
 

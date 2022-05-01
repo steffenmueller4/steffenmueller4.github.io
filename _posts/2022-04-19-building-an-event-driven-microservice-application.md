@@ -77,9 +77,9 @@ It helped us to get rid of a lot of synonyms we used in the team.
 But when you now want to start your first project with DDD, please be sure to also read about valid criticism.
 For example, Stefan Tilkov criticizes the hype about DDD in recent years in the two articles {% cite Tilkov2021 %} and {% cite Tilkov2021a %}.
 Furthermore, it can be quite hard to learn DDD - especially, when you start off with Eric Evans book (see also: {% cite Evans2003 %}).
-Also, we did not follow DDD in the purest form when modeling our domain or conducting the event storming workshop - we "freestyled" a lot.
-So, please always keep in mind that also other system design approaches can lead you to excellent results.
-However, I definitely recommend like Stefan Tilkov: "Make DDD part of your tool set, but make sure you don’t stop there." {% cite Tilkov2021a %}
+We also did not follow DDD in the purest form when modeling our domain or conducting the event storming workshop - we "freestyled" a lot.
+So, please always keep in mind that also other system design approaches can lead to excellent results.
+However, I definitely recommend - like Stefan Tilkov: "Make DDD part of your tool set, but make sure you don’t stop there." {% cite Tilkov2021a %}
 
 ## The Actual Architecture
 

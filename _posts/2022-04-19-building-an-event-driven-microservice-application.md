@@ -34,8 +34,8 @@ The bounded context encapsulates a certain set of assumptions, a common ubiquito
 It is used for defining conceptual boundaries between applications and microservices {% cite Vernon2016 %}, {% cite Fowler2014 %}.
 In general, there is the rule of thumb that there is one microservice per bounded context, sometimes there are more microservices per bounded context, but you should rather not have one microservice dealing with two or more bounded contexts {% cite Newman2019 %}.
 
-Collectively, we then defined _domain events_ in this domain model - with a set of experts, we conducted an event storming workshop which served as a basis (see also, e.g.: {% cite WikipediaEventStorming2022 %}, {% cite Stenberg2016 %}).
-In general, a domain event is, following Vaughn Vernon's definition, a record of a business-significant occurrence in a bounded context {% cite Vernon2016 %}.
+We then defined _domain events_ in this domain model collectively - we conducted an event storming workshop with some experts which served as a basis (see also, e.g.: {% cite WikipediaEventStorming2022 %}, {% cite Stenberg2016 %}).
+Following Vaughn Vernon's definition, a domain event is a record of a business-significant occurrence in a bounded context {% cite Vernon2016 %}.
 In the car services domain of my company, such a record of a business-significant occurrence is, for example, a _booking_ of a car service such as an oil change (see also: [this section](#the-domain-model)).
 Concretely, the booking domain event is raised by our microservice handling the backend work of our core booking userflow when a customer books a car service.
 The event is essential for a lot of other services, applications, and departments such as our support team which needs to know about the bookings of a customer to handle support cases when a customer calls them.
@@ -59,10 +59,36 @@ In the next sections, you can read about further details of the overall solution
 
 ![Partial Domain Model of Car Services Domain](/assets/car-services-domain-model.png)
 
+The partial domain model we came up with is depicted in the above figure (in a freestyled form ;-) ).
+The _customer_ is at the center of our domain model.
+When the customer wants to book a car service - in our domain model, a _service_ - she searches for either a _garage_ which provides the services or for the specific service such as an _oil change_, a _wheel change_, or an _inspection_ which is provided by a garage.
+When the customer selected the garage and the service, she can book the service at the garage - the booking domain event (see also: [here](#the-whole-development-in-a-nutshell)).
+
+In general, each connection between two entities can reveal an interesting domain event.
+For example, you may be interested in the domain event _ServiceSelectedEvent_ or _GarageSelectedEvent_ between the customer and the service respectively the garage entity in your business.
+We decided to only implement the booking domain event so far, because we had to focus on the essentials back then.
+However, we may implement the other domain events soon to better analyze our business.
+
+In sum, the domain model helped us a lot to structure our domain and to come up with relevant domain events.
+It is also very good when explaining newcomers our domain and the entities they will deal with.
+Especially, the domain model and, thus, the ubiquitous language helped us to speak more precisely with each other.
+It helped us to get rid of a lot of synonyms we used in the team.
+
+But when you now want to start your first project with DDD, please be sure to also read about valid criticism.
+For example, Stefan Tilkov criticizes the hype about DDD in recent years in the two articles {% cite Tilkov2021 %} and {% cite Tilkov2021a %}.
+Furthermore, it can be quite hard to learn DDD - especially, when you start off with Eric Evans book (see also: {% cite Evans2003 %}).
+Also, we did not follow DDD in the purest form when modeling our domain or conducting the event storming workshop - we "freestyled" a lot.
+So, please always keep in mind that also other system design approaches can lead you to excellent results.
+However, I definitely recommend like Stefan Tilkov: "Make DDD part of your tool set, but make sure you don’t stop there." {% cite Tilkov2021a %}
+
 ## The Actual Architecture
 
 Technically, we decided to go with Kafka as an event broker (see also: {% cite Bellemare2020 %} for the difference between a message and an event broker).
 Following the recommendation of Adam Bellmare in {% cite Bellemare2020 %}, we defined the domain event messages explicitely via [Protocol Buffers](https://developers.google.com/protocol-buffers).
+
+## Learnings from the Development
+
+
 
 ## References
 

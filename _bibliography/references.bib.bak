@@ -524,4 +524,21 @@
   keywords = {DDD, Domain-driven Design, Event Storming, Microservices, Domain Events},
 }
 
+@Electronic{WikipediaEventStorming2022,
+  author       = {{Wikipedia contributors}},
+  month        = jan,
+  organization = {Wikipedia},
+  title        = {Event storming},
+  url          = {https://en.wikipedia.org/w/index.php?title=Event_storming&oldid=1067022209},
+  year         = {2022},
+}
+
+@Electronic{Tilkov2021,
+  author   = {Stefan Tilkov},
+  title    = {DDD is Overrated},
+  url      = {https://tilkov.com/post/2021/03/01/ddd-is-overrated/},
+  date     = {2021-03-01},
+  keywords = {Domain-driven Design, DDD},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

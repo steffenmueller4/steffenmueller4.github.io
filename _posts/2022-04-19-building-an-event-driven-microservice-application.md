@@ -91,7 +91,7 @@ However, we are currently looking at different schema registries such as Conflue
 In a Goto Conference talk, Martin Fowler differentiates between four patterns of event-driven architecture {% cite Fowler2017 %}:
 
  1. Event Notifications - the system emitting the event message provides APIs to get the further data about the event. So, the event-receiving system invokes APIs of the event-emitting system to handle state changes {% cite Fowler2017 %}.
- 1. Event-carried State Transfer - The event message contains all information about the state change, so the event-receiving system has all the necessary information to perform the state change {% cite Fowler2017 %}.
+ 1. Event-carried State Transfer - the event message contains all information about the state change, so the event-receiving system has all the necessary information to react to the state change. In contrast to the Event Notification pattern, the emitting and the receiving systems can live independently from each other, because the receiving system does not have to call an API to get the event details {% cite Fowler2017 %}.
  1. Event Sourcing - instead of storing the state of a business entity in a database, event messages are saved in consecutive order in an event store, and the state of the business entity is then reconstructed by replaying the event messages stored in the event store {% cite Richardson2021 %}.
  1. Command Query Responsibility Segregation (CQRS) - at the heart of CQRS, is the notion that you can use a different model to update information than the model you use to read information. For more information about CQRS, we refer, for example, to {% cite Fowler2011 %} or {% cite Richardson2021a %}.
 

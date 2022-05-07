@@ -541,4 +541,33 @@
   keywords = {Domain-driven Design, DDD},
 }
 
+@Electronic{Tilkov2021a,
+  author = {Stefan Tilkov},
+  month  = mar,
+  title  = {Is Domain-driven Design overrated?},
+  url    = {https://www.innoq.com/de/blog/is-domain-driven-design-overrated/},
+  year   = {2021},
+}
+
+@Electronic{Fowler2017,
+  author = {Martin Fowler},
+  title  = {The Many Meanings of Event-Driven Architecture},
+  url    = {https://youtu.be/STKCRSUsyP0},
+  year   = {2017},
+}
+
+@Electronic{Richardson2021,
+  author = {Chris Richardson},
+  title  = {Microservices.io - Pattern: Event sourcing},
+  url    = {https://microservices.io/patterns/data/event-sourcing.html},
+  year   = {2021},
+}
+
+@Electronic{Richardson2021a,
+  author = {Chris Richardson},
+  title  = {Microservices.io - Pattern: Command Query Responsibility Segregation (CQRS)},
+  url    = {https://microservices.io/patterns/data/cqrs.html},
+  year   = {2021},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

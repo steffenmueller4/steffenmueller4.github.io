@@ -1,11 +1,11 @@
 ---
 layout: post
 date:   2022-04-19 14:02:30 +0100
-title: "Impressions and Learnings from Building an Event-Driven Microservice Application"
+title: "Learnings from Building an Event-Driven Microservice Application"
 categories:
   - Architecture
   - Microservices
-  - Domain-Events
+  - Event-Driven Architecture
   - Domain-Driven Design
 published: true
 ---
@@ -81,10 +81,29 @@ We also did not follow DDD in the purest form when modeling our domain or conduc
 So, please always keep in mind that also other system design approaches can lead to excellent results.
 However, I definitely recommend - like Stefan Tilkov: "Make DDD part of your tool set, but make sure you don’t stop there." {% cite Tilkov2021a %}
 
-## The Actual Architecture
+## Technical Perspective on Domain Events
 
 Technically, we decided to go with Kafka as an event broker (see also: {% cite Bellemare2020 %} for the difference between a message and an event broker).
 Following the recommendation of Adam Bellmare in {% cite Bellemare2020 %}, we defined the domain event messages explicitely via [Protocol Buffers](https://developers.google.com/protocol-buffers).
+At the moment, we do not have a schema registry but are using a central repository storing all event message definitions.
+However, we are currently looking at different schema registries such as Confluent's [Schema Registry](https://docs.confluent.io/platform/current/schema-registry/index.html) which is also available at Github (see: [Confluent Schema Registry for Kafka at Github](https://github.com/confluentinc/schema-registry)).
+
+In a Goto Conference talk, Martin Fowler differentiates between four patterns of event-driven architecture {% cite Fowler2017 %}:
+
+ 1. Event Notifications - the system emitting the event message provides APIs to get the further data about the event. So, the event-receiving system invokes APIs of the event-emitting system to handle state changes {% cite Fowler2017 %}.
+ 1. Event-carried State Transfer - The event message contains all information about the state change, so the event-receiving system has all the necessary information to perform the state change {% cite Fowler2017 %}.
+ 1. Event Sourcing - instead of storing the state of a business entity in a database, event messages are saved in consecutive order in an event store, and the state of the business entity is then reconstructed by replaying the event messages stored in the event store {% cite Richardson2021 %}.
+ 1. Command Query Responsibility Segregation (CQRS) - at the heart of CQRS, is the notion that you can use a different model to update information than the model you use to read information. For more information about CQRS, we refer, for example, to {% cite Fowler2011 %} or {% cite Richardson2021a %}.
+
+In general, our system uses the Event-carried State Transfer pattern.
+The application still uses databases for storing its state and emits the domain events to Kafka on top of storing the state to the database.
+This way, we were able to have a fast pace in the project due to not changing the way people think about building software while also benefitting from sending out domain events.
+With all the different people with very different background in the project, the introduction of domain events was hard enough even without the difficult general concepts of Event Sourcing and CQRS (see also: {% cite Fowler2017 %} for criticism about Event Sourcing and CQRS as well as {% cite Fowler2011 %} about CQRS).
+
+When looking back to the project, it is essential that your project team understands what you want to achieve with building an event-driven microservices as well as the four patterns of event-driven architecture.
+
+## The Actual Architecture
+
 
 ## Learnings from the Development
 
@@ -96,4 +115,4 @@ Following the recommendation of Adam Bellmare in {% cite Bellemare2020 %}, we de
 
 ## Acknowledgements
 
-Huge thanks go to the entire product and development team of [HUK-Autoservice](https://www.huk-autoservice.de) as well as the project partners [Edenspiekermann](https://www.edenspiekermann.com) and [foobar Agency GmbH](https://foobar.agency) for the awesome work.
+Huge thanks go to the entire product and development team of [HUK-Autoservice](https://www.huk-autoservice.de) as well as our project partners [Edenspiekermann](https://www.edenspiekermann.com) and [foobar Agency GmbH](https://foobar.agency) for the awesome work.

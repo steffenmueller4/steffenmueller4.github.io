@@ -15,6 +15,8 @@ This article summarizes my impressions and learnings from building this applicat
 
 ## The Beginning
 
+> Disclaimer: This article presents my personal views and not my company's opinions.
+
 When I have started in my current company, a corporate startup and 100% subsidary of an insurance company, in August 2021, it was crystal clear that the company is rather not an established company with an established development department and stable processes.
 I had to start to recruit my development team and, furthermore, lead the development of an entirely new product.
 Overall, the plans were quite crazy: Our goal was to build the entirely new product as a greenfield project in the Cloud including new processes within only ca. 6 months (start of development was October 2021).

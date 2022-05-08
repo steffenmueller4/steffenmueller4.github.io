@@ -53,7 +53,7 @@ The development team developed another independent microservice that listens to 
 Another microservice listening to the booking domain events cummulates business metrics for the product team.
 Soon, we will implement a data lake to which the booking domain events will also be written to persist them for further analytics.
 
-In the next sections, you can read about further details of the overall solution such as the [domain model](#the-domain-model) or the [actual architecture](#the-actual-architecture).
+In the next sections, you can read about further details of the overall solution such as the [domain model](#the-domain-model), the [technical perspective on domain events](#technical-perspective-on-domain-events), or the [actual architecture](#the-actual-architecture).
 
 ## The Domain Model
 
@@ -88,7 +88,7 @@ Following the recommendation of Adam Bellmare in {% cite Bellemare2020 %}, we de
 At the moment, we do not have a schema registry but are using a central repository storing all event message definitions.
 However, we are currently looking at different schema registries such as Confluent's [Schema Registry](https://docs.confluent.io/platform/current/schema-registry/index.html) which is also available at Github (see: [Confluent Schema Registry for Kafka at Github](https://github.com/confluentinc/schema-registry)).
 
-In a Goto Conference talk, Martin Fowler differentiates between four patterns of event-driven architecture {% cite Fowler2017 %}:
+In a Goto Conference talk in 2017, Martin Fowler differentiates between four patterns of event-driven architecture {% cite Fowler2017 %}:
 
  1. Event Notifications - the system emitting the event message provides APIs to get the further data about the event. So, the event-receiving system invokes APIs of the event-emitting system to handle state changes {% cite Fowler2017 %}.
  1. Event-carried State Transfer - the event message contains all information about the state change, so the event-receiving system has all the necessary information to react to the state change. In contrast to the Event Notification pattern, the emitting and the receiving systems can live independently from each other, because the receiving system does not have to call an API to get the event details {% cite Fowler2017 %}.
@@ -99,8 +99,13 @@ In general, our system uses the Event-carried State Transfer pattern.
 The application still uses databases for storing its state and emits the domain events to Kafka on top of storing the state to the database.
 This way, we were able to have a fast pace in the project due to not changing the way people think about building software while also benefitting from sending out domain events.
 With all the different people with very different background in the project, the introduction of domain events was hard enough even without the difficult general concepts of Event Sourcing and CQRS (see also: {% cite Fowler2017 %} for criticism about Event Sourcing and CQRS as well as {% cite Fowler2011 %} about CQRS).
+In some use cases, we nowadays also use the Event Sourcing pattern.
 
-When looking back to the project, it is essential that your project team understands what you want to achieve with building an event-driven microservices as well as the four patterns of event-driven architecture.
+When looking back to the project, it is essential that your project team understands what you want to achieve with building an event-driven microservices.
+They should know what systems you want to integrate.
+This is especially required to specify the information that has to be in the event messages.
+Furthermore, the team should know the four patterns of event-driven architecture.
+This improves the understanding of the entire architecture and leads to better solutions such as using the Event Sourcing pattern for specific use cases.
 
 ## The Actual Architecture
 

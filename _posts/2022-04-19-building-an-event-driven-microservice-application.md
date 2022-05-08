@@ -106,6 +106,12 @@ They should know what systems you want to integrate.
 This is especially required to specify the information that has to be in the event messages.
 Furthermore, the team should know the four patterns of event-driven architecture.
 This improves the understanding of the entire architecture and leads to better solutions such as using the Event Sourcing pattern for specific use cases.
+Also, you should directly think about a Schema Registry for managing your domain event messages.
+As soon as the number of microservices increases, you will be happy when you do not have to update all Protocol Buffer definitions or coordinate the rollout.
+Last but not least, make sure that your domain event messages are replayable as Adam Bellmare in {% cite Bellemare2020 %} recommends.
+For example, our first versions of our Kafka consumers were creating IDs when inserting new entries to some systems, so storing the events were not idempotent and, thus, not replayable.
+Please either create the unique IDs in the source system or derive the ID from the event in a deterministic way.
+Also, consider to use upserts in the destination system.
 
 ## The Actual Architecture
 

@@ -83,7 +83,7 @@ However, I definitely recommend - like Stefan Tilkov: "Make DDD part of your too
 
 ## Technical Perspective on Domain Events
 
-Technically, we decided to go with Kafka as an event broker (see also: {% cite Bellemare2020 %} for the difference between a message and an event broker).
+Technically, we decided to go with [Kafka](https://kafka.apache.org/) as an event broker (see also: {% cite Bellemare2020 %} for the difference between a message and an event broker).
 Following the recommendation of Adam Bellmare in {% cite Bellemare2020 %}, we defined the domain event messages explicitely via [Protocol Buffers](https://developers.google.com/protocol-buffers).
 At the moment, we do not have a schema registry but are using a central repository storing all event message definitions.
 However, we are currently looking at different schema registries such as Confluent's [Schema Registry](https://docs.confluent.io/platform/current/schema-registry/index.html) which is also available at Github (see: [Confluent Schema Registry for Kafka at Github](https://github.com/confluentinc/schema-registry)).
@@ -109,7 +109,10 @@ This improves the understanding of the entire architecture and leads to better s
 
 ## The Actual Architecture
 
-![Architecture of Car Services Application](/assets/car-services-architecture-overview.png)
+![Partial Architecture of Car Services Application](/assets/car-services-architecture-overview.png)
+
+In the figure above, you can see the partial architecture of the car services application.
+The application consists of a [Next.js](https://nextjs.org/) frontend application, two backend applications, a [Kafka](https://kafka.apache.org/) server providing topics for the different event messages such as the booking domain event topic, a Kafka consumer reading all event messages that should be written to the CRM tool, and the CRM tool.
 
 ## Conclusions
 

@@ -109,8 +109,9 @@ This improves the understanding of the entire architecture and leads to better s
 
 ## The Actual Architecture
 
+![Architecture of Car Services Application](/assets/car-services-architecture-overview.png)
 
-## Learnings from the Development
+## Conclusions
 
 
 

@@ -570,4 +570,12 @@
   year   = {2021},
 }
 
+@Electronic{Fowler2011,
+  author = {Martin Fowler},
+  month  = jul,
+  title  = {CQRS},
+  url    = {https://martinfowler.com/bliki/CQRS.html},
+  year   = {2011},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

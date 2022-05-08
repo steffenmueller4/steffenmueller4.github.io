@@ -53,7 +53,7 @@ The development team developed another independent microservice that listens to 
 Another microservice listening to the booking domain events cummulates business metrics for the product team.
 Soon, we will implement a data lake to which the booking domain events will also be written to persist them for further analytics.
 
-In the next sections, you can read about further details of the overall solution such as the [domain model](#the-domain-model), the [technical perspective on domain events](#technical-perspective-on-domain-events), or the [actual architecture](#the-actual-architecture).
+In the next sections, you can read about further details of the overall solution such as the [domain model](#the-domain-model), the [architecture](#the-architecture), or the [technical perspective on domain events](#technical-perspective-on-domain-events).
 
 ## The Domain Model
 
@@ -81,9 +81,29 @@ We also did not follow DDD in the purest form when modeling our domain or conduc
 So, please always keep in mind that also other system design approaches can lead to excellent results.
 However, I definitely recommend - like Stefan Tilkov: "Make DDD part of your tool set, but make sure you don’t stop there." {% cite Tilkov2021a %}
 
+## The Architecture
+
+![Partial Architecture of Car Services Application](/assets/car-services-architecture-overview.png)
+
+In the figure above, you can see the relevant part of our architecture of the car services application.
+The application consists of a [Next.js](https://nextjs.org/) frontend application, two [Spring Boot](https://spring.io/projects/spring-boot) backend applications, a [Kafka](https://kafka.apache.org/) server as an event broker (see also: {% cite Bellemare2020 %} for the difference between a message and an event broker) providing topics for the different event messages such as the booking domain event topic, a [Kafka](https://kafka.apache.org/) consumer reading all event messages that should be written to the CRM system.
+
+The frontend application communicates via synchronous REST API calls with the two backend applications.
+The backend applications encapsulate the API for the core booking userflow and the API for the account functionality.
+In the rest of this article, we concentrate on the core backend application.
+
+The core backend application encapsulates, as mentioned before, the API for the core booking userflow, so this is the microservice emitting the booking domain event.
+As described in the previous section, the booking domain event is raised when a customer books a car service such as an oil change.
+The booking domain event is sent to a [Apache Kafka](https://kafka.apache.org/) topic called _BookingEvent_.
+Different [Kafka](https://kafka.apache.org/) consumers are listening to the topic such as the account backend microservice or the CRM Kafka Consumer.
+
+The account backend microservice stores the booking domain events per user in the micoservice's database to show a user her booking history in the account.
+The CRM Kafka Consumer listens to the Kafka topic to store every booking in the CRM system.
+Here, you can already see that we can plug in a lot of other loosely coupled event-driven microservices to build other functionality in our application.
+
 ## Technical Perspective on Domain Events
 
-Technically, we decided to go with [Kafka](https://kafka.apache.org/) as an event broker (see also: {% cite Bellemare2020 %} for the difference between a message and an event broker).
+As mentioned, we decided to go with [Kafka](https://kafka.apache.org/) as an event broker.
 Following the recommendation of Adam Bellmare in {% cite Bellemare2020 %}, we defined the domain event messages explicitely via [Protocol Buffers](https://developers.google.com/protocol-buffers).
 At the moment, we do not have a schema registry but are using a central repository storing all event message definitions.
 However, we are currently looking at different schema registries such as Confluent's [Schema Registry](https://docs.confluent.io/platform/current/schema-registry/index.html) which is also available at Github (see: [Confluent Schema Registry for Kafka at Github](https://github.com/confluentinc/schema-registry)).
@@ -112,13 +132,6 @@ Last but not least, make sure that your domain event messages are replayable as 
 For example, our first versions of our Kafka consumers were creating IDs when inserting new entries to some systems, so storing the events were not idempotent and, thus, not replayable.
 Please either create the unique IDs in the source system or derive the ID from the event in a deterministic way.
 Also, consider to use upserts in the destination system.
-
-## The Actual Architecture
-
-![Partial Architecture of Car Services Application](/assets/car-services-architecture-overview.png)
-
-In the figure above, you can see the partial architecture of the car services application.
-The application consists of a [Next.js](https://nextjs.org/) frontend application, two backend applications, a [Kafka](https://kafka.apache.org/) server providing topics for the different event messages such as the booking domain event topic, a Kafka consumer reading all event messages that should be written to the CRM tool, and the CRM tool.
 
 ## Conclusions
 

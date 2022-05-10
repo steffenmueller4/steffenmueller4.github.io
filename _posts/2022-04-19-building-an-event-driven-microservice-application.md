@@ -53,7 +53,7 @@ These state changes of the booking domain event, thus, had to be communicated.
 
 Although we had to cross a lot of obstacles during the entire development, we eventually came up with a flexible, loosely coupled, and pluggable solution based on event-driven microservices.
 The core microservice that emits the booking domain event is not directly connected with the other microservices and systems consuming the event such as the customer relationship management (CRM) system that the support team uses.
-Everything is decoupled via an _event broker_ (see also: [architecture](#the-architecture)).
+Everything is decoupled via an _event broker_ (see also: [this section](#the-architecture)).
 For the CRM system, we, for instance, developed an independent microservice that listen to the domain events and uses the API of the CRM system to make the booking information available to the support team.
 Another microservice listens to the booking domain events to cummulate business metrics for the product team.
 Soon, we will implement a data lake to which the booking domain events will also be written to persist them for further analytics.
@@ -67,7 +67,7 @@ In the next sections, you can read about further details of the overall solution
 The partial domain model - the full domain model is simply to complex - is depicted in the figure above (it is also freestyled a little bit for the sake of this article).
 The _customer_ is at the center of our domain model.
 When the customer wants to book a _service_ she searches for either a _garage_ which provides the services or for the service such as an _oil change_ or a _wheel change_ which is provided by a garage.
-When the customer selects the garage and the service, she can book the service at the garage - this is the booking domain event (see also: [here](#the-whole-development-in-a-nutshell)).
+When the customer selects the garage and the service, she can book the service at the garage - this is the booking domain event (see also: [this section](#the-whole-development-in-a-nutshell)).
 
 In general, each connection between two entities in the domain model can reveal an interesting domain event.
 For example, you may also be interested in the domain event _ServiceSelectedEvent_ or _GarageSelectedEvent_ between the customer and the service respectively the garage entity in your business.
@@ -98,18 +98,18 @@ The backend microservices encapsulate the API for the core booking userflow and 
 For the rest of this section, we concentrate on the core backend microservice.
 
 The core backend microservice encapsulates, as mentioned before, the API for the core booking userflow, so this is the microservice emitting the booking domain event.
-As described in the previous section (see: [domain model](#the-domain-model)), the booking domain event is raised when a customer books a service such as an oil change.
+As described in the previous section (see: [this section](#the-domain-model)), the booking domain event is raised when a customer books a service such as an oil change.
 The booking domain event is sent to a Kafka topic called _BookingEvent_.
 Different Kafka consumers are listening to the topic such as the account backend microservice or the CRM Kafka consumer.
 
 The account backend microservice stores the booking domain events per user in the micoservice's database to show a user her booking history in the account.
 The CRM Kafka consumer listens to the Kafka topic to store every booking in the CRM system.
 Here, you can already see that we can plug in a lot of other loosely coupled event-driven microservices to build other functionality in our application.
-The difficulties come with the management of the domain event messages which is described in more detail in the next section (see: the [technical perspective on domain events](#technical-perspective-on-domain-events)).
+The difficulties come with the management of the domain event messages which is described in more detail in the next section.
 
 ## Technical Perspective on Domain Events
 
-As mentioned, we decided to go with [Kafka](https://kafka.apache.org/) as an event broker (see: [architecture](#the-architecture)).
+As mentioned, we decided to go with [Kafka](https://kafka.apache.org/) as an event broker (see: [this section](#the-architecture)).
 Following the recommendation of Adam Bellmare in {% cite Bellemare2020 %}, we defined our domain event messages explicitely via [Protocol Buffers](https://developers.google.com/protocol-buffers) in a binary format.
 At the moment, we do not have a schema registry but are using a central repository storing all domain event message definitions.
 This, in general, works for now.
@@ -123,7 +123,7 @@ In a Goto Conference talk in 2017, Martin Fowler differentiates between four pat
 
 In general, our system uses the event-carried state transfer pattern.
 Thus, the application still uses databases for storing its state, but emits the domain events to Kafka on top of storing the state to the database.
-This way, we were able to have a fast pace in the project due to not changing the way people think about building software while also benefitting from sending out domain events (see also: [the beginning](#the-beginning)).
+This way, we were able to have a fast pace in the project due to not changing the way people think about building software while also benefitting from sending out domain events (see also: [this section](#the-beginning)).
 With all people with very different background in the entire project, the introduction of domain events was hard enough even without the need to introduce difficult concepts such as event sourcing or CQRS (see also: {% cite Fowler2017 %} for criticism about Event Sourcing and CQRS as well as {% cite Fowler2011 %} about CQRS).
 In some use cases, we also use the event sourcing pattern nowadays.
 
@@ -151,7 +151,7 @@ Aligning the domain events based on the domain model really helped the developer
 
 Currently, we definitely benefit from our event-driven microservices approach when building new integrations, although you already heard about a lot of improvement points such as the schema registry or replayable events.
 All in all, we are very happy with the choice of going towards an event-driven microservice architecture.
-The application is - in our opinion - flexible, pluggable, and loosely coupled (see also: [the beginning](#the-beginning)).
+The application is - in our opinion - flexible, pluggable, and loosely coupled (see also: [this section](#the-beginning)).
 
 We can definitely encourage you in building such an event-driven microservices application.
 

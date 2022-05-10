@@ -144,8 +144,16 @@ Also, consider to use upserts in the destination systems.
 
 ## Conclusions
 
-In sum the combination of DDD and event-driven microservices worked well in our project.
+In sum, the combination of DDD and event-driven microservices worked well in our project.
+Building the domain model and defining the domain events based on the domain model, was a good move for the communication.
+The domain model helped us to be clear about the common language and the interdependencies between the entities.
+Aligning the domain events based on the domain model really helped the developers to understand when the domain event has to be raised.
 
+Currently, we definitely benefit from our event-driven microservices approach when building new integrations, although you already heard about a lot of improvement points such as the schema registry or replayable events.
+All in all, we are very happy with the choice of going towards an event-driven microservice architecture.
+The application is - in our opinion - flexible, pluggable, and loosely coupled (see also: [the beginning](#the-beginning)).
+
+We can definitely encourage you in building such an event-driven microservices application.
 
 ## References
 

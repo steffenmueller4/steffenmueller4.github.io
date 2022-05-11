@@ -543,10 +543,10 @@
 
 @Electronic{Tilkov2021a,
   author = {Stefan Tilkov},
-  month  = mar,
   title  = {Is Domain-driven Design overrated?},
   url    = {https://www.innoq.com/de/blog/is-domain-driven-design-overrated/},
   year   = {2021},
+  date   = {2021-03-02},
 }
 
 @Electronic{Fowler2017,

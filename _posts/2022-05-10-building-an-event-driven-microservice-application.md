@@ -64,7 +64,7 @@ In the next sections, you can read about further details of the overall solution
 
 ![Partial Domain Model of Car Services Domain](/assets/car-services-domain-model.png)
 
-The partial domain model - the full domain model is simply to complex - is depicted in the figure above (it is also freestyled a little bit for the sake of this article).
+The partial domain model - the full domain model is simply too complex - is depicted in the figure above (it is also freestyled a little bit for the sake of this article).
 The _customer_ is at the center of our domain model.
 When the customer wants to book a _service_ she searches for either a _garage_ which provides the services or for the service such as an _oil change_ or a _wheel change_ which is provided by a garage.
 When the customer selects the garage and the service, she can book the service at the garage - this is the booking domain event (see also: [this section](#the-whole-development-in-a-nutshell)).
@@ -133,8 +133,10 @@ Furthermore, I recommend that the team should know the four patterns of event-dr
 This improves the overall understanding of the entire event-driven architecture and leads to better solutions.
 For example, the knowledge of the event sourcing pattern improves the solution when building a history of something such as the booking history in our project.
 
-Also, you should directly think about a schema registry for managing your domain event messages.
+As mentioned already, you should directly think about a schema registry for managing your domain event messages.
 As soon as the number of microservices increases, you will be happy when you do not have to update all domain event message definitions or coordinate the rollout.
+Furthermore, your team needs to learn about Protocol Buffers message compatability.
+A good read about that is, for example, {% cite Gramila2021 %}.
 
 Last but not least, make sure that your domain event messages are replayable as Adam Bellmare recommends in {% cite Bellemare2020 %}.
 For example, our first versions of our Kafka consumers were creating an ID when inserting new entries to some systems.
@@ -145,8 +147,8 @@ Also, consider to use upserts in the destination systems.
 ## Conclusions
 
 In sum, the combination of DDD and event-driven microservices worked well in our project.
-Building the domain model and defining the domain events based on the domain model, was a good move for the communication.
-The domain model helped us to be clear about the common language and the interdependencies between the entities.
+Building the domain model and defining the domain events based on the domain model, was a good move for the communication within the team.
+The domain model helped us to be clear about our common (ubiquitious) language and the interdependencies between the entities.
 Aligning the domain events based on the domain model really helped the developers to understand when the domain event has to be raised.
 
 Currently, we definitely benefit from our event-driven microservices approach when building new integrations, although you already heard about a lot of improvement points such as the schema registry or replayable events.

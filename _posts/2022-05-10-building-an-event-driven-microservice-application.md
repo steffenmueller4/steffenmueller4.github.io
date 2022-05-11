@@ -140,8 +140,8 @@ A good read about that is, for example, {% cite Gramila2021 %}.
 
 Last but not least, make sure that your domain event messages are replayable as Adam Bellmare recommends in {% cite Bellemare2020 %}.
 For example, our first versions of our Kafka consumers were creating an ID when inserting new entries to some systems.
-Thus, storing the events were not not replayable, because the ID was changing.
-Please either create the unique ID in the source system or derive the ID from the event in a deterministic way.
+Thus, storing the events was not replayable, because the ID was changing when replaying.
+Please either create the unique ID in the source system of the event or derive the ID from the event in a deterministic way.
 Also, consider to use upserts in the destination systems.
 
 ## Conclusions

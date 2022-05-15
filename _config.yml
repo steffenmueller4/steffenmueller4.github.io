@@ -18,6 +18,7 @@ plainwhite:
   name: Steffen Mueller
   tagline: Software Engineer
   date_format: "%b %-d, %Y"
+  analytics_id: "G-CD0VW38PQP"
   sitemap: true # set to true to generate sitemap.xml content
   search: true # set to true to enable searchbar
   dark_mode: true # set to true to add dark mode toggle

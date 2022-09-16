@@ -1,0 +1,33 @@
+---
+layout: post
+date:   2022-09-16 14:01:20 +0100
+title: "With Four Key Metrics to Operational Development Excellence"
+categories:
+  - DevOps
+  - KPI
+  - Development
+  - Culture
+published: true
+---
+Now, it is roughly one year ago since my peer, Moritz (head of product), and me started with the rewrite of the web application of my company (see also: [this article]({% post_url 2022-05-10-building-an-event-driven-microservice-application %})).
+To be honest, the start of the project was, let us call it, shaky.
+Before the first Site Reliability Engineer joined the team in November, I was creating the infrastructure, the CI/CD pipelines, etc. to the best that I could.
+When I look at the project now, we have established a cool setup that allows us to push code changes to production in about five minutes all lead by the famous [Four Key Metrics](https://www.thoughtworks.com/radar/techniques?blipid=1298).
+This articles is about how that leads us to an excellent development environment.
+
+## Introduction
+
+> Disclaimer: This article presents my personal opinions and perspectives on the project, so this is not my company's opinion.
+
+When I look at [ThoughWorks' Technology Radar Vol. 26](https://www.thoughtworks.com/content/dam/thoughtworks/documents/radar/2022/03/tr_technology_radar_vol_26_en.pdf), I could be quite proud ;-) that we have a couple of up-to-date technologies, platforms, tools, and languages & frameworks in our project.
+From the beginning, we are using [GitHub Actions](https://github.com/features/actions), Kotest, etc.
+Nowadays, we are also watching at [Four Key Metrics](https://www.thoughtworks.com/radar/techniques?blipid=1298) and a dashboard showing us the change-lead time as well as the deployment frequency.
+
+As written: I *could* be quite proud.
+But just using up-to-date technology and announcing four further KPIs would not really lead to anything but a feeling of Hype-driven Development (HDD).
+Anyway, let's start at the beginning.
+
+In August/October 2021, my peer, Moritz (head of product), and me started with the rewrite of the web application of my company (see also: [this article]({% post_url 2022-05-10-building-an-event-driven-microservice-application %})).
+To be honest, the start of the project was, let us call it, shaky.
+Before the first Site Reliability Engineer joined the team in November, I was creating the infrastructure, the CI/CD pipelines, etc. to the best that I could.
+I created a Kubernetes (K8s) cluster and a few repositories as well as some Github Actions to deploy the code to the K8s cluster.

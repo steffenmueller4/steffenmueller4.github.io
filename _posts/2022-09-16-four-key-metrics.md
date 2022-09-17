@@ -24,10 +24,21 @@ From the beginning, we are using [GitHub Actions](https://github.com/features/ac
 Nowadays, we are also watching at [Four Key Metrics](https://www.thoughtworks.com/radar/techniques?blipid=1298) and a dashboard showing us the change-lead time as well as the deployment frequency.
 
 As written: I *could* be quite proud.
-But just using up-to-date technology and announcing four further KPIs would not really lead to anything but a feeling of Hype-driven Development (HDD).
+But just using up-to-date technology and announcing four further KPIs would not really lead to anything but to a Hype-driven Development (HDD).
 Anyway, let's start at the beginning.
 
-In August/October 2021, my peer, Moritz (head of product), and me started with the rewrite of the web application of my company (see also: [this article]({% post_url 2022-05-10-building-an-event-driven-microservice-application %})).
+In August/October 2021, my peer, Moritz (head of product Autoservice), and me started with the rewrite of the web application of my company (see also: [this article]({% post_url 2022-05-10-building-an-event-driven-microservice-application %})).
 To be honest, the start of the project was, let us call it, shaky.
 Before the first Site Reliability Engineer joined the team in November, I was creating the infrastructure, the CI/CD pipelines, etc. to the best that I could.
 I created a Kubernetes (K8s) cluster and a few repositories as well as some Github Actions to deploy the code to the K8s cluster.
+
+The general setup has improved a lot in one year.
+When a developer creates a pull request (PR), linting is performed, a new container is build and deployed, end-2-end (e2e) tests are run, etc.
+As soon as the PR is merged to the main branch, a newly build container is deployed to our development cluster and, when the e2e test are green, it is deployed to next stage.
+There the new container can be tested manually and, after approval, deployed to production in roughly 5 min.
+
+Overall, I think a good setup.
+
+## Four Key Metrics
+
+todo

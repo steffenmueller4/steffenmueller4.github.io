@@ -8,6 +8,7 @@ categories:
   - Event-Driven Architecture
   - Domain-Driven Design
 published: true
+hero_image: "/assets/hero_learnings_from_building_an_edma.svg"
 ---
 In August/October 2021, we have begun to build a completely new web application which aimed to be a substitution for a former application.
 When we have started to plan the new application, it was already clear that we wanted to go towards an event-driven application.

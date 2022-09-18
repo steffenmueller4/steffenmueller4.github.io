@@ -4,7 +4,10 @@ layout: default
 {%- assign date_format = site.plainwhite.date_format | default: "%b %-d, %Y" -%}
 <div class="post-container">
   <a class="post-link" href="{{ page.url | relative_url }}">
-    <h2 class="post-title">{{ page.title | escape }}</h2>
+    {%- if page.hero_image %}
+    <img src="{{ page.hero_image | escape }}" class="post-heroimage" alt="{{ page.title | escape }}">
+    {%- endif -%}
+    <h1 class="post-title">{{ page.title | escape }}</h1>
   </a>
   <div class="post-meta">
     <div class="post-date"><i class="icon-calendar"></i>{{ page.date | date: date_format }}</div>

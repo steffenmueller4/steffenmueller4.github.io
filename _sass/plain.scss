@@ -230,6 +230,7 @@ main {
 .post-container {
   list-style-type: none;
   margin: 45px 30px;
+  max-width: 768px;
   @media screen and (max-width: $smallMobileW) {
     margin-left: 20px;
     margin-right: 20px;

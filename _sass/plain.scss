@@ -273,6 +273,10 @@ main {
   align-items: baseline;
   border-bottom: 1px solid #eee;
 }
+.post-heroimage {
+  max-width: 100%;
+  max-height: 100%;
+}
 
 #posts-label {
   font-size: 15px;

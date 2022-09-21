@@ -1,12 +1,13 @@
 ---
 layout: post
 date:   2021-07-30 07:50:08 +0100
-title: "Overview of different Architecture Review Processes"
+title: "Overview of different Software Architecture Review Processes"
 categories:
   - Architecture
   - Organization
   - Architecture Review Process
 published: true
+hero_image: "/assets/hero-overview_of_architecture_review_processes.svg"
 ---
 Recently, I have been asked about what software architecture review processes exist to steer architecture work.
 An architecture review aims at different goals such as finding software design issues early in the development before they get costly.

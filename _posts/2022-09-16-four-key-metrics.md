@@ -8,16 +8,23 @@ categories:
   - Development
   - Culture
 published: true
+hero_image: "/assets/hero_learnings_from_building_an_edma.svg"
 ---
-Now, it is roughly one year ago since my peer, Moritz (head of product), and me started with the rewrite of the web application of my company (see also: [this article]({% post_url 2022-05-10-building-an-event-driven-microservice-application %})).
-To be honest, the start of the project was, let us call it, shaky.
-Before the first Site Reliability Engineer joined the team in November, I was creating the infrastructure, the CI/CD pipelines, etc. to the best that I could.
-When I look at the project now, we have established a cool setup that allows us to push code changes to production in about five minutes all lead by the famous [Four Key Metrics](https://www.thoughtworks.com/radar/techniques?blipid=1298).
-This articles is about how that leads us to an excellent development environment.
+When I started as an engineering manager in a team at a former employer a couple of years ago, the team I joined performed deployments after a sprint has ended every two weeks.
+The preparation of the deployment and the deployment took regularly two engineers a full day of work.
+So, the overhead was huge, the work was repetitive, and no engineer really wanted to do that job.
+Since that point in time, I am a huge fan of the practices proclaimed by the Accelerate book {% cite Forsgren2018 %} and the [State of DevOps report](https://www.devops-research.com/research.html#reports).
+I always educate my teams to follow those practices as much as possible.
+This articles is about how my current team is working with those practices and the famous [Four Key Metrics](https://www.thoughtworks.com/radar/techniques?blipid=1298) to get to an excellent development environment which allows us to deploy to production regularly within about five minutes.
 
 ## Introduction
 
 > Disclaimer: This article presents my personal opinions and perspectives on the project, so this is not my company's opinion.
+
+Now, it is roughly one year ago since my peer, Moritz (head of product), and me started with the rewrite of the web application of my company (see also: [this article]({% post_url 2022-05-10-building-an-event-driven-microservice-application %})).
+To be honest, the start of the project was, let us call it, shaky.
+Before the first Site Reliability Engineer joined the team in November, I was creating the infrastructure, the CI/CD pipelines, etc. to the best that I could.
+When I look at the project now, we have established a cool setup that allows us to push code changes to production in about five minutes all lead by the famous [Four Key Metrics](https://www.thoughtworks.com/radar/techniques?blipid=1298).
 
 When I look at [ThoughWorks' Technology Radar Vol. 26](https://www.thoughtworks.com/content/dam/thoughtworks/documents/radar/2022/03/tr_technology_radar_vol_26_en.pdf), I could be quite proud ;-) that we have a couple of up-to-date technologies, platforms, tools, and languages & frameworks in our project.
 From the beginning, we are using [GitHub Actions](https://github.com/features/actions), Kotest, etc.

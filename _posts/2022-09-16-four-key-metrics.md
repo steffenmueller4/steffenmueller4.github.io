@@ -8,7 +8,7 @@ categories:
   - Development
   - Culture
 published: true
-hero_image: "/assets/hero_learnings_from_building_an_edma.svg"
+hero_image: "/assets/hero-four_key_metrics.svg"
 ---
 When I started as an engineering manager in a team at a former employer a couple of years ago, the team I joined performed deployments after a sprint has ended every two weeks.
 The preparation of the deployment and the deployment took regularly two engineers a full day of work.
@@ -49,3 +49,7 @@ Overall, I think a good setup.
 ## Four Key Metrics
 
 todo
+
+## References
+
+{% bibliography --cited %}

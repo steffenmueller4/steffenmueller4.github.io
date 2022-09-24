@@ -10,17 +10,26 @@ categories:
 published: true
 hero_image: "/assets/hero-four_key_metrics.svg"
 ---
-When I started as an engineering manager in a team at a former employer a couple of years ago, the team I joined performed deployments after a sprint has ended every two weeks.
-The preparation of the deployment and the deployment took regularly two engineers a full day of work.
-So, the overhead was huge, the work was repetitive, and no engineer really wanted to do that job.
-Since that point in time, I am a huge fan of the practices proclaimed by the Accelerate book {% cite Forsgren2018 %} and the [State of DevOps report](https://www.devops-research.com/research.html#reports).
-I always educate my teams to follow those practices as much as possible.
-This articles is about how my current team is working with those practices and the famous [Four Key Metrics](https://www.thoughtworks.com/radar/techniques?blipid=1298) to get to an excellent development environment which allows us to deploy to production regularly within about five minutes.
+In a nice article about why technology matters more and more for companies, Gary O'Brien and Mike Mason mention Continous Delivery (CD) and applied DevOps practices as one of five key factors for a company's success {% cite OBrien2020 %}.
+It is essential to be able to shift from a slow and lengthy release cycles to a fast and incremental/iterative approach to be successful in developing a software product.
+This articles is about my experience with CI/CD and the DevOps practices as well as how my current team uses the famous [Four Key Metrics](https://www.thoughtworks.com/radar/techniques?blipid=1298) to get to an excellent development environment which allows us to deploy to production regularly within about five minutes.
 
 ## Introduction
 
 > Disclaimer: This article presents my personal opinions and perspectives on the project, so this is not my company's opinion.
 
+When I started as an engineering manager in a team at a former employer a couple of years ago, the team which I joined ran deployments of the software product after every sprint every two weeks.
+Major issue, however, was that the deployment took regularly two engineers a full day of work.
+The entire deployment process was error-prone, a huge overhead, and enormously repetitive.
+Essentially, no engineer really wanted to do the job that was assigned by lot.
+Although I experienced lengthy or difficult deployment processes in my career before and also in later career steps, that process was really a nightmare and needed to be changed.
+
+Since that point in time, I am a huge fan of the practices proclaimed by the book Accelerate {% cite Forsgren2018 %} and the entire research of the [State of DevOps report](https://www.devops-research.com/research.html#reports).
+A deployment has to be the most natural thing in the world as it is toil.
+New features should be shipped via fully automated processes that 
+I always educate my teams to follow those practices as much as possible.
+
+--
 Now, it is roughly one year ago since my peer, Moritz (head of product), and me started with the rewrite of the web application of my company (see also: [this article]({% post_url 2022-05-10-building-an-event-driven-microservice-application %})).
 To be honest, the start of the project was, let us call it, shaky.
 Before the first Site Reliability Engineer joined the team in November, I was creating the infrastructure, the CI/CD pipelines, etc. to the best that I could.

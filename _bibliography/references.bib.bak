@@ -585,4 +585,12 @@
   date   = {2021-05-21},
 }
 
+@Electronic{OBrien2020,
+  author = {Gary O'Brien and Mike Mason},
+  month  = jun,
+  title  = {Five things all execs should know about technology (and why it matters more than ever)},
+  url    = {https://www.thoughtworks.com/insights/blog/five-things-all-execs-should-know-about-technology-and-why-it-matters-more-ever},
+  year   = {2020},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

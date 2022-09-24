@@ -11,6 +11,7 @@ published: true
 hero_image: "/assets/hero-four_key_metrics.svg"
 ---
 In a nice article about why technology matters more and more for companies, Gary O'Brien and Mike Mason mention Continous Delivery (CD) and applied DevOps practices as one of five key factors for a company's success {% cite OBrien2020 %}.
+Also Jon Moore and Marty Cagan speak in {% cite Moore2022 %} about the importance of changing the how you build and deploy.
 It is essential to be able to shift from a slow and lengthy release cycles to a fast and incremental/iterative approach to be successful in developing a software product.
 This articles is about my experience with CI/CD and the DevOps practices as well as how my current team uses the famous [Four Key Metrics](https://www.thoughtworks.com/radar/techniques?blipid=1298) to get to an excellent development environment which allows us to deploy to production regularly within about five minutes.
 

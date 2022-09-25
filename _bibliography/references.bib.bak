@@ -609,4 +609,21 @@
   year   = {2021},
 }
 
+@Electronic{Moore2022a,
+  author = {Jon Moore and Marty Cagan},
+  month  = sep,
+  title  = {Changing How You Build},
+  url    = {https://www.svpg.com/changing-how-you-build/},
+  year   = {2022},
+}
+
+@Electronic{Smith2021,
+  author   = {Dustin Smith and Daniella Villalba and Michelle Irvine and Dave Stanke and Nathen Harvey},
+  title    = {Accelerate - State of DevOps 2021},
+  url      = {https://cloud.google.com/devops/state-of-devops},
+  year     = {2021},
+  date     = {2021},
+  keywords = {DevOps, Report,},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

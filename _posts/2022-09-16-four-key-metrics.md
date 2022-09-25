@@ -25,17 +25,20 @@ The entire deployment process was error-prone, a huge overhead, and enormously r
 Essentially, no engineer really wanted to do the job that was assigned by lot.
 Although I experienced lengthy or difficult deployment processes in my career before and also in later career steps, that process was really a nightmare and needed to be changed.
 
-Since that point, I am a huge fan of the practices proclaimed by the book Accelerate {% cite Forsgren2018 %} and the entire [DevOps Research & Assessment (DORA)](https://www.devops-research.com) program and its outcome, the [State of DevOps report](https://www.devops-research.com/research.html#reports).
+Since that point, I am a huge fan of the practices proclaimed by the book Accelerate by Nicole Forsgren {% cite Forsgren2018 %} and the entire [DevOps Research & Assessment (DORA)](https://www.devops-research.com) program and its outcome, the [State of DevOps report](https://www.devops-research.com/research.html#reports).
 Simply, a deployment has to be the most natural thing in the world for the developers.
 New features should be shipped via fully automated processes in nearly no time to production, so that there is no overhead and can be done with every feature that has been finished or bug that has been fixed.
-Nowadays, also the term "developer experience" is connected to that requirement (see also: {% cite Tiedemann2021 %}).
+Nowadays, also the term "developer experience" is connected to that goal (see also: {% cite Tiedemann2021 %}).
+As developers and their "experience" are the essential to build your digital product, they should be able to do their work as effectively as possible, otherwise you are loosing money essentially (see:  {% cite Moore2022a %}, {% cite Tiedemann2021 %}, and {% cite Forsgren2018 %}).
 
-But not only the developer experience and satisfaction—so rather the internal view—is improved by these practices, there are a lot of other effects why those practices may help you to achieve operational excellence.
-Jon Moore and Marty Cagan summarize the effects nicely in {% cite Moore2022a %}:
- - TODO
- - TODO
+According to the latest [State of DevOps report 2021](https://cloud.google.com/devops/state-of-devops) {% cite Smith2021 %}, "[...] excellence in software delivery and operational performance drives organizational performance in technology transformations." {% cite Smith2021 %}
+While previous reports have only seen a relationship that companies with a good organizational performance have had a good performance in software delivery (see: {% cite %}), it now seems become clearer that also companies concentrating on improving their CD and software delivery performance can also improve their organizational performance (see, e.g.: [State of DevOps report 2019](https://cloud.google.com/devops/state-of-devops) {% cite Forsgren2019 %}).
+The [State of DevOps report 2019](https://cloud.google.com/devops/state-of-devops) summarizes that
+their "[...] research continues to show that the industry-standard Four Key Metrics of software development and delivery drive organizational performance in technology transformations [...] [It] revalidates previous findings that it is possible to optimize for stability without sacrificing speed." {% cite Forsgren2019 %}
 
-Jacob Bo Tiedemann and Tanja Bach come to a very catchy summary in {% cite Tiedemann2021 %} when not adhering to the practices: "You are losing money".
+So, with the start of the new development at my current employer in August/October 2021, we directly focused on a proper CD and software delivery performance (see also: [this article]({% post_url 2022-05-10-building-an-event-driven-microservice-application %})).
+Recently, we also started to measure the first parts of the [Four Key Metrics](https://www.thoughtworks.com/radar/techniques?blipid=1298), the Change Lead Time and Deployment Frequency.
+The remainder of this article concentrates on showing you how we did this.
 
 ## A Glimpse on the Technical Setup
 

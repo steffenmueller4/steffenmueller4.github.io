@@ -36,24 +36,32 @@ While previous reports have only seen a relationship that companies with a good 
 The [State of DevOps report 2019](https://cloud.google.com/devops/state-of-devops) summarizes that
 their "[...] research continues to show that the industry-standard Four Key Metrics of software development and delivery drive organizational performance in technology transformations [...] [It] revalidates previous findings that it is possible to optimize for stability without sacrificing speed." {% cite Forsgren2019 %}
 
-So, with the start of the new development at my current employer in August/October 2021, we directly focused on a proper CD and software delivery performance (see also: [this article]({% post_url 2022-05-10-building-an-event-driven-microservice-application %})).
-Recently, we also started to measure the first parts of the [Four Key Metrics](https://www.thoughtworks.com/radar/techniques?blipid=1298), the Change Lead Time and Deployment Frequency.
+So, with the start of the development of the product at my current employer in August/October 2021 (see also: [this article]({% post_url 2022-05-10-building-an-event-driven-microservice-application %})), we directly focused on a proper CD and software delivery performance.
+Recently, we also started to measure the first metrics of the [Four Key Metrics](https://www.thoughtworks.com/radar/techniques?blipid=1298), the Change Lead Time and Deployment Frequency.
+
 The remainder of this article concentrates on showing you how we did this.
+Additionally, I will try to give you insights on the positive effects of all those efforts.
+[In the next section](#a-glimpse-on-the-technical-setup), we will look at the general technical setup that we have.
 
 ## A Glimpse on the Technical Setup
 
-When I look at [ThoughWorks' Technology Radar Vol. 26](https://www.thoughtworks.com/content/dam/thoughtworks/documents/radar/2022/03/tr_technology_radar_vol_26_en.pdf), I could be quite proud ;-) that we have a couple of up-to-date technologies, platforms, tools, and languages & frameworks in our project.
-From the beginning, we are using [GitHub Actions](https://github.com/features/actions), Kotest, etc.
-Nowadays, we are also watching at [Four Key Metrics](https://www.thoughtworks.com/radar/techniques?blipid=1298) and a dashboard showing us the change-lead time as well as the deployment frequency.
+When looking at the current [ThoughWorks' Technology Radar Vol. 26](https://www.thoughtworks.com/content/dam/thoughtworks/documents/radar/2022/03/tr_technology_radar_vol_26_en.pdf), my team and me could be quite proud ;-) that we have a couple of up-to-date technologies, platforms, tools, and languages & frameworks in our project.
+But just using up-to-date technology does not really lead us anywhere but to a Hype-driven Development.
+Let us concentrate on the essential tech setup in the following.
 
-As written: I *could* be quite proud.
-But just using up-to-date technology and announcing four further KPIs would not really lead to anything but to a Hype-driven Development (HDD).
-Anyway, let's start at the beginning.
+The basis of our entire technical setup is that we mostly follow [Trunk-based Development](https://cloud.google.com/architecture/devops/devops-tech-trunk-based-development) with GIT.
+Trunk-based Development bases on using feature branches as well as working in small batches that are merged as soon as and as often as possible.
+The [State of DevOps report 2021](https://cloud.google.com/devops/state-of-devops) counts Trunk-based Development as one of the core capabilities that drives higher software delivery and organizational performance.
 
-In August/October 2021, my peer, Moritz (head of product Autoservice), and me started with the rewrite of the web application of my company (see also: [this article]({% post_url 2022-05-10-building-an-event-driven-microservice-application %})).
-To be honest, the start of the project was, let us call it, shaky.
-Before the first Site Reliability Engineer joined the team in November, I was creating the infrastructure, the CI/CD pipelines, etc. to the best that I could.
-I created a Kubernetes (K8s) cluster and a few repositories as well as some Github Actions to deploy the code to the K8s cluster.
+While insisting on Trunk-based Development, I always have had a lot of discussions.
+Many team members now and back then in other teams at other employers, rather wanted to follow strategies such as GIT-Flow or other non-trunk-based development styles.
+Especially, when there was a Quality Assurance (QA) team, the wish to practice Trunk-based Development was oftentimes not achievable due to the QAs wanting to check every change before deployment.
+
+As I agree that sometimes it is hard to 100% follow Trunk-based Development purely, we realized so-called PR Deployments.
+In order to review Pull Requests (PR), it can help to deploy the  temporarily.
+(see also: {% cite Thiel2021 %})
+
+
 
 The general setup has improved a lot in one year.
 When a developer creates a pull request (PR), linting is performed, a new container is build and deployed, end-2-end (e2e) tests are run, etc.
@@ -69,3 +77,8 @@ todo
 ## References
 
 {% bibliography --cited %}
+
+## Acknowledgements
+
+Huge thanks go to the entire product and development team of [HUK-Autoservice](https://www.huk-autoservice.de) as well as [foobar Agency GmbH](https://foobar.agency) for the awesome work.
+Specifically, I would like to thank Dario Segger for the tremendous work on the measurement of the [Four Key Metrics](https://www.thoughtworks.com/radar/techniques?blipid=1298) as well as building the depicted dashboards.

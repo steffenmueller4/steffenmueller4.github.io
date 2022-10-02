@@ -47,32 +47,40 @@ Additionally, I will try to give you insights on the positive effects of all tho
 
 When looking at the current [ThoughWorks' Technology Radar Vol. 26](https://www.thoughtworks.com/content/dam/thoughtworks/documents/radar/2022/03/tr_technology_radar_vol_26_en.pdf), my team and me could be quite proud ;-) that we have a couple of up-to-date technologies, platforms, tools, and languages & frameworks in our project.
 But just using up-to-date technology does not really lead us anywhere but to a Hype-driven Development.
-Let us concentrate on the essential tech setup in the following.
+Let us concentrate on the essential tech setup in the following—the general architecture is described in [this article]({% post_url 2022-05-10-building-an-event-driven-microservice-application %}).
 
-The basis of our entire technical setup is that we mostly follow [Trunk-based Development](https://cloud.google.com/architecture/devops/devops-tech-trunk-based-development) with GIT.
+The basis of our entire technical setup is that we mostly follow [Trunk-based Development](https://cloud.google.com/architecture/devops/devops-tech-trunk-based-development) with [Git](https://en.wikipedia.org/wiki/Git).
 Trunk-based Development bases on using feature branches as well as working in small batches that are merged as soon as and as often as possible.
-The [State of DevOps report 2021](https://cloud.google.com/devops/state-of-devops) counts Trunk-based Development as one of the core capabilities that drives higher software delivery and organizational performance.
+The [State of DevOps report 2021](https://cloud.google.com/devops/state-of-devops) counts Trunk-based Development as one of the core capabilities that drives higher software delivery and organizational performance {% cite Smith2021 %}.
 
-While insisting on Trunk-based Development, I always have had a lot of discussions.
-Many team members now and back then in other teams at other employers, rather wanted to follow strategies such as GIT-Flow or other non-trunk-based development styles.
-Especially, when there was a Quality Assurance (QA) team, the wish to practice Trunk-based Development was oftentimes not achievable due to the QAs wanting to check every change before deployment.
+When an engineer starts developing a new feature or a bugfix, the engineer starts a new branch (feature branch) from the main branch.
+As soon as the development is done, the engineer creates a Pull Requests (PR) to main branch.
+Immediately, there are different tests running automatically against the code of the branch.
+There are unit tests, integration tests, and end-2-end (e2e) tests.
+Only if those tests are fine, the merge to main is possible.
 
-As I agree that sometimes it is hard to 100% follow Trunk-based Development purely, we realized so-called PR Deployments.
-In order to review Pull Requests (PR), it can help to deploy the  temporarily.
-(see also: {% cite Thiel2021 %})
+Besides the automated tests, the engineers review each other's code in the PR.
+As it is often very helpful to really experience the new features or bugfixes from a testing as well as User Experience (UX) and User Interface (UI) perspective, we realized so-called PR Deployments (see also: {% cite Thiel2021 %}).
+In a PR deployment, the branch of the PR is deployed to our development environment and can be accessed temporarily via a URL such as `<PR_NUMBER>.pr.example.com`.
+These PR Deployments can also be used to run integration and e2e tests with new code.
 
+When the PR and branch is merged to main branch eventually, the new version of application from the new main branch is built, deployed to the main development environment, tested with all the automated tests again, and, if they are fine, deployed to our test/stage environment.
+There the version of the application can be tested manually and, after approval, deployed to production.
 
-
-The general setup has improved a lot in one year.
-When a developer creates a pull request (PR), linting is performed, a new container is build and deployed, end-2-end (e2e) tests are run, etc.
-As soon as the PR is merged to the main branch, a newly build container is deployed to our development cluster and, when the e2e test are green, it is deployed to next stage.
-There the new container can be tested manually and, after approval, deployed to production in roughly 5 min.
-
-Overall, I think a good setup.
+With the described setup, the entire rollout of a new feature or bugfix takes roughly 5-10 minutes.
+Furthermore, we are able to keep track of every version of the application that has been deployed.
+We can also roll back to each version of the application anytime.
+All in all, I think it is a good setup.
 
 ## Four Key Metrics
 
 todo
+
+## Conclusion
+
+While insisting on Trunk-based Development, I always have had a lot of discussions.
+Many team members, now and back then in other teams at other employers, rather wanted to follow strategies such as [Gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) or other non-trunk-based development styles.
+Especially, when there was a Quality Assurance (QA) team, the wish to practice Trunk-based Development was oftentimes not achievable due to the QAs wanting to check every change before deployment.
 
 ## References
 

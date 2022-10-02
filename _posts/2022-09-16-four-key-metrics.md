@@ -32,7 +32,7 @@ Nowadays, also the term "developer experience" is connected to that goal (see al
 As developers and their "experience" are the essential to build your digital product, they should be able to do their work as effectively as possible, otherwise you are loosing money essentially (see:  {% cite Moore2022a %}, {% cite Tiedemann2021 %}, and {% cite Forsgren2018 %}).
 
 According to the latest [State of DevOps report 2021](https://cloud.google.com/devops/state-of-devops) {% cite Smith2021 %}, "[...] excellence in software delivery and operational performance drives organizational performance in technology transformations." {% cite Smith2021 %}
-While previous reports have only seen a relationship that companies with a good organizational performance have had a good performance in software delivery (see: {% cite %}), it now seems become clearer that also companies concentrating on improving their CD and software delivery performance can also improve their organizational performance (see, e.g.: [State of DevOps report 2019](https://cloud.google.com/devops/state-of-devops) {% cite Forsgren2019 %}).
+While previous reports have only seen a relationship that companies with a good organizational performance have had a good performance in software delivery, it now seems to become clearer that also companies concentrating on improving their CD and software delivery performance can also improve their organizational performance (see, e.g.: {% cite Forsgren2019 %} vs. {% cite Smith2021 %}).
 The [State of DevOps report 2019](https://cloud.google.com/devops/state-of-devops) summarizes that
 their "[...] research continues to show that the industry-standard Four Key Metrics of software development and delivery drive organizational performance in technology transformations [...] [It] revalidates previous findings that it is possible to optimize for stability without sacrificing speed." {% cite Forsgren2019 %}
 
@@ -60,7 +60,7 @@ There are unit tests, integration tests, and end-2-end (e2e) tests.
 Only if those tests are fine, the merge to main is possible.
 
 Besides the automated tests, the engineers review each other's code in the PR.
-As it is often very helpful to really experience the new features or bugfixes from a testing as well as User Experience (UX) and User Interface (UI) perspective, we realized so-called PR Deployments (see also: {% cite Thiel2021 %}).
+As it is often very helpful to really see and click the new features or bugfixes from a testing as well as User Experience (UX) and User Interface (UI) perspective, we realized so-called PR Deployments (see, e.g.: {% cite Thiel2021 %}).
 In a PR deployment, the branch of the PR is deployed to our development environment and can be accessed temporarily via a URL such as `<PR_NUMBER>.pr.example.com`.
 These PR Deployments can also be used to run integration and e2e tests with new code.
 
@@ -69,18 +69,16 @@ There the version of the application can be tested manually and, after approval,
 
 With the described setup, the entire rollout of a new feature or bugfix takes roughly 5-10 minutes.
 Furthermore, we are able to keep track of every version of the application that has been deployed.
-We can also roll back to each version of the application anytime.
+We can also roll back to each version of the application nearly anytime.
 All in all, I think it is a good setup.
 
 ## Four Key Metrics
 
-todo
-
-## Conclusion
-
 While insisting on Trunk-based Development, I always have had a lot of discussions.
 Many team members, now and back then in other teams at other employers, rather wanted to follow strategies such as [Gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) or other non-trunk-based development styles.
 Especially, when there was a Quality Assurance (QA) team, the wish to practice Trunk-based Development was oftentimes not achievable due to the QAs wanting to check every change before deployment.
+
+## Conclusion
 
 ## References
 

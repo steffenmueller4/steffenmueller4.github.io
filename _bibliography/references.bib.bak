@@ -635,4 +635,12 @@
   keywords = {DevOps, Report,},
 }
 
+@Electronic{Thiel2021,
+  author = {Robin-Manuel Thiel},
+  month  = jun,
+  title  = {Deploy Pull Requests for Review into Kubernetes with GitHub Actions},
+  url    = {https://pumpingco.de/blog/review-pull-requests-by-deploying-them-into-kubernetes-with-github-actions/},
+  year   = {2021},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

@@ -1,7 +1,7 @@
 ---
 layout: post
 date:   2022-09-16 14:01:20 +0100
-title: "With Four Key Metrics to Operational Development Excellence"
+title: "With Four Key Metrics to Development and Operational Excellence"
 categories:
   - DevOps
   - KPI
@@ -19,7 +19,7 @@ This articles is about my experience with CI/CD and the DevOps practices as well
 
 > Disclaimer: This article presents my personal opinions and perspectives on the project, so this is not my company's opinion.
 
-When I started as an engineering manager at a former employer in 2018, the team which I joined ran deployments of its software product after every sprint every two weeks.
+When I started as an engineering manager at a former employer in 2018, the team which I joined ran deployments of its software product every two weeks after the sprint ended.
 Major issue, however, was that the deployment took regularly two engineers a full day of work.
 The entire deployment process was error-prone, a huge overhead, and enormously repetitive.
 Essentially, no engineer really wanted to do the job that was assigned by lot.
@@ -29,7 +29,7 @@ Since that point, I am a huge fan of the practices proclaimed by the book Accele
 Simply, a deployment has to be the most natural thing in the world for the developers.
 New features should be shipped via fully automated processes in nearly no time to production, so that there is no overhead and can be done with every feature that has been finished or bug that has been fixed.
 Nowadays, also the term "developer experience" is connected to that goal (see also: {% cite Tiedemann2021 %}).
-As developers and their "experience" are the essential to build your digital product, they should be able to do their work as effectively as possible, otherwise you are loosing money essentially (see:  {% cite Moore2022a %}, {% cite Tiedemann2021 %}, and {% cite Forsgren2018 %}).
+As developers and their "experience" are the essential to build your product, they should be able to do their work as effectively as possible, otherwise you are loosing money essentially (see:  {% cite Moore2022a %}, {% cite Tiedemann2021 %}, and {% cite Forsgren2018 %}).
 
 According to the latest [State of DevOps report 2021](https://cloud.google.com/devops/state-of-devops) {% cite Smith2021 %}, "[...] excellence in software delivery and operational performance drives organizational performance in technology transformations." {% cite Smith2021 %}
 While previous reports have only seen a relationship that companies with a good organizational performance have had a good performance in software delivery, it now seems to become clearer that also companies concentrating on improving their CD and software delivery performance can also improve their organizational performance (see, e.g.: {% cite Forsgren2019 %} vs. {% cite Smith2021 %}).
@@ -41,13 +41,9 @@ Recently, we also started to measure the first metrics of the [Four Key Metrics]
 
 The remainder of this article concentrates on showing you how we did this.
 Additionally, I will try to give you insights on the positive effects of all those efforts.
-[In the next section](#a-glimpse-on-the-technical-setup), we will look at the general technical setup that we have.
+[In the next section](#technical-setup), we will look at the general technical setup that we have.
 
-## A Glimpse on the Technical Setup
-
-When looking at the current [ThoughWorks' Technology Radar Vol. 26](https://www.thoughtworks.com/content/dam/thoughtworks/documents/radar/2022/03/tr_technology_radar_vol_26_en.pdf), my team and me could be quite proud ;-) that we have a couple of up-to-date technologies, platforms, tools, and languages & frameworks in our project.
-But just using up-to-date technology does not really lead us anywhere but to a Hype-driven Development.
-Let us concentrate on the essential tech setup in the following—the general architecture is described in [this article]({% post_url 2022-05-10-building-an-event-driven-microservice-application %}).
+## Technical Setup
 
 The basis of our entire technical setup is that we mostly follow [Trunk-based Development](https://cloud.google.com/architecture/devops/devops-tech-trunk-based-development) with [Git](https://en.wikipedia.org/wiki/Git).
 Trunk-based Development bases on using feature branches as well as working in small batches that are merged as soon as and as often as possible.
@@ -70,15 +66,27 @@ There the version of the application can be tested manually and, after approval,
 With the described setup, the entire rollout of a new feature or bugfix takes roughly 5-10 minutes.
 Furthermore, we are able to keep track of every version of the application that has been deployed.
 We can also roll back to each version of the application nearly anytime.
-All in all, I think it is a good setup.
+All in all, I think it is a good—not always perfect—setup.
 
 ## Four Key Metrics
+
+The described setup was a good basis to take off to a direction of a proper software delivery performance.
+But, following the wisdom "you cannot optimze what you do not measure", there were still problems in improving our software delivery performance as well as heading towards development and operational excellence.
+Sometimes, although most developers already saw the general direction, there were still reluctance of developers.
+
+When looking at the current [ThoughWorks' Technology Radar Vol. 26](https://www.thoughtworks.com/content/dam/thoughtworks/documents/radar/2022/03/tr_technology_radar_vol_26_en.pdf), my team and me could be quite proud ;-) that we have a couple of up-to-date technologies, platforms, tools, and languages & frameworks in our project.
+But just using up-to-date technology does not really lead us anywhere but to a Hype-driven Development.
+Let us concentrate on the essential tech setup in the following—the general architecture is described in [this article]({% post_url 2022-05-10-building-an-event-driven-microservice-application %}).
 
 While insisting on Trunk-based Development, I always have had a lot of discussions.
 Many team members, now and back then in other teams at other employers, rather wanted to follow strategies such as [Gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) or other non-trunk-based development styles.
 Especially, when there was a Quality Assurance (QA) team, the wish to practice Trunk-based Development was oftentimes not achievable due to the QAs wanting to check every change before deployment.
 
-## Conclusion
+## Conclusion/Outlook
+
+ * 4 Key Metrics leading you into a good direction
+ * We still have a way to go with the quality metrics and the new 5th metric reliability {% cite Smith2021 %}
+ * We can definitely recommend using the 4 key metrics
 
 ## References
 

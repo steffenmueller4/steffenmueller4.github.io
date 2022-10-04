@@ -73,9 +73,9 @@ All in all, I think it is a good—not always perfect—setup.
 The described setup was a good basis to take off towards a improving the SDP.
 After first successes in the first months, there was no more improvement.
 The team seemed to not see or even ignore further steps to improve the SDP.
-The technical setup worked really well, but mostly behavioral and organizational steps were lost of focus.
-Sometimes team members have not finished PR as soon as possible but worked on new feature branches, new versions being ready in the deployment pipeline have not been deployed, etc.
-Essentially, there was no Key Performance Indicator (KPI) and visual feedback of the SDP for the team.
+The technical setup worked really well, but the team lost focus of mostly behavioral and organizational details.
+Sometimes team members have not finished PR as soon as possible but prioritized new features in new branches, new versions being ready in the deployment pipeline have not been deployed to production, etc.
+Essentially, there was no Key Performance Indicator (KPI) and visual feedback of the SDP to guide the team.
 
 
  * No KPI, so we were not able to improve: "you cannot optimize what you do not measure"

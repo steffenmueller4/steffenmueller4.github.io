@@ -32,11 +32,11 @@ Nowadays, also the term "developer experience" is connected to that goal (see al
 As developers and their "experience" are the essential to build your product, they should be able to do their work as effectively as possible, otherwise you are loosing money essentially (see:  {% cite Moore2022a %}, {% cite Tiedemann2021 %}, and {% cite Forsgren2018 %}).
 
 According to the latest [State of DevOps report 2021](https://cloud.google.com/devops/state-of-devops) {% cite Smith2021 %}, "[...] excellence in software delivery and operational performance drives organizational performance in technology transformations." {% cite Smith2021 %}
-While previous reports have only seen a relationship that companies with a good organizational performance have had a good performance in software delivery, it now seems to become clearer that also companies concentrating on improving their CD and software delivery performance can also improve their organizational performance (see, e.g.: {% cite Forsgren2019 %} vs. {% cite Smith2021 %}).
+While previous reports have only seen a relationship that companies with a good organizational performance have had a good performance in software delivery, it now seems to become clearer that also companies concentrating on improving their CD and software delivery performance (SDP) can also improve their organizational performance (see, e.g.: {% cite Forsgren2019 %} vs. {% cite Smith2021 %}).
 The [State of DevOps report 2019](https://cloud.google.com/devops/state-of-devops) summarizes that
 their "[...] research continues to show that the industry-standard Four Key Metrics of software development and delivery drive organizational performance in technology transformations [...] [It] revalidates previous findings that it is possible to optimize for stability without sacrificing speed." {% cite Forsgren2019 %}
 
-So, with the start of the development of the product at my current employer in August/October 2021 (see also: [this article]({% post_url 2022-05-10-building-an-event-driven-microservice-application %})), we directly focused on a proper CD and software delivery performance.
+So, with the start of the development of the product at my current employer in August/October 2021 (see also: [this article]({% post_url 2022-05-10-building-an-event-driven-microservice-application %})), we directly focused on a proper CD and SDP.
 Recently, we also started to measure the first metrics of the [Four Key Metrics](https://www.thoughtworks.com/radar/techniques?blipid=1298), the Change Lead Time and Deployment Frequency.
 
 The remainder of this article concentrates on showing you how we did this.
@@ -47,7 +47,7 @@ Additionally, I will try to give you insights on the positive effects of all tho
 
 The basis of our entire technical setup is that we mostly follow [Trunk-based Development](https://cloud.google.com/architecture/devops/devops-tech-trunk-based-development) with [Git](https://en.wikipedia.org/wiki/Git).
 Trunk-based Development bases on using feature branches as well as working in small batches that are merged as soon as and as often as possible.
-The [State of DevOps report 2021](https://cloud.google.com/devops/state-of-devops) counts Trunk-based Development as one of the core capabilities that drives higher software delivery and organizational performance {% cite Smith2021 %}.
+The [State of DevOps report 2021](https://cloud.google.com/devops/state-of-devops) counts Trunk-based Development as one of the core capabilities that drives higher SDP and organizational performance {% cite Smith2021 %}.
 
 When an engineer starts developing a new feature or a bugfix, the engineer starts a new branch (feature branch) from the main branch.
 As soon as the development is done, the engineer creates a Pull Requests (PR) to main branch.
@@ -70,13 +70,20 @@ All in all, I think it is a good—not always perfect—setup.
 
 ## Four Key Metrics
 
-The described setup was a good basis to take off to a direction of a proper software delivery performance.
-But, following the wisdom "you cannot optimze what you do not measure", there were still problems in improving our software delivery performance as well as heading towards development and operational excellence.
-Sometimes, although most developers already saw the general direction, there were still reluctance of developers.
+The described setup was a good basis to take off towards a improving the SDP.
+After first successes in the first months, there was no more improvement.
+The team seemed to not see or even ignore further steps to improve the SDP.
+The technical setup worked really well, but mostly behavioral and organizational steps were lost of focus.
+Sometimes team members have not finished PR as soon as possible but worked on new feature branches, new versions being ready in the deployment pipeline have not been deployed, etc.
+Essentially, there was no Key Performance Indicator (KPI) and visual feedback of the SDP for the team.
 
-When looking at the current [ThoughWorks' Technology Radar Vol. 26](https://www.thoughtworks.com/content/dam/thoughtworks/documents/radar/2022/03/tr_technology_radar_vol_26_en.pdf), my team and me could be quite proud ;-) that we have a couple of up-to-date technologies, platforms, tools, and languages & frameworks in our project.
-But just using up-to-date technology does not really lead us anywhere but to a Hype-driven Development.
-Let us concentrate on the essential tech setup in the following—the general architecture is described in [this article]({% post_url 2022-05-10-building-an-event-driven-microservice-application %}).
+
+ * No KPI, so we were not able to improve: "you cannot optimize what you do not measure"
+ * Goals were mostly ignored by devs - they do not fully understand the benefit
+ * 4 Key Metrics to the rescue
+ * Dashboard shown on a screen in the Office
+
+## Lessons Learned
 
 While insisting on Trunk-based Development, I always have had a lot of discussions.
 Many team members, now and back then in other teams at other employers, rather wanted to follow strategies such as [Gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) or other non-trunk-based development styles.

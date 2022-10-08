@@ -80,8 +80,8 @@ In the sense of "you cannot optimize what you do not measure", we then decided t
 The Four Key Metrics are {% cite Smith2021 %}:
  * Change Lead Time is the time it takes to go from the first code committed in a branch to the code running in production.
  * Deployment Frequency is about how often your team deploys code to production or releases it to end users.
- * Mean Time to Restore (MTTR) is how long it generally takes to restore the primary application or service when there is a service incident or a defect that impacts users (e.g., unplanned outage or service impairment).
- * Change Fail Percentage is about what percentage of changes to production or released to users results in degraded service (e.g., lead to service impairment or service outage) and subsequently require remediation (e.g., hotfix, rollback, fix forward, patch)?
+ * Mean Time to Restore (MTTR) is how long it generally takes to restore the primary application or service when there is an incident or defect that impacts users (e.g., service impairment or unplanned outage).
+ * Change Fail Percentage is about what percentage of deployments or releases results in a degraded service (e.g., lead to a service impairment or outage) and subsequently require remediation (e.g., hotfix, rollback, patch, etc)
 
 This research and its statistical analysis have shown a clear link between high-delivery performance and these metrics; they provide a great leading indicator for how a delivery organization as a whole is doing.
 

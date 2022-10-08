@@ -63,25 +63,31 @@ These PR Deployments can also be used to run integration and e2e tests with new 
 When the PR and branch is merged to main branch eventually, the new version of application from the new main branch is built, deployed to the main development environment, tested with all the automated tests again, and, if they are fine, deployed to our test/stage environment.
 There the version of the application can be tested manually and, after approval, deployed to production.
 
-With the described setup, the entire rollout of a new feature or bugfix takes roughly 5-10 minutes.
+With the described setup, the pure deployment of a new feature or bugfix after a PR is merged takes roughly 5-10 minutes.
 Furthermore, we are able to keep track of every version of the application that has been deployed.
 We can also roll back to each version of the application nearly anytime.
 All in all, I think it is a good—not always perfect—setup.
 
 ## Four Key Metrics
 
-The described setup was a good basis to take off towards a improving the SDP.
-After first successes in the first months, there was no more improvement.
-The team seemed to not see or even ignore further steps to improve the SDP.
-The technical setup worked really well, but the team lost focus of mostly behavioral and organizational details.
-Sometimes team members have not finished PR as soon as possible but prioritized new features in new branches, new versions being ready in the deployment pipeline have not been deployed to production, etc.
-Essentially, there was no Key Performance Indicator (KPI) and visual feedback of the SDP to guide the team.
+The described setup (see: [this chapter](#technical-setup)) was a good basis to take off towards a improving the SDP.
+After first successes in the first months, there was, however, no more improvement.
+The team seemed to not see or want to take further steps to improve the SDP.
+They mostly lost focus of behavioral and organizational details such as not finishing PR as soon as possible but prioritizing new features in new branches or not deploying new versions being ready in the deployment pipeline to production.
+Essentially, there was no Key Performance Indicator (KPI) and visual feedback of the SDP to guide and challenge the team as well as compare our performance to other companies.
 
+In the sense of "you cannot optimize what you do not measure", we then decided to measure and visualize the [Four Key Metrics](https://www.thoughtworks.com/radar/techniques?blipid=1298).
+The Four Key Metrics are {% cite Smith2021 %}:
+ * Change Lead Time is the time it takes to go from the first code committed in a branch to the code running in production.
+ * Deployment Frequency is about how often your team deploys code to production or releases it to end users.
+ * Mean Time to Restore (MTTR) is how long it generally takes to restore the primary application or service when there is a service incident or a defect that impacts users (e.g., unplanned outage or service impairment).
+ * Change Fail Percentage is about what percentage of changes to production or released to users results in degraded service (e.g., lead to service impairment or service outage) and subsequently require remediation (e.g., hotfix, rollback, fix forward, patch)?
 
- * No KPI, so we were not able to improve: "you cannot optimize what you do not measure"
- * Goals were mostly ignored by devs - they do not fully understand the benefit
- * 4 Key Metrics to the rescue
+This research and its statistical analysis have shown a clear link between high-delivery performance and these metrics; they provide a great leading indicator for how a delivery organization as a whole is doing.
+
  * Dashboard shown on a screen in the Office
+
+The [Four Key Metrics Quickcheck](https://www.devops-research.com/quickcheck.html).
 
 ## Lessons Learned
 

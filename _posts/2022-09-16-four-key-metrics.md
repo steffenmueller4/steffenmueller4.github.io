@@ -13,7 +13,7 @@ hero_image: "/assets/hero-four_key_metrics.svg"
 In a nice article about why technology matters more and more for companies, Gary O'Brien and Mike Mason mention Continous Delivery (CD) and applied DevOps practices as one of five key factors for a company's success {% cite OBrien2020 %}.
 Also Jon Moore and Marty Cagan speak in {% cite Moore2022 %} and {% cite Moore2022a %} about the importance of changing the how you build and deploy.
 It is essential to be able to shift from a slow and lengthy release cycles to a fast and incremental/iterative approach to be successful in developing a software product.
-This articles is about my experience with CI/CD and the DevOps practices as well as how my current team uses the famous [Four Key Metrics](https://www.thoughtworks.com/radar/techniques?blipid=1298) to get to an excellent development environment which allows us to deploy to production regularly within about five minutes.
+This articles is about my experience with CI/CD and the DevOps practices as well as how my current team uses the famous [Four Key Metrics](https://www.thoughtworks.com/radar/techniques?blipid=1298) to get to an excellent development environment which allows us to deploy to production regularly within about five to ten minutes.
 
 ## Introduction
 
@@ -63,7 +63,7 @@ These PR Deployments can also be used to run integration and e2e tests with new 
 When the PR and branch is merged to main branch eventually, the new version of application from the new main branch is built, deployed to the main development environment, tested with all the automated tests again, and, if they are fine, deployed to our test/stage environment.
 There the version of the application can be tested manually and, after approval, deployed to production.
 
-With the described setup that bases on [GitHub](https://github.com/) and [GitHub Actions](https://github.com/features/actions), the pure deployment of a new feature or bugfix after a PR is merged takes roughly 5-10 minutes.
+With the described setup that bases on [GitHub](https://github.com/) and [GitHub Actions](https://github.com/features/actions), the pure deployment of a new feature or bugfix after a PR is merged takes roughly five to ten minutes.
 Furthermore, we are able to keep track of every version of the application that has been deployed.
 We can also roll back to each version of the application nearly anytime.
 All in all, I think it is a good—not always perfect—setup.
@@ -90,7 +90,7 @@ For our team, we decided to build a dashboard showing the metrics and present it
 
 TODO Figure
 
-Since we started to measure the Four Key Metrics—so far, we concentrated on measuring the Change Lead Time and Deployment Frequency—we were able to improve the numbers.
+Since we started to measure the Four Key Metrics—so far, we concentrated on measuring the Change Lead Time and Deployment Frequency automatically—we were able to improve the numbers.
 Our first analyses via the [Four Key Metrics Quickcheck](https://www.devops-research.com/quickcheck.html) showed us that we were good compared to our industry, but we have been able to improve the Change Lead Time by multiple days to TODO in average as well as the Deployment Frequency to "multiple Deployments per day" in our core repositories.
 The effort confirmed us in our initial good feeling about our benchmark and improved the SDP even more in the last months.
 

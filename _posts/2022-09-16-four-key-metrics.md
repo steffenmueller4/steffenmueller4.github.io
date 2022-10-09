@@ -94,21 +94,20 @@ Since we started to measure the Four Key Metrics—so far, we concentrated on me
 Our first analyses via the [Four Key Metrics Quickcheck](https://www.devops-research.com/quickcheck.html) showed us that we were good compared to our industry, but we have been able to improve the Change Lead Time by multiple days to TODO in average as well as the Deployment Frequency to "multiple Deployments per day" in our core repositories.
 The effort confirmed us in our initial good feeling about our benchmark and improved the SDP even more in the last months.
 
-In the [next section](#our-four-key-metrics-project-performetric), we describe our custom project to measure the Four Key Metrics.
+In the [next section](#lessons-learned), we give you an overview about some lessons we learned by implementing the basic setup and the measurment of the Four Key Metrics.
 
-## Our Four Key Metrics Project: PerforMetric
+## Lessons Learned
+
+While insisting on Trunk-based Development, I always have had a lot of discussions.
+Many team members, now and back then in other teams at other employers, rather wanted to follow strategies such as [Gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) or other non-trunk-based development styles.
+Especially, when there was a Quality Assurance (QA) team, the wish to practice Trunk-based Development was oftentimes not achievable due to the QAs wanting to check every change before deployment.
+
+ * Measurement via own App
+ * Concrentrating on Change Lead Time and Deployment Freuqency
+ * Outlook: MTTR, Change Fail Percentage, and Reliability metrics
 
 Even though there are different existing technical projects to measure the Four Key Metrics with your project such as [this project](https://github.com/GoogleCloudPlatform/fourkeys) to measure the SDP on the Google Cloud Platform, [this project](https://github.com/thoughtworks/metrik) from ThoughtWorks, or [this SaaS product](https://www.usehaystack.io/haystack/accelerate-four-key-metrics) from Haystack, we built our own small application to fit perfectly into our environment: PerforMetric.
 In PerforMetric, we utilize our [technical basis](#technical-basis), the [GitHub API](https://docs.github.com/en/rest), and Grafana for presenting the Four Key Metrics dashboard as well as the rest of our runtime environment.
-The architecture is depicted in the figure below.
-
-![PerforMetric Architecture](/assets/performetric-architecture.png)
-
-PerforMetric simply collects the required data for calculating the Four Key Metrics.
-So far, we concentrated on measuring the Change Lead Time and Deployment Frequency.
-For that, PerforMetric collects the raw deployments containing the [GitHub Actions](https://github.com/features/actions)-based deployments to our environment as well as PR data containing data about commits and the merge time of a PR respectively branch.
-This data collection is done periodically via the [GitHub API](https://docs.github.com/en/rest).
-Afterwards, PerforMetric calculates the Change Lead Time and Deployment Frequency based on that data.
 
 As mentioned, we started with automating the measurement of Change Lead Time and Deployment Freuqency.
 We are working on integrating MTTR and Change Fail Percentage into PerforMetric and our measurement approach.
@@ -117,11 +116,6 @@ Reliability is the primary metric for operational performance {% cite Smith2021 
 It "[...] is the degree to which a team can keep promises and assertions about the software
 they operate." {% cite Smith2021 %}
 
-## Lessons Learned
-
-While insisting on Trunk-based Development, I always have had a lot of discussions.
-Many team members, now and back then in other teams at other employers, rather wanted to follow strategies such as [Gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) or other non-trunk-based development styles.
-Especially, when there was a Quality Assurance (QA) team, the wish to practice Trunk-based Development was oftentimes not achievable due to the QAs wanting to check every change before deployment.
 
 ## Conclusion/Outlook
 

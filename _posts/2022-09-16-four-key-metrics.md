@@ -41,9 +41,9 @@ Recently, we also started to measure the first metrics of the [Four Key Metrics]
 
 The remainder of this article concentrates on showing you how we did this.
 Additionally, I will try to give you insights on the positive effects of all those efforts.
-[In the next section](#technical-setup), we will look at the general technical setup that we have.
+[In the next section](#technical-basis), we will look at the general technical setup that we have.
 
-## Technical Setup
+## Technical Basis
 
 The basis of our entire technical setup is that we mostly follow [Trunk-based Development](https://cloud.google.com/architecture/devops/devops-tech-trunk-based-development) with [Git](https://en.wikipedia.org/wiki/Git).
 Trunk-based Development bases on using feature branches as well as working in small batches that are merged as soon as and as often as possible.
@@ -70,24 +70,31 @@ All in all, I think it is a good—not always perfect—setup.
 
 ## Four Key Metrics
 
-The described setup (see: [this chapter](#technical-setup)) was a good basis to take off towards a improving the SDP.
+The described setup (see: [previous section](#technical-basis)) was a good basis to take off towards a improving the SDP.
 After first successes in the first months, there was, however, no more improvement.
 The team seemed to not see or want to take further steps to improve the SDP.
-They mostly lost focus of behavioral and organizational details such as not finishing PR as soon as possible but prioritizing new features in new branches or not deploying new versions being ready in the deployment pipeline to production.
-Essentially, there was no Key Performance Indicator (KPI) and visual feedback of the SDP to guide and challenge the team as well as compare our performance to other companies.
+They mostly lost focus on behavioral and organizational details such as not finishing PR as soon as possible but prioritizing new features in new branches or not deploying new versions being ready in the deployment pipeline to production.
+Essentially, there was no Key Performance Indicator (KPI) and visual feedback of the SDP to guide and challenge the team as well as compare our SDP to other companies.
 
 In the sense of "you cannot optimize what you do not measure", we then decided to measure and visualize the [Four Key Metrics](https://www.thoughtworks.com/radar/techniques?blipid=1298).
 The Four Key Metrics are {% cite Smith2021 %}:
- * Change Lead Time is the time it takes to go from the first code committed in a branch to the code running in production.
+ * Change Lead Time is the time it takes to go from the first code committed to the this code running in production.
  * Deployment Frequency is about how often your team deploys code to production or releases it to end users.
- * Mean Time to Restore (MTTR) is how long it generally takes to restore the primary application or service when there is an incident or defect that impacts users (e.g., service impairment or unplanned outage).
- * Change Fail Percentage is about what percentage of deployments or releases results in a degraded service (e.g., lead to a service impairment or outage) and subsequently require remediation (e.g., hotfix, rollback, patch, etc)
+ * Mean Time to Restore (MTTR) is about how long it generally takes to restore the primary application or service when there is an incident or defect that impacts users (e.g., service impairment or unplanned outage).
+ * Change Fail Percentage is the percentage of deployments or releases that result in a degraded service (e.g., lead to a service impairment or outage) and subsequently require remediation (e.g., hotfix, rollback, patch, etc)
 
-This research and its statistical analysis have shown a clear link between high-delivery performance and these metrics; they provide a great leading indicator for how a delivery organization as a whole is doing.
+Those Four Key Metrics show a clear link to high SDP {% cite Smith2021 %}.
+They, moreover, provide a good leading indicator for how the SDP in the organization is doing.
+The DORA team even created a [Four Key Metrics Quickcheck](https://www.devops-research.com/quickcheck.html) to self-assess the SDP and benchmark the own performance to the industry average.
+For our team, we decided to build a dashboard showing the metrics and present it to everybody in the Office (see: figure below).
 
- * Dashboard shown on a screen in the Office
+TODO Figure
 
-The [Four Key Metrics Quickcheck](https://www.devops-research.com/quickcheck.html).
+In the [next section](#our-four-key-metrics-project-performetric), we describe our custom project to measure the Four Key Metrics.
+
+## Our Four Key Metrics Project: PerforMetric
+
+
 
 ## Lessons Learned
 

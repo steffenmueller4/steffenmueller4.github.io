@@ -8,3 +8,4 @@ vendor
 .jekyll-cache
 tags
 _bibliography/references.bib.sav.tmp
+*.drawio.bkp

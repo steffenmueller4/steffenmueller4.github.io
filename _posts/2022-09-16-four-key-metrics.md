@@ -63,7 +63,7 @@ These PR Deployments can also be used to run integration and e2e tests with new 
 When the PR and branch is merged to main branch eventually, the new version of application from the new main branch is built, deployed to the main development environment, tested with all the automated tests again, and, if they are fine, deployed to our test/stage environment.
 There the version of the application can be tested manually and, after approval, deployed to production.
 
-With the described setup, the pure deployment of a new feature or bugfix after a PR is merged takes roughly 5-10 minutes.
+With the described setup that bases on [GitHub](https://github.com/) and [GitHub Actions](https://github.com/features/actions), the pure deployment of a new feature or bugfix after a PR is merged takes roughly 5-10 minutes.
 Furthermore, we are able to keep track of every version of the application that has been deployed.
 We can also roll back to each version of the application nearly anytime.
 All in all, I think it is a good—not always perfect—setup.
@@ -85,16 +85,37 @@ The Four Key Metrics are {% cite Smith2021 %}:
 
 Those Four Key Metrics show a clear link to high SDP {% cite Smith2021 %}.
 They, moreover, provide a good leading indicator for how the SDP in the organization is doing.
-The DORA team even created a [Four Key Metrics Quickcheck](https://www.devops-research.com/quickcheck.html) to self-assess the SDP and benchmark the own performance to the industry average.
+The DORA team also created a [Four Key Metrics Quickcheck](https://www.devops-research.com/quickcheck.html) to self-assess the own SDP and benchmark it to the industry average.
 For our team, we decided to build a dashboard showing the metrics and present it to everybody in the Office (see: figure below).
 
 TODO Figure
+
+Since we started to measure the Four Key Metrics—so far, we concentrated on measuring the Change Lead Time and Deployment Frequency—we were able to improve the numbers.
+Our first analyses via the [Four Key Metrics Quickcheck](https://www.devops-research.com/quickcheck.html) showed us that we were good compared to our industry, but we have been able to improve the Change Lead Time by multiple days to TODO in average as well as the Deployment Frequency to "multiple Deployments per day" in our core repositories.
+The effort confirmed us in our initial good feeling about our benchmark and improved the SDP even more in the last months.
 
 In the [next section](#our-four-key-metrics-project-performetric), we describe our custom project to measure the Four Key Metrics.
 
 ## Our Four Key Metrics Project: PerforMetric
 
+Even though there are different existing technical projects to measure the Four Key Metrics with your project such as [this project](https://github.com/GoogleCloudPlatform/fourkeys) to measure the SDP on the Google Cloud Platform, [this project](https://github.com/thoughtworks/metrik) from ThoughtWorks, or [this SaaS product](https://www.usehaystack.io/haystack/accelerate-four-key-metrics) from Haystack, we built our own small application to fit perfectly into our environment: PerforMetric.
+In PerforMetric, we utilize our [technical basis](#technical-basis), the [GitHub API](https://docs.github.com/en/rest), and Grafana for presenting the Four Key Metrics dashboard as well as the rest of our runtime environment.
+The architecture is depicted in the figure below.
 
+![PerforMetric Architecture](/assets/performetric-architecture.png)
+
+PerforMetric simply collects the required data for calculating the Four Key Metrics.
+So far, we concentrated on measuring the Change Lead Time and Deployment Frequency.
+For that, PerforMetric collects the raw deployments containing the [GitHub Actions](https://github.com/features/actions)-based deployments to our environment as well as PR data containing data about commits and the merge time of a PR respectively branch.
+This data collection is done periodically via the [GitHub API](https://docs.github.com/en/rest).
+Afterwards, PerforMetric calculates the Change Lead Time and Deployment Frequency based on that data.
+
+As mentioned, we started with automating the measurement of Change Lead Time and Deployment Freuqency.
+We are working on integrating MTTR and Change Fail Percentage into PerforMetric and our measurement approach.
+Furthermore, we are thinking about how to show the new DORA metric for Reliability being mentioned in the [State of DevOps report 2021](https://cloud.google.com/devops/state-of-devops) in our dashboards (see also: {% cite Smith2021 %}).
+Reliability is the primary metric for operational performance {% cite Smith2021 %}.
+It "[...] is the degree to which a team can keep promises and assertions about the software
+they operate." {% cite Smith2021 %}
 
 ## Lessons Learned
 

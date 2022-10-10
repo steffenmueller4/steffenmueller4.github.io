@@ -88,7 +88,7 @@ They, moreover, provide a good leading indicator for how the SDP in the organiza
 The DORA team also created a [Four Key Metrics Quickcheck](https://www.devops-research.com/quickcheck.html) to self-assess the own SDP and benchmark it to the industry average.
 For our team, we decided to build a dashboard showing the metrics and present it to everybody in the Office (see: figure below).
 
-TODO Figure
+![Four Key Metrics Dashboard in our Office](/assets/four-key-metrics-dashboard.jpg)
 
 Since we started to measure the Four Key Metrics—so far, we concentrated on measuring the Change Lead Time and Deployment Frequency automatically—we were able to improve the numbers.
 Our first analyses via the [Four Key Metrics Quickcheck](https://www.devops-research.com/quickcheck.html) showed us that we were good compared to our industry, but we have been able to improve the Change Lead Time by multiple days to TODO in average as well as the Deployment Frequency to "multiple Deployments per day" in our core repositories.

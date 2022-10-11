@@ -86,15 +86,20 @@ The Four Key Metrics are {% cite Smith2021 %}:
 Those Four Key Metrics show a clear link to high SDP {% cite Smith2021 %}.
 They, moreover, provide a good leading indicator for how the SDP in the organization is doing.
 The DORA team also created a [Four Key Metrics Quickcheck](https://www.devops-research.com/quickcheck.html) to self-assess the own SDP and benchmark it to the industry average.
-For our team, we decided to build a dashboard showing the metrics and present it to everybody in the Office (see: figure below).
+Our first analyses via the Four Key Metrics Quickcheck showed that we were doing quite well compared to our industry.
 
 ![Four Key Metrics Dashboard in our Office](/assets/four-key-metrics-dashboard.jpg)
 
-Since we started to measure the Four Key Metrics—so far, we concentrated on measuring the Change Lead Time and Deployment Frequency automatically—we were able to improve the numbers.
-Our first analyses via the [Four Key Metrics Quickcheck](https://www.devops-research.com/quickcheck.html) showed us that we were good compared to our industry, but we have been able to improve the Change Lead Time by multiple days to TODO in average as well as the Deployment Frequency to "multiple Deployments per day" in our core repositories.
-The effort confirmed us in our initial good feeling about our benchmark and improved the SDP even more in the last months.
+In order to constantly compare, challenge, and guide the team towards a good SDP, we decided to build a dashboard showing the metrics and present it to everybody in the Office on a big screen (see: figure above).
+Since we have started to measure the Four Key Metrics—so far, we concentrated on measuring the Change Lead Time and Deployment Frequency automatically—we have been able to improve the metrics.
+The Change Lead Time, for example, of our most important project, the `autoservice-frontend`, improved from above 1 week to 3.31 days over the last 30 days just by raising the awareness via the big screen in the Office.
+The Deployment Frequency raised from "1 time a day - 1 time a week" to "multiple Deployments per day" over the last 30 days in `autoservice-frontend`.
+For the other projects, the metrics also look well—it is important to say that some projects shown on the dashboard are updated less frequently and may, thus, have a higher Change Lead Time and lower Deployment Frequency.
 
-In the [next section](#lessons-learned), we give you an overview about some lessons we learned by implementing the basic setup and the measurment of the Four Key Metrics.
+For further improvement, we will probably do some other improvements.
+For example, we figured out that our Definition of Done (see also: [Scrum](https://en.wikipedia.org/wiki/Scrum_(software_development))) should be changed so a feature or bugfix has to be deployed to production before the task in our board can be marked as done.
+This may be changed in the next weeks.
+Additionally, there are a lot of small other improvements to be done.
 
 ## Lessons Learned
 

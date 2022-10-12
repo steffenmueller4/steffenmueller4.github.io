@@ -10,10 +10,10 @@ categories:
 published: true
 hero_image: "/assets/hero-four_key_metrics.svg"
 ---
-In a nice article about why technology matters more and more for companies, Gary O'Brien and Mike Mason mention Continous Delivery (CD) and applied DevOps practices as one of five key factors for a company's success {% cite OBrien2020 %}.
-Also Jon Moore and Marty Cagan speak in {% cite Moore2022 %} and {% cite Moore2022a %} about the importance of changing the how you build and deploy.
-It is essential to be able to shift from a slow and lengthy release cycles to a fast and incremental/iterative approach to be successful in developing a software product.
-This articles is about my experience with CI/CD and the DevOps practices as well as how my current team uses the famous [Four Key Metrics](https://www.thoughtworks.com/radar/techniques?blipid=1298) to get to an excellent development environment which allows us to deploy to production regularly within about five to ten minutes.
+In an article about why technology matters more and more for companies, Gary O'Brien and Mike Mason mention Continous Delivery (CD) and applied DevOps practices as one of five key factors for a company's (future) success {% cite OBrien2020 %}.
+Also Jon Moore and Marty Cagan write in {% cite Moore2022 %} and {% cite Moore2022a %} about the importance of changing the how you build and deploy.
+It is essential to be able to shift from slow and lengthy release cycles to a fast and incremental/iterative approach to be successful in developing software products.
+This articles is about my lessons learned from pushing towards a proper CI/CD, using up-to-date DevOps practices, and how my current team uses the [Four Key Metrics](https://www.thoughtworks.com/radar/techniques?blipid=1298) to get to development and operational excellence.
 
 ## Introduction
 
@@ -25,15 +25,15 @@ The entire deployment process was error-prone, a huge overhead, and enormously r
 Essentially, no engineer really wanted to do the job that was assigned by lot.
 Although I experienced lengthy or difficult deployment processes in my career before and also in later career steps, that process was really a nightmare and needed to be changed.
 
-Since that point, I am a huge fan of the practices proclaimed by the book Accelerate by Nicole Forsgren {% cite Forsgren2018 %} and the entire [DevOps Research & Assessment (DORA)](https://www.devops-research.com) program and its outcome, the [State of DevOps report](https://www.devops-research.com/research.html#reports).
+Since that point, I am a huge fan of the practices proclaimed by the book Accelerate by Nicole Forsgren {% cite Forsgren2018 %} and the entire [DevOps Research & Assessment (DORA)](https://www.devops-research.com) program and its outcome, the [State of DevOps Report](https://www.devops-research.com/research.html#reports).
 Simply, a deployment has to be the most natural thing in the world for the developers.
 New features should be shipped via fully automated processes in nearly no time to production, so that there is no overhead and can be done with every feature that has been finished or bug that has been fixed.
 Nowadays, also the term "developer experience" is connected to that goal (see also: {% cite Tiedemann2021 %}).
 As developers and their "experience" are the essential to build your product, they should be able to do their work as effectively as possible, otherwise you are loosing money essentially (see:  {% cite Moore2022a %}, {% cite Tiedemann2021 %}, and {% cite Forsgren2018 %}).
 
-According to the latest [State of DevOps report 2021](https://cloud.google.com/devops/state-of-devops) {% cite Smith2021 %}, "[...] excellence in software delivery and operational performance drives organizational performance in technology transformations." {% cite Smith2021 %}
+According to the latest [State of DevOps Report 2021](https://cloud.google.com/devops/state-of-devops) {% cite Smith2021 %}, "[...] excellence in software delivery and operational performance drives organizational performance in technology transformations." {% cite Smith2021 %}
 While previous reports have only seen a relationship that companies with a good organizational performance have had a good performance in software delivery, it now seems to become clearer that also companies concentrating on improving their CD and software delivery performance (SDP) can also improve their organizational performance (see, e.g.: {% cite Forsgren2019 %} vs. {% cite Smith2021 %}).
-The [State of DevOps report 2019](https://cloud.google.com/devops/state-of-devops) summarizes that
+The [State of DevOps Report 2019](https://cloud.google.com/devops/state-of-devops) summarizes that
 their "[...] research continues to show that the industry-standard Four Key Metrics of software development and delivery drive organizational performance in technology transformations [...] [It] revalidates previous findings that it is possible to optimize for stability without sacrificing speed." {% cite Forsgren2019 %}
 
 So, with the start of the development of the product at my current employer in August/October 2021 (see also: [this article]({% post_url 2022-05-10-building-an-event-driven-microservice-application %})), we directly focused on a proper CD and SDP.
@@ -47,7 +47,7 @@ Additionally, I will try to give you insights on the positive effects of all tho
 
 The basis of our entire technical setup is that we mostly follow [Trunk-based Development](https://cloud.google.com/architecture/devops/devops-tech-trunk-based-development) with [Git](https://en.wikipedia.org/wiki/Git).
 Trunk-based Development bases on using feature branches as well as working in small batches that are merged as soon as and as often as possible.
-The [State of DevOps report 2021](https://cloud.google.com/devops/state-of-devops) counts Trunk-based Development as one of the core capabilities that drives higher SDP and organizational performance {% cite Smith2021 %}.
+The [State of DevOps Report 2021](https://cloud.google.com/devops/state-of-devops) counts Trunk-based Development as one of the core capabilities that drives higher SDP and organizational performance {% cite Smith2021 %}.
 
 When an engineer starts developing a new feature or a bugfix, the engineer starts a new branch (feature branch) from the main branch.
 As soon as the development is done, the engineer creates a Pull Requests (PR) to main branch.
@@ -103,30 +103,36 @@ Additionally, there are a lot of small other improvements to be done.
 
 ## Lessons Learned
 
-While insisting on Trunk-based Development, I always have had a lot of discussions.
-Many team members, now and back then in other teams at other employers, rather wanted to follow strategies such as [Gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) or other non-trunk-based development styles.
-Especially, when there was a Quality Assurance (QA) team, the wish to practice Trunk-based Development was oftentimes not achievable due to the QAs wanting to check every change before deployment.
+We, the entire development and site reliability engineering team of [HUK-Autoservice](https://www.huk-autoservice.de), can definitely recommend to measure the SDP based on the Four Key Metrics.
+The metrics help to lead efforts in improving the SDP into the right direction (see also: [previous section](#four-key-metrics)).
+As described in the [previous section](#four-key-metrics), we still need to find a good way to measure and use the quality metrics, MTTR and Change Fail Percentage, of the Four Key Metrics for our purposes.
+Furthermore, there is a new metric, Reliability, mentioned in the [State of DevOps Report 2021](https://cloud.google.com/devops/state-of-devops) that we want use (see: {% cite Smith2021 %}).
 
- * Measurement via own App
- * Concrentrating on Change Lead Time and Deployment Freuqency
- * Outlook: MTTR, Change Fail Percentage, and Reliability metrics
+For me personally, this is the third time I am leading a cross-functional development and site reliability engineering team via the considerations of Nicole Forsgren's book Accelerate {% cite Forsgren2018 %} towards a better SDP (see also: [Introduction](#introduction)).
+I can draw a positive conclusion for all three times: Everytime there was a very positive outcome, although the outcome was slightly different in all three teams.
+This time the team, additionally, measures parts of the Four Key Metrics to steer the SDP efforts—also this seems to work out well so far ;-).
 
-Even though there are different existing technical projects to measure the Four Key Metrics with your project such as [this project](https://github.com/GoogleCloudPlatform/fourkeys) to measure the SDP on the Google Cloud Platform, [this project](https://github.com/thoughtworks/metrik) from ThoughtWorks, or [this SaaS product](https://www.usehaystack.io/haystack/accelerate-four-key-metrics) from Haystack, we built our own small application to fit perfectly into our environment: PerforMetric.
-In PerforMetric, we utilize our [technical basis](#technical-basis), the [GitHub API](https://docs.github.com/en/rest), and Grafana for presenting the Four Key Metrics dashboard as well as the rest of our runtime environment.
+During my three attempts to direct teams towards a better SDP, I also realized very complicated situations where the team did not understand the ideas and benefits of CD.
+For example, I always have had a lot of discussions while introducing and insisting on Trunk-based Development.
+Oftentimes, the teams wanted to run other strategies such as [Gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) or other non-trunk-based development styles.
+Especially, when there was a Quality Assurance (QA) team involved, the wish to practice Trunk-based Development was oftentimes very hard or even not achievable due to QA wanting to check every change before a deployment.
 
-As mentioned, we started with automating the measurement of Change Lead Time and Deployment Freuqency.
-We are working on integrating MTTR and Change Fail Percentage into PerforMetric and our measurement approach.
-Furthermore, we are thinking about how to show the new DORA metric for Reliability being mentioned in the [State of DevOps report 2021](https://cloud.google.com/devops/state-of-devops) in our dashboards (see also: {% cite Smith2021 %}).
-Reliability is the primary metric for operational performance {% cite Smith2021 %}.
-It "[...] is the degree to which a team can keep promises and assertions about the software
-they operate." {% cite Smith2021 %}
+Also, the current team at [HUK-Autoservice](https://www.huk-autoservice.de) struggled in the beginning.
+When we have started, also discussions about Gitflow have come up to avoid broken features to be shipped to production.
+It was hard to convince the team to rather improve the testing capabilities such as unit, integration, and e2e tests instead of adapting the way we work with Git.
+It is essential to work with Trunk-based Development.
 
+Furthermore, there is always the challenge to communicate the benefits of CD and all the efforts to improve the SDP to non-tech stakeholders.
+Although, this challenge is always existing for techies, this challenge can be really hard for all the efforts required to succeed here.
+I can definitely recommend to really use the numbers and examples of the State of DevOps Reports being available [here](https://cloud.google.com/devops/state-of-devops).
 
-## Conclusion/Outlook
+Last but not least, there is the challenge to implement the measurement of the Four Key Metrics.
+Even though there are different existing technical projects to measure the Four Key Metrics with your projects such as [this project](https://github.com/GoogleCloudPlatform/fourkeys), [this project](https://github.com/thoughtworks/metrik), or [this SaaS product](https://www.usehaystack.io/haystack/accelerate-four-key-metrics), we built our own small application to fit perfectly into our environment.
+In that own application, we utilize our [technical basis](#technical-basis), the [GitHub API](https://docs.github.com/en/rest), and Grafana for presenting the Four Key Metrics dashboard as well as the rest of our runtime environment.
+Please do a good research what approach fits your requirements.
 
- * 4 Key Metrics leading you into a good direction
- * We still have a way to go with the quality metrics and the new 5th metric reliability {% cite Smith2021 %}
- * We can definitely recommend using the 4 key metrics
+I hope that this post conviced you to invest into your CD and improve your SDP.
+All in all, I think it is worth the effort.
 
 ## References
 
@@ -135,4 +141,4 @@ they operate." {% cite Smith2021 %}
 ## Acknowledgements
 
 Huge thanks go to the entire product and development team of [HUK-Autoservice](https://www.huk-autoservice.de) as well as [foobar Agency GmbH](https://foobar.agency) for the awesome work.
-Specifically, I would like to thank Dario Segger for the tremendous work on the measurement of the [Four Key Metrics](https://www.thoughtworks.com/radar/techniques?blipid=1298) as well as building the depicted dashboards.
+Specifically, I would like to thank Dario Segger for the tremendous work on measuring the [Four Key Metrics](https://www.thoughtworks.com/radar/techniques?blipid=1298) as well as building the depicted dashboard.

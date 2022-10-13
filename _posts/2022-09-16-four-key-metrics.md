@@ -133,8 +133,8 @@ Even though there are different projects available such as [this project](https:
 In that own application, we utilize our [technical basis](#technical-basis) such as the [GitHub API](https://docs.github.com/en/rest) and Grafana for presenting the Four Key Metrics dashboard as well as the rest of our runtime environment.
 Please do a good research what approach fits your requirements.
 
-I hope that this article conviced you to invest into your CD and improve your SDP.
-All in all, I think it is worth the effort.
+I hope that this article conviced you to invest into your CD, to use up-to-date DevOps practices, to improve your SDP, and to measure that with the Four Key Metrics.
+All in all, I think it is worth the effort: we are on the way towards development and operational excellence.
 
 ## References
 

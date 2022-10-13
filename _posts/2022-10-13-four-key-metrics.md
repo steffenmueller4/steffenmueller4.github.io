@@ -1,6 +1,6 @@
 ---
 layout: post
-date:   2022-09-16 14:01:20 +0100
+date:   2022-10-13 20:14:15 +0100
 title: "With Four Key Metrics to Development and Operational Excellence"
 categories:
   - DevOps
@@ -110,7 +110,7 @@ As described in the [previous section](#four-key-metrics), we still need to find
 Furthermore, there is a new metric, Reliability, mentioned in the [State of DevOps Report 2021](https://cloud.google.com/devops/state-of-devops) that we want measure (see: {% cite Smith2021 %}).
 
 For me personally, this is the third time I am leading a cross-functional engineering team via the practices proclaimed by the book Accelerate {% cite Forsgren2018 %} towards a better CD and SDP.
-I can draw a positive conclusion for all three times: Everytime there was a very positive outcome in sum.
+I can draw a positive conclusion for all three times: Everytime there was a positive result in the SDP.
 This time the team, additionally, started to measure the Four Key Metrics to steer the SDP efforts into the right direction.
 It really helps to find difficulties in your CD and to improve the SDP (see also: [this section](#four-key-metrics)).
 

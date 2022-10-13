@@ -1,7 +1,7 @@
 ---
 layout: post
 date:   2022-10-13 20:14:15 +0100
-title: "With Four Key Metrics to Development Excellence"
+title: "With Four Key Metrics towards Development Excellence"
 categories:
   - DevOps
   - KPI
@@ -133,7 +133,7 @@ In that own application, we utilize our [technical basis](#technical-basis) such
 Please do a good research what approach fits your requirements.
 
 I hope that this article conviced you to invest into your CD, to use up-to-date DevOps practices, to improve your SDP, and to measure that with the Four Key Metrics.
-All in all, I think it is worth the effort: we are on the way towards development excellence.
+All in all, I think it is worth the effort—we are on the way towards development excellence.
 
 ## References
 

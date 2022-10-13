@@ -1,7 +1,7 @@
 ---
 layout: post
 date:   2022-10-13 20:14:15 +0100
-title: "With Four Key Metrics to Development and Operational Excellence"
+title: "With Four Key Metrics to Development Excellence"
 categories:
   - DevOps
   - KPI
@@ -14,7 +14,7 @@ In an article about why technology matters more and more for companies, Gary O'B
 Also, Jon Moore and Marty Cagan write in {% cite Moore2022 %} and {% cite Moore2022a %} about the importance of changing the how you build and deploy.
 To sum it up, it is essential to establish a fast and incremental/iterative software delivery approach to be successful in developing software products.
 The famous [Four Key Metrics](https://www.thoughtworks.com/radar/techniques?blipid=1298) can help you to direct your efforts into the right direction.
-This article is about my lessons learned to implement a proper CD, using up-to-date DevOps practices, and implementing the [Four Key Metrics](https://www.thoughtworks.com/radar/techniques?blipid=1298) to get to development and operational excellence.
+This article is about my lessons learned to implement a proper CD, using up-to-date DevOps practices, and implementing the [Four Key Metrics](https://www.thoughtworks.com/radar/techniques?blipid=1298) to get to development excellence.
 
 ## Introduction
 
@@ -134,7 +134,7 @@ In that own application, we utilize our [technical basis](#technical-basis) such
 Please do a good research what approach fits your requirements.
 
 I hope that this article conviced you to invest into your CD, to use up-to-date DevOps practices, to improve your SDP, and to measure that with the Four Key Metrics.
-All in all, I think it is worth the effort: we are on the way towards development and operational excellence.
+All in all, I think it is worth the effort: we are on the way towards development excellence.
 
 ## References
 

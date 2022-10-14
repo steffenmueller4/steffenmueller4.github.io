@@ -103,7 +103,7 @@ Additionally, there are a lot of small other improvements to be done.
 
 I—and, I think I am speaking in the name of the entire engineering team—can definitely recommend to measure the SDP based on the Four Key Metrics.
 A good CD strenthens the developer experience when they are able to push their changes to production easily.
-The Four Key Metrics help you to lead your efforts into the right direction (see also: [this section](#four-key-metrics)), and a good SDP is important for an effective and efficient software product development (see also: [this section](#introduction)).
+The Four Key Metrics help you to lead your efforts into the right direction of an effective and efficient software product development (see also: [this section](#four-key-metrics)).
 As described in the [previous section](#four-key-metrics), we still need to find a good way to measure and use the quality metrics, MTTR and Change Fail Percentage, of the Four Key Metrics for our purposes.
 Furthermore, there is a new metric, Reliability, mentioned in the State of DevOps Report 2021 that we want measure (see: {% cite Smith2021 %}).
 

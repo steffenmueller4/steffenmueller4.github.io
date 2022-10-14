@@ -26,7 +26,7 @@ The entire deployment process was error-prone, a huge overhead, and repetitive.
 Essentially, no engineer really wanted to do the job that was assigned by lot.
 Although I experienced lengthy or difficult deployment processes in my career before and also in later career steps, that process was really a nightmare and needed to be changed.
 
-Since then, I am a huge fan of the practices proclaimed by the book Accelerate by Nicole Forsgren {% cite Forsgren2018 %} and the entire [DevOps Research & Assessment (DORA)](https://www.devops-research.com) program and its outcome, the [State of DevOps Reports](https://www.devops-research.com/research.html#reports).
+Since then, I am a huge fan of the practices described in the book "Accelerate" by Nicole Forsgren {% cite Forsgren2018 %} and the entire [DevOps Research & Assessment (DORA)](https://www.devops-research.com) program and its outcome, the [State of DevOps Reports](https://www.devops-research.com/research.html#reports).
 Simply, a deployment has to be the most natural thing in the world for the developers.
 New features should be shipped via fully automated processes in nearly no time to production, so that there is no overhead and can be done with every feature that has been finished or bug that has been fixed.
 Nowadays, also the term "developer experience" is connected to that goal (see also: {% cite Tiedemann2021 %}).
@@ -72,12 +72,11 @@ All in all, I think it is a good—not always perfect—setup.
 
 The CD setup described in the [previous section](#technical-basis) was a good basis to take off towards a improving the SDP.
 After first successes in the first months, there was, however, no more improvement in getting faster or deploying more often.
-The team seemed to not see or want to take further steps to improve the SDP.
-They lost focus on behavioral and organizational details such as not finishing PR as soon as possible but prioritizing new features in new branches or not deploying new versions being ready in the deployment pipeline to production.
-Essentially, there was no Key Performance Indicator (KPI) and visual feedback of the SDP to guide and challenge the team as well as compare our SDP to other companies.
+Maybe, the team did not see the importance to improve the SDP further.
+Sometimes it was also just not finishing PR as soon as possible but prioritizing new features in new branches or not deploying new versions to production although being ready in the deployment pipeline.
 
-In the sense of "you cannot optimize what you do not measure", we, then, decided to measure and visualize the [Four Key Metrics](https://www.thoughtworks.com/radar/techniques?blipid=1298).
-They are {% cite Smith2021 %}:
+In the sense of "you cannot optimize what you do not measure", we, then, decided to measure the SDP and visualize via the [Four Key Metrics](https://www.thoughtworks.com/radar/techniques?blipid=1298) to have a visual feedback of the SDP, guide and challenge the team, and compare our SDP to other companies.
+The Four Key Metrics are {% cite Smith2021 %}:
  * Change Lead Time is the time it takes to go from the first code committed to the this code running in production.
  * Deployment Frequency is about how often your team deploys code to production or releases it to end users.
  * Mean Time to Restore (MTTR) is about how long it generally takes to restore the primary application or service when there is an incident or defect that impacts users (e.g., service impairment or unplanned outage).
@@ -92,7 +91,7 @@ The DORA team also created a [Four Key Metrics Quickcheck](https://www.devops-re
 Our first analyses via the Four Key Metrics Quickcheck showed that we were doing quite well compared to our industry.
 In order to constantly compare, challenge, and guide the team towards a good SDP, we decided to build a dashboard showing the metrics to everybody in the Office on a big screen (see: figure above).
 Since we have started to measure the Four Key Metrics—as mentioned before (see: [this section](#introduction)), we concentrated on measuring the Change Lead Time and Deployment Frequency automatically—we have been able to improve the metrics.
-For example, the Change Lead Time of our most important project, the `autoservice-frontend`, improved from above 1 week to 3.31 days over the last 30 days by raising the awareness via the big screen in the Office.
+For example, the Change Lead Time of our most important project, `autoservice-frontend`, improved from above 1 week to 3.31 days over the last 30 days.
 The Deployment Frequency raised from "1 time a day - 1 time a week" to "multiple Deployments per day" over the last 30 days.
 For other projects, the metrics also look well—it is important to say that some projects shown on the dashboard are updated less frequently and may, thus, have a higher Change Lead Time and lower Deployment Frequency.
 
@@ -108,17 +107,17 @@ A good SDP, vice versa, is important for an effective and efficient software pro
 As described in the [previous section](#four-key-metrics), we still need to find a good way to measure and use the quality metrics, MTTR and Change Fail Percentage, of the Four Key Metrics for our purposes.
 Furthermore, there is a new metric, Reliability, mentioned in the State of DevOps Report 2021 that we want measure (see: {% cite Smith2021 %}).
 
-For me personally, this is the third time I am leading a cross-functional engineering team via the practices proclaimed by the book Accelerate {% cite Forsgren2018 %} towards a better CD and SDP.
+For me personally, this is the third time I am leading a cross-functional engineering team following the practices of "Accelerate" {% cite Forsgren2018 %} towards a better CD and SDP.
 I can draw a positive conclusion for all three times: Everytime there was a positive result in the SDP.
-This time the team, additionally, started to measure the Four Key Metrics to steer the SDP efforts into the right direction.
-It really helps to find difficulties in your CD and to improve the SDP (see also: [this section](#four-key-metrics)).
+This time the team, additionally, started to measure the Four Key Metrics to steer the SDP improvements.
+It really helped us to visualize the SDP (see also: [this section](#four-key-metrics)).
 
-During those three times with the different teams, I also realized very complicated situations where the team did not understand the ideas and benefits of CD or the importance of a high SDP.
-For example, I always have had a lot of discussions while introducing and insisting on Trunk-based Development.
+While implementing the book's measures, there were also team members challenging measures or even the entire effort.
+For example, I have always had a lot of discussions while introducing and insisting on Trunk-based Development.
 Oftentimes, the teams wanted to run other strategies such as [Gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) or other non-trunk-based development styles.
 Especially, when there was a Quality Assurance (QA) team involved, the wish to practice Trunk-based Development was oftentimes very hard or even not achievable due to QA wanting to check every change before a deployment.
 
-Also, the team at [HUK-Autoservice](https://www.huk-autoservice.de) struggled with Trunk-based Development in the beginning.
+Also, the current team struggled with Trunk-based Development in the beginning.
 When we have started, discussions about Gitflow have come up to avoid shipping broken features to production.
 It was hard to convince the team to rather improve the testing capabilities such as unit, integration, and e2e tests instead of adapting the way we work with Git.
 As mentioned, it is essential to work with Trunk-based Development (see also: [this section](#technical-basis)).

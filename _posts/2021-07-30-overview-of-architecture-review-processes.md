@@ -51,7 +51,7 @@ The approach considers three primary parties in an architecture review {% cite M
   1. The review team which consists of experts assembled for the review on the basis of their expertise, their independence from the specific project, and their ability to conduct themselves appropriately in a potentially difficult interpersonal situation.
   1. The Architecture Review Board (ARB) which is a standing team that oversees the review process and its effect on the organization.
 
-Moreover, there are further roles in the overall process - depending on the size of the organization and if these roles are required:
+Moreover, there are further roles in the overall process—depending on the size of the organization and if these roles are required:
   1. The review client which is often the project team. The review client pays for the development or is the architecture review’s sponsor.
   1. The project members who present the architecture to the review team in the process.
   1. The project management encompasses all the managers responsible for the project’s success.
@@ -100,7 +100,7 @@ Especially, bigger organization or, at least, organizations with dedicated archi
 On the one hand, the formalized process as well as the clear roles within the process help to achieve the goals of architecture reviews.
 Also, there are different options to vary the process in order to, for example, have less parties involved.
 In some organizations, there is, for instance, no ARB or review team but an architecture guild (see, e.g.: [this article about guilds](https://tech.trivago.com/2016/03/24/team-work-made-simple-with-guilds/)) which is performing architecture reviews instead.
-Another option is to reduce the number of artifacts and only give a presentation about the architecture to be reviewed - however, I personally think that there should be a written architecture/design document.
+Another option is to reduce the number of artifacts and only give a presentation about the architecture to be reviewed—however, I personally think that there should be a written architecture/design document.
 
 On the other hand, the formalized process and the overall overhead of the "Classical" Architecture Review process is also often the point to be critizied mostly.
 Running through the overall process, may take too much time for smaller projects or architecture changes which have to be reviewed.
@@ -134,7 +134,7 @@ When working with ADR, we can distiguish the following parties:
 
 ### Process
 
-When there is an architecturally significant decision to be made, the project team, the involved architect, or - in general - persons who are involved in the decision making create an ADR.
+When there is an architecturally significant decision to be made, the project team, the involved architect, or—in general—persons who are involved in the decision making create an ADR.
 An ADR typically contains 5 sections {% cite Nygard2011 %}:
   * Title: It is typically describing the architecture decision shortly.
   * Status: May be "Proposed", "Request for Comment", "Accepted", or "Superseded".
@@ -192,14 +192,14 @@ The ADR can be created as the outcome of the overall architecture design process
 ## Lightweight Request for Comment/Design Document Approach
 
 Another approach is the Lightweight Request for Comment (RFC)/Design Document (DD) approach.
-The approach is called differently by various authors - sometimes Lightweight RFC (or only RFC) and sometimes DD.
+The approach is called differently by various authors—sometimes Lightweight RFC (or only RFC) and sometimes DD.
 Ubl {% cite Ubl2020 %} and Winters et al. {% cite Winters2020 %} describe it from the perspective of Google (called DD).
 Orosz mentions the approach in {% cite Orosz2020 %} and {% cite Orosz2021 %} from the perspective of Uber (called RFC, Lightweight RFC, or DD).
 Zimmermann {% cite Zimmermann2019 %} and Gonchar {% cite Gonchar2020 %} mention it from the perspective of Casper (called RFC) and from eBay (called Lightweight RFC).
 The approach has also been mentioned in the ThoughWorks Tech Radar Vol. 24 trial area as Lightweight RFC approach {% cite ThoughtWorks2021 %}.
 
-Essentially, the Lightweight RFC/DD approach is about writing a DD as the review artifact, sharing this document across the organization, and discussing as well as improving the DD - and the system in design - together with the reviewers.
-It is a more informal way of documenting software architecture at a certain point in time {% cite Ubl2020 %} - originally, considered for the design phase but can be applied to any rework of architectural aspects (solution idea) before the actual (code) work is done.
+Essentially, the Lightweight RFC/DD approach is about writing a DD as the review artifact, sharing this document across the organization, and discussing as well as improving the DD—and the system in design—together with the reviewers.
+It is a more informal way of documenting software architecture at a certain point in time {% cite Ubl2020 %}—originally, considered for the design phase but can be applied to any rework of architectural aspects (solution idea) before the actual (code) work is done.
 
 The approach bases on the strong belief that the community knows more than an individual.
 Thus, the entire developer community at an organization should be included into the design of the systems.
@@ -214,7 +214,7 @@ On top of that community thinking, the approach considers the power of the writt
 
 The DD should be written by the team actually working on the solution idea during the work on finding the solution idea, but before implementating the solution (see also: {% cite Ubl2020 %} and {% cite Orosz2021 %}).
 
-As soon as the solution idea stabilizes, the DD is shared with the entire organization - or at least with a huge amount of interested people.
+As soon as the solution idea stabilizes, the DD is shared with the entire organization—or at least with a huge amount of interested people.
 The interested people should review and discuss the DD and the solution idea to improve it in an open and lightweight process.
 
 ### Process
@@ -258,7 +258,7 @@ The Lightweight RFC/DD approach is a good way to let the entire organization par
 Examples from big software companies such as Google show that this approach works well and can produce good system designs while spreading the knowledge in the organization.
 
 However, the approach requires active participation of people in the organization.
-Not every organization is ready for such an approach - this may also originate from a different working style or culture such as a very hierarchical organization with a strong and well-established architecture team that does not want to involve other parties.
+Not every organization is ready for such an approach—this may also originate from a different working style or culture such as a very hierarchical organization with a strong and well-established architecture team that does not want to involve other parties.
 
 Another challenge for the Lightweight RFC/DD approach is the question about when a DD should be created and how much work should be put into a DD.
 Here, an organization needs to allow teams to spend time in writing DD and gathering the feedback.

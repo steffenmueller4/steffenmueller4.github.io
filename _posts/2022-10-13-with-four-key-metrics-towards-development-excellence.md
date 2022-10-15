@@ -60,7 +60,7 @@ As it is often very helpful to really see and click the new features or bugfixes
 In a PR deployment, the branch of the PR is deployed to our development environment and can be accessed temporarily via a URL such as `<PR_NUMBER>.pr.example.com`.
 The PR Deployments can also be used to run integration and e2e tests with the new code.
 
-When the branch/PR is merged to the main branch eventually, the new version of application is built, deployed to the main development environment, tested with all the automated tests again, and, if they are fine, deployed to our test (a.k.a. stage) environment.
+When the branch/PR is merged to the main branch eventually, the new version of the application is built, deployed to the main development environment, tested with all the automated tests again, and, if they are fine, deployed to our test (a.k.a. stage) environment.
 In the test environment the new version of the application can be tested manually and, after approval, deployed to production.
 
 With the described setup that bases on [GitHub](https://github.com/) and [GitHub Actions](https://github.com/features/actions), the pure deployment of a new feature or bugfix after a branch/PR is merged takes roughly five to ten minutes.
@@ -75,16 +75,16 @@ After first successes in the first months, there was, however, no more improveme
 Maybe, the team did not see the importance to improve the SDP further.
 Sometimes it was also just not finishing a PR as soon as possible but prioritizing new features in new branches or not deploying new versions to production although being ready in the deployment pipeline.
 
-In the sense of "you cannot optimize what you do not measure", we, then, decided to measure the SDP and visualize via the [Four Key Metrics](https://www.thoughtworks.com/radar/techniques?blipid=1298) to have a visual feedback of the SDP, guide and challenge the team, and compare our SDP to other companies.
+In the sense of "you cannot optimize what you do not measure", we, then, decided to measure the SDP via the [Four Key Metrics](https://www.thoughtworks.com/radar/techniques?blipid=1298) to have a visual feedback of the SDP, guide and challenge the team, and compare our SDP to other companies.
 The Four Key Metrics are {% cite Smith2021 %}:
- * Change Lead Time is the time it takes to go from the first code committed to the this code running in production.
- * Deployment Frequency is about how often your team deploys code to production or releases it to end users.
- * Mean Time to Restore (MTTR) is about how long it generally takes to restore the primary application or service when there is an incident or defect that impacts users (e.g., service impairment or unplanned outage).
- * Change Fail Percentage is the percentage of deployments or releases that result in a degraded service (e.g., lead to a service impairment or outage) and subsequently require remediation (e.g., hotfix, rollback, patch, etc)
+ * Change Lead Time which is the time it takes to go from the first code committed to that code running in production.
+ * Deployment Frequency which is about how often your team deploys code to production or releases it to end users.
+ * Mean Time to Restore (MTTR) which is about how long it generally takes to restore the primary application or service when there is an incident or defect that impacts users (e.g., service impairment or unplanned outage).
+ * Change Fail Percentage which is the percentage of deployments or releases that result in a degraded service (e.g., lead to a service impairment or outage) and subsequently require remediation (e.g., hotfix, rollback, patch, etc)
 
 These Four Key Metrics show a clear link to a high SDP {% cite Smith2021 %}.
 They provide a good leading indicator for how the SDP in the organization is doing.
-The DORA team also created a [Four Key Metrics Quickcheck](https://www.devops-research.com/quickcheck.html) to self-assess the own SDP and benchmark it to the industry average.
+The DORA team also created a [Four Key Metrics Quickcheck](https://www.devops-research.com/quickcheck.html) to self-assess the SDP and benchmark it to the industry average.
 
 ![Four Key Metrics Dashboard in our Office](/assets/four-key-metrics-dashboard.jpg)
 
@@ -97,7 +97,7 @@ For other projects, the metrics also look well—it is important to say that som
 
 For further improvement, we will probably do some other improvements.
 For instance, we figured out that our Definition of Done (see also: [Scrum](https://en.wikipedia.org/wiki/Scrum_(software_development))) should be changed so a feature or bugfix has to be deployed to production before the task in our Scrum Board can be marked as done.
-Additionally, there are a lot of small other improvements to be done.
+Additionally, there are a lot of other small improvements to be done.
 
 ## Lessons Learned
 

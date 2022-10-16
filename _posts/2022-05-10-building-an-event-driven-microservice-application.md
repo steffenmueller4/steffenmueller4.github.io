@@ -8,6 +8,7 @@ categories:
   - Event-Driven Architecture
   - Domain-Driven Design
 published: true
+hero_image: "/assets/hero_learnings_from_building_an_edma.svg"
 ---
 In August/October 2021, we have begun to build a completely new web application which aimed to be a substitution for a former application.
 When we have started to plan the new application, it was already clear that we wanted to go towards an event-driven application.
@@ -19,7 +20,7 @@ This article summarizes my impressions and learnings from building this event-dr
 
 When we have started to plan the new application in my company, a corporate startup and 100% subsidary of an insurance company, in August 2021, it was crystal clear that the company is rather not an established company with an established development department and stable processes.
 There was no team and the idea was to build an entirely new product.
-In sum, the plans were quite crazy: Our goal was to build an entirely new product as a greenfield project in the Cloud including new processes within only 6 months - start of development should be October 2021.
+In sum, the plans were quite crazy: Our goal was to build an entirely new product as a greenfield project in the Cloud including new processes within only 6 months—start of development should be October 2021.
 The ultimate deadline was the 29th of March 2022 at which the new product was intended to go live in order to replace the existing application that we inherited from a corporate department of the insurance company.
 
 Essentially, those plans made clear that we should rather use rock-solid technology and architecture to not risk our tight timetable.
@@ -31,7 +32,7 @@ The following sections tell you more about the entire journey.
 ## The Whole Development in a Nutshell
 
 When we have started with the development in October 2021, we began with creating a _domain model_ (see also: [this section](#the-domain-model)).
-According to [Domain-driven Design (DDD)](https://en.wikipedia.org/wiki/Domain-driven_design), a domain model is a software model of the business domain typically containing well-known nouns of the domain - often implemented as an object model.
+According to [Domain-driven Design (DDD)](https://en.wikipedia.org/wiki/Domain-driven_design), a domain model is a software model of the business domain typically containing well-known nouns of the domain—often implemented as an object model.
 Such a domain model also acts as a _ubiquitous language_ to improve the communication between software developers and domain experts within a _bounded context_.
 The bounded context encapsulates a certain set of assumptions, a common ubiquitous language, and a particular domain model in a coherent environment.
 It is used for defining conceptual boundaries between applications and/or microservices {% cite Vernon2016 %}, {% cite Fowler2014 %}.
@@ -64,10 +65,10 @@ In the next sections, you can read about further details of the overall solution
 
 ![Partial Domain Model of Car Services Domain](/assets/car-services-domain-model.png)
 
-The partial domain model - the full domain model is simply too complex - is depicted in the figure above (it is also freestyled a little bit for the sake of this article).
+The partial domain model—the full domain model is simply too complex—is depicted in the figure above (it is also freestyled a little bit for the sake of this article).
 The _customer_ is at the center of our domain model.
 When the customer wants to book a _service_ she searches for either a _garage_ which provides the services or for the service such as an _oil change_ or a _wheel change_ which is provided by a garage.
-When the customer selects the garage and the service, she can book the service at the garage - this is the booking domain event (see also: [this section](#the-whole-development-in-a-nutshell)).
+When the customer selects the garage and the service, she can book the service at the garage—this is the booking domain event (see also: [this section](#the-whole-development-in-a-nutshell)).
 
 In general, each connection between two entities in the domain model can reveal an interesting domain event.
 For example, you may also be interested in the domain event _ServiceSelectedEvent_ or _GarageSelectedEvent_ between the customer and the service respectively the garage entity in your business.
@@ -81,10 +82,10 @@ It helped us to get rid of a lot of synonyms we used in the team.
 
 But when you now want to start your first project with DDD, please be sure to also read about valid criticism.
 For example, Stefan Tilkov criticizes the hype about DDD in recent years in the two articles {% cite Tilkov2021 %} and {% cite Tilkov2021a %}.
-Furthermore, it can be quite hard to learn DDD - especially, when you want to start off with Eric Evans' book (see also: {% cite Evans2003 %}).
-We also did not follow DDD in the purest way when modeling our domain or conducting the event storming workshop - we "freestyled" a lot.
+Furthermore, it can be quite hard to learn DDD—especially, when you want to start off with Eric Evans' book (see also: {% cite Evans2003 %}).
+We also did not follow DDD in the purest way when modeling our domain or conducting the event storming workshop—we "freestyled" a lot.
 So, please always keep in mind that also other system design approaches can lead to excellent results.
-However, I definitely recommend - like Stefan Tilkov: "Make DDD part of your tool set, but make sure you don’t stop there. There is a life beyond DDD. Not every good design needs to be Domain-driven [...]" {% cite Tilkov2021a %}
+However, I definitely recommend—like Stefan Tilkov: "Make DDD part of your tool set, but make sure you don’t stop there. There is a life beyond DDD. Not every good design needs to be Domain-driven [...]" {% cite Tilkov2021a %}
 
 ## The Architecture
 
@@ -113,7 +114,7 @@ As mentioned, we decided to go with [Kafka](https://kafka.apache.org/) as an eve
 Following the recommendation of Adam Bellmare in {% cite Bellemare2020 %}, we defined our domain event messages explicitely via [Protocol Buffers](https://developers.google.com/protocol-buffers) in a binary format.
 At the moment, we do not have a schema registry but are using a central repository storing all domain event message definitions.
 This, in general, works for now.
-However, we are currently looking at schema registries such as Confluent's [Schema Registry](https://docs.confluent.io/platform/current/schema-registry/index.html) which is also available at Github (see: [Confluent Schema Registry for Kafka at Github](https://github.com/confluentinc/schema-registry)), because updating all the consumers with new domain event message version is already very cumbersome - even though we do not have so many consumers yet.
+However, we are currently looking at schema registries such as Confluent's [Schema Registry](https://docs.confluent.io/platform/current/schema-registry/index.html) which is also available at Github (see: [Confluent Schema Registry for Kafka at Github](https://github.com/confluentinc/schema-registry)), because updating all the consumers with new domain event message version is already very cumbersome—even though we do not have so many consumers yet.
 
 In a Goto Conference talk in 2017, Martin Fowler differentiates between four patterns of event-driven architecture {% cite Fowler2017 %}:
  1. _Event notifications_ - the system emitting the event message provides API to get the further data about the event. So, the event-receiving system invokes API of the event-emitting system to handle state changes {% cite Fowler2017 %}.
@@ -153,7 +154,7 @@ Aligning the domain events based on the domain model really helped the developer
 
 Currently, we definitely benefit from our event-driven microservices approach when building new integrations, although you already heard about a lot of improvement points such as the schema registry or replayable events.
 All in all, we are very happy with the choice of going towards an event-driven microservice architecture.
-The application is - in our opinion - flexible, pluggable, and loosely coupled (see also: [this section](#the-beginning)).
+The application is—in our opinion—flexible, pluggable, and loosely coupled (see also: [this section](#the-beginning)).
 
 We can definitely encourage you in building such an event-driven microservices application.
 

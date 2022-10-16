@@ -7,3 +7,5 @@ Gemfile.lock
 vendor
 .jekyll-cache
 tags
+_bibliography/references.bib.sav.tmp
+*.drawio.bkp

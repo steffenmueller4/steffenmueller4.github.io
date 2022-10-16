@@ -230,6 +230,7 @@ main {
 .post-container {
   list-style-type: none;
   margin: 45px 30px;
+  max-width: 768px;
   @media screen and (max-width: $smallMobileW) {
     margin-left: 20px;
     margin-right: 20px;
@@ -240,6 +241,7 @@ main {
   }
 }
 .post-container {
+  max-width: 768px;
   padding-left: 30px;
 }
 .post {
@@ -272,6 +274,10 @@ main {
   display: flex;
   align-items: baseline;
   border-bottom: 1px solid #eee;
+}
+.post-heroimage {
+  max-width: 100%;
+  max-height: 100%;
 }
 
 #posts-label {

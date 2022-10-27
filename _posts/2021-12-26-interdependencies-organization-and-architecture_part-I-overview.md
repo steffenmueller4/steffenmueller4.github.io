@@ -40,9 +40,10 @@ In this section, I will give you two examples from my work life where I try to e
  * Knowledge gaps due to complex architecture (people not talking to each other) {% cite Matsudaira2016 %} also related: {% cite Pureur2022 %}
  * Important sub-components are not maintained
  * Sub-optimal solutions due to wrong organization
+ * Burry inefficient processes with new tools/technology -> funny Cloud processes image
 
 Other suggestions ([https://www.kambda.com/main-software-architecture-issues-and-challenges/](https://www.kambda.com/main-software-architecture-issues-and-challenges/)):
- * A Company’s Maturity
+ * A Company’s Maturity -> Example HAW
  * No Budget Allocation
  * Lack of Personnel
  * Communication

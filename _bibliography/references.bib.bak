@@ -623,7 +623,7 @@
   url      = {https://cloud.google.com/devops/state-of-devops},
   year     = {2021},
   date     = {2021},
-  keywords = {DevOps, Report,},
+  keywords = {DevOps, Report},
 }
 
 @Electronic{Forsgren2019,
@@ -631,8 +631,7 @@
   title    = {Accelerate - State of DevOps 2019},
   url      = {https://cloud.google.com/devops/state-of-devops},
   year     = {2019},
-  date     = {2021},
-  keywords = {DevOps, Report,},
+  keywords = {DevOps, Report},
 }
 
 @Electronic{Thiel2021,
@@ -641,6 +640,14 @@
   title  = {Deploy Pull Requests for Review into Kubernetes with GitHub Actions},
   url    = {https://pumpingco.de/blog/review-pull-requests-by-deploying-them-into-kubernetes-with-github-actions/},
   year   = {2021},
+}
+
+@Electronic{Matsudaira2016,
+  author = {Kate Matsudaira},
+  month  = aug,
+  title  = {Bad Software Architecture is a People Problem},
+  url    = {https://katemats.com/blog/bad-software-architecture-is-a-people-problem},
+  year   = {2016},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}

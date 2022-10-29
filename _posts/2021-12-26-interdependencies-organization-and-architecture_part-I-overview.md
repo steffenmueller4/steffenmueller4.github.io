@@ -11,7 +11,7 @@ As a software architect or engineering manager, you are often facing situations 
 How do we best (re-)structure teams when facing a reorganization, architecture rework, or a new project?
 In this series of five articles, we discuss different approaches to describe those interdependencies between organization and software architecture.
 We will have a look at [Conway's Law and the Inverse Conway Maneuver]({% post_url 2021-12-26-interdependencies-organization-and-architecture_part-II-conway %}), [Domain-driven Design (DDD)]({% post_url 2021-12-26-interdependencies-organization-and-architecture_part-III-domain-driven-design %}), and the [Team Topologies approach]({% post_url 2021-12-26-interdependencies-organization-and-architecture_part-IV-team-topologies-approach %}).
-Finally, we look at how these approaches can be used to explain those interdependencies and help you to better understand or design your organization or software architecture.
+Finally, we look at how these approaches can be used to explain those interdependencies and help you to better understand or design your organization and software architecture.
 
 ## Introduction
 
@@ -24,12 +24,11 @@ She, furthermore, explains that "[...] the types of problems organizations have 
 The incentive structure is driving and shaping the organization, because it drives and shapes what the organization prioritizes in the day to day work and how people in the organization get ahead.
 The tech debt is, then, going to accrue in the day to day work of people in the organization due to their priorities {%cite Bellotti2021 %}.
 
-With that in mind, we can also conclude that the incentive structure of the organization also reflects on software architecture.
-This is a clear sign that we have interdependencies between organization and software architecture.
-The organization structure is shaping the organization's architecture in various ways.
-When, for example, two teams of an organization are architecting a new solution, they may come up with two components where each component is maintained by one of the teams (see also: [the article about Conway's Law and the Inverse Conway Maneuver]({% post_url 2021-12-26-interdependencies-organization-and-architecture_part-II-conway %})).
-From such an architecture, different architecture challenges may arise which you can also predict when you know about the mechanisms laying behind.
-Initially, this architecture may work well, but when team priorities shift or the organization changes, the architecture may be difficult to be maintained.
+The incentive structure is one way how the organization influences software architecture.
+There are further things such as previous experiences, knowledge, politics, and maturity of the organization.
+The organization is shaping the organization's architecture in various ways.
+With a little bit of background knowledge, you can understand the mechanisms how an organization influences the software architecture of an application and organization.
+Also, you can make use of the mechanisms to influence the organization and software architecture via setting incentives or simply architecting better solutions for your organization (see also: [the article about Conway's Law and the Inverse Conway Maneuver]({% post_url 2021-12-26-interdependencies-organization-and-architecture_part-II-conway %}) or [the article about the Team Topologies approach]({% post_url 2021-12-26-interdependencies-organization-and-architecture_part-IV-team-topologies-approach %})).
 
 In the [next section](#examples-from-the-real-world), we will first give you some real-world examples about those interdepencies between organization and architecture.
 
@@ -48,17 +47,9 @@ Other suggestions ([https://www.kambda.com/main-software-architecture-issues-and
  * Lack of Personnel
  * Communication
 
-### Issues Arise when Architecture does not follow Organization
+### Architecture does not Follow Organization
 
-When I was working at a travel company, that travel company was restructuring multiple times during my time there.
-The travel company was driven by technology as the business was enabled by technology.
-Unfortunately, I think that the company was not doing well with most of the restructurings.
-The example I will give you, is a restructuring from the beginning of 2017.
-The reason is that the restructurings were well planned on an organizational level, but the company forgot the architectural and technical level.
-The business goal was to change all the teams to be
 
- * Forgot many core systems to be moved to the new organization
- * Suboptimal solutions 
 
 ### Architecture Determines the Relationship of Teams
 
@@ -73,12 +64,29 @@ Another architecture proposal considered both teams to stay independent but requ
 So, there were different architecture proposals making the trade-off between changing the team structure or the business processes.
 What architecture should we choose?
 
-TODO
+When, for example, two teams of an organization are architecting a new solution, they may come up with two components where each component is maintained by one of the teams.
+From such an architecture, different architecture challenges may arise which you can also predict when you know about the mechanisms laying behind.
+Initially, this architecture may work well, but when team priorities shift or the organization changes, the architecture may be difficult to be maintained.
+All this
 
 TODO:
 [Conway's Law]({% post_url 2021-12-26-interdependencies-organization-and-architecture_part-II-conway %})
 [Domain-driven Design]({% post_url 2021-12-26-interdependencies-organization-and-architecture_part-III-domain-driven-design %})
 [Team Topologies approach]({% post_url 2021-12-26-interdependencies-organization-and-architecture_part-IV-team-topologies-approach %})
+
+### Tensions after Reorganization
+
+"We often see how inattention to the law can twist system architectures. If an architecture is designed at odds with the development organization's structure, then tensions appear in the software structure." {% cite Fowler2022 %}
+
+When I was working at a travel company, that travel company was restructuring multiple times during my time there.
+The travel company was driven by technology as the business was enabled by technology.
+Unfortunately, I think that the company was not doing well with most of the restructurings.
+The example I will give you, is a restructuring from the beginning of 2017.
+The reason is that the restructurings were well planned on an organizational level, but the company forgot the architectural and technical level.
+The business goal was to change all the teams to be
+
+ * Forgot many core systems to be moved to the new organization
+ * Suboptimal solutions 
 
 ## Summary
 

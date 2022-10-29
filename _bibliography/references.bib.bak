@@ -650,4 +650,12 @@
   year   = {2016},
 }
 
+@Electronic{Pureur2022,
+  author = {Pierre Pureur and Kurt Bittner},
+  month  = apr,
+  title  = {Software Architecture: It Might Not Be What You Think It Is},
+  url    = {https://www.infoq.com/articles/what-software-architecture/},
+  year   = {2022},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

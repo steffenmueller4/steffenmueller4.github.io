@@ -32,9 +32,19 @@ Also, you can make use of the mechanisms to influence the organization and softw
 
 In the [next section](#examples-from-the-real-world), we will first give you some real-world examples about those interdepencies between organization and architecture.
 
+## What are Organizational Architecture Issues
+
+ * Structure hinders the people to find a good architecture. "Organizational structure determines the number of layers of management and how departments interact with one another. Poor organizational structure can create a variety of problems, such as bloated management and poor communication." [https://bizfluent.com/list-6025397-implications-bad-organizational-structure.html](https://bizfluent.com/list-6025397-implications-bad-organizational-structure.html)
+ * Technology misalignment: Centralized Decision-making vs Decentralized Decision-making but having a tool that considers the opposite [https://smallbusiness.chron.com/weakness-hierarchical-organizational-structures-31244.html](https://smallbusiness.chron.com/weakness-hierarchical-organizational-structures-31244.html)
+ * Bad governance, bad role design, Excessive spans of control, and Misaligned incentives or metrics [https://hbr.org/2019/12/4-organizational-design-issues-that-most-leaders-misdiagnose](https://hbr.org/2019/12/4-organizational-design-issues-that-most-leaders-misdiagnose)
+
 ## Examples from the Real World
 
-In this section, I will give you two examples from my work life where I try to explain you the different interdepencies between an organization and its architecture.
+In this section, we will give you three examples from work life where I try to explain you the different interdepencies between an organization and its architecture.
+In general, there are three cases that can happen:
+
+ 1. An organization can architect something that does not fit the organization.
+ 1. An organization can 
 
  * Knowledge gaps due to complex architecture (people not talking to each other) {% cite Matsudaira2016 %} also related: {% cite Pureur2022 %}
  * Important sub-components are not maintained

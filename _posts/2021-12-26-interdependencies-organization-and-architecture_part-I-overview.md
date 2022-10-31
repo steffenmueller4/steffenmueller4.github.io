@@ -34,9 +34,10 @@ In the [next section](#examples-from-the-real-world), we will first give you som
 
 ## What are Organizational Architecture Issues
 
- * Structure hinders the people to find a good architecture. "Organizational structure determines the number of layers of management and how departments interact with one another. Poor organizational structure can create a variety of problems, such as bloated management and poor communication." [https://bizfluent.com/list-6025397-implications-bad-organizational-structure.html](https://bizfluent.com/list-6025397-implications-bad-organizational-structure.html)
- * Technology misalignment: Centralized Decision-making vs Decentralized Decision-making but having a tool that considers the opposite [https://smallbusiness.chron.com/weakness-hierarchical-organizational-structures-31244.html](https://smallbusiness.chron.com/weakness-hierarchical-organizational-structures-31244.html)
- * Bad governance, bad role design, Excessive spans of control, and Misaligned incentives or metrics [https://hbr.org/2019/12/4-organizational-design-issues-that-most-leaders-misdiagnose](https://hbr.org/2019/12/4-organizational-design-issues-that-most-leaders-misdiagnose)
+ * Structure hinders the people to find a good architecture. "Organizational structure determines the number of layers of management and how departments interact with one another. Poor organizational structure can create a variety of problems, such as bloated management and poor communication." [this](https://bizfluent.com/list-6025397-implications-bad-organizational-structure.html)
+ * Technology misalignment: Centralized Decision-making vs Decentralized Decision-making but having a tool that considers the opposite [this](https://smallbusiness.chron.com/weakness-hierarchical-organizational-structures-31244.html)
+ * Bad governance, bad role design, Excessive spans of control, and Misaligned incentives or metrics [this](https://hbr.org/2019/12/4-organizational-design-issues-that-most-leaders-misdiagnose)
+ * Engineering First Organizations, Engineering Reports To Product, Engineering Reports To Security, Flat Organizations, Systems Out of Balance {% cite Bellotti2021 %}
 
 ## Examples from the Real World
 

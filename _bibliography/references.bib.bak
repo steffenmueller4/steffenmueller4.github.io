@@ -658,4 +658,19 @@
   year   = {2022},
 }
 
+@Electronic{Fowler2022,
+  author = {Martin Fowler},
+  month  = oct,
+  title  = {Conway's Law},
+  url    = {https://martinfowler.com/bliki/ConwaysLaw.html},
+  year   = {2022},
+}
+
+@Electronic{Fowler2015,
+  author = {Martin Fowler},
+  title  = {Making Architecture Matter - Martin Fowler's Keynote at OSCON 2015},
+  url    = {https://www.youtube.com/watch?v=DngAZyWMGR0},
+  year   = {2015},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

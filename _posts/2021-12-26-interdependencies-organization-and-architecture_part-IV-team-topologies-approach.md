@@ -1,6 +1,6 @@
 ---
 layout: post
-date:   2021-12-26 07:30:00 +0100
+date: 2022-11-01 07:30:00 +0100
 title: "Interdependencies between Organization and Software Architecture (Part IV) - Team Topologies Approach"
 categories:
   - Architecture

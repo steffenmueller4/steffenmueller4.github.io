@@ -1,6 +1,6 @@
 ---
 layout: post
-date:   2021-12-26 08:00:00 +0100
+date: 2022-11-01 08:00:00 +0100
 title: "Interdependencies between Organization and Software Architecture - Overview"
 categories:
   - Architecture
@@ -30,9 +30,13 @@ The organization is shaping the organization's architecture in various ways.
 With a little bit of background knowledge, you can understand the mechanisms how an organization influences the software architecture of an application and organization.
 Also, you can make use of the mechanisms to influence the organization and software architecture via setting incentives or simply architecting better solutions for your organization (see also: [the article about Conway's Law and the Inverse Conway Maneuver]({% post_url 2021-12-26-interdependencies-organization-and-architecture_part-II-conway %}) or [the article about the Team Topologies approach]({% post_url 2021-12-26-interdependencies-organization-and-architecture_part-IV-team-topologies-approach %})).
 
-In the [next section](#examples-from-the-real-world), we will first give you some real-world examples about those interdepencies between organization and architecture.
+Before we will give you some real-world examples, we will first define the field of software architecture issues that can arise from interdepencies between organization and architecture in the [next section](#what-are-organizational-software-architecture-issues).
 
-## What are Organizational Architecture Issues
+## What are Organizational Software Architecture Issues
+
+So what may possible software architecture issues be stemming from organizational issues?
+In order to look at this, we first should find a working definition for software architecture.
+To make it simple for the remainder of this article, we will consider software architecture as the structure and behavior of a system as well as the decisions that lead to the way the system is working (see also: {% cite Pureur2022 %}, {% cite Bittner2022 %}, {% cite Richards2020 %}, and {% cite Fowler2015 %}).
 
  * Structure hinders the people to find a good architecture. "Organizational structure determines the number of layers of management and how departments interact with one another. Poor organizational structure can create a variety of problems, such as bloated management and poor communication." [this](https://bizfluent.com/list-6025397-implications-bad-organizational-structure.html)
  * Technology misalignment: Centralized Decision-making vs Decentralized Decision-making but having a tool that considers the opposite [this](https://smallbusiness.chron.com/weakness-hierarchical-organizational-structures-31244.html)

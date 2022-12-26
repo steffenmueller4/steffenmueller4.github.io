@@ -1,31 +1,44 @@
 ---
 layout: post
-date: 2022-11-01 07:50:00 +0100
-title: "Interdependencies between Organization and Software Architecture (Part II) - Conway's Law"
+date: 2022-12-26 07:50:00 +0100
+title: "Conway's Law or How to Think About Interdependencies between Organization and Software Architecture"
 categories:
   - Architecture
   - Organization
   - Conway
 published: true
 ---
-As an architect or engineering manager, you are often facing situations where you realize interdependencies between your organization and software architecture.
+Some time ago, I have read Marianne Bellotti's post about [hunting tech debt via org charts](https://bellmar.medium.com/hunting-tech-debt-via-org-charts-92df0b253145) with delight.
+And... yes, I observed similar things in my work experience.
+As a senior engineer, an architect, or an engineering manager, you are often facing situations where you realize interdependencies between your organization and software architecture.
 What team should maintain a specific component within a larger architecture or organization?
 How to (re-)structure teams when facing a bigger architecture rework or a new project?
-This is part II within a [series of five articles]({% post_url 2021-12-26-interdependencies-organization-and-architecture_part-I-overview %}) where we discuss different approaches to describe those interdependencies between organization and software architecture.
-It is about Conway's Law and the Inverse Conway Maneuver.
+This article is about Conway's Law and the Inverse Conway Maneuver which can help you to think about interdependencies between organization and software architecture as well as guide you while setting up an organization or bigger architecture.
 
 ## Introduction
 
-Recently, I was, as an architect, involved in a project where two teams had to closely work together to build up a brand new strategical application.
+Some time ago, I have read Marianne Bellotti's post about [hunting tech debt via org charts](https://bellmar.medium.com/hunting-tech-debt-via-org-charts-92df0b253145) with delight.
+And... yes, I observed similar things in my work experience.
+After working as an IT consultant in the public sector, as a research associate in a publicly founded research project, and in several product-focussed companies in various roles, I can definitely back Marianne Bellotti's observations that there is common tech debt stemming from different organization setup.
+
+Marianne Bellotti writes about being able to predict several key details of an organization's problem by just looking at people's titles meeting her and by looking at the organzation chart of the company.
+She, furthermore, explains that "[...] the types of problems organizations have are heavily influenced by their incentive structure and the easiest way to figure out their incentive structure is by looking at the org chart." {%cite Bellotti2021 %}
+The incentive structure is driving and shaping the organization, because it drives and shapes what the organization prioritizes in the day to day work and how people in the organization get ahead.
+The tech debt is, then, going to accrue in the day to day work of people in the organization due to their priorities {%cite Bellotti2021 %}.
+
+The incentive structure is one way how the organization influences software architecture.
+There are further things such as previous experiences, knowledge, politics, and maturity of the organization.
+The organization is shaping the organization's architecture in various ways.
+With a little bit of background knowledge, you can understand the mechanisms how an organization influences the software architecture of an application and organization.
+Also, you can make use of the mechanisms to influence the organization and software architecture via setting incentives or simply architecting better solutions for your organization.
+
+When I have been involved in a project as an architect where two teams had to closely work together to build up a brand new strategical application.
 The first team was a support team that maintained core data required as input for the purposes of the new application that the second should build and maintain.
 Unfortunately, both teams - including me ;-) - had different ideas of the overall software architecture.
 There were different architecture proposals leading to different degrees of dependencies between those two teams.
 One architecture proposal was about to intertwine both teams in a way that both teams would have to be merged as otherwise major inefficiencies would arise.
 Another architecture proposal considered both teams to stay independent but required to change the overall process of data management.
 What architecture should we choose?
-
-Another example stems from my time as an engineering manager.
-I was building up a new organizational unit which should build a new application.
 
 ## Conway's Law
 

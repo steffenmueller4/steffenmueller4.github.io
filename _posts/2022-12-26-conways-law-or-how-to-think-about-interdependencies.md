@@ -38,11 +38,10 @@ So, there were different incentives for the various stakeholders including the m
 So, what architecture—or oranizational setup—should we choose?
 The example will be continued in [this section TODO](#references).
 
-As the small example is already showing you, there are various interdependencies between organization and software architecture.
-In order to properly think about, manage, and use them, we first need to understand them.
-Thus, we first have to look at [Conway's Law](#conways-law).
-Next, we lay out the [Inverse Conway Maneuver](#inverse-conway-maneuver).
-In [this section](#other-incluence-factors), we will look at other influence factors such as the incentive structure, before we describe a couple of examples from the real world (see: [this section](#real-world-examples)).
+As the small example above already shows you, there are various interdependencies between organization and software architecture.
+In order to properly think about and manage them, we first need to understand them properly.
+A good start to do so, is to look at [Conway's Law](#conways-law) and the [Inverse Conway Maneuver](#inverse-conway-maneuver).
+Next, we will look at other influence factors such as the incentive structure (see: [this section](#other-incluence-factors)), before we describe a couple of examples from the real world (see: [this section](#real-world-examples)).
 
 ## Conway's Law
 

@@ -1,32 +1,28 @@
 ---
 layout: post
 date: 2022-12-26 07:50:00 +0100
-title: "Conway's Law or How to Think About Interdependencies between Organization and Software Architecture"
+title: "Thinking About Interdependencies between Organization and Software Architecture"
 categories:
   - Architecture
   - Organization
-  - Conway
 published: true
 ---
-Some time ago, I have read Marianne Bellotti's post about [hunting tech debt via org charts](https://bellmar.medium.com/hunting-tech-debt-via-org-charts-92df0b253145) with delight.
-And... yes, I observed similar things in my work experience.
 As a senior engineer, an architect, or an engineering manager, you are often facing situations where you realize interdependencies between your organization and software architecture.
 What team should maintain a specific component within a larger architecture or organization?
+How to build a proper architecture serving this or that team?
 How to (re-)structure teams when facing a bigger architecture rework or a new project?
-This article is about Conway's Law and the Inverse Conway Maneuver which can help you to think about interdependencies between organization and software architecture as well as guide you while setting up an organization or bigger architecture.
+This article is about how to think about interdependencies between organization and software architecture.
+It should provide a guide for you while setting up an organization or bigger architecture.
 
 ## Introduction
 
 Some time ago, I have read Marianne Bellotti's post about [hunting tech debt via org charts](https://bellmar.medium.com/hunting-tech-debt-via-org-charts-92df0b253145) with delight.
-And... yes, I observed similar things in my work experience.
-After working as an IT consultant in the public sector, as a research associate in a publicly founded research project, and in several product-focussed companies in various roles, I can definitely back Marianne Bellotti's observations that there is common tech debt stemming from different organization setup.
-
 Marianne Bellotti writes about being able to predict several key details of an organization's problem by just looking at people's titles meeting her and by looking at the organzation chart of the company.
 She, furthermore, explains that "[...] the types of problems organizations have are heavily influenced by their incentive structure and the easiest way to figure out their incentive structure is by looking at the org chart." {%cite Bellotti2021 %}
 The incentive structure is driving and shaping the organization, because it drives and shapes what the organization prioritizes in the day to day work and how people in the organization get ahead.
 The tech debt is, then, going to accrue in the day to day work of people in the organization due to their priorities {%cite Bellotti2021 %}.
 
-The incentive structure is one way how the organization influences software architecture.
+The incentive structure—here, we can distinguish between individual and organizational incentives—is one way how the organization influences software architecture.
 There are further things such as previous experiences, knowledge, politics, and maturity of the organization.
 The organization is shaping the organization's architecture in various ways.
 With a little bit of background knowledge, you can understand the mechanisms how an organization influences the software architecture of an application and organization.
@@ -34,13 +30,23 @@ Also, you can make use of the mechanisms to influence the organization and softw
 
 When I have been involved in a project as an architect where two teams had to closely work together to build up a brand new strategical application.
 The first team was a support team that maintained core data required as input for the purposes of the new application that the second should build and maintain.
-Unfortunately, both teams - including me ;-) - had different ideas of the overall software architecture.
+Unfortunately, all of us had different ideas of the overall software architecture.
 There were different architecture proposals leading to different degrees of dependencies between those two teams.
-One architecture proposal was about to intertwine both teams in a way that both teams would have to be merged as otherwise major inefficiencies would arise.
+One architecture proposal was about to intertwine both teams in a way that both teams would have to be merged, as otherwise major inefficiencies would arise.
 Another architecture proposal considered both teams to stay independent but required to change the overall process of data management.
-What architecture should we choose?
+So, there were different incentives for the various stakeholders including the main purpose of one team, different architecture proposals with different pros and cons, as well as different consequences to the organizational setup of the architecture proposals.
+So, what architecture—or oranizational setup—should we choose?
+The example will be continued in [this section TODO](#references).
+
+As the small example is already showing you, there are various interdependencies between organization and software architecture.
+In order to properly think about, manage, and use them, we first need to understand them.
+Thus, we first have to look at [Conway's Law](#conways-law).
+Next, we lay out the [Inverse Conway Maneuver](#inverse-conway-maneuver).
+In [this section](#other-incluence-factors), we will look at other influence factors such as the incentive structure, before we describe a couple of examples from the real world (see: [this section](#real-world-examples)).
 
 ## Conway's Law
+
+Martin Fowler states in {% cite Fowler2022 %} about Conway's Law: "Pretty much all the practitioners I favor in Software Architecture are deeply suspicious of any kind of general law in the field [...] But if there is one thing they all agree on, it's the importance and power of Conway's Law. Important enough to affect every system I've come across, and powerful enough that you're doomed to defeat if you try to fight it." {% cite Fowler2022 %}
 
 The basic understanding of the interdependencies between an organization and software architecture was first explained by Melvin Conway in Conway's Law {% cite ConwayUrl2021 %} in 1967.
 Conway stated that any "[...] organization that designs a system (defined broadly) will produce a design whose structure is a copy of the organization's communication structure." {% cite ConwayUrl2021 %}
@@ -83,6 +89,14 @@ Teams that build and maintain microservices should be cross-functional and organ
 To achieve that, the organization should to be chunked up "[...] from team to value stream to line of business to organization [...]" {% cite Lewis2015 %} - so, the Inverse Conway Maneuver.
 
 While nearly every company builds architectures based on the Microservices architecture style nowadays, still not everybody has understood that organization and architecture cannot be changed isolated.
+
+## Other Incluence Factors
+
+TODO
+
+## Real World Examples
+
+TODO 
 
 ## Summary
 

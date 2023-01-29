@@ -11,8 +11,8 @@ As a senior engineer, an architect, or an engineering manager, you are often fac
 What team should maintain a specific component within a larger architecture or organization?
 How to build a proper architecture serving this or that team?
 How to (re-)structure teams when facing a bigger architecture rework or a new project?
-This article is about how to think about interdependencies between organization and software architecture.
-It should provide a guide for you while setting up an organization or bigger architecture.
+This article is about how to think about those interdependencies between organization and software architecture.
+It should provide a guide for you while setting up an architecture or organization.
 
 ## Introduction
 
@@ -20,13 +20,13 @@ Some time ago, I have read Marianne Bellotti's post about [hunting tech debt via
 Marianne Bellotti writes about being able to predict several key details of an organization's problem by just looking at people's titles meeting her and by looking at the organzation chart of the company.
 She, furthermore, explains that "[...] the types of problems organizations have are heavily influenced by their incentive structure and the easiest way to figure out their incentive structure is by looking at the org chart." {%cite Bellotti2021 %}
 The incentive structure is driving and shaping the organization, because it drives and shapes what the organization prioritizes in the day to day work and how people in the organization get ahead.
-The tech debt is, then, going to accrue in the day to day work of people in the organization due to their priorities {%cite Bellotti2021 %}.
+Tech debt is, then, going to accrue in the day to day work of people in the organization due to their priorities {%cite Bellotti2021 %}.
 
 The incentive structure—here, we can distinguish between individual and organizational incentives—is one way how the organization influences software architecture.
-There are further things such as previous experiences, knowledge, politics, and maturity of the organization.
-The organization is shaping the organization's architecture in various ways.
+There are further influences such as communication structure, previous experiences, knowledge, politics, maturity of the organization, etc.
+Thus, the organization is shaping the organization's architecture in various ways.
 With a little bit of background knowledge, you can understand the mechanisms how an organization influences the software architecture of an application and organization.
-Also, you can make use of the mechanisms to influence the organization and software architecture via setting incentives or simply architecting better solutions for your organization.
+Also, you can make use of the mechanisms to influence the organization and software architecture via setting incentives or considering the different influence factors when architecting better solutions for your organization.
 
 When I have been involved in a project as an architect where two teams had to closely work together to build up a brand new strategical application.
 The first team was a support team that maintained core data required as input for the purposes of the new application that the second should build and maintain.
@@ -36,19 +36,18 @@ One architecture proposal was about to intertwine both teams in a way that both 
 Another architecture proposal considered both teams to stay independent but required to change the overall process of data management.
 So, there were different incentives for the various stakeholders including the main purpose of one team, different architecture proposals with different pros and cons, as well as different consequences to the organizational setup of the architecture proposals.
 So, what architecture—or oranizational setup—should we choose?
-The example will be continued in [this section TODO](#references).
 
 As the small example above already shows you, there are various interdependencies between organization and software architecture.
 In order to properly think about and manage them, we first need to understand them properly.
 A good start to do so, is to look at [Conway's Law](#conways-law) and the [Inverse Conway Maneuver](#inverse-conway-maneuver).
-Next, we will look at other influence factors such as the incentive structure (see: [this section](#other-incluence-factors)), before we describe a couple of examples from the real world (see: [this section](#real-world-examples)).
+Furthermore, we will look at strategic Domain-driven Design (DDD), before we try to conclude the limitations and things to also look out for.
+Let's start with [Conway's Law](#conways-law) in the next section.
 
 ## Conway's Law
 
 Martin Fowler states in {% cite Fowler2022 %} about Conway's Law: "Pretty much all the practitioners I favor in Software Architecture are deeply suspicious of any kind of general law in the field [...] But if there is one thing they all agree on, it's the importance and power of Conway's Law. Important enough to affect every system I've come across, and powerful enough that you're doomed to defeat if you try to fight it." {% cite Fowler2022 %}
 
-The basic understanding of the interdependencies between an organization and software architecture was first explained by Melvin Conway in Conway's Law {% cite ConwayUrl2021 %} in 1967.
-Conway stated that any "[...] organization that designs a system (defined broadly) will produce a design whose structure is a copy of the organization's communication structure." {% cite ConwayUrl2021 %}
+In 1967, Melvin Conway stated in Conway's Law {% cite ConwayUrl2021 %} that any "[...] organization that designs a system (defined broadly) will produce a design whose structure is a copy of the organization's communication structure." {% cite ConwayUrl2021 %}
 Furthermore, he concluded that "[...] the interface structure of a software system necessarily will show a congruence with the social structure of the organization that produced it." {% cite ConwayUrl2021 %}
 Other people such as Raymond and Cheatham explained this law more plastically by giving examples based on Conway's Law: ["If you have four groups working on a compiler, you'll get a 4-pass compiler" (Raymond)](http://catb.org/%7Eesr/jargon/html/C/Conways-Law.html) or "If a group of N persons implements a COBOL compiler, there will be N-1 passes. Someone in the group has to be the manager." (Cheatham)
 

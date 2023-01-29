@@ -87,6 +87,13 @@ Teams that build and maintain microservices should be cross-functional and organ
 To achieve that, the organization should to be chunked up "[...] from team to value stream to line of business to organization [...]" {% cite Lewis2015 %} - so, the Inverse Conway Maneuver.
 
 While nearly every company builds architectures based on the Microservices architecture style nowadays, still not everybody has understood that organization and architecture cannot be changed isolated.
+Besides that, changing the organization should not be a task of software enigineers or architects—not even line managers.
+Vice versa it should not be the management's task to define the softare architecture solely.
+Eberhard Wolff nicely describes those issues regarding the Inverse Conway Maneuver in {% cite Wolff2023 %} (unfortunately, only available in German).
+
+## Strategic Domain-driven Design
+
+TODO
 
 ## Other Incluence Factors
 

@@ -673,4 +673,12 @@
   year   = {2015},
 }
 
+@Electronic{Bittner2022,
+  author = {Kurt Bittner and Pierre Pureur},
+  month  = jun,
+  title  = {A Minimum Viable Product Needs a Minimum Viable Architecture},
+  url    = {https://www.infoq.com/articles/minimum-viable-architecture/},
+  year   = {2022},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

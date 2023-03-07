@@ -28,7 +28,7 @@ Thus, the organization is shaping the organization's software architecture in va
 With a little bit of background knowledge, you can understand the mechanisms of how an organization influences the software architecture of an application and organization.
 Also, you can make use of those mechanisms via setting incentives or considering the different influence factors when architecting better solutions for your organization.
 
-But before we are going into the theory, let's get further examples in the next section.
+But before we are going into the theory, let's some examples from real world in the next section.
 
 ## Real World Examples
 

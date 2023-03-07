@@ -7,7 +7,7 @@ categories:
   - Organization
 published: true
 ---
-As a senior engineer, an architect, or an engineering manager, you are often facing situations where you realize interdependencies between your organization and software architecture.
+As a senior engineer, software architect, or engineering manager, we are often facing situations where we realize interdependencies between your organization and software architecture.
 What team should maintain a specific component within a larger architecture or organization?
 How to build a proper architecture serving this or that team?
 How to (re-)structure teams when facing a bigger architecture rework or a new project?
@@ -24,20 +24,32 @@ Tech debt is, then, going to accrue in the day to day work of people in the orga
 
 The incentive structure—here, we can distinguish between individual and organizational incentives—is one way how the organization influences software architecture.
 There are further influences such as communication structure, previous experiences, knowledge, politics, maturity of the organization, etc.
-Thus, the organization is shaping the organization's architecture in various ways.
-With a little bit of background knowledge, you can understand the mechanisms how an organization influences the software architecture of an application and organization.
-Also, you can make use of the mechanisms to influence the organization and software architecture via setting incentives or considering the different influence factors when architecting better solutions for your organization.
+Thus, the organization is shaping the organization's software architecture in various ways.
+With a little bit of background knowledge, you can understand the mechanisms of how an organization influences the software architecture of an application and organization.
+Also, you can make use of those mechanisms via setting incentives or considering the different influence factors when architecting better solutions for your organization.
 
-When I have been involved in a project as an architect where two teams had to closely work together to build up a brand new strategical application.
-The first team was a support team that maintained core data required as input for the purposes of the new application that the second should build and maintain.
+But before we are going into the theory, let's get further examples in the next section.
+
+## Real World Examples
+
+### Software Architecture can influence the Team Setup and vice versa
+
+When I have been involved in a project as a software architect where two teams had to closely work together to build up a brand new strategical application.
+The first team was a support team that maintained core data required as input for the purposes of the new application that the second team should build and maintain.
 Unfortunately, all of us had different ideas of the overall software architecture.
 There were different architecture proposals leading to different degrees of dependencies between those two teams.
 One architecture proposal was about to intertwine both teams in a way that both teams would have to be merged, as otherwise major inefficiencies would arise.
 Another architecture proposal considered both teams to stay independent but required to change the overall process of data management.
-So, there were different incentives for the various stakeholders including the main purpose of one team, different architecture proposals with different pros and cons, as well as different consequences to the organizational setup of the architecture proposals.
+
+In total, we had—I believe—five architecture proposals with different nuances.
+There were different incentives for the various stakeholders including the main purpose of one team, different architecture proposals with different pros and cons, as well as different consequences to the organizational setup of the architecture proposals.
 So, what architecture—or oranizational setup—should we choose?
 
-As the small example above already shows you, there are various interdependencies between organization and software architecture.
+### TODO
+
+### Conclusion
+
+As this small example already shows you, there are various interdependencies between organization and software architecture.
 In order to properly think about and manage them, we first need to understand them properly.
 A good start to do so, is to look at [Conway's Law](#conways-law) and the [Inverse Conway Maneuver](#inverse-conway-maneuver).
 Furthermore, we will look at strategic Domain-driven Design (DDD), before we try to conclude the limitations and things to also look out for.
@@ -96,10 +108,6 @@ Eberhard Wolff nicely describes those issues regarding the Inverse Conway Maneuv
 TODO
 
 ## Other Incluence Factors
-
-TODO
-
-## Real World Examples
 
 TODO 
 

@@ -48,7 +48,7 @@ So, what architecture—or oranizational setup—should we choose?
 ### Team Setup can drive Software Architecture
 
 Recently, I have been discussing with my current team about redistributing duties and tasks in the sub teams.
-With our main product, we have two sub teams: the first sub team takes about the customer-facing application itself, and the second team was supposed to build integrations with our partners.
+With our main product, we have two sub teams: the first sub team takes about the customer-facing application itself, and the second team was supposed to build integrations with our partners (see also: [The architecture of the main product]({% post_url 2022-05-10-building-an-event-driven-microservice-application %}#the-architecture)).
 
 ### Conclusion
 

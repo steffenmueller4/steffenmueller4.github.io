@@ -45,10 +45,12 @@ In total, we had—I believe—five architecture proposals with different nuance
 There were different incentives for the various stakeholders including the main purpose of one team, different architecture proposals with different pros and cons, as well as different consequences to the organizational setup of the architecture proposals.
 So, what architecture—or oranizational setup—should we choose?
 
-### Team Setup can drive Software Architecture
+### Different Drawbacks between Team Setup and Software Architecture
 
 Recently, I have been discussing with my current team about redistributing duties and tasks in the sub teams.
 With our main product, we have two sub teams: the first sub team takes about the customer-facing application itself, and the second team was supposed to build integrations with our partners (see also: [The architecture of the main product]({% post_url 2022-05-10-building-an-event-driven-microservice-application %}#the-architecture)).
+
+Amazon Example -> Monolith + Danger of distributed Monolith + Too small Microservices = Development Overhead
 
 ### Conclusion
 

@@ -1,9 +1,12 @@
 ---
 layout: post
-date:   2023-07-11 17:21:23 +0100
-title: "What is Software Architecture and how to learn about it?"
+date:   2023-07-22 17:21:23 +0100
+title: "Tales from a Start-Up Company and its Evolving Architecture"
 categories:
+  - Strategy
   - Architecture
+  - Event-Driven Architecture
+  - Cloud Platform
 published: true
 hero_image: "/assets/hero-four_key_metrics.svg"
 ---

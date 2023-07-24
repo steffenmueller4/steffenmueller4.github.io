@@ -19,8 +19,8 @@ This post summarizes the talk and provides further insights into come core conce
 
 > Disclaimer: This article presents my personal opinions and perspectives on a Cloud-native development strategy and software architecture, so this is not necessary my company's opinion.
 
-In some other articles (see, e.g.: [here]({% post_url 2022-05-10-building-an-event-driven-microservice-application %})), I have already explained that I am currently working at a corporate start-up.
-The company decided to build a platform for booking car services based on modern product and development concepts such as agile development processes, a bias to fast and experiment-driven development (see also: [this article about our deployment concepts]({% post_url 2022-10-13-with-four-key-metrics-towards-development-excellence %})), and a Cloud-native platform.
+In a couple of articles (see, e.g.: [here]({% post_url 2022-05-10-building-an-event-driven-microservice-application %})), I have already explained that I am currently working at a corporate start-up.
+The company decided to build a platform for booking car services ([HUK-Autoserivce](https://www.huk-autoservice.de)) based on modern product and development concepts such as agile development processes, a bias to fast and experiment-driven development (see also: [this article about our deployment concepts]({% post_url 2022-10-13-with-four-key-metrics-towards-development-excellence %})), and a Cloud-native platform.
 
 
 

@@ -659,4 +659,21 @@
   year   = {2022},
 }
 
+@Electronic{Bittner2022,
+  author   = {Kurt Bittner and Pierre Pureur},
+  title    = {A Minimum Viable Product Needs a Minimum Viable Architecture},
+  url      = {https://www.infoq.com/articles/minimum-viable-architecture/},
+  date     = {2022-06-08},
+  keywords = {MVA, Minimum Viable Architecture, MVP, Minimum Viable Product},
+}
+
+@Electronic{Pureur2021,
+  author = {Pierre Pureur},
+  month  = dec,
+  title  = {Minimum Viable Architecture: How To Continuously Evolve an Architectural Design over Time},
+  url    = {https://continuousarchitecture.com/2021/12/21/minimum-viable-architecture-how-to-continuously-evolve-an-architectural-design-over-time/},
+  year   = {2021},
+  date   = {2021-12-21},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

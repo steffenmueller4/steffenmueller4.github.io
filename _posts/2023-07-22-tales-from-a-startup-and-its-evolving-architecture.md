@@ -32,9 +32,14 @@ Randy Shoup structures this journey of start-ups during their evolution nicely b
 He summarizes this journey into the meaningful start of his talk with: "There is no perfect architecture for all scales, for all phases of evolution, [and] for all problem domains." {% cite Shoup2022 %}
 
 My employer has rather started—and is now for sure—in the scaling phase.
-We just adapted the business model slightly in 2021 when we restarted the platform (see also: [this article]({% post_url 2022-05-10-building-an-event-driven-microservice-application %})) and try to scale it now.
-So, we built an event-driven microservices architecture.
-Nevertheless, we follow clearly the idea of minimum viable architecture that has been coined by various authors such as Pierre Purer and Kurt Bittner {% cite Bittner2022 %} as well as Randy Shoup {% cite Shoup2022 %}.
+We just adapted the business model slightly in 2021 when I joined and the development restarted which I described first in [this article]({% post_url 2022-05-10-building-an-event-driven-microservice-application %}).
+Essentially, we built an event-driven microservices architecture and are still continuing this approach.
+Nevertheless, we follow clearly the idea of minimum viable architecture (MVA).
+So, let us dive deeper into the concept of MVA in the [next section](#the-concept-of-minimum-viable-architecture).
+
+## The Concept of Minimum Viable Architecture
+
+The most memorable definition of the concept of MVA is that you concentrate on delivering "just enough architecture" for releasing a minimum viable product (MVP) {% cite Caroli2015 %}, {% cite Pureur2021 %}, and {% cite Bittner2022 %}.
 
 ## References
 

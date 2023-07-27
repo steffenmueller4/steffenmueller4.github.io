@@ -33,7 +33,7 @@ He summarizes this journey into the meaningful start of his talk with: "There is
 
 My employer has rather started—and is now for sure—in the scaling phase.
 We just adapted the business model slightly in 2021 when I joined and the development restarted which I described first in [this article]({% post_url 2022-05-10-building-an-event-driven-microservice-application %}).
-Essentially, we built an event-driven microservices architecture and are still continuing this approach.
+Essentially, we built an event-driven microservices architecture (EDA) and are still continuing this approach.
 Nevertheless, we follow clearly the idea of MVA.
 So, let us dive deeper into the concept of MVA and our approach to it in the [next section](#minimum-viable-architecture-and-our-approach-to-it).
 
@@ -53,9 +53,14 @@ This, however, may also mean that you have to increase your efforts about archit
 Based on the MVA approach, we, thus, focussed on the two following objectives when building our application:
 
  1. We want to create an awesome customer-centric product (see also: MVP), and
- 1. we want to build a scalable, flexible, secure, and reliable microservices-oriented architecture for a fast and experiment-driven business development based on an agile development model (see also: MVA).
+ 1. we want to build a scalable, flexible, secure, and reliable microservices-oriented architecture for a fast and experiment-driven business development (... based on the MVA approach).
 
-Essentially, we want to gain—what Gregor Hohpe in {% cite hohpe2020 %} describes as—"economies of speed" for our product via the MVA approach.
+Essentially, we want to gain—what Gregor Hohpe in {% cite hohpe2020 %} describes as—"[economies of speed](https://www.oreilly.com/library/view/the-software-architect/9781492077534/ch35.html)" with our product via the MVA approach.
+
+## How does an Event-driven Architecture fit into that?
+
+You could argue that an EDA that was already mentioned in [this section](#introduction) does not fit into the MVA approach.
+
 
 ## References
 

@@ -28,18 +28,34 @@ Thus, you should focus on using rock-solid technology to build a prototype as fa
 When the business model evolves, the journey continues and you have to scale the business model, but not obviously in the technical sense of having to handle millions of requests per second.
 You have to stay ahead of the business and to scale the organization which means you typically increase the number of teams participated in the product's development.
 For that, it may be a good idea to make use of microservices to make teams independent from each other.
-Randy Shoup structures this journey of start-ups during their evolution nicely based on the business growth s-curve (see also: {% cite Boretos2012 %}) in a very good talk about [Minimum Viable Architecture](https://www.youtube.com/watch?v=9Q7GANXn02k).
+Randy Shoup structures this journey of start-ups during their evolution nicely based on the business growth s-curve (see also: {% cite Boretos2012 %}) in a very good talk about [minimum viable architecture](https://www.youtube.com/watch?v=9Q7GANXn02k) (MVA).
 He summarizes this journey into the meaningful start of his talk with: "There is no perfect architecture for all scales, for all phases of evolution, [and] for all problem domains." {% cite Shoup2022 %}
 
 My employer has rather started—and is now for sure—in the scaling phase.
 We just adapted the business model slightly in 2021 when I joined and the development restarted which I described first in [this article]({% post_url 2022-05-10-building-an-event-driven-microservice-application %}).
 Essentially, we built an event-driven microservices architecture and are still continuing this approach.
-Nevertheless, we follow clearly the idea of minimum viable architecture (MVA).
-So, let us dive deeper into the concept of MVA in the [next section](#the-concept-of-minimum-viable-architecture).
+Nevertheless, we follow clearly the idea of MVA.
+So, let us dive deeper into the concept of MVA and our approach to it in the [next section](#minimum-viable-architecture-and-our-approach-to-it).
 
-## The Concept of Minimum Viable Architecture
+## Minimum Viable Architecture and our Approach to it
 
-The most memorable definition of the concept of MVA is that you concentrate on delivering "just enough architecture" for releasing a minimum viable product (MVP) {% cite Caroli2015 %}, {% cite Pureur2021 %}, and {% cite Bittner2022 %}.
+Software architects and engineers often have to decide how much architectural design they should do in the beginning of a project or product.
+The concept of MVA tells you to focus on the essential architecture needed to deliver a minimum viable product (MVP).
+An MVP is a version of a product—in our case a digital product respectively an application—with just enough features to be delivered to early customers for providing feedback for further product development {% cite WikipediaMinimumViableProduct2023 %}.
+When following the concept of MVA, you, thereby, delay design decisions until they are absolutely necessary to avoid lengthy and unnecessary work as well as architect for change {% cite Pureur2021 %}.
+The most memorable explanation of MVA is that you concentrate on delivering "just enough architecture" for releasing an MVP {% cite Caroli2015 %}, {% cite Karanth2016 %}, {% cite Pureur2021 %}, {% cite Erder2021 %}, {% cite Bittner2022 %}, or {% cite Shoup2022 %}.
+
+As already explained via Randy Shoup's talk about MVA in the [previous section](#introduction), there is no perfect architecture that fits all scales, alls phases, and all problem domains.
+Thus, the MVA approach is, in my believe, the most essential lesson to learn for engineers—especially when you are in a start-up.
+Just do enough architecture.
+This, however, may also mean that you have to increase your efforts about architecture when you proceed in your journey.
+
+Based on the MVA approach, we, thus, focussed on the two following objectives when building our application:
+
+ 1. We want to create an awesome customer-centric product (see also: MVP), and
+ 1. we want to build a scalable, flexible, secure, and reliable microservices-oriented architecture for a fast and experiment-driven business development based on an agile development model (see also: MVA).
+
+Essentially, we want to gain—what Gregor Hohpe in {% cite hohpe2020 %} describes as—"economies of speed" for our product via the MVA approach.
 
 ## References
 

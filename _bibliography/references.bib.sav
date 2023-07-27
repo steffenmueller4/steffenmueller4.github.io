@@ -676,4 +676,39 @@
   date   = {2021-12-21},
 }
 
+@Electronic{Caroli2015,
+  author = {Paulo Caroli},
+  month  = dec,
+  title  = {Minimum Viable Architecture (MVA)},
+  url    = {https://caroli.org/en/minimum-viable-architecture-mva/},
+  year   = {2015},
+  date   = {2015-12-14},
+}
+
+@Book{Erder2021,
+  author    = {Murat Erder and Eoin Woods and Pierre Pureur},
+  publisher = {Addison-Wesley Professional},
+  title     = {Continuous Architecture in Practice - Software Architecture in the Age of Agility and Devops},
+  isbn      = {978-0136523567},
+  date      = {2021-06-03},
+  subtitle  = {Software Architecture in the Age of Agility and DevOps},
+}
+
+@Electronic{Karanth2016,
+  author = {Deepak Karanth},
+  month  = feb,
+  title  = {How to Create a Minimum Viable Architecture},
+  url    = {https://dzone.com/articles/minimum-viable-architecture},
+  year   = {2016},
+  date   = {2016-02-23},
+}
+
+@Electronic{WikipediaMinimumViableProduct2023,
+  author = {Wikipedia contributors},
+  month  = jul,
+  title  = {Minimum viable product},
+  url    = {https://en.wikipedia.org/w/index.php?title=Minimum_viable_product&oldid=1165514083},
+  year   = {2023},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

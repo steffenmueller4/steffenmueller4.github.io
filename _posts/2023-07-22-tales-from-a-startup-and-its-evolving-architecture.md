@@ -74,13 +74,15 @@ We use Domain-Driven design (DDD) {% cite Evans2003 %} to identify and structure
 The business/domain events are, thus, records of business-significant occurrences in a bounded context used to react to in other bounded contexts.
 You can also think about those events as integration points for other bounded contexts.
 We extend our microservices continously with new such business events as soon as we need them.
-From an application architecture perspective, we rather have independently deployable microservices/modular monoliths.
+On an application architecture level, we rather have independently deployable microservices or maybe even modular monoliths per team.
 So far, this approach went well and kept us flexible and fast—of course there are also challenges to maintain the architecture.
 For more details about the EDA approach, we also refer to [this article]({% post_url 2022-05-10-building-an-event-driven-microservice-application %}).
 
-## The Cloud-natvie Platform
+## The Cloud-natvie Platform as a Basis for the Development
 
-TODO
+We try to structure our development teams following the Team Topologies approach into stream-aligned product and platform teams {% cite Skelton2019 %}, {% cite Skelton2019a %}, and {% cite Skelton2019b %}.
+The stream-aligned product teams are aligned to be part of the business value stream and have end-to-end responsibility for building, deploying, running, supporting, and eventually retiring that part of the business or that slice of service.
+The platform team reduces the complexity to the stream-aligned teams—so, to the development teams dealing with the business complexity and the EDA—and develops and maintains the platform to build applications on it.
 
 ## References
 

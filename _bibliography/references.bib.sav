@@ -7,7 +7,7 @@
   year = {2021}
 }
 
-@Book{hohpe2020,
+@Book{Hohpe2020,
   author    = {Hohpe, Gregor},
   publisher = {O'Reilly},
   title     = {The Software Architect Elevator},
@@ -704,11 +704,18 @@
 }
 
 @Electronic{WikipediaMinimumViableProduct2023,
-  author = {Wikipedia contributors},
+  author = {{Wikipedia contributors}},
   month  = jul,
   title  = {Minimum viable product},
   url    = {https://en.wikipedia.org/w/index.php?title=Minimum_viable_product&oldid=1165514083},
   year   = {2023},
+}
+
+@Electronic{Hohpe2003,
+  author = {Hohpe, Gregor and Woolf, Bobby},
+  title  = {Enterprise Integration Patterns - Introduction to Integration Styles},
+  url    = {https://www.enterpriseintegrationpatterns.com/patterns/messaging/IntegrationStylesIntro.html},
+  year   = {2003},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}

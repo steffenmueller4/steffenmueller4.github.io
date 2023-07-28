@@ -50,17 +50,27 @@ Thus, the MVA approach is, in my believe, the most essential lesson to learn for
 Just do enough architecture.
 This, however, may also mean that you have to increase your efforts about architecture when you proceed in your journey.
 
-Based on the MVA approach, we, thus, focussed on the two following objectives when building our application:
+Based on the MVA approach, we, thus, focussed on the two following objectives when building our application(s):
 
- 1. We want to create an awesome customer-centric product (see also: MVP), and
+ 1. We want to create an awesome customer-centric product (see also: MVP and TODO product org), and
  1. we want to build a scalable, flexible, secure, and reliable microservices-oriented architecture for a fast and experiment-driven business development (... based on the MVA approach).
 
-Essentially, we want to gain—what Gregor Hohpe in {% cite hohpe2020 %} describes as—"[economies of speed](https://www.oreilly.com/library/view/the-software-architect/9781492077534/ch35.html)" with our product via the MVA approach.
+Essentially, we want to gain—what Gregor Hohpe in {% cite Hohpe2020 %} describes as—"[economies of speed](https://www.oreilly.com/library/view/the-software-architect/9781492077534/ch35.html)" with our product via the MVP and MVA approach.
+The MVP and MVA concepts help us to stay flexible and, thus, also be fast.
 
 ## How does an Event-driven Architecture fit into that?
 
-You could argue that an EDA that was already mentioned in [this section](#introduction) does not fit into the MVA approach.
+In order to gain the economies of speed (see: [this section](#minimum-viable-architecture-and-our-approach-to-it)), we decided to go, as already mentioned in [this section](#introduction), with an EDA from a 10,000 feet perspective.
+An EDA, in general, has the following benefits to us (see also: [this article]({% post_url 2022-05-10-building-an-event-driven-microservice-application %}) as well as {% cite Hohpe2003 %} and {% cite Jansen2020 %}):
 
+ 1. Loose Coupling: Event producers and consumers in an event-driven architecture are coupled loosely and communicate asynchronously (data format coupling only).
+ 1. Partial Resiliency: The event broker separates event producers and consumers from each other and, thus, introduces partial resiliency to system parts.
+ 1. Partial Scalability: Due to loosely coupled and separated producer and consumer components, we can scale our producers and consumers independently.
+ 1. Single Source of Truth: Our event broker is the single source of truth which keeps domain/business events and allows us to rewrite, combine, extract, rework, ... the events to feed other systems and purposes.
+
+You could argue that an EDA does not fit into the MVA approach, because it is a complex architecture that speaks against the MVA approach.
+That is the reason why I told attached the "from a 10,000 feet perspective".
+When
 
 ## References
 

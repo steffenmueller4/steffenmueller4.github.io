@@ -12,7 +12,7 @@ hero_image: "/assets/hero-four_key_metrics.svg"
 ---
 Recently, I have been giving [a talk to students at TU Berlin about Cloud-native engineering and software architecture](https://www.linkedin.com/posts/steffen-mueller-139b8b191_tuberlin-activity-7080612706663182336-aCQo) as a part of [Prof. Tai](https://www.tu.berlin/ise/ueber-uns/prof-dr-ing-stefan-tai)'s lecture [Cloud Native Engineering and Architecture](https://www.tu.berlin/ise/studium-lehre).
 I explained to the students the approach to software architecture and engineering that my team and me are running.
-From a 10,000 feet perspective, we are running an [event-driven microservices architecture]({% post_url 2022-05-10-building-an-event-driven-microservice-application %}) in an agile way to build a customer-first product based on a [Cloud Platform](https://tag-app-delivery.cncf.io/whitepapers/platforms/) that the DevOps/Site Reliability Engineering team is developing and maintaining.
+From a 10,000 feet perspective, we are running an [Event-Driven Microservices Architecture]({% post_url 2022-05-10-building-an-event-driven-microservice-application %}) in an agile way to build a customer-first product based on a [Cloud Platform](https://tag-app-delivery.cncf.io/whitepapers/platforms/) that the DevOps/Site Reliability Engineering team is developing and maintaining.
 This article summarizes the talk and provides further insights into come core concepts we are pursuing.
 
 ## Introduction
@@ -28,12 +28,12 @@ Thus, you should focus on using rock-solid technology to build a prototype as fa
 When the business model evolves, the journey continues and you have to scale the business model, but not obviously in the technical sense of having to handle millions of requests per second.
 You have to stay ahead of the business and to scale the organization which means you typically increase the number of teams participated in the product's development.
 For that, it may be a good idea to make use of microservices to make teams independent from each other.
-Randy Shoup structures this journey of start-ups during their evolution nicely based on the business growth s-curve (see also: {% cite Boretos2012 %}) in a very good talk about [minimum viable architecture](https://www.youtube.com/watch?v=9Q7GANXn02k) (MVA).
+Randy Shoup structures this journey of start-ups during their evolution nicely based on the business growth s-curve (see also: {% cite Boretos2012 %}) in a very good talk about [Minimum Viable Architecture](https://www.youtube.com/watch?v=9Q7GANXn02k) (MVA).
 He summarizes this journey into the meaningful start of his talk with: "There is no perfect architecture for all scales, for all phases of evolution, [and] for all problem domains." {% cite Shoup2022 %}
 
 My employer has rather started—and is now for sure—in the scaling phase.
 We just adapted the business model slightly in 2021 when I joined and the development restarted which I described first in [this article]({% post_url 2022-05-10-building-an-event-driven-microservice-application %}).
-Essentially, we built an event-driven microservices architecture (EDA) and are still continuing this approach.
+Essentially, we built an Event-Driven Architecture (EDA) based on microservices and are still continuing this approach.
 Nevertheless, we follow clearly the idea of MVA.
 So, let us dive deeper into the concept of MVA and our approach to it in the [next section](#minimum-viable-architecture-and-our-approach-to-it).
 
@@ -58,19 +58,29 @@ Based on the MVA approach, we, thus, focussed on the two following objectives wh
 Essentially, we want to gain—what Gregor Hohpe in {% cite Hohpe2020 %} describes as—"[economies of speed](https://www.oreilly.com/library/view/the-software-architect/9781492077534/ch35.html)" with our product via the MVP and MVA approach.
 The MVP and MVA concepts help us to stay flexible and, thus, also be fast.
 
-## How does an Event-driven Architecture fit into that?
+## How does an Event-Driven Architecture fit into that?
 
 In order to gain the economies of speed (see: [this section](#minimum-viable-architecture-and-our-approach-to-it)), we decided to go, as already mentioned in [this section](#introduction), with an EDA from a 10,000 feet perspective.
 An EDA, in general, has the following benefits to us (see also: [this article]({% post_url 2022-05-10-building-an-event-driven-microservice-application %}) as well as {% cite Hohpe2003 %} and {% cite Jansen2020 %}):
 
- 1. Loose Coupling: Event producers and consumers in an event-driven architecture are coupled loosely and communicate asynchronously (data format coupling only).
+ 1. Loose Coupling: Event producers and consumers in an EDA are coupled loosely and communicate asynchronously via an event broker (data format coupling only).
  1. Partial Resiliency: The event broker separates event producers and consumers from each other and, thus, introduces partial resiliency to system parts.
  1. Partial Scalability: Due to loosely coupled and separated producer and consumer components, we can scale our producers and consumers independently.
  1. Single Source of Truth: Our event broker is the single source of truth which keeps domain/business events and allows us to rewrite, combine, extract, rework, ... the events to feed other systems and purposes.
 
 You could argue that an EDA does not fit into the MVA approach, because it is a complex architecture that speaks against the MVA approach.
-That is the reason why I told attached the "from a 10,000 feet perspective".
-When
+We use the EDA to structure our overall system rather from a solution or enterprise architecture perspective (10,000 feet perspective, see also: [Levels of Architecture](https://github.com/justinamiller/SoftwareArchitect#levels-of-architecture)) via events.
+We use Domain-Driven design (DDD) {% cite Evans2003 %} to identify and structure the events.
+The business/domain events are, thus, records of business-significant occurrences in a bounded context used to react to in other bounded contexts.
+You can also think about those events as integration points for other bounded contexts.
+We extend our microservices continously with new such business events as soon as we need them.
+From an application architecture perspective, we rather have independently deployable microservices/modular monoliths.
+So far, this approach went well and kept us flexible and fast—of course there are also challenges to maintain the architecture.
+For more details about the EDA approach, we also refer to [this article]({% post_url 2022-05-10-building-an-event-driven-microservice-application %}).
+
+## The Cloud-natvie Platform
+
+TODO
 
 ## References
 

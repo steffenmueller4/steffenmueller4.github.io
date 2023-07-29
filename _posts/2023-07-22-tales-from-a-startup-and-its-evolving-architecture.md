@@ -100,13 +100,14 @@ Using the basic AWS services, the platform provides its platform capabilities vi
 For the platform interfaces, we use a bug tracker ([Atlassian Jira](https://www.atlassian.com/software/jira)), a wiki for documentation ([Atlassian Confluence](https://www.atlassian.com/software/confluence)), specific [Github](https://www.github.com) repositories as basic project templates, etc.
 For more information on our Continous Integration and Delivery (CI/CD) using [Github](https://www.github.com) and [Github Actions](https://github.com/features/actions), we refer to [this article]({% post_url 2022-10-13-with-four-key-metrics-towards-development-excellence %}).
 
-So far, this thin platform—remember the MVP and MVA concept ;-)—works well for the stream-aligned product teams to build our applications.
+So far, this thin platform—remember the MVP and MVA concepts ;-)—works well for the stream-aligned product teams to build our applications.
 The platform is, as the other products, under continous development by the platform team.
 For example, we are currently exchanging the monitoring, logging, and tracing stack to ease the work of the DevOps/Site Reliability Engineers.
 
 ## Conclusion
 
-
+Although we as software architects and engineers as well as product owners, etc. are often tempted to extend our products and services massively, the MVP and MVA approaches help us to concentrate on the necessary things.
+Especially in the context of a start-up, those concepts are essential for building products and a Cloud-native platform.
 
 ## References
 

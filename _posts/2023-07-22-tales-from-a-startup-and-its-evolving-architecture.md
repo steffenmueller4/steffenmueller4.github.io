@@ -8,7 +8,7 @@ categories:
   - Event-Driven Architecture
   - Cloud Platform
 published: true
-hero_image: "/assets/hero-four_key_metrics.svg"
+hero_image: "/assets/hero-tales_from_startup_and_its_evolving_architecture.drawio.svg"
 ---
 Recently, I have been giving [a talk to students at TU Berlin about Cloud-native engineering and software architecture](https://www.linkedin.com/posts/steffen-mueller-139b8b191_tuberlin-activity-7080612706663182336-aCQo) as a part of [Prof. Tai](https://www.tu.berlin/ise/ueber-uns/prof-dr-ing-stefan-tai)'s lecture [Cloud Native Engineering and Architecture](https://www.tu.berlin/ise/studium-lehre).
 I explained to the students the approach to software architecture and engineering that my team and me are running.

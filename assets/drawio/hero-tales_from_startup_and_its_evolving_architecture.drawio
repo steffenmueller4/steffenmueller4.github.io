@@ -1,0 +1,43 @@
+<mxfile host="Electron" modified="2023-07-29T10:13:10.019Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.6.5 Chrome/114.0.5735.243 Electron/25.3.1 Safari/537.36" etag="B_bLwojKJGrjNR3y-UBQ" version="21.6.5" type="device">
+  <diagram id="sfGkyqJ-wVHbOri7GWkh" name="Seite-1">
+    <mxGraphModel dx="954" dy="612" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="nMVIfYfNS6cF1Cbamtte-1" value="" style="rounded=0;whiteSpace=wrap;html=1;imageWidth=200;imageHeight=24;fillColor=#D5E8D4;strokeColor=#82b366;gradientDirection=west;imageAspect=0;" parent="1" vertex="1">
+          <mxGeometry x="20" y="40" width="768" height="432" as="geometry" />
+        </mxCell>
+        <mxCell id="XbCrCJemjWTNa3cK6fTW-1" value="" style="shape=cube;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;darkOpacity=0.05;darkOpacity2=0.1;size=42;sketch=1;curveFitting=1;jiggle=2;" vertex="1" parent="1">
+          <mxGeometry x="186" y="198" width="456" height="102" as="geometry" />
+        </mxCell>
+        <mxCell id="XbCrCJemjWTNa3cK6fTW-2" value="" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;" vertex="1" parent="1">
+          <mxGeometry x="80" y="320" width="350" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="XbCrCJemjWTNa3cK6fTW-4" value="" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;" vertex="1" parent="1">
+          <mxGeometry x="360" y="300" width="229" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="XbCrCJemjWTNa3cK6fTW-3" value="" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;" vertex="1" parent="1">
+          <mxGeometry x="260" y="310" width="229" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="XbCrCJemjWTNa3cK6fTW-5" value="" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;" vertex="1" parent="1">
+          <mxGeometry x="450" y="310" width="330" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="XbCrCJemjWTNa3cK6fTW-13" value="Platform" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#D5E8D4;fontSize=28;fontFamily=Tahoma;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="230" y="240" width="410" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="XbCrCJemjWTNa3cK6fTW-14" value="" style="image;html=1;image=img/lib/clip_art/computers/Database_128x128.png" vertex="1" parent="1">
+          <mxGeometry x="210" y="150" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="XbCrCJemjWTNa3cK6fTW-16" value="" style="image;html=1;image=img/lib/clip_art/computers/Software_128x128.png" vertex="1" parent="1">
+          <mxGeometry x="320" y="150" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="XbCrCJemjWTNa3cK6fTW-17" value="" style="image;html=1;image=img/lib/clip_art/computers/Server_Rack_128x128.png" vertex="1" parent="1">
+          <mxGeometry x="540" y="150" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="XbCrCJemjWTNa3cK6fTW-19" value="" style="image;aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;shadow=0;dashed=0;fontColor=#4277BB;labelBackgroundColor=default;fontSize=12;spacingTop=3;image=img/lib/ibm/social/messaging.svg;" vertex="1" parent="1">
+          <mxGeometry x="444.5" y="160" width="60" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

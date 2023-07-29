@@ -87,7 +87,7 @@ The stream-aligned product teams, as part of the business value stream, have end
 They consist of developers and parts of the product team, especially Product Owners.
 Consequently, the cross-functional stream-aligned product teams can fully concentrate on processes to design, test (product discovery), develop, as well as ship and evolve (product delivery) the products (see also: {% cite Schultheiss2023 %}).
 
-The Cloud-native platform, thereby, is providing foundational capabilities, frameworks, and "experiences" to facilitate and accelerate the product development of the stream-aligned teams {% cite CNCF2023 %}.
+The Cloud-native platform, thereby, is providing foundational capabilities, basic frameworks, and "experiences" as well as some best practices to facilitate and accelerate the product development of the stream-aligned teams {% cite CNCF2023 %}.
 Essentially, the platform is an intermediate layer between our Cloud provider(s) and the internal customers such as the stream-aligned teams.
 It is run as a product by the platform team.
 The figure below depicts our current platform and the provided services.
@@ -96,13 +96,17 @@ The basic structure of the platform in the figure is based on the Cloud Native C
 ![Our Cloud-native Development Platform](/assets/our-development-platform.png)
 
 Our Cloud provider is Amazon Web Services (AWS) which is shown at the bottom of the figure.
-Using the basic AWS services, the platform team provides their platform capabilities via Kubernetes as our container runtime ([Amazon Elastic Kubernetes Service(https://aws.amazon.com/eks/)]), diverse databases (via [Amazon Relational Database Service](https://aws.amazon.com/rds/)), the event broker for the EDA ([Apache Kafka](https://kafka.apache.org) via [Amazon Managed Streaming for Apache Kafka](https://aws.amazon.com/msk/)), etc.
+Using the basic AWS services, the platform provides its platform capabilities via Kubernetes as our container runtime ([Amazon Elastic Kubernetes Service](https://aws.amazon.com/eks/)), diverse databases (via [Amazon Relational Database Service](https://aws.amazon.com/rds/)), the event broker for the EDA ([Apache Kafka](https://kafka.apache.org) via [Amazon Managed Streaming for Apache Kafka](https://aws.amazon.com/msk/)), etc.
 For the platform interfaces, we use a bug tracker ([Atlassian Jira](https://www.atlassian.com/software/jira)), a wiki for documentation ([Atlassian Confluence](https://www.atlassian.com/software/confluence)), specific [Github](https://www.github.com) repositories as basic project templates, etc.
 For more information on our Continous Integration and Delivery (CI/CD) using [Github](https://www.github.com) and [Github Actions](https://github.com/features/actions), we refer to [this article]({% post_url 2022-10-13-with-four-key-metrics-towards-development-excellence %}).
 
-## Summary
+So far, this thin platform—remember the MVP and MVA concept ;-)—works well for the stream-aligned product teams to build our applications.
+The platform is, as the other products, under continous development by the platform team.
+For example, we are currently exchanging the monitoring, logging, and tracing stack to ease the work of the DevOps/Site Reliability Engineers.
 
-TODO
+## Conclusion
+
+
 
 ## References
 

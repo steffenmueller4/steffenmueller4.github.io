@@ -13,7 +13,7 @@ hero_image: "/assets/hero-four_key_metrics.svg"
 Recently, I have been giving [a talk to students at TU Berlin about Cloud-native engineering and software architecture](https://www.linkedin.com/posts/steffen-mueller-139b8b191_tuberlin-activity-7080612706663182336-aCQo) as a part of [Prof. Tai](https://www.tu.berlin/ise/ueber-uns/prof-dr-ing-stefan-tai)'s lecture [Cloud Native Engineering and Architecture](https://www.tu.berlin/ise/studium-lehre).
 I explained to the students the approach to software architecture and engineering that my team and me are running.
 From a 10,000 feet perspective, we are running an [Event-Driven Microservices Architecture]({% post_url 2022-05-10-building-an-event-driven-microservice-application %}) in an agile way to build a customer-first product based on a [Cloud Platform](https://tag-app-delivery.cncf.io/whitepapers/platforms/) that the DevOps/Site Reliability Engineering team is developing and maintaining.
-This article summarizes the talk and provides further insights into come core concepts we are pursuing.
+This article summarizes the talk and provides further insights into some core concepts we use.
 
 ## Introduction
 
@@ -78,11 +78,31 @@ On an application architecture level, we rather have independently deployable mi
 So far, this approach went well and kept us flexible and fast—of course there are also challenges to maintain the architecture.
 For more details about the EDA approach, we also refer to [this article]({% post_url 2022-05-10-building-an-event-driven-microservice-application %}).
 
-## The Cloud-natvie Platform as a Basis for the Development
+## A Cloud-native Platform as a Basis for the Development
 
-We try to structure our development teams following the Team Topologies approach into stream-aligned product and platform teams {% cite Skelton2019 %}, {% cite Skelton2019a %}, and {% cite Skelton2019b %}.
-The stream-aligned product teams are aligned to be part of the business value stream and have end-to-end responsibility for building, deploying, running, supporting, and eventually retiring that part of the business or that slice of service.
-The platform team reduces the complexity to the stream-aligned teams—so, to the development teams dealing with the business complexity and the EDA—and develops and maintains the platform to build applications on it.
+According to the Team Topologies approach {% cite Skelton2019 %}, {% cite Skelton2019a %}, and {% cite Skelton2019b %}, we try to structure our development teams into stream-aligned product and platform teams.
+The platform team develops and maintains the development platform to build business applications upon it.
+It reduces the complexity for the stream-aligned product teams, so the stream-aligned product teams can focus on dealing with the business complexity (... and, in our case, with the EDA) as well as the product development processes.
+The stream-aligned product teams, as part of the business value stream, have end-to-end responsibility for building, deploying, running, supporting, and eventually sunsetting their part of the business or that slice of service.
+They consist of developers and parts of the product team, especially Product Owners.
+Consequently, the cross-functional stream-aligned product teams can fully concentrate on processes to design, test (product discovery), develop, as well as ship and evolve (product delivery) the products (see also: {% cite Schultheiss2023 %}).
+
+The Cloud-native platform, thereby, is providing foundational capabilities, frameworks, and "experiences" to facilitate and accelerate the product development of the stream-aligned teams {% cite CNCF2023 %}.
+Essentially, the platform is an intermediate layer between our Cloud provider(s) and the internal customers such as the stream-aligned teams.
+It is run as a product by the platform team.
+The figure below depicts our current platform and the provided services.
+The basic structure of the platform in the figure is based on the Cloud Native Computing Foundation's (CNCF) definition of a platform and platform engineering in {% cite CNCF2023 %}.
+
+![Our Cloud-native Development Platform](/assets/our-development-platform.png)
+
+Our Cloud provider is Amazon Web Services (AWS) which is shown at the bottom of the figure.
+Using the basic AWS services, the platform team provides their platform capabilities via Kubernetes as our container runtime ([Amazon Elastic Kubernetes Service(https://aws.amazon.com/eks/)]), diverse databases (via [Amazon Relational Database Service](https://aws.amazon.com/rds/)), the event broker for the EDA ([Apache Kafka](https://kafka.apache.org) via [Amazon Managed Streaming for Apache Kafka](https://aws.amazon.com/msk/)), etc.
+For the platform interfaces, we use a bug tracker ([Atlassian Jira](https://www.atlassian.com/software/jira)), a wiki for documentation ([Atlassian Confluence](https://www.atlassian.com/software/confluence)), specific [Github](https://www.github.com) repositories as basic project templates, etc.
+For more information on our Continous Integration and Delivery (CI/CD) using [Github](https://www.github.com) and [Github Actions](https://github.com/features/actions), we refer to [this article]({% post_url 2022-10-13-with-four-key-metrics-towards-development-excellence %}).
+
+## Summary
+
+TODO
 
 ## References
 

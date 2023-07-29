@@ -718,4 +718,31 @@
   year   = {2003},
 }
 
+@Electronic{Jansen2020,
+  author = {Jansen, Grace and Saladas, Johanna},
+  month  = jun,
+  title  = {Advantages of the event-driven architecture pattern - What is event-driven architecture and why use it?},
+  url    = {https://developer.ibm.com/articles/advantages-of-an-event-driven-architecture/},
+  year   = {2020},
+  date   = {2020-06-17},
+}
+
+@Electronic{CNCF2023,
+  author = {{Cloud Native Computing Foundation}},
+  month  = mar,
+  title  = {CNCF Platforms White Paper},
+  url    = {https://tag-app-delivery.cncf.io/whitepapers/platforms/},
+  year   = {2023},
+  date   = {2023-03-28},
+}
+
+@InCollection{Schultheiss2023,
+  author    = {Schultheiss, Michael and Gehrke, David},
+  booktitle = {Digitales Produktmanagement: Methoden – Instrumente – Praxisbeispiele},
+  publisher = {Springer Gabler Wiesbaden},
+  title     = {Produktorganisationen - Wie erfolgreiche Unternehmen ihre Produktorganisation als unfairen Vorteil einsetzen},
+  year      = {2023},
+  editor    = {Hoffmann, Sascha},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

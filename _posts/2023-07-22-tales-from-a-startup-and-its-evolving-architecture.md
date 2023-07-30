@@ -78,27 +78,32 @@ For more details about the EDA approach, we also refer to [this article]({% post
 ## A Cloud-native Platform as a Basis for the Development
 
 According to the Team Topologies approach {% cite Skelton2019 %}, {% cite Skelton2019a %}, and {% cite Skelton2019b %}, we try to structure our development teams into stream-aligned product and platform teams.
-The platform team develops and maintains the development platform to build business applications upon it.
-It reduces the complexity for the stream-aligned product teams, so the stream-aligned product teams can focus on dealing with the business complexity (... and, in our case, with the EDA) as well as the product development processes.
+The platform team develops and maintains the Cloud-native platform to build business applications upon it.
+It reduces the complexity for the stream-aligned product teams, so the stream-aligned product teams can focus on dealing with the business complexity (... and, in our case, with the [EDA](#how-does-an-event-driven-architecture-fit-into-that)) as well as the product development processes.
 The stream-aligned product teams, as part of the business value stream, have end-to-end responsibility for building, deploying, running, supporting, and eventually sunsetting their part of the business or that slice of service.
-They consist of developers and parts of the product team, especially Product Owners.
-Consequently, the cross-functional stream-aligned product teams can fully concentrate on processes to design, test (product discovery), develop, as well as ship and evolve (product delivery) the products (see also: {% cite Schultheiss2023 %}).
+They are cross-functional and consist of front- and back-end developers as well as Product Owners.
+Consequently, the stream-aligned product teams can fully concentrate on processes to design, test (product discovery), develop, as well as ship and evolve (product delivery) the products (see also: {% cite Schultheiss2023 %}).
 
-The Cloud-native platform, thereby, is providing foundational capabilities, basic frameworks, and "experiences" as well as some best practices to facilitate and accelerate the product development of the stream-aligned teams {% cite CNCF2023 %}.
-Essentially, the platform is an intermediate layer between our Cloud provider(s) and the internal customers such as the stream-aligned teams.
-It is run as a product by the platform team.
-The figure below depicts our current platform and the provided services.
+The Cloud-native platform, maintained and developed by the platform team as a product, is providing foundational capabilities, basic frameworks, and "experiences"/best practices to facilitate and accelerate the product development of the stream-aligned teams {% cite CNCF2023 %}.
+All in all, you can consider the platform as an intermediate layer between our Cloud provider(s) and the internal customers such as the stream-aligned product teams.
+The figure below depicts our current platform.
 The basic structure of the platform in the figure is based on the Cloud Native Computing Foundation's (CNCF) definition of a platform and platform engineering in {% cite CNCF2023 %}.
 
 ![Our Cloud-native Development Platform](/assets/our-development-platform.png)
 
-Our Cloud provider is Amazon Web Services (AWS) which is shown at the bottom of the figure.
-Using the basic AWS services, the platform provides its platform capabilities via Kubernetes as our container runtime ([Amazon Elastic Kubernetes Service](https://aws.amazon.com/eks/)), diverse databases (via [Amazon Relational Database Service](https://aws.amazon.com/rds/)), the event broker for the EDA ([Apache Kafka](https://kafka.apache.org) via [Amazon Managed Streaming for Apache Kafka](https://aws.amazon.com/msk/)), etc.
-For the platform interfaces, we use a bug tracker ([Atlassian Jira](https://www.atlassian.com/software/jira)), a wiki for documentation ([Atlassian Confluence](https://www.atlassian.com/software/confluence)), specific [Github](https://www.github.com) repositories as basic project templates, etc.
-For more information on our Continous Integration and Delivery (CI/CD) using [Github](https://www.github.com) and [Github Actions](https://github.com/features/actions), we refer to [this article]({% post_url 2022-10-13-with-four-key-metrics-towards-development-excellence %}).
+Our most important Cloud provider is Amazon Web Services (AWS) which is shown at the bottom of the figure.
+Using the basic AWS services, the platform provides its platform capabilities for resources such as infrastructure, data, and messaging.
+Furthermore, our platform provides capabilities for authentication and authorization, Continous Integration and Delivery (CI/CD), etc.
+All of these platform capabilities are provided via Kubernetes as our container runtime ([Amazon Elastic Kubernetes Service](https://aws.amazon.com/eks/)), diverse databases via [Amazon Relational Database Service](https://aws.amazon.com/rds/), the event broker/messaging for the EDA ([Apache Kafka](https://kafka.apache.org) via [Amazon Managed Streaming for Apache Kafka](https://aws.amazon.com/msk/)), and [Keycloak](https://www.keycloak.org/) for authentication and authorization.
 
-So far, this thin platform—remember the MVP and MVA concepts ;-)—works well for the stream-aligned product teams to build our applications.
-The platform is, as the other products, under continous development by the platform team.
+For the platform interfaces, we provide best practices and different ways to document the state of our products (Documentation).
+As tools, we use a bug tracker ([Atlassian Jira](https://www.atlassian.com/software/jira)), a wiki for writing documentation ([Atlassian Confluence](https://www.atlassian.com/software/confluence)), and readmes in [Github](https://www.github.com) repositories.
+We have basic environment and project templates in Github repositories and [Terraform](https://www.terraform.io) and [Helm](https://helm.sh) templates, etc.
+Our CI/CD bases on Github and [Github Actions](https://github.com/features/actions).
+For more information on our CI/CD, we refer to [this article]({% post_url 2022-10-13-with-four-key-metrics-towards-development-excellence %}).
+
+For us, this thin platform—remember the MVP and MVA concepts ;-)—works well for the stream-aligned product teams to build our applications.
+As a product, the platform is under continous development and improvement by the platform team.
 For example, we are currently exchanging the monitoring, logging, and tracing stack to ease the work of the DevOps/Site Reliability Engineers.
 
 ## Conclusion

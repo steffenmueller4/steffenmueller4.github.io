@@ -103,7 +103,7 @@ Our CI/CD bases on Github and [Github Actions](https://github.com/features/actio
 For more information on our CI/CD, we refer to [this article]({% post_url 2022-10-13-with-four-key-metrics-towards-development-excellence %}).
 
 For us, this thin platform—remember the MVP and MVA concepts ;-)—works well for the stream-aligned product teams to build our applications.
-As a product, the platform is under continous development and improvement by the platform team.
+As a product, the platform is under continous development and improvement done by the platform team.
 For example, we are currently exchanging the monitoring, logging, and tracing stack to ease the work of the DevOps/Site Reliability Engineers.
 
 ## Conclusion

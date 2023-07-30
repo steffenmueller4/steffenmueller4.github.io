@@ -106,8 +106,9 @@ For example, we are currently exchanging the monitoring, logging, and tracing st
 
 ## Conclusion
 
-Although we as software architects and engineers as well as product owners, etc. are often tempted to extend our products and services massively, the MVP and MVA approaches help us to concentrate on the necessary things.
-Especially in the context of a start-up, those concepts are essential for building products and a Cloud-native platform.
+Although we, as engineers, are often tempted to extend and overengineer our products and services, the MVP and MVA approaches can help us to concentrate on delivering the necessary things.
+Especially in the context of a start-up, those concepts are essential.
+For me and my team at a corporate start-up, they definitely help, as there are always things you cannot forsee in architecture and development as well as the evolvement of the start-up.
 
 ## References
 

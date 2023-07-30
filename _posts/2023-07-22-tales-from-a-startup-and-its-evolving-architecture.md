@@ -11,29 +11,31 @@ published: true
 hero_image: "/assets/hero-tales_from_startup_and_its_evolving_architecture.svg"
 ---
 Recently, I have been giving [a talk to students at TU Berlin about Cloud-native engineering and software architecture](https://www.linkedin.com/posts/steffen-mueller-139b8b191_tuberlin-activity-7080612706663182336-aCQo) as a part of [Prof. Tai](https://www.tu.berlin/ise/ueber-uns/prof-dr-ing-stefan-tai)'s lecture, [Cloud Native Engineering and Architecture](https://www.tu.berlin/ise/studium-lehre).
-I explained to the students the approach to software architecture and engineering that my team and me are running.
-From a 10,000 feet perspective, we are running an [Event-Driven Microservices Architecture]({% post_url 2022-05-10-building-an-event-driven-microservice-application %}) to build a customer-first product based on a [Cloud-native Platform](https://tag-app-delivery.cncf.io/whitepapers/platforms/) that the platform team is developing and maintaining.
+I explained to the students the approach to software architecture and engineering that my team and me are following.
+From a 10,000 feet perspective, we are developing an [Event-Driven Microservices Architecture]({% post_url 2022-05-10-building-an-event-driven-microservice-application %}) to build a customer-first product based on a [Cloud-native Platform](https://tag-app-delivery.cncf.io/whitepapers/platforms/).
+But there is much more in the background such as the concepts of Minimum Viable Product, Minimum Viable Architecture, etc.
 This article summarizes the talk and provides further insights into some core concepts we use.
 
 ## Introduction
 
-> Disclaimer: This article presents my personal opinions and perspectives on a Cloud-native development strategy and software architecture, so this is not necessary my company's opinion.
+> Disclaimer: This article presents my personal opinions and perspectives on a Cloud-native development strategy, software architecture, and engineering.
+> So, this is not necessary my company's opinion.
 
 In a couple of articles (see, e.g.: [this article]({% post_url 2022-05-10-building-an-event-driven-microservice-application %})), I have already explained that I am currently working at a corporate start-up.
-The company builds a platform for booking car services online ([HUK-Autoserivce](https://www.huk-autoservice.de)) based on modern product and development concepts such as agile product development processes, a bias to fast and experiment-driven development (see also: [this article about our deployment concepts]({% post_url 2022-10-13-with-four-key-metrics-towards-development-excellence %})), and a Cloud-native platform.
+The company started in 2021 to build a platform for booking car services online based on a modern product and development approach such as agile development processes and a Cloud-native platform ([HUK-Autoserivce](https://www.huk-autoservice.de), see also: [this article about our deployment concepts]({% post_url 2022-10-13-with-four-key-metrics-towards-development-excellence %})).
+Although we have started in 2021, our journey is still not finished as our vision is bigger.
 
-Similar to my current employer, all start-ups typically have the challenge that they often still need to find their [product-market fit](https://en.wikipedia.org/wiki/Product/market_fit).
-So, start-ups should rather concentrate on solving business problems than on solving technology challenges such as preparing the architecture to scale later on.
-Thus, you should focus on using rock-solid technology to build a prototype as fast and as cheaply as possible to prove the business model—best guess is a modular monolith.
-When the business model evolves, the journey continues and you have to scale the business model, but not obviously in the technical sense of having to handle millions of requests per second.
-You have to stay ahead of the business and to scale the organization which means you typically increase the number of teams participated in the product's development.
-For that, it may be a good idea to make use of microservices to make teams independent from each other.
-Randy Shoup structures this journey of start-ups during their evolution nicely based on the business growth s-curve (see also: {% cite Boretos2012 %}) in a very good talk about [Minimum Viable Architecture](https://www.youtube.com/watch?v=9Q7GANXn02k) (MVA).
-He summarizes this journey into the meaningful start of his talk with: "There is no perfect architecture for all scales, for all phases of evolution, [and] for all problem domains." {% cite Shoup2022 %}
+Thereby, my company and its challenges are by far not special.
+Similar to my company, all start-ups typically have their challenges during the evolution and during different phases of their journey.
+When a start-up is, for example, in the initial phase of proving its business model, we should focus on using rock-solid technology to build a prototype as fast and as cheaply as possible to prove the business model.
+When the start-up and the business model evolves, the journey continues and we have to scale the business model, but not obviously in the sense of having to handle millions of requests per second but maybe only in the number of teams building the product.
+Always, there is the challenge to stay technically ahead of the business and to stay flexible with your organization.
+Randy Shoup structures this journey of start-ups and their challenges during their evolution nicely based on the business growth s-curve (see also: {% cite Boretos2012 %}) [in a very good talk](https://www.youtube.com/watch?v=9Q7GANXn02k) {% cite Shoup2022 %}.
+It all boils down to the meaningful start of his talk: "There is no perfect architecture for all scales, for all phases of evolution, [and] for all problem domains." {% cite Shoup2022 %}
 
-My employer has rather started—and is now for sure—in the scaling phase.
-We just adapted the business model slightly in 2021 when I joined and the development restarted which I described first in [this article]({% post_url 2022-05-10-building-an-event-driven-microservice-application %}).
-Essentially, we built an Event-Driven Architecture (EDA) based on microservices and are still continuing this approach.
+In 2021, my employer has rather started—and is now for sure—in the scaling phase, because the business model has been proven by the parent company earlier.
+We just adapted the business model slightly in 2021 when I joined and the development of the product has been restarted (see also: [this article]({% post_url 2022-05-10-building-an-event-driven-microservice-application %}).
+Back then, we have started to build an Event-Driven Architecture (EDA) based on microservices and are still continuing this approach.
 Nevertheless, we follow clearly the idea of MVA.
 So, let us dive deeper into the concept of MVA and our approach to it in the [next section](#minimum-viable-architecture-and-our-approach-to-it).
 

@@ -36,7 +36,7 @@ It all boils down to the meaningful start of his talk: "There is no perfect arch
 In 2021, my employer has rather started—and is now for sure—in the scaling phase, because the business model has been proven by the parent company earlier.
 We just adapted the business model slightly in 2021 when I joined and the development of the product has been restarted (see also: [this article]({% post_url 2022-05-10-building-an-event-driven-microservice-application %}).
 Back then, we have started to build an Event-Driven Architecture (EDA) based on microservices and are still continuing this approach.
-Nevertheless, we follow clearly the idea of MVA.
+Nevertheless, we clearly follow the idea of Minimum Viable Architecture (MVA).
 So, let us dive deeper into the concept of MVA and our approach to it in the [next section](#minimum-viable-architecture-and-our-approach-to-it).
 
 ## Minimum Viable Architecture and our Approach to it
@@ -111,6 +111,7 @@ For example, we are currently exchanging the monitoring, logging, and tracing st
 Although we, as engineers, are often tempted to extend and overengineer our products and services, the MVP and MVA approaches can help us to concentrate on delivering the necessary things.
 Especially in the context of a start-up, those concepts are essential.
 For me and my team at a corporate start-up, they definitely help, as there are always things you cannot forsee in architecture and development as well as the evolvement of the start-up.
+[Cloud-native](https://www.linkedin.com/posts/bytebytego_systemdesign-coding-interviewtips-activity-7091298031844634624-mTGQ?utm_source=share&utm_medium=member_desktop)
 
 ## References
 

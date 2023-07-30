@@ -41,24 +41,23 @@ So, let us dive deeper into the concept of MVA and our approach to it in the [ne
 
 ## Minimum Viable Architecture and our Approach to it
 
-Software architects and engineers often have to decide how much architectural design they should do in the beginning of a project or product.
-The concept of MVA tells you to focus on the essential architecture needed to deliver a minimum viable product (MVP).
-An MVP is a version of a product—in our case a digital product respectively an application—with just enough features to be delivered to early customers for providing feedback for further product development {% cite WikipediaMinimumViableProduct2023 %}.
-When following the concept of MVA, you, thereby, delay design decisions until they are absolutely necessary to avoid lengthy and unnecessary work as well as architect for change {% cite Pureur2021 %}.
+Software architects and engineers often have to decide how much architectural design they do in the beginning of a project or product.
+All in all, the concept of MVA tells you to focus only on the essential architecture needed to deliver the Minimum Viable Product (MVP).
+An MVP is a version of a product with just enough features to be delivered to early customers for providing feedback as early as possible for further product development {% cite WikipediaMinimumViableProduct2023 %}.
+When following the concept of MVP and MVA, you should delay design decisions until they are absolutely necessary to avoid lengthy and unnecessary work.
+On top, it is better to architect for change {% cite Pureur2021 %}.
 The most memorable explanation of MVA is that you concentrate on delivering "just enough architecture" for releasing an MVP {% cite Caroli2015 %}, {% cite Karanth2016 %}, {% cite Pureur2021 %}, {% cite Erder2021 %}, {% cite Bittner2022 %}, or {% cite Shoup2022 %}.
 
-As already explained via Randy Shoup's talk about MVA in the [previous section](#introduction), there is no perfect architecture that fits all scales, alls phases, and all problem domains.
+As already explained via Randy Shoup's talk {% cite Shoup2022 %} in the [previous section](#introduction), there is no perfect architecture that fits all scales, alls phases, and all problem domains.
 Thus, the MVA approach is, in my believe, the most essential lesson to learn for engineers—especially when you are in a start-up.
-Just do enough architecture.
-This, however, may also mean that you have to increase your efforts about architecture when you proceed in your journey.
+Just do enough architecture and build for change.
 
-Based on the MVA approach, we, thus, focussed on the two following objectives when building our application(s):
+Based on the MVA approach, we, thus, focussed on the two following objectives when building our product/application(s):
 
- 1. We want to create an awesome customer-centric product (see also: MVP and TODO product org), and
- 1. we want to build a scalable, flexible, secure, and reliable microservices-oriented architecture for a fast and experiment-driven business development (... based on the MVA approach).
+ 1. We want to create an awesome customer-centric product (see also: MVP concept and {% cite Schultheiss2023 %}), and
+ 1. we want to build a scalable, flexible, secure, and reliable microservices-oriented architecture for a fast and experiment-driven business development based on the MVA approach.
 
-Essentially, we want to gain—what Gregor Hohpe in {% cite Hohpe2020 %} describes as—"[economies of speed](https://www.oreilly.com/library/view/the-software-architect/9781492077534/ch35.html)" with our product via the MVP and MVA approach.
-The MVP and MVA concepts help us to stay flexible and, thus, also be fast.
+Essentially, we want to gain—what Gregor Hohpe in {% cite Hohpe2020 %} describes as—"[economies of speed](https://www.oreilly.com/library/view/the-software-architect/9781492077534/ch35.html)" with our product via the MVP and MVA concepts which help us to stay flexible and, thus, also fast.
 
 ## How does an Event-Driven Architecture fit into that?
 

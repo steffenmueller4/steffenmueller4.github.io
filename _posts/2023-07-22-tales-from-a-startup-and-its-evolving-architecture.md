@@ -65,13 +65,14 @@ An EDA, in general, has the following benefits {% cite Hohpe2003 %} and {% cite 
  1. Single Source of Truth: Our event broker is the single source of truth which keeps domain/business events and allows us to rewrite, combine, extract, rework, ... the events to feed other systems and purposes.
 
 Now, you could argue that an EDA does not fit into the MVA approach, because it is rather a complex architecture.
-However, we use the EDA to structure our overall system rather from _10,000 feet perspective_ (rather the solution or enterprise architecture perspective, see also: [Levels of Architecture](https://github.com/justinamiller/SoftwareArchitect#levels-of-architecture)).
+However, we use the EDA to structure our overall system rather from _10,000 feet perspective_, so rather from the solution or enterprise architecture perspective (see also: [Levels of Architecture](https://github.com/justinamiller/SoftwareArchitect#levels-of-architecture)).
 On an application architecture level, we use much simpler architecture approaches that the different teams can select and drive.
 Here, we rather focus on independently deployable microservices or maybe even modular monoliths per team.
 In essence, you can think of the EDA as our integration mechanism for other systems and purposes.
 When needed, we extend our microservices with new such business events.
+Furthermore, we are able to completely restructure or rebuild the different underlying microservices as long as we do not change the business/domain events.
 
-So far, this way to work with the MVA approach went well and kept us focussed, flexible, and fast—of course there are also challenges to maintain the architecture.
+So far, this way to work with the MVA approach and the EDA went well and kept us focussed, flexible, and fast—of course there are also challenges to maintain the EDA architecture, but no architecture is free of any challenges.
 For more details about the EDA approach, we also refer to [this article]({% post_url 2022-05-10-building-an-event-driven-microservice-application %}).
 
 ## A Cloud-native Platform as a Basis for the Development

@@ -14,7 +14,7 @@ Recently, I have been giving [a talk to students at TU Berlin about Cloud-native
 I explained to the students the approach to software architecture and engineering that my team and me are following.
 From a 10,000 feet perspective, we are developing an [Event-Driven Microservices Architecture]({% post_url 2022-05-10-building-an-event-driven-microservice-application %}) to build a customer-first product based on a [Cloud-native Platform](https://tag-app-delivery.cncf.io/whitepapers/platforms/).
 But there is much more in the background such as the concepts of Minimum Viable Product, Minimum Viable Architecture, etc.
-This article summarizes the talk and provides further insights into some core concepts we use.
+This article summarizes the talk, connects topics to some of my previous articles, and provides further insights into some core concepts we use.
 
 ## Introduction
 
@@ -48,21 +48,14 @@ When following the concept of MVP and MVA, you should delay design decisions unt
 On top, it is better to architect for change {% cite Pureur2021 %}.
 The most memorable explanation of MVA is that you concentrate on delivering "just enough architecture" for releasing an MVP {% cite Caroli2015 %}, {% cite Karanth2016 %}, {% cite Pureur2021 %}, {% cite Erder2021 %}, {% cite Bittner2022 %}, or {% cite Shoup2022 %}.
 
-As already explained via Randy Shoup's talk {% cite Shoup2022 %} in the [previous section](#introduction), there is no perfect architecture that fits all scales, alls phases, and all problem domains.
-Thus, the MVA approach is, in my believe, the most essential lesson to learn for engineers—especially when you are in a start-up.
-Just do enough architecture and build for change.
-
-Based on the MVA approach, we, thus, focussed on the two following objectives when building our product/application(s):
-
- 1. We want to create an awesome customer-centric product (see also: MVP concept and {% cite Schultheiss2023 %}), and
- 1. we want to build a scalable, flexible, secure, and reliable microservices-oriented architecture for a fast and experiment-driven business development based on the MVA approach.
-
-Essentially, we want to gain—what Gregor Hohpe in {% cite Hohpe2020 %} describes as—"[economies of speed](https://www.oreilly.com/library/view/the-software-architect/9781492077534/ch35.html)" with our product via the MVP and MVA concepts which help us to stay flexible and, thus, also fast.
+As already explained via the start of Randy Shoup's talk {% cite Shoup2022 %} in the [previous section](#introduction), there is no perfect architecture that fits all scales, alls phases, and all problem domains.
+Thus, the MVA approach is, in my believe, the most essential lesson to learn for engineers—especially when you are in a start-up: Just do enough architecture and build for change; do not overengineer your solution.
+The MVA approach has helped us so far to stay focussed, flexible, and, thus, also fast.
 
 ## How does an Event-Driven Architecture fit into that?
 
-In order to gain the economies of speed (see: [this section](#minimum-viable-architecture-and-our-approach-to-it)), we decided to go, as already mentioned in [this section](#introduction), with an EDA from a 10,000 feet perspective.
-An EDA, in general, has the following benefits to us (see also: [this article]({% post_url 2022-05-10-building-an-event-driven-microservice-application %}) as well as {% cite Hohpe2003 %} and {% cite Jansen2020 %}):
+As already mentioned in [this section](#introduction), we decided to go with an EDA from a 10,000 feet perspective.
+An EDA, in general, has the following benefits {% cite Hohpe2003 %} and {% cite Jansen2020 %} (see also: [this article]({% post_url 2022-05-10-building-an-event-driven-microservice-application %})):
 
  1. Loose Coupling: Event producers and consumers in an EDA are coupled loosely and communicate asynchronously via an event broker (data format coupling only).
  1. Partial Resiliency: The event broker separates event producers and consumers from each other and, thus, introduces partial resiliency to system parts.

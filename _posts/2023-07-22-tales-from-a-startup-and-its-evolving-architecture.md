@@ -109,7 +109,7 @@ Logging, monitoring, and tracing are delivered via Kibana, Grafana, etc.
 For us, this thin platform—remember the MVP and MVA concepts ;-)—works well for the stream-aligned product teams to build our applications.
 As a product, the platform is under continous development and improvement done by the platform team.
 For example, we are currently exchanging the monitoring, logging, and tracing stack to ease the work of the DevOps/Site Reliability Engineers.
-With the best practices "baked into" the platform and setup of environments and projects, we are able to come up with new containers/microservices in a couple of minutes.
+With the best practices "baked into" our platform as well as setup of environments and projects, we are able to come up with new containers/microservices in a couple of minutes.
 
 ## Conclusion
 

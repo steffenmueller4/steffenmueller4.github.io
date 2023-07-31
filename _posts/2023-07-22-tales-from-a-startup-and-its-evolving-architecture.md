@@ -50,7 +50,7 @@ The most memorable explanation of MVA is that you concentrate on delivering "jus
 
 As already explained via the start of Randy Shoup's talk {% cite Shoup2022 %} in the [previous section](#introduction), there is no perfect architecture that fits all scales, alls phases, and all problem domains.
 Thus, the MVA approach is, in my believe, the most essential lesson to learn for engineers—especially when you are in a start-up: Just do enough architecture and build for change; do not overengineer your solution.
-The MVA approach has helped us so far to stay focussed, flexible, and, thus, also fast.
+So far, the MVA approach has helped us to stay focussed, flexible, and, thus, also fast.
 
 ## How does an Event-Driven Architecture fit into that?
 
@@ -113,9 +113,10 @@ With the best practices "baked into" our platform as well as setup of environmen
 
 ## Conclusion
 
-Although we, as engineers, software architects, etc., are often tempted to extend and—sometimes also—overengineer our products and services, the MVP and MVA approaches can help us to concentrate on delivering the necessary things
-Especially in the context of a start-up, those concepts are essential, as there are always developments you cannot forsee.
-For me and my team at a corporate start-up, they definitely help to stay focussed, flexible, and fast.
+Sometimes we, as engineers, software architects, etc., tend to extend needlessly or even overengineer our products and services.
+The MVP and MVA approaches can help us to concentrate on delivering the necessary things.
+Especially in the context of a start-up, those concepts are essential, as there are always developments you cannot forsee and should not pre-consider.
+For me and my team at a corporate start-up, the MVP and MVA concepts definitely help to stay focussed, flexible, and fast.
 
 
 

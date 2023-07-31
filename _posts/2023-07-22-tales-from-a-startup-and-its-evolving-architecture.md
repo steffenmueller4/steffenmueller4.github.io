@@ -12,7 +12,7 @@ hero_image: "/assets/hero-tales_from_startup_and_its_evolving_architecture.svg"
 ---
 Recently, I have been giving [a talk to students at TU Berlin about Cloud-native engineering and software architecture](https://www.linkedin.com/posts/steffen-mueller-139b8b191_tuberlin-activity-7080612706663182336-aCQo) as a part of [Prof. Tai](https://www.tu.berlin/ise/ueber-uns/prof-dr-ing-stefan-tai)'s lecture, [Cloud Native Engineering and Architecture](https://www.tu.berlin/ise/studium-lehre).
 I explained to the students the approach to software architecture and engineering that my team and me are following.
-From a 10,000 feet perspective, we are developing an [Event-Driven Microservices Architecture]({% post_url 2022-05-10-building-an-event-driven-microservice-application %}) to build a customer-first product based on a [Cloud-native Platform](https://tag-app-delivery.cncf.io/whitepapers/platforms/).
+From a 10,000 feet perspective, we are developing an [Event-Driven Microservices Architecture]({% post_url 2022-05-10-building-an-event-driven-microservice-application %}) to build a customer-first product based on a [Cloud-native platform](https://tag-app-delivery.cncf.io/whitepapers/platforms/).
 But there is much more in the background such as the concepts of Minimum Viable Product, Minimum Viable Architecture, etc.
 This article summarizes the talk, connects topics to some of my previous articles, and provides further insights into some core concepts we use.
 
@@ -22,7 +22,7 @@ This article summarizes the talk, connects topics to some of my previous article
 > So, this is not necessary my company's opinion.
 
 In a couple of articles (see, e.g.: [this article]({% post_url 2022-05-10-building-an-event-driven-microservice-application %})), I have already explained that I am currently working at a corporate start-up.
-The company started in 2021 to build a platform for booking car services online based on a modern product and development approach such as agile development processes and a Cloud-native platform ([HUK-Autoserivce](https://www.huk-autoservice.de), see also: [this article about our deployment concepts]({% post_url 2022-10-13-with-four-key-metrics-towards-development-excellence %})).
+The company started in 2021 to build an application for booking car services online based on a modern product and development approach such as agile development processes and a Cloud-native platform ([HUK-Autoserivce](https://www.huk-autoservice.de), see also: [this article about our deployment concepts]({% post_url 2022-10-13-with-four-key-metrics-towards-development-excellence %})).
 Although we have started in 2021, our journey is still not finished as our vision is bigger.
 
 Thereby, my company and its challenges are by far not special.
@@ -78,7 +78,7 @@ For more details about the EDA approach, we also refer to [this article]({% post
 ## A Cloud-native Platform as a Basis for the Development
 
 According to the Team Topologies approach {% cite Skelton2019 %}, {% cite Skelton2019a %}, and {% cite Skelton2019b %}, we try to structure our development teams into stream-aligned product and platform teams.
-The platform team develops and maintains the Cloud-native platform to build business applications upon it.
+The platform team develops and maintains the [Cloud-native platform](https://tag-app-delivery.cncf.io/whitepapers/platforms/) to build business applications upon it.
 It reduces the complexity for the stream-aligned product teams, so the stream-aligned product teams can focus on dealing with the business complexity (... and, in our case, with the [EDA](#how-does-an-event-driven-architecture-fit-into-that)) as well as the product development processes.
 The stream-aligned product teams, as part of the business value stream, have end-to-end responsibility for building, deploying, running, supporting, and eventually sunsetting their part of the business or that slice of service.
 They are cross-functional and consist of front- and back-end developers as well as Product Owners.
@@ -89,29 +89,35 @@ All in all, you can consider the platform as an intermediate layer between our C
 The figure below depicts our current platform.
 The basic structure of the platform in the figure is based on the Cloud Native Computing Foundation's (CNCF) definition of a platform and platform engineering in {% cite CNCF2023 %}.
 
-![Our Cloud-native Development Platform](/assets/our-development-platform.png)
+![Our Cloud-native Development Platform](/assets/our-development-platform.svg)
 
-Our most important Cloud provider is Amazon Web Services (AWS) which is shown at the bottom of the figure.
-Using the basic AWS services, the platform provides its platform capabilities for resources such as infrastructure, data, and messaging.
-Furthermore, our platform provides capabilities for authentication and authorization, Continous Integration and Delivery (CI/CD), etc.
-All of these platform capabilities are provided via Kubernetes as our container runtime ([Amazon Elastic Kubernetes Service](https://aws.amazon.com/eks/)), diverse databases via [Amazon Relational Database Service](https://aws.amazon.com/rds/), the event broker/messaging for the EDA ([Apache Kafka](https://kafka.apache.org) via [Amazon Managed Streaming for Apache Kafka](https://aws.amazon.com/msk/)), and [Keycloak](https://www.keycloak.org/) for authentication and authorization.
+Our basic Cloud providers are [Amazon Web Services (AWS)](https://aws.amazon.com), [GitHub](https://www.github.com), [Atlassian](https://www.atlassian.com), and some further providers for smaller services that are not shown in this figure.
+This foundational basis is visible at the bottom of the figure.
 
-For the platform interfaces, we provide best practices and different ways to document the state of our products (Documentation).
-As tools, we use a bug tracker ([Atlassian Jira](https://www.atlassian.com/software/jira)), a wiki for writing documentation ([Atlassian Confluence](https://www.atlassian.com/software/confluence)), and readmes in [Github](https://www.github.com) repositories.
-We have basic environment and project templates in Github repositories and [Terraform](https://www.terraform.io) and [Helm](https://helm.sh) templates, etc.
-Our CI/CD bases on Github and [Github Actions](https://github.com/features/actions).
-For more information on our CI/CD, we refer to [this article]({% post_url 2022-10-13-with-four-key-metrics-towards-development-excellence %}).
+Using the foundational basis, our platform provides its platform capabilities to be able to provision resources, to provide authentication and authorization services, to deliver Continous Integration and Delivery (CI/CD) pipelines, etc.
+The platform capabilities to provision resources are provided via [Kubernetes](https://kubernetes.io/) as our container runtime ([Amazon Elastic Kubernetes Service](https://aws.amazon.com/eks/)) as well as [Helm](https://helm.sh).
+We are able to provision diverse databases for managing data via [Amazon Relational Database Service](https://aws.amazon.com/rds/).
+For the EDA, we support our event broker, [Apache Kafka](https://kafka.apache.org), via [Amazon Managed Streaming for Apache Kafka](https://aws.amazon.com/msk/).
+Last but not least, [Keycloak](https://www.keycloak.org/) is used to provide authentication and authorization services.
+
+For the platform interfaces, we provide documentation capabilities via the bug tracker, [Atlassian Jira](https://www.atlassian.com/software/jira), and a wiki for documentation ([Atlassian Confluence](https://www.atlassian.com/software/confluence)).
+Technical documentation is done in readmes in GitHub repositories.
+Additionally, we have basic environment and project templates in GitHub repositories as well as [Terraform](https://www.terraform.io) and Helm templates, etc.
+Our CI/CD bases on GitHub and [GitHub Actions](https://github.com/features/actions) (for more information on our CI/CD, we refer to [this article]({% post_url 2022-10-13-with-four-key-metrics-towards-development-excellence %})).
+Logging, monitoring, and tracing are delivered via Kibana, Grafana, etc.
 
 For us, this thin platform—remember the MVP and MVA concepts ;-)—works well for the stream-aligned product teams to build our applications.
 As a product, the platform is under continous development and improvement done by the platform team.
 For example, we are currently exchanging the monitoring, logging, and tracing stack to ease the work of the DevOps/Site Reliability Engineers.
+With the best practices "baked into" the platform and setup of environments and projects, we are able to come up with new containers/microservices in a couple of minutes.
 
 ## Conclusion
 
-Although we, as engineers, are often tempted to extend and overengineer our products and services, the MVP and MVA approaches can help us to concentrate on delivering the necessary things.
-Especially in the context of a start-up, those concepts are essential.
-For me and my team at a corporate start-up, they definitely help, as there are always things you cannot forsee in architecture and development as well as the evolvement of the start-up.
-[Cloud-native](https://www.linkedin.com/posts/bytebytego_systemdesign-coding-interviewtips-activity-7091298031844634624-mTGQ?utm_source=share&utm_medium=member_desktop)
+Although we, as engineers, software architects, etc., are often tempted to extend and—sometimes also—overengineer our products and services, the MVP and MVA approaches can help us to concentrate on delivering the necessary things
+Especially in the context of a start-up, those concepts are essential, as there are always developments you cannot forsee.
+For me and my team at a corporate start-up, they definitely help to stay focussed, flexible, and fast.
+
+
 
 ## References
 

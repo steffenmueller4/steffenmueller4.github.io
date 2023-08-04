@@ -54,9 +54,9 @@ The MVA approach, then, can help to stay focussed, flexible, and, thus, also fas
 
 ## How does an Event-Driven Architecture fit into that?
 
-As already mentioned in [this section](#introduction) and [this article]({% post_url 2022-05-10-building-an-event-driven-microservice-application %}), we decided to go with an EDA from a 10,000 feet perspective.
-We use Domain-Driven Design (DDD) {% cite Evans2003 %} to identify and structure the business/domain events for the EDA.
-Consider the business/domain events as records of business-significant occurrences in a bounded context—when you are not familiar with the term bounded context, simply use the term microservice instead.
+As already mentioned in [this section](#introduction) and [this article]({% post_url 2022-05-10-building-an-event-driven-microservice-application %}), we decided to go with an EDA from a 10,000 feet perspective when starting our journey.
+We use Domain-Driven Design (DDD) {% cite Evans2003 %} to identify and structure our business domain and the business/domain events for the EDA.
+Simply, consider the business/domain events as records of business-significant occurrences in a bounded context—when you are not familiar with the term _bounded context_, simply use the term microservice instead.
 An EDA, in general, has the following benefits {% cite Hohpe2003 %} and {% cite Jansen2020 %} (see also: [this article]({% post_url 2022-05-10-building-an-event-driven-microservice-application %})):
 
  1. Loose Coupling: Event producers and consumers in an EDA are coupled loosely and communicate asynchronously via an event broker (data format coupling only).
@@ -64,13 +64,13 @@ An EDA, in general, has the following benefits {% cite Hohpe2003 %} and {% cite 
  1. Partial Scalability: Due to loosely coupled and separated producer and consumer components, we can scale our producers and consumers independently.
  1. Single Source of Truth: Our event broker is the single source of truth which keeps domain/business events and allows us to rewrite, combine, extract, rework, ... the events to feed other systems and purposes.
 
-Now, you could argue that an EDA does not fit into the MVA approach, because it is rather a complex architecture.
+Now, you could argue that an EDA does not fit into the MVA approach, because it is rather a complex architecture approach.
 However, we use the EDA to structure our overall system rather from _10,000 feet perspective_, so rather from the solution or enterprise architecture perspective (see also: [Levels of Architecture](https://github.com/justinamiller/SoftwareArchitect#levels-of-architecture)).
-On an application architecture level, we use much simpler architecture approaches that the different teams can select and drive.
+On an application architecture level, we use much simpler architecture approaches that the different teams can choose and drive.
 Here, we rather focus on independently deployable microservices or maybe even modular monoliths per team.
-In essence, you can think of the EDA as our integration mechanism for other systems and purposes.
-When needed, we extend our microservices with new such business events.
-Furthermore, we are able to completely restructure or rebuild the different underlying microservices as long as we do not change the business/domain events.
+In essence, you can think of the EDA as our integration mechanism with the overall system and other systems.
+When needed, we extend our microservices with new such domain/business events.
+Furthermore, we are able to completely restructure or rebuild the different microservices as long as we do not change the business/domain events.
 
 So far, this way to work with the MVA approach and the EDA went well and kept us focussed, flexible, and fast—of course there are also challenges to maintain the EDA architecture, but no architecture is free of any challenges.
 For more details about the EDA approach, we also refer to [this article]({% post_url 2022-05-10-building-an-event-driven-microservice-application %}).

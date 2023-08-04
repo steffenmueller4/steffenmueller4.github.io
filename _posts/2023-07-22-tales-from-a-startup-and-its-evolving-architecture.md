@@ -23,7 +23,7 @@ This article summarizes the talk, connects topics to some of my previous article
 
 In a couple of articles (see, e.g.: [this article]({% post_url 2022-05-10-building-an-event-driven-microservice-application %})), I have already explained that I am currently working at a corporate start-up.
 The company ([HUK-Autoserivce](https://www.huk-autoservice.de)) started in 2021 to build an application for booking car services online based on a modern product and development approach such as agile development processes and a Cloud-native platform.
-In development, we, as nearly every start-up, fight with continously changing requirements, a small team implementing these changes and all the new features, the challenge that our architecture always requires to be extended, and many more such challenges.
+In development, we, as nearly every start-up, fight with continously changing requirements, a small team implementing these changes and all the new features, the challenge that our architecture always requires to be extended, costs, and many more such challenges.
 
 Thereby, my company and its challenges are by far not special.
 Similar to my company, all start-ups typically have their challenges during the evolution and during different phases of their journey.
@@ -35,7 +35,7 @@ In terms of software architecture and development, it boils down to the meaningf
 
 In 2021, my employer has rather started—and is now for sure—in the scaling phase, because the business model has been proven earlier.
 In 2021, when I joined and the development of the product has been restarted (see also: [this article]({% post_url 2022-05-10-building-an-event-driven-microservice-application %}), we have just slightly adapted the business model to scale.
-But how does such a start-up in the scaling phase run its business and trying to stay focussed, flexible, and fast?
+But how does such a start-up in the scaling phase run its business and trying to stay focussed, flexible, fast, and cost-effective?
 
 Back then, we have started to build an Event-Driven Architecture (EDA) based on microservices and are still continuing this approach (see also: [this section](#how-does-an-event-driven-architecture-fit-into-that)).
 Furthermore, we follow a platform strategy (see also: [this section](#a-cloud-native-platform-as-a-basis-for-the-development)).
@@ -134,7 +134,7 @@ Overall, the MVP and MVA concepts are key to our way to work with the EDA as wel
 The EDA is running on a Cloud-native platform developed and maintained by the platform team (see also: [this section](#a-cloud-native-platform-as-a-basis-for-the-development)).
 The platform reduces the complexity to the stream-aligned product teams and helps them to concentrate on implementing business applications upon it.
 The foundational capabilities, basic frameworks, and "experiences"/best practices of the platform work well in our business context.
-At the moment, two DevOps/Site Reliability Engineers—and a authentication and authorization expert are maintaining the platform and serving ca. eight+ developers—I would say a small but agile and powerful team in total ;-).
+At the moment, two DevOps/Site Reliability Engineers and an expert for authentication and authorization services are maintaining the platform and serving ca. eight+ developers—overall, I would say a small but agile, powerful, and cost-effective team in total.
 
 Essentially, this is our way to build and run business applications for delivering car services to you: MVP, MVA, EDA, and a powerful platform.
 

@@ -10,10 +10,10 @@ categories:
 published: true
 hero_image: "/assets/hero-tales_from_startup_and_its_evolving_architecture.svg"
 ---
-Recently, I have been giving [a talk to students at TU Berlin about Cloud-native engineering and software architecture](https://www.linkedin.com/posts/steffen-mueller-139b8b191_tuberlin-activity-7080612706663182336-aCQo) as a part of [Prof. Tai](https://www.tu.berlin/ise/ueber-uns/prof-dr-ing-stefan-tai)'s lecture, [Cloud Native Engineering and Architecture](https://www.tu.berlin/ise/studium-lehre).
+Recently, I have been giving [a talk to students at TU Berlin about Cloud-native engineering and software architecture](https://www.linkedin.com/posts/steffen-mueller-139b8b191_tuberlin-activity-7080612706663182336-aCQo) as a part of [Prof. Tai](https://www.tu.berlin/ise/ueber-uns/prof-dr-ing-stefan-tai)'s lecture "[Cloud Native Engineering and Architecture](https://www.tu.berlin/ise/studium-lehre)".
 I explained to the students the approach to software architecture and engineering that my team and me are following.
 From a 10,000 feet perspective, we are developing an [Event-Driven Microservices Architecture]({% post_url 2022-05-10-building-an-event-driven-microservice-application %}) to build a customer-first product based on a [Cloud-native platform](https://tag-app-delivery.cncf.io/whitepapers/platforms/).
-But there is much more in the background such as the concepts of Minimum Viable Product, Minimum Viable Architecture, etc.
+But there is much more in the background such as the concepts of Minimum Viable Product, Minimum Viable Architecture, etc. that is essential to building such a customer-first product the way we do.
 This article summarizes the talk, connects topics to some of my previous articles, and provides further insights into some core concepts we use.
 
 ## Introduction
@@ -22,35 +22,35 @@ This article summarizes the talk, connects topics to some of my previous article
 > So, this is not necessary my company's opinion.
 
 In a couple of articles (see, e.g.: [this article]({% post_url 2022-05-10-building-an-event-driven-microservice-application %})), I have already explained that I am currently working at a corporate start-up.
-The company started in 2021 to build an application for booking car services online based on a modern product and development approach such as agile development processes and a Cloud-native platform ([HUK-Autoserivce](https://www.huk-autoservice.de), see also: [this article about our deployment concepts]({% post_url 2022-10-13-with-four-key-metrics-towards-development-excellence %})).
-Although we have started in 2021, our journey is still not finished as our vision is bigger.
+The company ([HUK-Autoserivce](https://www.huk-autoservice.de)) started in 2021 to build an application for booking car services online based on a modern product and development approach such as agile development processes and a Cloud-native platform.
+In development, we, as nearly every start-up, fight with continously changing requirements, a small team implementing these changes and all the new features, the challenge that our architecture always requires to be extended, and many more such challenges.
 
 Thereby, my company and its challenges are by far not special.
 Similar to my company, all start-ups typically have their challenges during the evolution and during different phases of their journey.
-When a start-up is, for example, in the initial phase of proving its business model, we should focus on using rock-solid technology to build a prototype as fast and as cheaply as possible to prove the business model.
-When the start-up and the business model evolves, the journey continues and we have to scale the business model, but not obviously in the sense of having to handle millions of requests per second but maybe only in the number of teams building the product.
-Always, there is the challenge to stay technically ahead of the business and to stay flexible with your organization.
+When a start-up is, for example, in the initial phase of proving its business model, the start-up should focus on using rock-solid technology to build a prototype as fast and as cheaply as possible to prove the business model.
+When the start-up and the business model evolves, the journey continues and the start-up has to scale the business model, maybe having to handle millions of requests per second or/and maybe in the number of teams building the product.
+Always, there is the challenge to stay technically ahead of the business and to stay flexible with the organization.
 Randy Shoup structures this journey of start-ups and their challenges during their evolution nicely based on the business growth s-curve (see also: {% cite Boretos2012 %}) [in a very good talk](https://www.youtube.com/watch?v=9Q7GANXn02k) {% cite Shoup2022 %}.
-It all boils down to the meaningful start of his talk: "There is no perfect architecture for all scales, for all phases of evolution, [and] for all problem domains." {% cite Shoup2022 %}
+In terms of software architecture and development, it boils down to the meaningful start of his talk: "There is no perfect architecture for all scales, for all phases of evolution, [and] for all problem domains." {% cite Shoup2022 %}
 
-In 2021, my employer has rather started—and is now for sure—in the scaling phase, because the business model has been proven by the parent company earlier.
-We just adapted the business model slightly in 2021 when I joined and the development of the product has been restarted (see also: [this article]({% post_url 2022-05-10-building-an-event-driven-microservice-application %}).
+In 2021, my employer has rather started—and is now for sure—in the scaling phase, because the business model has been proven earlier.
+In 2021, when I joined and the development of the product has been restarted (see also: [this article]({% post_url 2022-05-10-building-an-event-driven-microservice-application %}), we have just slightly adapted the business model to scale.
 Back then, we have started to build an Event-Driven Architecture (EDA) based on microservices and are still continuing this approach.
-Nevertheless, we clearly follow the idea of Minimum Viable Architecture (MVA).
+Nevertheless, we clearly follow the idea of Minimum Viable Architecture (MVA) explained in Randy Shoup's talk {% cite Shoup2022 %}.
 So, let us dive deeper into the concept of MVA and our approach to it in the [next section](#minimum-viable-architecture-and-our-approach-to-it).
 
 ## Minimum Viable Architecture and our Approach to it
 
-Software architects and engineers often have to decide how much architectural design they do in the beginning of a project or product.
+Software architects and engineers often have to decide how much architectural design they do in the beginning of a project or product or even when developing a new feature.
 All in all, the concept of MVA tells you to focus only on the essential architecture needed to deliver the Minimum Viable Product (MVP).
 An MVP is a version of a product with just enough features to be delivered to early customers for providing feedback as early as possible for further product development {% cite WikipediaMinimumViableProduct2023 %}.
-When following the concept of MVP and MVA, you should delay design decisions until they are absolutely necessary to avoid lengthy and unnecessary work.
-On top, it is better to architect for change {% cite Pureur2021 %}.
+When following the concept of MVA, you should delay design decisions until they are absolutely necessary to avoid lengthy and unnecessary work.
+On top, it is better to architect for change in general {% cite Pureur2021 %}.
 The most memorable explanation of MVA is that you concentrate on delivering "just enough architecture" for releasing an MVP {% cite Caroli2015 %}, {% cite Karanth2016 %}, {% cite Pureur2021 %}, {% cite Erder2021 %}, {% cite Bittner2022 %}, or {% cite Shoup2022 %}.
 
 As already explained via the start of Randy Shoup's talk {% cite Shoup2022 %} in the [previous section](#introduction), there is no perfect architecture that fits all scales, alls phases, and all problem domains.
 Thus, the MVA approach is, in my believe, the most essential lesson to learn for engineers—especially when you are in a start-up: Just do enough architecture and build for change; do not overengineer your solution.
-So far, the MVA approach has helped us to stay focussed, flexible, and, thus, also fast.
+The MVA approach, then, can help to stay focussed, flexible, and, thus, also fast.
 
 ## How does an Event-Driven Architecture fit into that?
 

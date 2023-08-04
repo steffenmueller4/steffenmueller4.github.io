@@ -54,7 +54,7 @@ So far, the MVA approach has helped us to stay focussed, flexible, and, thus, al
 
 ## How does an Event-Driven Architecture fit into that?
 
-As already mentioned in [this section](#introduction), we decided to go with an EDA from a 10,000 feet perspective.
+As already mentioned in [this section](#introduction) and [this article]({% post_url 2022-05-10-building-an-event-driven-microservice-application %}), we decided to go with an EDA from a 10,000 feet perspective.
 We use Domain-Driven Design (DDD) {% cite Evans2003 %} to identify and structure the business/domain events for the EDA.
 Consider the business/domain events as records of business-significant occurrences in a bounded context—when you are not familiar with the term bounded context, simply use the term microservice instead.
 An EDA, in general, has the following benefits {% cite Hohpe2003 %} and {% cite Jansen2020 %} (see also: [this article]({% post_url 2022-05-10-building-an-event-driven-microservice-application %})):
@@ -114,11 +114,24 @@ With the best practices "baked into" our platform as well as setup of environmen
 ## Conclusion
 
 Sometimes we, as engineers, software architects, etc., tend to extend needlessly or even overengineer our products and services.
-The MVP and MVA approaches can help us to concentrate on delivering the necessary things.
+The MVP and MVA approaches can help us to concentrate on delivering the necessary things (see also: [this section](#minimum-viable-architecture-and-our-approach-to-it)).
 Especially in the context of a start-up, those concepts are essential, as there are always developments you cannot forsee and should not pre-consider.
-For me and my team at a corporate start-up, the MVP and MVA concepts definitely help to stay focussed, flexible, and fast.
+For my team and me at a corporate start-up, the MVP and MVA concepts definitely help to stay focussed, flexible, and fast—simply, it prevents us doing unnecessary work.
 
+To worked focussed, flexible, and fast, we rely on an EDA (see also: [this section](#how-does-an-event-driven-architecture-fit-into-that)).
+The MVA is the basis to concentrate on necessary things when driving the EDA.
+Therefore, the EDA works as our integration mechanism for other systems and purposes from a 10,000 feet perspective.
+When we need new domain/business events, we integrate them into the EDA and connect the new systems—let it be SAP, the new CRM, or another system of a provider.
+On lower levels, we work differently with the microservices implementing the EDA.
+Mostly, we split a system into further microservices when we need independently deployable units.
+Overall, the MVP and MVA concepts are key to our way to work with the EDA as well as our microservices implementing the EDA.
 
+The EDA is running on a Cloud-native platform developed and maintained by the platform team (see also: [this section](#a-cloud-native-platform-as-a-basis-for-the-development)).
+The platform reduces the complexity to the stream-aligned product teams and helps them to concentrate on implementing business applications upon it.
+The foundational capabilities, basic frameworks, and "experiences"/best practices of the platform work well in our business context.
+At the moment, two DevOps/Site Reliability Engineers—and a authentication and authorization expert are maintaining the platform and serving ca. eight+ developers—I would say a small but agile and powerful team in total ;-).
+
+Essentially, this is our way to build and run business applications for delivering car services to you: MVP, MVA, EDA, and a powerful platform.
 
 ## References
 

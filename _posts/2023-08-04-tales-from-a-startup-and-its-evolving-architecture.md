@@ -145,4 +145,4 @@ Essentially, this is our way to build and run our application/overall system for
 
 ## Acknowledgements
 
-Huge thanks go to the entire product team and development team of [HUK-Autoservice](https://www.huk-autoservice.de) for the awesome work.
+Huge thanks go to the entire product and development team of [HUK-Autoservice](https://www.huk-autoservice.de) for the awesome work.

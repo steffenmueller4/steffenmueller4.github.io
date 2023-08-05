@@ -135,7 +135,7 @@ Overall, the MVP and MVA concepts are key to our way to work with the EDA as wel
 The EDA is running on a Cloud-native platform developed and maintained by the platform team (see also: [this section](#a-cloud-native-platform-as-a-basis-for-the-development)).
 The Cloud-native platform reduces the complexity to the stream-aligned product teams and helps them to concentrate on implementing business applications upon it.
 The foundational capabilities, basic frameworks, and "experiences"/best practices of the platform work well in our business context.
-At the moment, two DevOps/Site Reliability Engineers and an expert for authentication and authorization services are maintaining the platform and serving eight+ developers (front-end and back-end), two Product Owners, and two UX/UI designers—overall, I would say a small but agile, powerful, and cost-effective team in total.
+At the moment, two DevOps/Site Reliability Engineers and an expert for authentication and authorization services are maintaining the platform and serving eight+ developers (front-end and back-end), two PO, and two UX/UI designers—overall, I would say a small but agile, powerful, and cost-effective team in total.
 
 Essentially, this is our way to build and run our application/overall system for delivering car services to you: MVP, MVA, EDA, and a powerful platform.
 

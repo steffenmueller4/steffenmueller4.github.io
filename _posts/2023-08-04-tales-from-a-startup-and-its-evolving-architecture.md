@@ -14,7 +14,7 @@ Recently, I have been giving [a talk to students at TU Berlin about Cloud-native
 I explained to the students the approach to software architecture and engineering that my team and me are following.
 From a 10,000 feet perspective, we are developing an [Event-Driven Microservices Architecture]({% post_url 2022-05-10-building-an-event-driven-microservice-application %}) to build a customer-first product based on a [Cloud-native platform](https://tag-app-delivery.cncf.io/whitepapers/platforms/).
 But there is much more in the background such as the concepts of Minimum Viable Product, Minimum Viable Architecture, etc. that is essential to building such a customer-first product the way we do.
-This article summarizes the talk, connects topics to some of my previous articles, and provides further insights into some core concepts we use.
+This article summarizes the essential points of the talk, connects topics to some of my previous articles, and provides further insights into some core concepts we use.
 
 ## Introduction
 
@@ -23,7 +23,7 @@ This article summarizes the talk, connects topics to some of my previous article
 
 In a couple of articles (see, e.g.: [this article]({% post_url 2022-05-10-building-an-event-driven-microservice-application %})), I have already explained that I am currently working at a corporate start-up.
 The company ([HUK-Autoserivce](https://www.huk-autoservice.de)) started in 2021 to build an application for booking car services online based on a modern product and development approach such as agile development processes and a Cloud-native platform.
-In development, we, as nearly every start-up, fight with continously changing requirements, a small team implementing these changes and all the new features, the challenge that our architecture always requires to be extended, costs, and many more such challenges.
+In development, we, as nearly every start-up, fight with diverse challenges such as continously changing requirements, a small team implementing these changes and all the new features, an always changing software architecture, a limited budget, etc.
 
 Thereby, my company and its challenges are by far not special.
 Similar to my company, all start-ups typically have their challenges during the evolution and during different phases of their journey.
@@ -33,8 +33,8 @@ Always, there is the challenge to stay technically ahead of the business and to 
 Randy Shoup structures this journey of start-ups and their challenges during their evolution nicely based on the business growth s-curve (see also: {% cite Boretos2012 %}) [in a very good talk](https://www.youtube.com/watch?v=9Q7GANXn02k) {% cite Shoup2022 %}.
 In terms of software architecture and development, it boils down to the meaningful start of his talk: "There is no perfect architecture for all scales, for all phases of evolution, [and] for all problem domains." {% cite Shoup2022 %}
 
-In 2021, my employer has rather started—and is now for sure—in the scaling phase, because the business model has been proven earlier.
-In 2021, when I joined and the development of the product has been restarted (see also: [this article]({% post_url 2022-05-10-building-an-event-driven-microservice-application %}), we have just slightly adapted the business model to scale.
+In 2021, my employer has rather started—and is now for sure—in the scaling phase, because the business model has been proven basically earlier.
+When I have joined and the development of the product has been restarted (see also: [this article]({% post_url 2022-05-10-building-an-event-driven-microservice-application %}), we have just slightly adapted the business model to scale.
 But how does such a start-up in the scaling phase run its business and trying to stay focussed, flexible, fast, and cost-effective?
 
 Back then, we have started to build an Event-Driven Architecture (EDA) based on microservices and are still continuing this approach (see also: [this section](#how-does-an-event-driven-architecture-fit-into-that)).
@@ -45,19 +45,19 @@ So, let us first dive deeper into the concept of MVA and our approach to it in t
 ## Minimum Viable Architecture and our Approach to it
 
 Software architects and engineers often have to decide how much architectural design they do in the beginning of a project or product or even when developing a new feature.
-All in all, the concept of MVA tells you to focus only on the essential architecture needed to deliver the Minimum Viable Product (MVP).
+The concept of MVA focusses only on the essential architecture needed to deliver the Minimum Viable Product (MVP).
 An MVP is a version of a product with just enough features to be delivered to early customers for providing feedback as early as possible for further product development {% cite WikipediaMinimumViableProduct2023 %}.
 When following the concept of MVA, you should delay design decisions until they are absolutely necessary to avoid lengthy and unnecessary work.
 On top, it is better to architect for change in general {% cite Pureur2021 %}.
 The most memorable explanation of MVA is that you concentrate on delivering "just enough architecture" for releasing an MVP {% cite Caroli2015 %}, {% cite Karanth2016 %}, {% cite Pureur2021 %}, {% cite Erder2021 %}, {% cite Bittner2022 %}, or {% cite Shoup2022 %}.
 
 As already explained via the start of Randy Shoup's talk {% cite Shoup2022 %} in the [previous section](#introduction), there is no perfect architecture that fits all scales, alls phases, and all problem domains.
-Thus, the MVA approach is, in my believe, the most essential lesson to learn for engineers—especially when you are in a start-up: Just do enough architecture and build for change; do not overengineer your solution.
+Thus, the MVA approach is, in my believe besides the MVP concept, the most essential lesson to learn for software engineers—especially when you are in a start-up: Just do enough architecture and build for change; do not overengineer your solution.
 The MVA approach, then, can help to stay focussed, flexible, and, thus, also fast.
 
 ## How does an Event-Driven Architecture fit into that?
 
-As already mentioned in [this section](#introduction) and [this article]({% post_url 2022-05-10-building-an-event-driven-microservice-application %}), we decided to go with an EDA from a 10,000 feet perspective when starting our journey.
+As already mentioned in [this section](#introduction) and [this article]({% post_url 2022-05-10-building-an-event-driven-microservice-application %}) before, we have decided to go with an EDA from a 10,000 feet perspective when starting our journey.
 We use Domain-Driven Design (DDD) {% cite Evans2003 %} to identify and structure our business domain and the business/domain events for the EDA.
 Simply, consider the business/domain events as records of business-significant occurrences in a bounded context—when you are not familiar with the term _bounded context_, simply use the term microservice instead.
 An EDA, in general, has the following benefits {% cite Hohpe2003 %} and {% cite Jansen2020 %} (see also: [this article]({% post_url 2022-05-10-building-an-event-driven-microservice-application %})):
@@ -68,27 +68,28 @@ An EDA, in general, has the following benefits {% cite Hohpe2003 %} and {% cite 
  1. Single Source of Truth: Our event broker is the single source of truth which keeps domain/business events and allows us to rewrite, combine, extract, rework, ... the events to feed other systems and purposes.
 
 Now, you could argue that an EDA does not fit into the MVA approach, because it is rather a complex architecture approach.
-However, we use the EDA to structure our overall system rather from _10,000 feet perspective_, so rather from the solution or enterprise architecture perspective (see also: [Levels of Architecture](https://github.com/justinamiller/SoftwareArchitect#levels-of-architecture)).
-On an application architecture level, we use "much simpler"/other architecture approaches.
-Here, we rather focus on independently deployable microservices/modular monoliths per team—this is probably a very interesting discussion for future articles ;-).
-In essence, you can think of our EDA as our integration mechanism with the overall system and other systems.
+However, we use the EDA to structure our overall system rather from a _10,000 feet perspective_.
+Think about our EDA rather from the solution or enterprise architecture perspective (see also: [Levels of Architecture](https://github.com/justinamiller/SoftwareArchitect#levels-of-architecture)).
+On the application architecture level, we use "simpler"/other architecture approaches.
+We run independently deployable microservices/modular monoliths per team—this topic is probably a very interesting discussion for future articles ;-).
+In essence, you can think of the EDA as our integration mechanism with the overall system.
 When needed, we extend our microservices with new such domain/business events.
-Furthermore, we are able to completely restructure or rebuild the different microservices as long as we do not change the business/domain events.
+Furthermore, we are able to completely restructure or rebuild the different microservices (internally) as long as we do not change the business/domain events.
 
-So far, this way to work with the MVA approach and the EDA went well and kept us focussed, flexible, and fast—of course there are also challenges to maintain the EDA architecture, but no architecture is free of any challenges.
+So far, this way to work with the MVA approach and the EDA went well and kept us focussed, flexible, and fast—of course there are also challenges to maintain the EDA architecture.
+For example, defining and raising the events and, then, integrating with other systems is also cumbersome sometimes.
+But no software architecture is free of any challenges.
 For more details about the EDA approach, we also refer to [this article]({% post_url 2022-05-10-building-an-event-driven-microservice-application %}).
 
 ## A Cloud-native Platform as a Basis for the Development
 
 According to the Team Topologies approach {% cite Skelton2019 %}, {% cite Skelton2019a %}, and {% cite Skelton2019b %}, we try to structure our development teams into stream-aligned product and platform teams.
-The platform team develops and maintains our [Cloud-native platform](https://tag-app-delivery.cncf.io/whitepapers/platforms/) to build business applications upon it.
-It reduces the complexity for the stream-aligned product teams.
-So, the stream-aligned product teams can focus on dealing with the business complexity (... and, in our case, with the [EDA](#how-does-an-event-driven-architecture-fit-into-that)) as well as the product development processes.
+The latter develops and maintains our [Cloud-native platform](https://tag-app-delivery.cncf.io/whitepapers/platforms/) to build business applications upon it.
+The platform reduces the complexity for the stream-aligned product teams, so the stream-aligned product teams can focus on dealing with the business complexity (... and, in our case, with the [EDA](#how-does-an-event-driven-architecture-fit-into-that)) as well as the product development processes (see also: {% cite Schultheiss2023 %}).
 The stream-aligned product teams, as part of the business value stream, have end-to-end responsibility for building, deploying, running, supporting, and eventually sunsetting their part of the business or that slice of service.
-They are cross-functional and consist of front- and back-end developers as well as Product Owners (product team).
-Consequently, the stream-aligned product teams can fully concentrate on processes to design, test (product discovery), develop, as well as ship and evolve (product delivery) the products (see also: {% cite Schultheiss2023 %}).
+They are cross-functional and consist of front- and back-end developers as well as product owners (PO) and UX/UI designers.
 
-The Cloud-native platform is maintained and developed as a product.
+The platform is built as a product and is Cloud-native.
 It is providing foundational capabilities, basic frameworks, and "experiences"/best practices to facilitate and accelerate the product development of the stream-aligned teams {% cite CNCF2023 %}.
 All in all, you can consider the platform as an intermediate layer between our Cloud provider(s) and the internal customers such as the stream-aligned product teams.
 The figure below depicts our (current) platform.
@@ -96,11 +97,11 @@ The basic structure of the platform in the figure is based on the Cloud Native C
 
 ![Our Cloud-native Development Platform](/assets/our-development-platform.svg)
 
-Our basic Cloud providers are [Amazon Web Services (AWS)](https://aws.amazon.com), [GitHub](https://www.github.com), [Atlassian](https://www.atlassian.com), and some further providers for other services that are not shown in this figure.
+Our basic Cloud providers are [Amazon Web Services (AWS)](https://aws.amazon.com), [GitHub](https://www.github.com), [Atlassian](https://www.atlassian.com), and some further providers that are not shown in the figure.
 This foundational basis is visible at the bottom of the figure.
 
 Using the foundational basis, our platform provides its platform capabilities to be able to provision resources, to provide authentication and authorization services, to deliver Continous Integration and Delivery (CI/CD), etc.
-The platform capabilities to provision resources are provided via [Kubernetes](https://kubernetes.io/) as our container runtime ([Amazon Elastic Kubernetes Service](https://aws.amazon.com/eks/)) as well as [Helm](https://helm.sh).
+The platform capabilities to provision resources are provided via [Kubernetes](https://kubernetes.io/) as our container runtime ([Amazon Elastic Kubernetes Service](https://aws.amazon.com/eks/); we only run containerized applications so far) as well as [Helm](https://helm.sh).
 We are able to provision diverse databases (data capabilities) via [Amazon Relational Database Service](https://aws.amazon.com/rds/).
 For the EDA, the platform provides our event broker, [Apache Kafka](https://kafka.apache.org), via [Amazon Managed Streaming for Apache Kafka](https://aws.amazon.com/msk/).
 Last but not least, [Keycloak](https://www.keycloak.org/) is used to serve authentication and authorization services.
@@ -119,24 +120,24 @@ With the best practices "baked into" our platform as well as setup of environmen
 
 ## Conclusion
 
-Sometimes we, as engineers, software architects, etc., tend to extend needlessly—or maybe overengineer—products and services.
+Sometimes we, as engineers, software architects, etc., tend to extend needlessly—or rather overengineer—products and services.
 The MVP and MVA approaches can help us to concentrate on delivering the necessary things (see also: [this section](#minimum-viable-architecture-and-our-approach-to-it)).
-Especially in the context of a start-up, those concepts are essential, as there are always evolutionary steps and changes you cannot forsee and should not pre-consider.
-For my team and me at a corporate start-up, the MVP and MVA concepts definitely help to stay focussed, flexible, and fast—simply, it prevents us doing unnecessary work.
+Especially in the context of a start-up, those concepts are essential, as there are always evolutionary steps and changes you cannot forsee and should not pre-consider because you would waste time and money.
+For my team and me at a corporate start-up, the MVP and MVA concepts definitely help to stay focussed, flexible, and fast—simply, it prevents us from doing unnecessary work.
 
 To work focussed, flexible, and fast, we rely on an EDA (see also: [this section](#how-does-an-event-driven-architecture-fit-into-that)).
-The MVA is our approach to concentrate on necessary things when running and driving the EDA.
+The MVA is our approach to concentrate on necessary things when running, developing, and driving the EDA.
 The EDA works as our integration mechanism from a 10,000 feet perspective.
-When we need new domain/business events, we integrate them into the EDA and connect the other microservices and systems—let it be SAP, the new CRM, another microservice, or another system of a provider.
+When we need new domain/business events, we integrate them into the EDA and connect the other microservices and systems with it—let it be SAP, the new CRM, another microservice, or another system of a provider.
 On lower levels, our EDA works with microservices that are independently deployable units.
 Overall, the MVP and MVA concepts are key to our way to work with the EDA as well as our microservices implementing the EDA.
 
 The EDA is running on a Cloud-native platform developed and maintained by the platform team (see also: [this section](#a-cloud-native-platform-as-a-basis-for-the-development)).
-The platform reduces the complexity to the stream-aligned product teams and helps them to concentrate on implementing business applications upon it.
+The Cloud-native platform reduces the complexity to the stream-aligned product teams and helps them to concentrate on implementing business applications upon it.
 The foundational capabilities, basic frameworks, and "experiences"/best practices of the platform work well in our business context.
-At the moment, two DevOps/Site Reliability Engineers and an expert for authentication and authorization services are maintaining the platform and serving ca. eight+ developers—overall, I would say a small but agile, powerful, and cost-effective team in total.
+At the moment, two DevOps/Site Reliability Engineers and an expert for authentication and authorization services are maintaining the platform and serving eight+ developers (front-end and back-end), two PO, and two UX/UI designers—overall, I would say a small but agile, powerful, and cost-effective team in total.
 
-Essentially, this is our way to build and run business applications for delivering car services to you: MVP, MVA, EDA, and a powerful platform.
+Essentially, this is our way to build and run our application/overall system for delivering car services to you: MVP, MVA, EDA, and a powerful platform.
 
 ## References
 

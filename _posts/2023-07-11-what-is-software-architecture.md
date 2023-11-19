@@ -26,9 +26,11 @@ That is what this article is about: a collection of articles, books, videos, etc
 
  * [Justin Miller's GitHub collection about "What is a Software Architect?"](https://github.com/justinamiller/SoftwareArchitect) {% cite Miller2021 %}
  * Those levels differ most in the language:
-    * Enterprise Architects speak about capabilities (Archimate, ...)
+    * Enterprise Architects speak about capabilities (Archimate, ...) (see: https://en.wikipedia.org/wiki/Enterprise_architecture -> Criticism about EA)
     * Solution Architects make use of services and building blocks to compose a solution to a (business) problem; often Solution Architects are coming from external partners such as AWS, Google, ...
     * At Application Level, we are talking about Modules, Cohesion, Coupling, Desing, Code Quality, etc.
+ * InfoQ distinguishes only between Architecture and Enterprise Architecture: https://www.infoq.com/enterprise-architecture/articles/ and https://www.infoq.com/architecture/articles/
+ * Nice article: https://www.leanix.net/en/wiki/ea/enterprise-architect-vs-solution-architect-vs-technical-architect-whats-the-difference
 
 ## Why is Software Architecture Important?
 

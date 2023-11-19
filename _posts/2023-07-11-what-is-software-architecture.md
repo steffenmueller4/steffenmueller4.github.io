@@ -25,6 +25,10 @@ That is what this article is about: a collection of articles, books, videos, etc
 ## Levels of Architecture
 
  * [Justin Miller's GitHub collection about "What is a Software Architect?"](https://github.com/justinamiller/SoftwareArchitect) {% cite Miller2021 %}
+ * Those levels differ most in the language:
+    * Enterprise Architects speak about capabilities (Archimate, ...)
+    * Solution Architects make use of services and building blocks to compose a solution to a (business) problem; often Solution Architects are coming from external partners such as AWS, Google, ...
+    * At Application Level, we are talking about Modules, Cohesion, Coupling, Desing, Code Quality, etc.
 
 ## Why is Software Architecture Important?
 

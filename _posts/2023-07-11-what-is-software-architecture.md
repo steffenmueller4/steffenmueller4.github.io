@@ -1,16 +1,36 @@
 ---
 layout: post
-date:   2023-07-11 17:21:23 +0100
+date: 2023-11-19 11:30:49 +0100
 title: "What is Software Architecture and how to learn about it?"
 categories:
   - Architecture
 published: true
 hero_image: "/assets/hero-four_key_metrics.svg"
 ---
-Recently, I have been giving [a talk to students at TU Berlin about Cloud-native engineering and software architecture](https://www.linkedin.com/posts/steffen-mueller-139b8b191_tuberlin-activity-7080612706663182336-aCQo) as a part of [Prof. Tai](https://www.tu.berlin/ise/ueber-uns/prof-dr-ing-stefan-tai)'s lecture [Cloud Native Engineering and Architecture](https://www.tu.berlin/ise/studium-lehre).
-I explained the approach to software architecture and engineering to the students that me and my team at my current employer are running.
-From a 10,000 feet perspective, we are running an [Event-driven Architecture]({% post_url 2022-05-10-building-an-event-driven-microservice-application %}) in an agile way to build a customer-first product based on a [Cloud Platform](https://tag-app-delivery.cncf.io/whitepapers/platforms/) that the DevOps/Site Reliability Engineering team is developing and maintaining.
-This post summarizes some 
+I strongly believe that understanding of and being able to talk about software architecture is one of the most important skills of software developers and engineers in modern software development.
+So, I started this article to write about my understanding.
+While doing so, I, however, realized that there are so many good articles, books, videos, etc. that I should not come up with another article with an own definition.
+I should rather gather all the articles, books, videos, links, repositories, etc. and put them into the different perspectives.
+That is what this article is about: a collection of articles, books, videos, etc. about software architecture to learn what it is and getting a good understanding.
+
+## History and Schools of Software Architecture Definitions
+
+ * Lines and boxes (Bass, Clements)
+ * IEEE definition of software architecture (20)
+ * Ralph Johnson's and Martin Fowler's interpretation of software architecture (2003): https://martinfowler.com/ieeeSoftware/whoNeedsArchitect.pdf, https://martinfowler.com/architecture/ {% cite Fowler2019 %}
+ * [Martin Fowler's keynote at OSCon 2015 about the "what", the "why", and the "how" of software architecture](https://www.youtube.com/watch?v=DngAZyWMGR0)
+ * Ford, Parsons, Kua: "Building Evolutionary Architectures - Support Constant Change", 2017 as well as the idea of Minimum Viable Architecture: {% cite Caroli2015 %}, {% cite Karanth2016 %}, {% cite Pureur2021 %}, {% cite Erder2021 %}, {% cite Bittner2022 %}, or {% cite Shoup2022 %}
+ * Richards and Ford: "Fundamentals of software architecture", 2020 {% cite Richards2020 %} and {% cite Ford2021 %}
+
+## Levels of Architecture
+
+ * [Justin Miller's GitHub collection about "What is a Software Architect?"](https://github.com/justinamiller/SoftwareArchitect) {% cite Miller2021 %}
+
+## Why is Software Architecture Important?
+
+ * https://martinfowler.com/articles/is-quality-worth-cost.html
+ * Hard to change -> see Ralph Johnson's perspective
+ * 
 
 ## References
 

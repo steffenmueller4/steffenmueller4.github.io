@@ -1,14 +1,14 @@
 ---
 layout: post
-date: 2022-12-26 07:50:00 +0100
+date: 2023-12-17 07:50:00 +0100
 title: "Thinking About Interdependencies between Organization and Software Architecture"
 categories:
   - Architecture
   - Organization
 published: true
 ---
-As a senior engineer, software architect, or engineering manager, we are often facing situations where we realize interdependencies between your organization and software architecture.
-What team should maintain a specific component within a larger architecture or organization?
+As a senior engineer, software architect, engineering manager, etc., we are often facing situations where we realize interdependencies between an organization and software architecture.
+Questions that you may ask yourself are, for example: what team should maintain a specific component within a larger architecture or organization?
 How to build a proper architecture serving this or that team?
 How to (re-)structure teams when facing a bigger architecture rework or a new project?
 This article is about how to think about those interdependencies between organization and software architecture.
@@ -20,7 +20,7 @@ Some time ago, I have read Marianne Bellotti's post about [hunting tech debt via
 Marianne Bellotti writes about being able to predict several key details of an organization's problem by just looking at people's titles meeting her and by looking at the organzation chart of the company.
 She, furthermore, explains that "[...] the types of problems organizations have are heavily influenced by their incentive structure and the easiest way to figure out their incentive structure is by looking at the org chart." {%cite Bellotti2021 %}
 The incentive structure is driving and shaping the organization, because it drives and shapes what the organization prioritizes in the day to day work and how people in the organization get ahead.
-Tech debt is, then, going to accrue in the day to day work of people in the organization due to their priorities {%cite Bellotti2021 %}.
+Tech debt, then, accrues in the day to day work of people in the organization due to their priorities {%cite Bellotti2021 %}.
 
 The incentive structure—here, we can distinguish between individual and organizational incentives—is one way how the organization influences software architecture.
 There are further influences such as communication structure, previous experiences, knowledge, politics, maturity of the organization, etc.
@@ -28,26 +28,28 @@ Thus, the organization is shaping the organization's software architecture in va
 With a little bit of background knowledge, you can understand the mechanisms of how an organization influences the software architecture of an application and organization.
 Also, you can make use of those mechanisms via setting incentives or considering the different influence factors when architecting better solutions for your organization.
 
-But before we are going into the theory, let's some examples from real world in the next section.
+But before we are going into the theory, let's get some examples from real world in the next section.
 
 ## Real World Examples
 
-### Software Architecture can influence the Team Setup and vice versa
+### Software Architecture influences Team Setup and vice versa
 
-When I have been involved in a project as a software architect where two teams had to closely work together to build up a brand new strategical application.
-The first team was a support team that maintained core data required as input for the purposes of the new application that the second team should build and maintain.
-Unfortunately, all of us had different ideas of the overall software architecture.
-There were different architecture proposals leading to different degrees of dependencies between those two teams.
+Some time ago, I have been involved in a project as a software architect where two teams had to closely work together to build a brand new strategical application.
+The first team was a support team which maintained core data required as input for the purposes of the new application that the second team should build and maintain.
+Unfortunately, all of us—me, the team members, the team lead, the product owners, and the management—had different ideas about the overall software architecture.
+After a couple of meetings, there were different architecture proposals leading to different degrees of dependencies between those two teams.
+In total, we had, I believe, five different architecture proposals with different nuances of dependencies between the teams.
 One architecture proposal was about to intertwine both teams in a way that both teams would have to be merged, as otherwise major inefficiencies would arise.
 Another architecture proposal considered both teams to stay independent but required to change the overall process of data management.
 
-In total, we had—I believe—five architecture proposals with different nuances.
-There were different incentives for the various stakeholders including the main purpose of one team, different architecture proposals with different pros and cons, as well as different consequences to the organizational setup of the architecture proposals.
 So, what architecture—or oranizational setup—should we choose?
+In sum, there were different aspects you could analyze.
+There were different incentives for the various stakeholders including the main purpose of existence of one team, different consequences to the organizational setup and communication overhead, etc.
+I cannot tell you how the different stakeholders decided and how the architecture looks like eventually because I left the company before the decision was made and the project continued, but we will look at this example from different angles in the next sections.
 
 ### Different Drawbacks between Team Setup and Software Architecture
 
-Recently, I have been discussing with my current team about redistributing duties and tasks in the sub teams.
+Recently, I have been discussing about redistributing duties and tasks in the sub teams.
 With our main product, we have two sub teams: the first sub team takes about the customer-facing application itself, and the second team was supposed to build integrations with our partners (see also: [The architecture of the main product]({% post_url 2022-05-10-building-an-event-driven-microservice-application %}#the-architecture)).
 
 Amazon Example -> Monolith + Danger of distributed Monolith + Too small Microservices = Development Overhead

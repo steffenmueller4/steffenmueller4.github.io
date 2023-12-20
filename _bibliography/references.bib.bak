@@ -623,7 +623,7 @@
   url      = {https://cloud.google.com/devops/state-of-devops},
   year     = {2021},
   date     = {2021},
-  keywords = {DevOps, Report,},
+  keywords = {DevOps, Report},
 }
 
 @Electronic{Forsgren2019,
@@ -631,8 +631,7 @@
   title    = {Accelerate - State of DevOps 2019},
   url      = {https://cloud.google.com/devops/state-of-devops},
   year     = {2019},
-  date     = {2021},
-  keywords = {DevOps, Report,},
+  keywords = {DevOps, Report},
 }
 
 @Electronic{Thiel2021,
@@ -641,6 +640,45 @@
   title  = {Deploy Pull Requests for Review into Kubernetes with GitHub Actions},
   url    = {https://pumpingco.de/blog/review-pull-requests-by-deploying-them-into-kubernetes-with-github-actions/},
   year   = {2021},
+}
+
+@Electronic{Matsudaira2016,
+  author = {Kate Matsudaira},
+  month  = aug,
+  title  = {Bad Software Architecture is a People Problem},
+  url    = {https://katemats.com/blog/bad-software-architecture-is-a-people-problem},
+  year   = {2016},
+}
+
+@Electronic{Pureur2022,
+  author = {Pierre Pureur and Kurt Bittner},
+  month  = apr,
+  title  = {Software Architecture: It Might Not Be What You Think It Is},
+  url    = {https://www.infoq.com/articles/what-software-architecture/},
+  year   = {2022},
+}
+
+@Electronic{Fowler2022,
+  author = {Martin Fowler},
+  month  = oct,
+  title  = {Conway's Law},
+  url    = {https://martinfowler.com/bliki/ConwaysLaw.html},
+  year   = {2022},
+}
+
+@Electronic{Fowler2015,
+  author = {Martin Fowler},
+  title  = {Making Architecture Matter - Martin Fowler's Keynote at OSCON 2015},
+  url    = {https://www.youtube.com/watch?v=DngAZyWMGR0},
+  year   = {2015},
+}
+
+@Electronic{Bittner2022,
+  author = {Kurt Bittner and Pierre Pureur},
+  month  = jun,
+  title  = {A Minimum Viable Product Needs a Minimum Viable Architecture},
+  url    = {https://www.infoq.com/articles/minimum-viable-architecture/},
+  year   = {2022},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}

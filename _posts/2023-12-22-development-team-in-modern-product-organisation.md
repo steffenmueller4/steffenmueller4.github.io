@@ -25,3 +25,21 @@ But what is about the engineering culture perspective?
 How does a development team have to support a product team in a start-/scale-up?
 What should be the mindset of the team—especially when you co-lead the development team with the product team?
 
+### Modern Product Organizations
+
+A product organization is the structure and processes to ideate, create, develop, deploy, promote, adapt, and—later also—sunset products {% cite Schultheiss2023 %}, {% cite Cagan2008 %}, {% cite Cagan2010 %}, {% cite Venkateswaran2021 %}, and {% cite Birds2023 %}.
+For the sake of this article ({% cite Schultheiss2023 %} also does it), we only refer to digital products that are developed end-to-end via IT.
+
+Thereby, product organizations differ from a project organizations so that a product organization is built around the empowered product team (see also: {% cite Cagan2017%} and {%cite Cagan2021 %}) and not around projects.
+The teams are cross-functional.
+They are set up around customer-focussed products or services that they own end-to-end.
+Here, the cross-functional product team consists of product designers (UI and/or UX), product managers/product owners, software developers, DevOps/site reliability engineers, and all other roles necessary to focus on the product development.
+{% cite Cagan2019 %}, {% cite Cagan2019a %}, and {% cite Narayan2018 %} summarize the differences between products and projects quite well.
+
+There are further aspects of a modern product organization such as the product operating model or the way of structuring teams which we focus later on.
+For me, it is important to emphasize what also Marty Cagan writes about the structural aspects:
+"Finally, realize that there is never a perfect way to structure a team – every attempt at structure of the product organization will be optimized for some things at the expense of others. So as with most things in product, it involves trade-offs and prioritization." {% cite Cagan2010 %}.
+
+### Way of Working in Development Teams
+
+TODO

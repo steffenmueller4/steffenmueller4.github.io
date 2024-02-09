@@ -49,6 +49,7 @@ For me, it is important to emphasize what also Marty Cagan writes about the stru
 ### Way of Working in Development Teams
 
 TODO
+{% cite Birds2023 %}
 
 ## References
 

@@ -29,7 +29,22 @@ I would like to use the default ports with my setup.
 The requirements for my solution are:
  * Run Syncthing on a Kubernetes cluster with a distributed storage
  * Storing the data with the distributed Kubernetes storage
- * In contrast to Alexandru Scvorțov with his setup [here](https://scvalex.net/posts/53/), I wanted to use Syncthing's default ports
+ * In contrast to Alexandru Scvorțov with his setup [here](https://scvalex.net/posts/53/), I want to use Syncthing's default ports
+
+## Namespace
+
+I recommend, placing all resources required for Syncthing into a new namespace in the Kubernetes cluster.
+In the following, we will use the namespace `syncthing`.
+We achieve this, via creating the following YAML and run `kubectl apply -f namespace.yaml`.
+
+```yaml
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: syncthing
+  labels:
+    name: syncthing
+```
 
 ## Persistence Volume Claim
 

@@ -1,11 +1,11 @@
 ---
 layout: post
-date:   2024-04-12 15:40:10 +0100
+date: 2024-04-12 15:40:10 +0100
 title: "Deploying Syncthing on a k3s Cluster with Rook"
 categories:
   - HowTo
   - Raspberry Pi
-  - Tech
+  - Syncthing
 published: true
 hero_image: "/assets/hero-tales_from_startup_and_its_evolving_architecture.svg"
 ---
@@ -27,15 +27,20 @@ Thereby, Alexandru Scvorțov uses specific high ports, TCP and UDP port 32222, f
 I would like to use the default ports with my setup.
 
 The requirements for my solution are:
- * Run Syncthing on a Kubernetes cluster with a distributed storage
- * Storing the data with the distributed Kubernetes storage
+ * Run Syncthing on a Kubernetes cluster with the distributed storage Rook
  * In contrast to Alexandru Scvorțov with his setup [here](https://scvalex.net/posts/53/), I want to use Syncthing's default ports
+ * As I am running a k3s cluster which deploys a Traefik Ingress Gateway per default, I wanted to make use of the Traefik Ingress Gateway for the Syncthing Dashboard and Syncthing ports
+
+The entire Kubernetes deployment descriptors are available as a Gist [here](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d).
+When you download the file `k3s-syncthing.yaml`, you can deploy Syncthing on your own k3s cluster via `kubectl apply -f k3s-syncthing.yaml`.
+Feel free to modify the deployment descriptors based on your requirements.
+
+In the next sections, we go through the Kubernetes deployment descriptors in detail.
 
 ## Namespace
 
-I recommend, placing all resources required for Syncthing into a new namespace in the Kubernetes cluster.
-In the following, we will use the namespace `syncthing`.
-We achieve this, via creating the following YAML and run `kubectl apply -f namespace.yaml`.
+All the resources for Syncthing in the [Gist](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d) are placed in the namespace `syncthing`.
+The namespace is the first resource created at [line 2](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L2):
 
 ```yaml
 apiVersion: v1
@@ -46,5 +51,13 @@ metadata:
     name: syncthing
 ```
 
-## Persistence Volume Claim
+## Persistent Volume Claim
 
+One of the most important resources for Syncthing is the Persistent Volume Claim (PVC).
+Syncthing stores all the files and its configuration on its storage—per default at `/var/syncthing`.
+Without the Persistent Volume (PV), you lose all your files with every restart of the Pod.
+For storing Syncthing files and its configuration on a PV, you need a distributed storage on your Kubernetes cluster such as [Rook](https://rook.io/), [Longhorn](https://longhorn.io/), etc.
+In my case, this is, as mentioned before, Rook.
+
+In the Gist, the PVC declaration starts at [line 9](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L9).
+My PVC uses the Kubernetes StorageClass `rook-ceph-block` (see also: [line 15](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L15)) which is a Ceph Block Storage with access mode `ReadWriteOnce` (RWO) (see also: [Ceph Storage documentation](https://rook.io/docs/rook/latest-release/Getting-Started/quickstart/#storage)).

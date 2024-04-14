@@ -29,7 +29,7 @@ I would like to use the default ports with my setup.
 The requirements for my solution are:
  * Run Syncthing on a Kubernetes cluster with the distributed storage Rook
  * In contrast to [Alexandru Scvorțov's setup](https://scvalex.net/posts/53/), I want to use Syncthing's default ports, TCP/22000, UDP/22000, and the Syncthing local discovery port UDP/21
- * As I am running [a k3s cluster which deploys a Traefik Ingress Gateway per default](https://docs.k3s.io/networking/networking-services#traefik-ingress-controller), I wanted to make use of the Traefik Ingress Gateway for the Syncthing Dashboard and Syncthing ports
+ * As I am running [a k3s cluster which ships a Traefik Ingress Gateway per default](https://docs.k3s.io/networking/networking-services#traefik-ingress-controller), I want to make use of the Traefik Ingress Gateway for the Syncthing Dashboard and Syncthing ports
 
 The entire Kubernetes deployment descriptors are available as a Gist [here](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d).
 When you download the file `k3s-syncthing.yaml`, you can deploy Syncthing on your own k3s cluster via `kubectl apply -f k3s-syncthing.yaml`.

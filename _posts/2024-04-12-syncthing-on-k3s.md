@@ -36,10 +36,7 @@ When you download the file `k3s-syncthing.yaml`, you can deploy Syncthing on you
 Feel free to modify the deployment descriptors based on your requirements.
 
 In the next sections, we go through the Kubernetes deployment descriptors in detail.
-
-## Architecture Overview
-
-![Syncthing Deployment Architecture](/assets/syncthing-deployment-architecture.svg)
+The overall architecture of the entire solution is summarized in [this section](#architecture-overview).
 
 ## Namespace
 
@@ -142,3 +139,9 @@ The PVC is mounted [here](https://gist.github.com/steffenmueller4/e8ddf4eab6d891
 ## Services / ClusterIP
 
 TODO
+
+## Architecture Overview
+
+The entire architecture of the Syncthing deployment on my k3s cluster is depicted in the figure below.
+
+![Syncthing Deployment Architecture](/assets/syncthing-deployment-architecture.svg)

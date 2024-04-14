@@ -28,8 +28,8 @@ I would like to use the default ports with my setup.
 
 The requirements for my solution are:
  * Run Syncthing on a Kubernetes cluster with the distributed storage Rook
- * In contrast to Alexandru Scvorțov with his setup [here](https://scvalex.net/posts/53/), I want to use Syncthing's default ports
- * As I am running a k3s cluster which deploys a Traefik Ingress Gateway per default, I wanted to make use of the Traefik Ingress Gateway for the Syncthing Dashboard and Syncthing ports
+ * In contrast to [Alexandru Scvorțov's setup](https://scvalex.net/posts/53/), I want to use Syncthing's default ports, TCP/22000, UDP/22000, and the Syncthing local discovery port UDP/21
+ * As I am running [a k3s cluster which deploys a Traefik Ingress Gateway per default](https://docs.k3s.io/networking/networking-services#traefik-ingress-controller), I wanted to make use of the Traefik Ingress Gateway for the Syncthing Dashboard and Syncthing ports
 
 The entire Kubernetes deployment descriptors are available as a Gist [here](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d).
 When you download the file `k3s-syncthing.yaml`, you can deploy Syncthing on your own k3s cluster via `kubectl apply -f k3s-syncthing.yaml`.
@@ -37,11 +37,14 @@ Feel free to modify the deployment descriptors based on your requirements.
 
 In the next sections, we go through the Kubernetes deployment descriptors in detail.
 
+## Architecture Overview
+
+![Syncthing Deployment Architecture](/assets/syncthing-deployment-architecture.svg)
+
 ## Namespace
 
 All the resources for Syncthing in the [Gist](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d) are placed in the namespace `syncthing`.
 The namespace is the first resource created at [line 2](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L2):
-
 ```yaml
 apiVersion: v1
 kind: Namespace
@@ -53,11 +56,89 @@ metadata:
 
 ## Persistent Volume Claim
 
-One of the most important resources for Syncthing is the Persistent Volume Claim (PVC).
+One of the most important resources for Syncthing is the Persistent Volume Claim (PVC) and Persistent Volume (PV).
 Syncthing stores all the files and its configuration on its storage—per default at `/var/syncthing`.
-Without the Persistent Volume (PV), you lose all your files with every restart of the Pod.
+Without the PV, you lose all your files with every shutdown or restart of the Pod.
 For storing Syncthing files and its configuration on a PV, you need a distributed storage on your Kubernetes cluster such as [Rook](https://rook.io/), [Longhorn](https://longhorn.io/), etc.
-In my case, this is, as mentioned before, Rook.
+In my case, this is, as mentioned before, Rook:
+```yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: syncthing-pv-claim
+  namespace: syncthing
+spec:
+  storageClassName: rook-ceph-block
+  accessModes:
+    - ReadWriteOnce
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 100G
+```
 
 In the Gist, the PVC declaration starts at [line 9](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L9).
-My PVC uses the Kubernetes StorageClass `rook-ceph-block` (see also: [line 15](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L15)) which is a Ceph Block Storage with access mode `ReadWriteOnce` (RWO) (see also: [Ceph Storage documentation](https://rook.io/docs/rook/latest-release/Getting-Started/quickstart/#storage)).
+My PVC uses the Kubernetes StorageClass `rook-ceph-block` (see: [line 15](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L15)) which is a Ceph Block Storage with access mode `ReadWriteOnce` (RWO) (see: [here](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L17), see also: [Ceph Storage documentation](https://rook.io/docs/rook/latest-release/Getting-Started/quickstart/#storage)).
+The PVC claims 100 Gigabyte of the Ceph Block Storage.
+
+## Stateful Set / Syncthing Pod
+
+Now, it is time to take care of the Syncthing Pod.
+For that, we define the Stateful Set `syncthing`, as the Pod binds the PVC as a PV.
+```yaml
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: syncthing
+  namespace: syncthing
+spec:
+  selector:
+    matchLabels:
+      app: syncthing
+  serviceName: syncthing
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: syncthing
+    spec:
+      terminationGracePeriodSeconds: 60
+      containers:
+      - name: syncthing
+        image: syncthing/syncthing:latest
+        ports:
+        - name: web-ui
+          containerPort: 8384
+        - name: syncthing-tcp
+          containerPort: 22000
+          protocol: TCP
+        - name: syncthing-udp
+          containerPort: 22000
+          protocol: UDP
+        - name: syncthing-disc
+          containerPort: 21027
+          protocol: UDP
+        volumeMounts:
+        - name: syncthing
+          mountPath: /var/syncthing
+        env:
+        - name: PUID
+          value: "1000"
+        - name: PGID
+          value: "1000"
+      volumes:
+      - name: syncthing
+        persistentVolumeClaim:
+          claimName: syncthing-pv-claim
+          readOnly: false
+```
+
+Due to Syncthing's nature, you should not run more than one Replica (see: [here](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L33)).
+The Pod uses always the latest Syncthing release (see: [here](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L42)).
+And it exposes the required ports for the Web-UI, TCP/8384 (see: [here](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L44)), for the Syncthing protocol via TCP, TCP/22000 (see: [here](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L46)), for the Syncthing protocol via QUIC, UDP/22000 (see: [here](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L49)), and for Syncthing's local discovery protocol, UDP/21027 (see: [here](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L52)).
+
+The PVC is mounted [here](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L55) at Syncthing's default storage path `/var/syncthing`, as already explained in [this section](#persistent-volume-claim).
+
+## Services / ClusterIP
+
+TODO

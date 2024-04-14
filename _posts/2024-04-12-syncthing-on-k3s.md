@@ -81,7 +81,7 @@ The PVC claims 100 Gigabyte of the Ceph Block Storage.
 ## Stateful Set / Syncthing Pod
 
 Now, it is time to take care of the Syncthing Pod.
-For that, we define the Stateful Set `syncthing`, as the Pod binds the PVC as a PV.
+For that, we define the Stateful Set `syncthing`.
 ```yaml
 apiVersion: apps/v1
 kind: StatefulSet
@@ -131,8 +131,10 @@ spec:
 ```
 
 Due to Syncthing's nature, you should not run more than one Replica (see: [here](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L33)).
+As the Pod binds the PVC, it is a Stateful Set.
+
 The Pod uses always the latest Syncthing release (see: [here](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L42)).
-And it exposes the required ports for the Web-UI, TCP/8384 (see: [here](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L44)), for the Syncthing protocol via TCP, TCP/22000 (see: [here](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L46)), for the Syncthing protocol via QUIC, UDP/22000 (see: [here](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L49)), and for Syncthing's local discovery protocol, UDP/21027 (see: [here](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L52)).
+And it exposes the ports for the Web UI, TCP/8384 (see: [here](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L44)), for the Syncthing protocol via TCP, TCP/22000 (see: [here](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L46)), for the Syncthing protocol via QUIC, UDP/22000 (see: [here](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L49)), and for Syncthing's local discovery protocol, UDP/21027 (see: [here](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L52)).
 
 The PVC is mounted [here](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L55) at Syncthing's default storage path `/var/syncthing`, as already explained in [this section](#persistent-volume-claim).
 

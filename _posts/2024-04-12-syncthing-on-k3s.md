@@ -140,7 +140,17 @@ The PVC is mounted [here](https://gist.github.com/steffenmueller4/e8ddf4eab6d891
 
 ## Services / ClusterIP
 
-TODO
+In order to expose the Syncthing ports, we use Kubernetes services.
+
+The Syncthing dashboard is exposed via the Service `syncthing-dashboard` of type `ClusterIP` [here](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L69).
+The Service exposes the Syncthing dashboard on port TCP/8384 (see: [here](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L80)).
+
+The Syncthing protocol ports are exposed via the Service `syncthing-protocol` of type `ClusterIP` [here](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L84).
+The Service exposes the ports TCP/22000 as `syncthing-tcp`, UDP/22000 as `syncthing-udp`, and UDP/21027 as `syncthing-disc`.
+
+Both services could be merged into one specification.
+I prefered to keep the dashboard and the protocol Services separated.
+Furthermore, you 
 
 ## Architecture Overview
 

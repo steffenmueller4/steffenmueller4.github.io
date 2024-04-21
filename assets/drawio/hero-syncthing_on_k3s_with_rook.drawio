@@ -1,0 +1,22 @@
+<mxfile host="Electron" modified="2024-04-21T09:08:08.942Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.6.5 Chrome/114.0.5735.243 Electron/25.3.1 Safari/537.36" etag="VzFsPgcXGOrYZtHY5Dze" version="21.6.5" type="device">
+  <diagram id="sfGkyqJ-wVHbOri7GWkh" name="Seite-1">
+    <mxGraphModel dx="954" dy="608" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="nMVIfYfNS6cF1Cbamtte-1" value="" style="rounded=0;whiteSpace=wrap;html=1;imageWidth=200;imageHeight=24;fillColor=#f5f5f5;strokeColor=#666666;gradientDirection=west;imageAspect=0;fontColor=#333333;" parent="1" vertex="1">
+          <mxGeometry x="20" y="40" width="768" height="432" as="geometry" />
+        </mxCell>
+        <mxCell id="yAHPyAwIDqUc4Qtb6Qtx-3" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://k3s.io/img/k3s-logo-light.svg;" parent="1" vertex="1">
+          <mxGeometry x="130" y="280" width="218.99" height="84.67" as="geometry" />
+        </mxCell>
+        <mxCell id="yAHPyAwIDqUc4Qtb6Qtx-7" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://docs.syncthing.net/_static/logo-horizontal.svg;" parent="1" vertex="1">
+          <mxGeometry x="305" y="130" width="217" height="59.31" as="geometry" />
+        </mxCell>
+        <mxCell id="yAHPyAwIDqUc4Qtb6Qtx-18" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://rook.io/images/rook-logo.svg;" parent="1" vertex="1">
+          <mxGeometry x="470" y="271.71" width="155.43" height="32.2" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

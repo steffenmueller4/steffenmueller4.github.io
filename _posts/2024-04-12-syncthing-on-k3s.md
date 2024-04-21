@@ -7,7 +7,7 @@ categories:
   - Raspberry Pi
   - Syncthing
 published: true
-hero_image: "/assets/hero-tales_from_startup_and_its_evolving_architecture.svg"
+hero_image: "/assets/hero-syncthing_on_k3s_with_rook.svg"
 ---
 Roughly four years ago, I have fallen in love with [Syncthing](https://syncthing.net).
 First, it was just a partial replacement for Dropbox I just wanted to try out.

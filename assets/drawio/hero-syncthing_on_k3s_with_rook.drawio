@@ -1,4 +1,4 @@
-<mxfile host="Electron" modified="2024-04-21T09:08:08.942Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.6.5 Chrome/114.0.5735.243 Electron/25.3.1 Safari/537.36" etag="VzFsPgcXGOrYZtHY5Dze" version="21.6.5" type="device">
+<mxfile host="Electron" modified="2024-04-22T17:00:31.722Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.6.5 Chrome/114.0.5735.243 Electron/25.3.1 Safari/537.36" etag="65HwFhg8DoAUtu__k3Yt" version="21.6.5" type="device">
   <diagram id="sfGkyqJ-wVHbOri7GWkh" name="Seite-1">
     <mxGraphModel dx="954" dy="608" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -7,14 +7,32 @@
         <mxCell id="nMVIfYfNS6cF1Cbamtte-1" value="" style="rounded=0;whiteSpace=wrap;html=1;imageWidth=200;imageHeight=24;fillColor=#f5f5f5;strokeColor=#666666;gradientDirection=west;imageAspect=0;fontColor=#333333;" parent="1" vertex="1">
           <mxGeometry x="20" y="40" width="768" height="432" as="geometry" />
         </mxCell>
-        <mxCell id="yAHPyAwIDqUc4Qtb6Qtx-3" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://k3s.io/img/k3s-logo-light.svg;" parent="1" vertex="1">
-          <mxGeometry x="130" y="280" width="218.99" height="84.67" as="geometry" />
+        <mxCell id="h6g0s02l1e8zA0EtPJ8A-17" value="" style="html=1;shadow=0;dashed=0;align=center;verticalAlign=middle;shape=mxgraph.arrows2.jumpInArrow;dy=15;dx=38;arrowHead=55;" parent="1" vertex="1">
+          <mxGeometry x="189.49" y="140" width="100" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="yAHPyAwIDqUc4Qtb6Qtx-7" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://docs.syncthing.net/_static/logo-horizontal.svg;" parent="1" vertex="1">
+        <mxCell id="h6g0s02l1e8zA0EtPJ8A-18" value="" style="html=1;shadow=0;dashed=0;align=center;verticalAlign=middle;shape=mxgraph.arrows2.jumpInArrow;dy=15;dx=38;arrowHead=55;rotation=90;" parent="1" vertex="1">
+          <mxGeometry x="540" y="160" width="100" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="h6g0s02l1e8zA0EtPJ8A-10" value="" style="triangle;whiteSpace=wrap;html=1;rotation=-90;fillColor=#dae8fc;strokeColor=none;" parent="1" vertex="1">
+          <mxGeometry x="130.25" y="219.25" width="141.5" height="360" as="geometry" />
+        </mxCell>
+        <mxCell id="h6g0s02l1e8zA0EtPJ8A-11" value="" style="triangle;whiteSpace=wrap;html=1;rotation=-90;fillColor=#dae8fc;strokeColor=none;" parent="1" vertex="1">
+          <mxGeometry x="375.99" y="59" width="245.01" height="577" as="geometry" />
+        </mxCell>
+        <mxCell id="h6g0s02l1e8zA0EtPJ8A-15" value="" style="triangle;whiteSpace=wrap;html=1;rotation=-180;fillColor=#dae8fc;strokeColor=none;" parent="1" vertex="1">
+          <mxGeometry x="548.5" y="142.5" width="238" height="327" as="geometry" />
+        </mxCell>
+        <mxCell id="h6g0s02l1e8zA0EtPJ8A-19" value="" style="html=1;shadow=0;dashed=0;align=center;verticalAlign=middle;shape=mxgraph.arrows2.jumpInArrow;dy=15;dx=38;arrowHead=55;rotation=-170;" parent="1" vertex="1">
+          <mxGeometry x="369.34" y="295.96" width="139" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="0gX0ttdG74417VeoQY1U-2" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://docs.syncthing.net/_static/logo-horizontal.svg;" vertex="1" parent="1">
           <mxGeometry x="305" y="130" width="217" height="59.31" as="geometry" />
         </mxCell>
-        <mxCell id="yAHPyAwIDqUc4Qtb6Qtx-18" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://rook.io/images/rook-logo.svg;" parent="1" vertex="1">
+        <mxCell id="0gX0ttdG74417VeoQY1U-3" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://rook.io/images/rook-logo.svg;" vertex="1" parent="1">
           <mxGeometry x="470" y="271.71" width="155.43" height="32.2" as="geometry" />
+        </mxCell>
+        <mxCell id="0gX0ttdG74417VeoQY1U-4" value="" style="shape=image;imageAspect=0;aspect=fixed;verticalLabelPosition=bottom;verticalAlign=top;image=https://k3s.io/img/k3s-logo-light.svg;" vertex="1" parent="1">
+          <mxGeometry x="100" y="248.4" width="269.34" height="104.14" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

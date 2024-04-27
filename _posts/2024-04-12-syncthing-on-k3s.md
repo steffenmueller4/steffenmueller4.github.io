@@ -10,14 +10,14 @@ published: true
 hero_image: "/assets/hero-syncthing_on_k3s_with_rook.svg"
 ---
 Roughly four years ago, I have fallen in love with [Syncthing](https://syncthing.net).
-First, it was just a partial replacement for Dropbox I just wanted to try out.
+First, it was just a partial replacement for [Dropbox](https://www.dropbox.com) I just wanted to try out.
 More and more, it grew to be the "data backbone" of my private life.
-This article shows how to deploy Syncthing on a Kubernetes cluster with a distributed storage—in my case, this is a three node [k3s](https://k3s.io/) cluster running [Rook](https://rook.io/).
+This article shows how to deploy Syncthing on a Kubernetes cluster with a distributed storage—in my case, this is a three node [k3s](https://k3s.io) cluster running [Rook](https://rook.io).
 
 ## Introduction and Requirements
 
-Since 2020, I have run Syncthing on a Raspberry Pi 3 Model B storing the data on a 1 terrabyte spinning hard drive which was backed up via [Duplicity](https://duplicity.gitlab.io/) (see also: [this article]({% post_url 2020-12-31-duplicity-on-raspberry-pi-from-source %})).
-Recently, I have replaced the Raspberry Pi 3 Model B and the spinning HDD with a three node Raspberry Pi 4 Model B [k3s](https://k3s.io/) cluster where I installed [Rook](https://rook.io/) as a distributed storage solution.
+Since 2020, I have run Syncthing on a Raspberry Pi 3 Model B storing the data on a 1 terrabyte spinning hard drive which was backed up via [Duplicity](https://duplicity.gitlab.io) (see also: [this article]({% post_url 2020-12-31-duplicity-on-raspberry-pi-from-source %})).
+Recently, I have replaced the Raspberry Pi 3 Model B and the spinning HDD with a three node Raspberry Pi 4 Model B [k3s](https://k3s.io) cluster where I installed [Rook](https://rook.io) as a distributed storage solution.
 On this new "lightweight" Kubernetes cluster with Rook, I also wanted to run Syncthing.
 
 There are not many tutorials about running Syncthing on Kubernetes.
@@ -152,12 +152,32 @@ Both services could be merged into one specification.
 I prefered to keep the dashboard and the protocol Services separated.
 Furthermore, you also could use services of type `NodePort` instead of `ClusterIP`, so you can directly expose ports in the range of 30000 to 32767.
 But as mentioned in [this section](#introduction-and-requirements) already, I want to have the Syncthing standard ports exposed.
-In the [next section](#traefik-ingress-controller-modification-for-standard-syncthing-ports), we will get to this setup which is specific to k3s and its by default installed Traefik Ingress Controller as well as ServiceLB.
-When you are happy with Syncthing running on a high port in the range of 30000 to 32767 or do not have a k3s, a Traefik Ingress Controller, and ServiceLB, you can stop with this article and have fun with your setup.
+In the [next section](#traefik-ingress-controller-modification-for-exposing-standard-syncthing-ports), we will get to this setup which is specific to k3s and its by default installed Traefik Ingress Controller as well as ServiceLB.
+When you are happy with Syncthing running on a high port in the range of 30000 to 32767 or do not have a k3s with its Traefik Ingress Controller and its ServiceLB, you can stop with this article and have fun with your setup.
 
-## Traefik Ingress Controller Modification for Standard-Syncthing-Ports
+## Traefik Ingress Controller Modification for Exposing Standard Syncthing Ports
 
+As mentioned already, k3s installs a Traefik Ingress Controller and ServiceLB by default.
+So, I wanted to use them to expose Syncthing's standard ports.
+Also, I wanted to have the Syncthing Dashboard exposed on standard HTTPS port at a specific path, `/syncthing-dashboard/`.
+For that, you need, first, to modify k3s' default Traefik Helm Chart configuration to expose further [Traefik EntryPoints](https://doc.traefik.io/traefik/routing/entrypoints/), for Syncthing the ports TCP/22000, UDP/22000, and UDP/21027.
+Afterwards, you can bind the `ClusterIP` services via `IngressRoute` resources to those EntryPoints.
 
+Let us start with the modification of k3s' default Traefik Helm Chart configuration.
+We can add the EntryPoints via the resource `HelmChartConfig` in the [Gist](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L109).
+We simply expose further ports (see: [here](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L115)).
+We add the EntryPoint `syncthing-tcp` at port TCP/22000 (see: [here](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L119)), the EntryPoint `syncthing-udp` at port UDP/22000 (see: [here](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L124)), and the EntryPoint `syncthing-disc` at port UDP/21027 (see: [here](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L129)).
+As the standard HTTPS port is exposed anyway, we do not need to add that EntryPoint for Syncthing's Dashboard.
+
+Now, we need to wire the EntryPoints via `IngressRoute` resources to the exposed service ports.
+First, we wire the EntryPoint `syncthing-tcp` with the port `syncthing-tcp` of the `ClusterIP` service `syncthing-protocol` via an `IngressRouteTCP` (see: [here](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L135)).
+Second, we connect the EntryPoint `syncthing-udp` with the port `syncthing-udp` of the service `syncthing-protocol` via an `IngressRouteUDP` (see: [here](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L151)).
+Third, we do so with the EntryPoint `syncthing-disc` via an `IngressRouteUDP` (see: [here](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L166)).
+
+For connecting the HTTPS EntryPoint (name by default: `websecure`), we connect the EntryPoint `websecure` with the port `syncthing-dashboard` of the `ClusterIP` service `syncthing-dashboard` via an `IngressRoute` (see: [here](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L181)).
+As mentioned already, Syncthing's Dashboard should be exposed at `https://K3S_CLUSTER_DNS_NAME/syncthing-dashboard/`.
+To achive that, we add a path prefix to the `IngressRoute` (see: [here](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L194)).
+Furthermore, we define a Traefik Middleware to replace the path prefix (see: [here](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L200) and [here](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L204)).
 
 ## Architecture Overview
 

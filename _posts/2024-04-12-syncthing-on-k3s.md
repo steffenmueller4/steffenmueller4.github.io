@@ -150,7 +150,14 @@ The Service exposes the ports TCP/22000 as `syncthing-tcp`, UDP/22000 as `syncth
 
 Both services could be merged into one specification.
 I prefered to keep the dashboard and the protocol Services separated.
-Furthermore, you 
+Furthermore, you also could use services of type `NodePort` instead of `ClusterIP`, so you can directly expose ports in the range of 30000 to 32767.
+But as mentioned in [this section](#introduction-and-requirements) already, I want to have the Syncthing standard ports exposed.
+In the [next section](#traefik-ingress-controller-modification-for-standard-syncthing-ports), we will get to this setup which is specific to k3s and its by default installed Traefik Ingress Controller as well as ServiceLB.
+When you are happy with Syncthing running on a high port in the range of 30000 to 32767 or do not have a k3s, a Traefik Ingress Controller, and ServiceLB, you can stop with this article and have fun with your setup.
+
+## Traefik Ingress Controller Modification for Standard-Syncthing-Ports
+
+
 
 ## Architecture Overview
 

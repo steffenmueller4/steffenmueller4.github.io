@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2024-04-12 15:40:10 +0100
+date: 2024-04-27 13:40:10 +0100
 title: "Deploying Syncthing on a k3s Cluster with Rook"
 categories:
   - HowTo

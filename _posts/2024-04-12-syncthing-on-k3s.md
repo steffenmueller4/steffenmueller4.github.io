@@ -51,7 +51,7 @@ The entire architecture of the Syncthing Kubernetes setup on my k3s cluster is d
 
 The basis of the Syncthing Kubernetes setup is the three k3s nodes (Node1, Node2, and Node3) running Rook.
 Each node has a solid state disks which Rook uses to store data (Ceph Object Storage Deamons (OSD)).
-Rook is running the Rook Operator and further components—for more information, we refer to [Rook][Rook].
+Rook is running the Rook Operator and further components—for more information, we refer to [Rook' Storage Architecture](https://rook.io/docs/rook/latest-release/Getting-Started/storage-architecture/).
 
 Rook, as a distributed storage, allows us to provide a Kubernetes Persistent Volume Claim (PVC) and Persistent Volume (PV) (see: [this section](#persistent-volume-claim)).
 The PV is mounted in the Syncthing deployment to store Syncthing's configuration and the synchronized data (see: [this section](#stateful-set--syncthing-pod)).

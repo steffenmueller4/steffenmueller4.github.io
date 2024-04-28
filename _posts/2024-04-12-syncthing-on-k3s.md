@@ -9,38 +9,45 @@ categories:
 published: true
 hero_image: "/assets/hero-syncthing_on_k3s_with_rook.svg"
 ---
-Roughly four years ago, I have fallen in love with [Syncthing](https://syncthing.net).
+Roughly four years ago, I have fallen in love with [Syncthing][Syncthing].
 First, it was just a partial replacement for [Dropbox](https://www.dropbox.com).
 More and more, it grew to be the "data backbone" of my private life.
 Recently, I needed to change my Syncthing setup to a Kubernetes-based Syncthing deployment.
-So, this article shows how to deploy Syncthing on a Kubernetes cluster with a distributed storage—in my case, this is a three node [k3s](https://k3s.io) cluster running Ceph via [Rook](https://rook.io).
+So, this article shows how to deploy Syncthing on a Kubernetes cluster with a distributed storage—in my case, this is a three node [k3s][k3s] cluster running Ceph via [Rook][Rook].
 
 ## Introduction and Requirements
 
-Since 2020, I have run Syncthing on a Raspberry Pi 3 Model B storing the data on a 1 terrabyte spinning hard drive which was backed up via [Duplicity](https://duplicity.gitlab.io) (see also: [this article]({% post_url 2020-12-31-duplicity-on-raspberry-pi-from-source %})).
-Recently, I have replaced the Raspberry Pi 3 Model B and the spinning hard drive with a three node Raspberry Pi 4 Model B [k3s](https://k3s.io) cluster running [Rook](https://rook.io) as a distributed storage solution.
+Since 2020, I have run [Syncthing][Syncthing] on a Raspberry Pi 3 Model B storing the data on a 1 terrabyte spinning hard drive which was backed up via [Duplicity][duplicity] (see also: [this article]({% post_url 2020-12-31-duplicity-on-raspberry-pi-from-source %})).
+Recently, I have replaced the Raspberry Pi 3 Model B and the spinning hard drive with a three node Raspberry Pi 4 Model B [k3s][k3s] cluster running [Rook][Rook] as a distributed storage solution.
 On this new "lightweight" Kubernetes cluster with Rook, I also wanted to run Syncthing.
 
-However, there were not many tutorials about running Syncthing on Kubernetes.
-Essentially, there are a few Syncthing forum entries, a [blog post from Alexandru Scvorțov](https://scvalex.net/posts/53/), and a [blog post from Claus Beerta](https://claus.beerta.net/articles/syncthing-hugo-kubernetes-put-to-work/).
+However, there were only a few tutorials about running Syncthing on Kubernetes.
+Essentially, there are some Syncthing forum entries such as [this](https://forum.syncthing.net/t/syncthing-on-kubernetes-with-reverse-proxy/16689), a [blog post from Alexandru Scvorțov][alexandru-syncthing], and a [blog post from Claus Beerta][claus-syncthing].
 For my specific configuration with k3s and Rook, I have not found a proper tutorial so far.
-Furthermore, [Alexandru Scvorțov's setup](https://scvalex.net/posts/53/) uses specific high ports, TCP and UDP port 32222, for Syncthing that are available to [NodePort Kubernetes services](https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport)—NodePort services require ports to be in the range of 30000 to 32767.
-I would like to use the default ports with my setup.
-That is something I did not want. 
+[Alexandru Scvorțov's setup][alexandru-syncthing] adds a Nginx for making the files browsable, and [Claus Beerta's setup][claus-syncthing] synchronizes Content Management System (CMS) files between systems.
 
-All in all, the requirements for my solution are:
+Furthermore, [Alexandru Scvorțov's setup][alexandru-syncthing] uses specific high ports, TCP and UDP port 32222, for Syncthing that are available to [NodePort Kubernetes services](https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport)—NodePort services require ports to be in the range of 30000 to 32767.
+I would like to use the Syncthing default ports, TCP/22000, UDP/22000, and Syncthing's local discovery port UDP/21027 (see also: [Syncthing Firewall Setup](https://docs.syncthing.net/users/firewall.html)), with my setup.
+Also, Syncthing's Dashboard—by default TCP/8384—should be available via HTTPS exposed via k3s' default Ingress Controller, Traefik (see also: [k3s' Traefik Ingress Controller](https://docs.k3s.io/networking/networking-services#traefik-ingress-controller)).
+
+In sum, the requirements for my solution are:
  * Run Syncthing on a Kubernetes cluster, k3s, with the distributed storage Rook.
- * In contrast to [Alexandru Scvorțov's setup](https://scvalex.net/posts/53/), I want to use Syncthing's default ports TCP/22000, UDP/22000, and Syncthing's local discovery port UDP/21027.
- * As I am running [a k3s cluster which ships a Traefik Ingress Gateway per default](https://docs.k3s.io/networking/networking-services#traefik-ingress-controller), I want to make use of the Traefik Ingress Gateway for the Syncthing Dashboard and Syncthing ports
- * Additionally, Syncthing's Dashboard should run on HTTPS on a specific path, `https://K3S_CLUSTER_DNS_NAME/syncthing-dashboard/`, as there are further dashboards provided via HTTPS.
+ * In contrast to [Alexandru Scvorțov's setup][alexandru-syncthing], I want to use Syncthing's default ports TCP/22000, UDP/22000, and UDP/21027.
+ * As I am running a k3s cluster with a Traefik Ingress Controller, I want to make use of the Traefik Ingress Controller for Syncthing's Dashboard and ports.
+ * Specifically, Syncthing's Dashboard should run on HTTPS at a specific path, `https://K3S_CLUSTER_DNS_NAME/syncthing-dashboard/`, as there are further dashboards provided by other tools on the k3s cluster via HTTPS.
 
 The entire Kubernetes deployment descriptors of my setup are available as a [GitHub Gist](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d).
 When you download the file `k3s-syncthing.yaml`, you can deploy Syncthing on your own k3s cluster via `kubectl apply -f k3s-syncthing.yaml`.
-I rather recommend to modify the deployment descriptors based on your requirements.
-In order to understand the setup, we will go through the setup.
+But I rather recommend to modify the deployment descriptors based on your requirements.
+In order to understand the setup and being able to change it, we will go through the Kubernetes deployment descriptors in detail.
 
-In the next sections, we go through the Kubernetes deployment descriptors in detail.
-The overall architecture of the entire solution is summarized in [this section](#architecture-overview).
+In the [next section](#architecture-overview), we will shortly go through the overall architecture of the entire solution.
+
+## Architecture Overview
+
+The entire architecture of the Syncthing Kubernetes deployment on my k3s cluster is depicted in the figure below.
+
+![Syncthing Deployment Architecture](/assets/syncthing-deployment-architecture.svg)
 
 ## Namespace
 
@@ -183,8 +190,13 @@ As mentioned already, Syncthing's Dashboard should be exposed at `https://K3S_CL
 To achive that, we add a path prefix to the `IngressRoute` (see: [here](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L194)).
 Furthermore, we define a Traefik Middleware to replace the path prefix (see: [here](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L200) and [here](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L204)).
 
-## Architecture Overview
+[//]: # (#)
+[//]: # (References)
+[//]: # (#)
 
-The entire architecture of the Syncthing deployment on my k3s cluster is depicted in the figure below.
-
-![Syncthing Deployment Architecture](/assets/syncthing-deployment-architecture.svg)
+[duplicity]: https://duplicity.gitlab.io
+[Syncthing]: https://syncthing.net
+[k3s]: https://k3s.io
+[Rook]: https://rook.io
+[alexandru-syncthing]: https://scvalex.net/posts/53/
+[claus-syncthing]: https://claus.beerta.net/articles/syncthing-hugo-kubernetes-put-to-work/

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href="https://fonts.googleapis.com/css?family=Merriweather:300|Raleway:400,700" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<title>With Four Key Metrics towards Development Excellence</title>
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>With Four Key Metrics towards Development Excellence | Steffen’s Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="With Four Key Metrics towards Development Excellence" />
+<meta name="author" content="Steffen Mueller" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="In an article about why technology matters more and more for companies, Gary O’Brien and Mike Mason mention Continous Delivery (CD) and applied DevOps practices as one of five key factors for a company’s (future) success [8]. Also, Jon Moore and Marty Cagan write in [8] and [8] about the importance of changing the how you build and deploy. To sum it up, it is essential to establish a fast and incremental/iterative software delivery approach to be successful in developing software products. The famous Four Key Metrics can help you to direct your efforts into the right direction. This article is about my lessons learned to implement a proper CD, using up-to-date DevOps practices, and implementing the Four Key Metrics to get to development excellence." />
+<meta property="og:description" content="In an article about why technology matters more and more for companies, Gary O’Brien and Mike Mason mention Continous Delivery (CD) and applied DevOps practices as one of five key factors for a company’s (future) success [8]. Also, Jon Moore and Marty Cagan write in [8] and [8] about the importance of changing the how you build and deploy. To sum it up, it is essential to establish a fast and incremental/iterative software delivery approach to be successful in developing software products. The famous Four Key Metrics can help you to direct your efforts into the right direction. This article is about my lessons learned to implement a proper CD, using up-to-date DevOps practices, and implementing the Four Key Metrics to get to development excellence." />
+<link rel="canonical" href="https://steffenmueller4.github.io/2022/10/13/with-four-key-metrics-towards-development-excellence.html" />
+<meta property="og:url" content="https://steffenmueller4.github.io/2022/10/13/with-four-key-metrics-towards-development-excellence.html" />
+<meta property="og:site_name" content="Steffen’s Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-10-13T19:14:15+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="With Four Key Metrics towards Development Excellence" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Steffen Mueller"},"dateModified":"2022-10-13T19:14:15+00:00","datePublished":"2022-10-13T19:14:15+00:00","description":"In an article about why technology matters more and more for companies, Gary O’Brien and Mike Mason mention Continous Delivery (CD) and applied DevOps practices as one of five key factors for a company’s (future) success [8]. Also, Jon Moore and Marty Cagan write in [8] and [8] about the importance of changing the how you build and deploy. To sum it up, it is essential to establish a fast and incremental/iterative software delivery approach to be successful in developing software products. The famous Four Key Metrics can help you to direct your efforts into the right direction. This article is about my lessons learned to implement a proper CD, using up-to-date DevOps practices, and implementing the Four Key Metrics to get to development excellence.","headline":"With Four Key Metrics towards Development Excellence","mainEntityOfPage":{"@type":"WebPage","@id":"https://steffenmueller4.github.io/2022/10/13/with-four-key-metrics-towards-development-excellence.html"},"url":"https://steffenmueller4.github.io/2022/10/13/with-four-key-metrics-towards-development-excellence.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+</head><body>
+  <main class="container">
+    <section class="about">
+      <div class="about-header condensed">
+      <div class="about-title">
+      <a href="/">
+        
+        <img src="/assets/me.jpg" alt="Steffen Mueller" />
+        
+      </a>
+      <h2 id="title">
+        <a href="/">Steffen Mueller</a>
+      </h2>
+      </div><p class="tagline">Software Engineer</p></div>
+      
+      <ul class="social about-footer condensed"><a href="https://github.com/steffenmueller4" target="_blank">
+          <li>
+            <i class="icon-github-circled"></i>
+          </li>
+        </a><a href="https://www.linkedin.com/in/steffen-mueller-139b8b191" target="_blank">
+          <li>
+            <i class="icon-linkedin-squared"></i>
+          </li>
+        </a></ul><p class="about-footer condensed">&copy;
+        2024</p>
+    </section>
+    <section class="content">
+      <div class="post-container">
+  <a class="post-link" href="/2022/10/13/with-four-key-metrics-towards-development-excellence.html">
+    <img src="/assets/hero-four_key_metrics.svg" class="post-heroimage" alt="With Four Key Metrics towards Development Excellence"><h1 class="post-title">With Four Key Metrics towards Development Excellence</h1>
+  </a>
+  <div class="post-meta">
+    <div class="post-date"><i class="icon-calendar"></i>Oct 13, 2022</div><ul class="post-categories"><li>DevOps</li><li>KPI</li><li>Development</li><li>Culture</li></ul></div>
+  <div class="post">
+    <p>In an article about why technology matters more and more for companies, Gary O’Brien and Mike Mason mention Continous Delivery (CD) and applied DevOps practices as one of five key factors for a company’s (future) success <a class="citation" href="#OBrien2020">[1]</a>.
+Also, Jon Moore and Marty Cagan write in <a class="citation" href="#Moore2022">[2]</a> and <a class="citation" href="#Moore2022a">[3]</a> about the importance of changing the how you build and deploy.
+To sum it up, it is essential to establish a fast and incremental/iterative software delivery approach to be successful in developing software products.
+The famous <a href="https://www.thoughtworks.com/radar/techniques?blipid=1298">Four Key Metrics</a> can help you to direct your efforts into the right direction.
+This article is about my lessons learned to implement a proper CD, using up-to-date DevOps practices, and implementing the Four Key Metrics to get to development excellence.</p>
+
+<h2 id="introduction">Introduction</h2>
+
+<blockquote>
+  <p>Disclaimer: This article presents my personal opinions and perspectives on the project, so this is not my company’s opinion.</p>
+</blockquote>
+
+<p>When I started as an engineering manager at a former employer in 2018, the team which I joined have run deployments of its software product every two weeks after the sprint has ended.
+Major issue, however, was that the deployment took regularly two engineers a full day of work.
+The entire deployment process was error-prone, a huge overhead, and repetitive.
+Essentially, no engineer really wanted to do the job that was assigned by lot.
+Although I experienced lengthy or difficult deployment processes in my career before and also in later career steps, that process was really a nightmare and needed to be changed.</p>
+
+<p>Since then, I am a huge fan of the practices described in the book “Accelerate” by Nicole Forsgren <a class="citation" href="#Forsgren2018">[4]</a> and the entire <a href="https://www.devops-research.com">DevOps Research &amp; Assessment (DORA)</a> program and its outcome, the <a href="https://www.devops-research.com/research.html#reports">State of DevOps Reports</a>.
+Simply, a deployment has to be the most natural thing in the world for the developers.
+New features should be shipped via fully automated processes in nearly no time to production, so that there is no overhead and can be done with every feature that has been finished or bug that has been fixed.
+Nowadays, also the term “developer experience” is connected to that goal (see also: <a class="citation" href="#Tiedemann2021">[5]</a>).
+As developers and their “experience” are essential to build your product, they should be able to do their work as effectively as possible, otherwise you are loosing money (see: <a class="citation" href="#Moore2022a">[3]</a>, <a class="citation" href="#Tiedemann2021">[5]</a>, and <a class="citation" href="#Forsgren2018">[4]</a>).</p>
+
+<p>According to the latest State of DevOps Report 2021, “[…] excellence in software delivery and operational performance drives organizational performance in technology transformations.” <a class="citation" href="#Smith2021">[6]</a>
+While previous reports have only seen a relationship that companies with a good organizational performance have had a good performance in software delivery, it now seems to become clear that also companies concentrating on improving their CD and software delivery performance (SDP) can also improve their organizational performance (see, e.g.: <a class="citation" href="#Forsgren2019">[7]</a> vs. <a class="citation" href="#Smith2021">[6]</a>).
+The State of DevOps Report 2019 summarizes that their “[…] research continues to show that the industry-standard Four Key Metrics of software development and delivery drive organizational performance in technology transformations […] [It] revalidates previous findings that it is possible to optimize for stability without sacrificing speed.” <a class="citation" href="#Forsgren2019">[7]</a></p>
+
+<p>So, with the start of the product development at my current employer in August/October 2021 (see also: <a href="/2022/05/10/building-an-event-driven-microservice-application.html">this article</a>), we directly focused on a proper CD and, thus, SDP.
+Recently, we started to measure parts of the <a href="https://www.thoughtworks.com/radar/techniques?blipid=1298">Four Key Metrics</a>, the Change Lead Time and Deployment Frequency (see also: <a href="#four-key-metrics">this section</a>).</p>
+
+<p>The remainder of this article concentrates on showing you how we did this and what lessons I have learned.
+Additionally, I will try to give you insights on the positive effects of all those efforts.
+<a href="#technical-basis">In the next section</a>, we will look at the general technical setup that we have.</p>
+
+<h2 id="technical-basis">Technical Basis</h2>
+
+<p>The technical basis of our CD setup is that we mostly follow the <a href="https://cloud.google.com/architecture/devops/devops-tech-trunk-based-development">Trunk-based Development</a> approach with <a href="https://en.wikipedia.org/wiki/Git">Git</a>.
+Trunk-based Development bases on using feature branches as well as working in small batches that are merged as soon as and as often as possible.
+The State of DevOps Report 2021 sees Trunk-based Development as one of the core capabilities that drives a higher SDP and organizational performance <a class="citation" href="#Smith2021">[6]</a>.</p>
+
+<p>When an engineer in my team starts developing a new feature or a bugfix, she starts a new branch (feature branch) from the main branch.
+As soon as the development is done, she creates a Pull Requests (PR) to the main branch.
+Immediately, there are different tests running automatically against the branch/PR.
+There are unit tests, integration tests, and end-2-end (e2e) tests.
+Only if those tests are passed, the merge to main is possible.</p>
+
+<p>Besides the automated tests, the engineers review each other’s code in the PR.
+As it is often very helpful to really see and click the new features or bugfixes from a testing as well as User Experience (UX) and User Interface (UI) perspective, we implemented so-called PR Deployments (see, e.g.: <a class="citation" href="#Thiel2021">[8]</a>).
+In a PR deployment, the branch of the PR is deployed to our development environment and can be accessed temporarily via a URL such as <code class="language-plaintext highlighter-rouge">&lt;PR_NUMBER&gt;.pr.example.com</code>.
+The PR Deployments can also be used to run integration and e2e tests with the new code.</p>
+
+<p>When the branch/PR is merged to the main branch eventually, the new version of the application is built, deployed to the main development environment, tested with all the automated tests again, and, if they are fine, deployed to our test (a.k.a. stage) environment.
+In the test environment the new version of the application can be tested manually and, after approval, deployed to production.</p>
+
+<p>With the described setup that bases on <a href="https://github.com/">GitHub</a> and <a href="https://github.com/features/actions">GitHub Actions</a>, the pure deployment of a new feature or bugfix after a branch/PR is merged takes roughly five to ten minutes.
+Furthermore, we are able to keep track of every version of the application that has been deployed.
+We can also roll back to each version of the application nearly anytime.
+All in all, I think it is a good—not always perfect—setup.</p>
+
+<h2 id="four-key-metrics">Four Key Metrics</h2>
+
+<p>The CD setup described in the <a href="#technical-basis">previous section</a> was a good start to improve the SDP.
+After first successes in the first months, there was, however, no more improvement in getting faster or deploying more often.
+Maybe, the team did not see the importance to improve the SDP further.
+Sometimes it was also just not finishing a PR as soon as possible but prioritizing new features in new branches or not deploying new versions to production although being ready in the deployment pipeline.</p>
+
+<p>In the sense of “you cannot optimize what you do not measure”, we, then, decided to measure the SDP via the <a href="https://www.thoughtworks.com/radar/techniques?blipid=1298">Four Key Metrics</a> to have a visual feedback of the SDP, guide and challenge the team, and compare our SDP to other companies.
+The Four Key Metrics are <a class="citation" href="#Smith2021">[6]</a>:</p>
+<ul>
+  <li>Change Lead Time which is the time it takes to go from the first code committed to that code running in production.</li>
+  <li>Deployment Frequency which is about how often your team deploys code to production or releases it to end users.</li>
+  <li>Mean Time to Restore (MTTR) which is about how long it generally takes to restore the primary application or service when there is an incident or defect that impacts users (e.g., service impairment or unplanned outage).</li>
+  <li>Change Fail Percentage which is the percentage of deployments or releases that result in a degraded service (e.g., lead to a service impairment or outage) and subsequently require remediation (e.g., hotfix, rollback, patch, etc)</li>
+</ul>
+
+<p>These Four Key Metrics show a clear link to a high SDP <a class="citation" href="#Smith2021">[6]</a>.
+They provide a good leading indicator for how the SDP in the organization is doing.
+The DORA team also created a <a href="https://www.devops-research.com/quickcheck.html">Four Key Metrics Quickcheck</a> to self-assess the SDP and benchmark it to the industry average.</p>
+
+<p><img src="/assets/four-key-metrics-dashboard.jpg" alt="Four Key Metrics Dashboard in our Office" /></p>
+
+<p>Our first analyses via the Four Key Metrics Quickcheck showed that we were doing quite well compared to our industry.
+In order to constantly compare, challenge, and guide the team towards a good SDP, we decided to build a dashboard showing the metrics to everybody in the Office on a big screen (see: figure above).
+Since we have started to measure the Four Key Metrics—as mentioned before (see: <a href="#introduction">this section</a>), we concentrated on measuring the Change Lead Time and Deployment Frequency automatically—we have been able to improve the metrics.
+For example, the Change Lead Time of our most important project, <code class="language-plaintext highlighter-rouge">autoservice-frontend</code>, improved from above 1 week to 3.31 days over the last 30 days.
+The Deployment Frequency raised from “1 time a day - 1 time a week” to “multiple Deployments per day” over the last 30 days.
+For other projects, the metrics also look well—it is important to say that some projects shown on the dashboard are updated less frequently and may, thus, have a higher Change Lead Time and lower Deployment Frequency.</p>
+
+<p>For further improvement, we will probably do some other improvements.
+For instance, we figured out that our Definition of Done (see also: <a href="https://en.wikipedia.org/wiki/Scrum_(software_development)">Scrum</a>) should be changed so a feature or bugfix has to be deployed to production before the task in our Scrum Board can be marked as done.
+Additionally, there are a lot of other small improvements to be done.</p>
+
+<h2 id="lessons-learned">Lessons Learned</h2>
+
+<p>I—and, I think I am speaking in the name of the entire engineering team—can definitely recommend to measure the SDP based on the Four Key Metrics.
+A good CD strenthens the developer experience when they are able to push their changes to production easily.
+The Four Key Metrics help you to lead your efforts into the right direction of an effective and efficient software product development (see also: <a href="#four-key-metrics">this section</a>).
+As described in the <a href="#four-key-metrics">previous section</a>, we still need to find a good way to measure and use the quality metrics, MTTR and Change Fail Percentage, of the Four Key Metrics for our purposes.
+Furthermore, there is a new metric, Reliability, mentioned in the State of DevOps Report 2021 that we want measure (see: <a class="citation" href="#Smith2021">[6]</a>).</p>
+
+<p>For me personally, this is the third time I am leading a cross-functional engineering team following the practices of “Accelerate” <a class="citation" href="#Forsgren2018">[4]</a> towards a better CD and SDP.
+I can draw a positive conclusion for all three times: Everytime there was a positive result in the SDP.
+This time the team, additionally, started to measure the Four Key Metrics to steer the SDP improvements.
+It really helped us to visualize the SDP (see also: <a href="#four-key-metrics">this section</a>).</p>
+
+<p>While implementing the book’s measures, there were also team members challenging measures or even the entire effort.
+For example, I have always had a lot of discussions while introducing and insisting on Trunk-based Development.
+Oftentimes, the teams wanted to run other strategies such as <a href="https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow">Gitflow</a> or other non-trunk-based development styles.
+Especially, when there was a Quality Assurance (QA) team involved, the wish to practice Trunk-based Development was oftentimes very hard or even not achievable due to QA wanting to check every change before a deployment.</p>
+
+<p>Also, the current team struggled with Trunk-based Development in the beginning.
+When we have started, discussions about Gitflow have come up to avoid shipping broken features to production.
+It was hard to convince the team to rather improve the testing capabilities such as unit, integration, and e2e tests instead of adapting the way we work with Git.
+As mentioned, it is essential to work with Trunk-based Development (see also: <a href="#technical-basis">this section</a>).</p>
+
+<p>Furthermore, there is always the challenge to communicate the benefits of CD and all the efforts to improve the SDP to your non-tech stakeholders.
+Although, this challenge is always existing for techies, this specific challenge can be really hard.
+I can definitely recommend to really read the book Accelerate <a class="citation" href="#Forsgren2018">[4]</a> and the State of DevOps Reports as well as use the numbers and examples to convince your stakeholders.</p>
+
+<p>Last but not least, there is the challenge to implement the measurement of the Four Key Metrics.
+Even though there are different projects available such as <a href="https://github.com/GoogleCloudPlatform/fourkeys">this project</a>, <a href="https://github.com/thoughtworks/metrik">this project</a>, or <a href="https://www.usehaystack.io/haystack/accelerate-four-key-metrics">this SaaS product</a>, we built our own small application to fit perfectly into our environment.
+In that own application, we utilize our <a href="#technical-basis">technical basis</a> such as the GitHub API and Grafana for presenting the Four Key Metrics dashboard as well as the rest of our runtime environment.
+Please do a good research what approach fits your requirements.</p>
+
+<p>I hope that this article conviced you to invest into your CD, to use up-to-date DevOps practices, to improve your SDP, and to measure that with the Four Key Metrics.
+All in all, I think it is worth the effort—we are on the way towards development excellence.</p>
+
+<h2 id="references">References</h2>
+
+<ol class="bibliography"><li><span id="OBrien2020">G. O’Brien and M. Mason, <a href="https://www.thoughtworks.com/insights/blog/five-things-all-execs-should-know-about-technology-and-why-it-matters-more-ever">“Five things all execs should know about technology (and why it matters more than ever).”</a> Jun-2020.</span></li>
+<li><span id="Moore2022">J. Moore and M. Cagan, <a href="https://www.svpg.com/transformation-defined/">“Transformation Defined.”</a> May-2022.</span></li>
+<li><span id="Moore2022a">J. Moore and M. Cagan, <a href="https://www.svpg.com/changing-how-you-build/">“Changing How You Build.”</a> Sep-2022.</span></li>
+<li><span id="Forsgren2018">N. Forsgren, J. Humble, and G. Kim, <i>Accelerate</i>. IT Revolution Press, 2018.</span></li>
+<li><span id="Tiedemann2021">J. B. Tiedemann and T. Bach, <a href="https://www.thoughtworks.com/en-gb/insights/blog/why-you-should-invest-good-developer-experience-today">“Why you should invest in good Developer Experience today.”</a> May-2021.</span></li>
+<li><span id="Smith2021">D. Smith, D. Villalba, M. Irvine, D. Stanke, and N. Harvey, <a href="https://cloud.google.com/devops/state-of-devops">“Accelerate - State of DevOps 2021.”</a> 2021.</span></li>
+<li><span id="Forsgren2019">N. Forsgren, D. Smith, J. Humble, and J. Frazelle, <a href="https://cloud.google.com/devops/state-of-devops">“Accelerate - State of DevOps 2019.”</a> 2019.</span></li>
+<li><span id="Thiel2021">R.-M. Thiel, <a href="https://pumpingco.de/blog/review-pull-requests-by-deploying-them-into-kubernetes-with-github-actions/">“Deploy Pull Requests for Review into Kubernetes with GitHub Actions.”</a> Jun-2021.</span></li></ol>
+
+<h2 id="acknowledgements">Acknowledgements</h2>
+
+<p>Huge thanks go to the entire product and development team of <a href="https://www.huk-autoservice.de">HUK-Autoservice</a> as well as <a href="https://foobar.agency">foobar Agency GmbH</a> for the awesome work.
+Specifically, I would like to thank Dario Segger for the tremendous work on measuring the <a href="https://www.thoughtworks.com/radar/techniques?blipid=1298">Four Key Metrics</a> as well as building the depicted dashboard.</p>
+
+  </div></div>
+
+    </section>
+    <footer class="condensed">
+      <ul class="social about-footer condensed"><a href="https://github.com/steffenmueller4" target="_blank">
+          <li>
+            <i class="icon-github-circled"></i>
+          </li>
+        </a><a href="https://www.linkedin.com/in/steffen-mueller-139b8b191" target="_blank">
+          <li>
+            <i class="icon-linkedin-squared"></i>
+          </li>
+        </a></ul><p class="about-footer condensed">&copy;
+        2024</p>
+    </footer>
+  </main>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CD0VW38PQP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-CD0VW38PQP');
+  </script>
+  <script src="/assets/js/simple-jekyll-search.min.js"></script>
+  <script src="/assets/js/search.js"></script>
+  
+</body>
+
+</html>

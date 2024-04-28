@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href="https://fonts.googleapis.com/css?family=Merriweather:300|Raleway:400,700" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<title>Steffen's Tech Blog</title>
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Steffen’s Tech Blog | A tech blog about different personal experiences, tutorials and howto’s about things I am interested in, etc.</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Steffen’s Tech Blog" />
+<meta name="author" content="Steffen Mueller" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A tech blog about different personal experiences, tutorials and howto’s about things I am interested in, etc." />
+<meta property="og:description" content="A tech blog about different personal experiences, tutorials and howto’s about things I am interested in, etc." />
+<link rel="canonical" href="https://steffenmueller4.github.io/" />
+<meta property="og:url" content="https://steffenmueller4.github.io/" />
+<meta property="og:site_name" content="Steffen’s Tech Blog" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Steffen’s Tech Blog" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","author":{"@type":"Person","name":"Steffen Mueller"},"description":"A tech blog about different personal experiences, tutorials and howto’s about things I am interested in, etc.","headline":"Steffen’s Tech Blog","name":"Steffen’s Tech Blog","url":"https://steffenmueller4.github.io/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+</head><body>
+  <main class="container">
+    <section class="about">
+      <div class="about-header ">
+      <div class="about-title">
+      <a href="/">
+        
+        <img src="/assets/me.jpg" alt="Steffen Mueller" />
+        
+      </a>
+      <h2 id="title">
+        <a href="/">Steffen Mueller</a>
+      </h2>
+      </div><p class="tagline">Software Engineer</p></div>
+      
+      <ul class="social about-footer "><a href="https://github.com/steffenmueller4" target="_blank">
+          <li>
+            <i class="icon-github-circled"></i>
+          </li>
+        </a><a href="https://www.linkedin.com/in/steffen-mueller-139b8b191" target="_blank">
+          <li>
+            <i class="icon-linkedin-squared"></i>
+          </li>
+        </a></ul><p class="about-footer ">&copy;
+        2024</p>
+    </section>
+    <section class="content">
+      
+<ul class="posts">
+    <li class="posts-labelgroup" id="posts-labelgroup">
+      <h1 id="posts-label">posts</h1>
+      
+      <div class="search-container">
+        <div class="search-section">
+          <i class="icon-search"></i>
+          <input type="text" name="search" id="searchbar" autocomplete="off" aria-label="search in posts">
+        </div>
+        <div class="search-results" id="search-results" data-placeholder="No Results" style="display: none;"></div>
+      </div>
+      
+    </li><li><a class="post-link" href="/2024/04/28/syncthing-on-k3s.html">
+          <h2 class="post-title">Deploying Syncthing on a k3s Cluster with Rook</h2>
+        </a>
+        <div class="post-meta">
+          <div class="post-date">
+            <i class="icon-calendar"></i>
+            Apr 28, 2024
+          </div><ul class="post-categories"><li>HowTo</li><li>Raspberry Pi</li><li>Syncthing</li></ul></div>
+        <div class="post"><p>Roughly four years ago, I have fallen in love with <a href="https://syncthing.net">Syncthing</a>.
+First, it was just a partial replacement for <a href="https://www.dropbox.com">Dropbox</a>.
+More and more, it grew to be the “data backbone” of my private life.
+Recently, I needed to change my Syncthing setup to a Kubernetes-based Syncthing deployment.
+So, this article shows how to deploy Syncthing on a Kubernetes cluster with a distributed storage—in my case, this is a three node <a href="https://k3s.io">k3s</a> cluster running Ceph via <a href="https://rook.io">Rook</a>.</p>
+
+</div>
+      </li><li><a class="post-link" href="/2023/08/04/tales-from-a-startup-and-its-evolving-architecture.html">
+          <h2 class="post-title">Tales from a Start-Up Company and its Evolving Architecture</h2>
+        </a>
+        <div class="post-meta">
+          <div class="post-date">
+            <i class="icon-calendar"></i>
+            Aug 4, 2023
+          </div><ul class="post-categories"><li>Strategy</li><li>Architecture</li><li>Event-Driven Architecture</li><li>Cloud Platform</li></ul></div>
+        <div class="post"><p>Recently, I have been giving <a href="https://www.linkedin.com/posts/steffen-mueller-139b8b191_tuberlin-activity-7080612706663182336-aCQo">a talk to students at TU Berlin about Cloud-native engineering and software architecture</a> as a part of <a href="https://www.tu.berlin/ise/ueber-uns/prof-dr-ing-stefan-tai">Prof. Tai</a>’s lecture “<a href="https://www.tu.berlin/ise/studium-lehre">Cloud Native Engineering and Architecture</a>”.
+I explained to the students the approach to software architecture and engineering that my team and me are following.
+From a 10,000 feet perspective, we are developing an <a href="/2022/05/10/building-an-event-driven-microservice-application.html">Event-Driven Microservices Architecture</a> to build a customer-first product based on a <a href="https://tag-app-delivery.cncf.io/whitepapers/platforms/">Cloud-native platform</a>.
+But there is much more in the background such as the concepts of Minimum Viable Product, Minimum Viable Architecture, etc. that is essential to building such a customer-first product the way we do.
+This article summarizes the essential points of the talk, connects topics to some of my previous articles, and provides further insights into some core concepts we use.</p>
+</div>
+      </li><li><a class="post-link" href="/2022/10/13/with-four-key-metrics-towards-development-excellence.html">
+          <h2 class="post-title">With Four Key Metrics towards Development Excellence</h2>
+        </a>
+        <div class="post-meta">
+          <div class="post-date">
+            <i class="icon-calendar"></i>
+            Oct 13, 2022
+          </div><ul class="post-categories"><li>DevOps</li><li>KPI</li><li>Development</li><li>Culture</li></ul></div>
+        <div class="post"><p>In an article about why technology matters more and more for companies, Gary O’Brien and Mike Mason mention Continous Delivery (CD) and applied DevOps practices as one of five key factors for a company’s (future) success <a class="citation" href="#OBrien2020">[8]</a>.
+Also, Jon Moore and Marty Cagan write in <a class="citation" href="#Moore2022">[8]</a> and <a class="citation" href="#Moore2022a">[8]</a> about the importance of changing the how you build and deploy.
+To sum it up, it is essential to establish a fast and incremental/iterative software delivery approach to be successful in developing software products.
+The famous <a href="https://www.thoughtworks.com/radar/techniques?blipid=1298">Four Key Metrics</a> can help you to direct your efforts into the right direction.
+This article is about my lessons learned to implement a proper CD, using up-to-date DevOps practices, and implementing the Four Key Metrics to get to development excellence.</p>
+</div>
+      </li><li><a class="post-link" href="/2022/05/10/building-an-event-driven-microservice-application.html">
+          <h2 class="post-title">Learnings from Building an Event-Driven Microservice Application</h2>
+        </a>
+        <div class="post-meta">
+          <div class="post-date">
+            <i class="icon-calendar"></i>
+            May 10, 2022
+          </div><ul class="post-categories"><li>Architecture</li><li>Microservices</li><li>Event-Driven Architecture</li><li>Domain-Driven Design</li></ul></div>
+        <div class="post"><p>In August/October 2021, we have begun to build a completely new web application which aimed to be a substitution for a former application.
+When we have started to plan the new application, it was already clear that we wanted to go towards an event-driven application.
+This article summarizes my impressions and learnings from building this event-driven microservices application in recent months.</p>
+</div>
+      </li><li><a class="post-link" href="/2021/07/30/overview-of-architecture-review-processes.html">
+          <h2 class="post-title">Overview of different Software Architecture Review Processes</h2>
+        </a>
+        <div class="post-meta">
+          <div class="post-date">
+            <i class="icon-calendar"></i>
+            Jul 30, 2021
+          </div><ul class="post-categories"><li>Architecture</li><li>Organization</li><li>Architecture Review Process</li></ul></div>
+        <div class="post"><p>Recently, I have been asked about what software architecture review processes exist to steer architecture work.
+An architecture review aims at different goals such as finding software design issues early in the development before they get costly.
+Architecture review processes, for example, formalize different steps.
+They, furthermore, define input and output to/from architecture reviews.
+This article describes the different architecture review process approaches.</p>
+</div>
+      </li><li><a class="post-link" href="/2020/12/31/duplicity-on-raspberry-pi-from-source.html">
+          <h2 class="post-title">Backups to AWS S3 with Duplicity built from source on a Raspberry Pi</h2>
+        </a>
+        <div class="post-meta">
+          <div class="post-date">
+            <i class="icon-calendar"></i>
+            Dec 31, 2020
+          </div><ul class="post-categories"><li>Backup</li><li>HowTo</li><li>Raspberry Pi</li></ul></div>
+        <div class="post"><p>Recently, my Raspberry Pi and the attached hard drive crashed. Both, I am using as a network attached storage for storing a lot of my data. Fortunately, I was able to restore most of the data. As a lesson-learned from that incident, I started to look out for a backup solution for my freshly set up Raspberry Pi (Raspbian Buster). This post is my howto for setting up backups with <a href="http://duplicity.nongnu.org/">Duplicity</a> using <a href="https://aws.amazon.com/s3/">AWS Simple Storage Service (S3)</a> as the remote backup destination on Raspbian Buster built from source with Python 3 and Boto3.</p>
+
+</div>
+      </li><li><a class="post-link" href="/2020/12/30/welcome.html">
+          <h2 class="post-title">Welcome - Under construction</h2>
+        </a>
+        <div class="post-meta">
+          <div class="post-date">
+            <i class="icon-calendar"></i>
+            Dec 30, 2020
+          </div><ul class="post-categories"><li>Thoughts</li></ul></div>
+        <div class="post"><p>Welcome to my site. I am Steffen. Here, I will try to blog a little bit about different personal experiences, will share tutorials and howto’s about things I am interested in, etc. Let’s see…</p>
+</div>
+      </li></ul>
+
+  <!-- <p class="feed-subscribe"><svg class="svg-icon orange">
+		<use xlink:href="/assets/minima-social-icons.svg#rss"></use>
+	</svg><a href="/feed.xml">Subscribe</a></p> -->
+    </section>
+    <footer class="">
+      <ul class="social about-footer "><a href="https://github.com/steffenmueller4" target="_blank">
+          <li>
+            <i class="icon-github-circled"></i>
+          </li>
+        </a><a href="https://www.linkedin.com/in/steffen-mueller-139b8b191" target="_blank">
+          <li>
+            <i class="icon-linkedin-squared"></i>
+          </li>
+        </a></ul><p class="about-footer ">&copy;
+        2024</p>
+    </footer>
+  </main>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CD0VW38PQP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-CD0VW38PQP');
+  </script>
+  <script src="/assets/js/simple-jekyll-search.min.js"></script>
+  <script src="/assets/js/search.js"></script>
+  
+</body>
+
+</html>

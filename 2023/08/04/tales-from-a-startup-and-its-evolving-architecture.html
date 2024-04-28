@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href="https://fonts.googleapis.com/css?family=Merriweather:300|Raleway:400,700" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<title>Tales from a Start-Up Company and its Evolving Architecture</title>
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Tales from a Start-Up Company and its Evolving Architecture | Steffen’s Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Tales from a Start-Up Company and its Evolving Architecture" />
+<meta name="author" content="Steffen Mueller" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Recently, I have been giving a talk to students at TU Berlin about Cloud-native engineering and software architecture as a part of Prof. Tai’s lecture “Cloud Native Engineering and Architecture”. I explained to the students the approach to software architecture and engineering that my team and me are following. From a 10,000 feet perspective, we are developing an Event-Driven Microservices Architecture to build a customer-first product based on a Cloud-native platform. But there is much more in the background such as the concepts of Minimum Viable Product, Minimum Viable Architecture, etc. that is essential to building such a customer-first product the way we do. This article summarizes the essential points of the talk, connects topics to some of my previous articles, and provides further insights into some core concepts we use." />
+<meta property="og:description" content="Recently, I have been giving a talk to students at TU Berlin about Cloud-native engineering and software architecture as a part of Prof. Tai’s lecture “Cloud Native Engineering and Architecture”. I explained to the students the approach to software architecture and engineering that my team and me are following. From a 10,000 feet perspective, we are developing an Event-Driven Microservices Architecture to build a customer-first product based on a Cloud-native platform. But there is much more in the background such as the concepts of Minimum Viable Product, Minimum Viable Architecture, etc. that is essential to building such a customer-first product the way we do. This article summarizes the essential points of the talk, connects topics to some of my previous articles, and provides further insights into some core concepts we use." />
+<link rel="canonical" href="https://steffenmueller4.github.io/2023/08/04/tales-from-a-startup-and-its-evolving-architecture.html" />
+<meta property="og:url" content="https://steffenmueller4.github.io/2023/08/04/tales-from-a-startup-and-its-evolving-architecture.html" />
+<meta property="og:site_name" content="Steffen’s Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-08-04T15:40:10+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Tales from a Start-Up Company and its Evolving Architecture" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Steffen Mueller"},"dateModified":"2023-08-04T15:40:10+00:00","datePublished":"2023-08-04T15:40:10+00:00","description":"Recently, I have been giving a talk to students at TU Berlin about Cloud-native engineering and software architecture as a part of Prof. Tai’s lecture “Cloud Native Engineering and Architecture”. I explained to the students the approach to software architecture and engineering that my team and me are following. From a 10,000 feet perspective, we are developing an Event-Driven Microservices Architecture to build a customer-first product based on a Cloud-native platform. But there is much more in the background such as the concepts of Minimum Viable Product, Minimum Viable Architecture, etc. that is essential to building such a customer-first product the way we do. This article summarizes the essential points of the talk, connects topics to some of my previous articles, and provides further insights into some core concepts we use.","headline":"Tales from a Start-Up Company and its Evolving Architecture","mainEntityOfPage":{"@type":"WebPage","@id":"https://steffenmueller4.github.io/2023/08/04/tales-from-a-startup-and-its-evolving-architecture.html"},"url":"https://steffenmueller4.github.io/2023/08/04/tales-from-a-startup-and-its-evolving-architecture.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+</head><body>
+  <main class="container">
+    <section class="about">
+      <div class="about-header condensed">
+      <div class="about-title">
+      <a href="/">
+        
+        <img src="/assets/me.jpg" alt="Steffen Mueller" />
+        
+      </a>
+      <h2 id="title">
+        <a href="/">Steffen Mueller</a>
+      </h2>
+      </div><p class="tagline">Software Engineer</p></div>
+      
+      <ul class="social about-footer condensed"><a href="https://github.com/steffenmueller4" target="_blank">
+          <li>
+            <i class="icon-github-circled"></i>
+          </li>
+        </a><a href="https://www.linkedin.com/in/steffen-mueller-139b8b191" target="_blank">
+          <li>
+            <i class="icon-linkedin-squared"></i>
+          </li>
+        </a></ul><p class="about-footer condensed">&copy;
+        2024</p>
+    </section>
+    <section class="content">
+      <div class="post-container">
+  <a class="post-link" href="/2023/08/04/tales-from-a-startup-and-its-evolving-architecture.html">
+    <img src="/assets/hero-tales_from_startup_and_its_evolving_architecture.svg" class="post-heroimage" alt="Tales from a Start-Up Company and its Evolving Architecture"><h1 class="post-title">Tales from a Start-Up Company and its Evolving Architecture</h1>
+  </a>
+  <div class="post-meta">
+    <div class="post-date"><i class="icon-calendar"></i>Aug 4, 2023</div><ul class="post-categories"><li>Strategy</li><li>Architecture</li><li>Event-Driven Architecture</li><li>Cloud Platform</li></ul></div>
+  <div class="post">
+    <p>Recently, I have been giving <a href="https://www.linkedin.com/posts/steffen-mueller-139b8b191_tuberlin-activity-7080612706663182336-aCQo">a talk to students at TU Berlin about Cloud-native engineering and software architecture</a> as a part of <a href="https://www.tu.berlin/ise/ueber-uns/prof-dr-ing-stefan-tai">Prof. Tai</a>’s lecture “<a href="https://www.tu.berlin/ise/studium-lehre">Cloud Native Engineering and Architecture</a>”.
+I explained to the students the approach to software architecture and engineering that my team and me are following.
+From a 10,000 feet perspective, we are developing an <a href="/2022/05/10/building-an-event-driven-microservice-application.html">Event-Driven Microservices Architecture</a> to build a customer-first product based on a <a href="https://tag-app-delivery.cncf.io/whitepapers/platforms/">Cloud-native platform</a>.
+But there is much more in the background such as the concepts of Minimum Viable Product, Minimum Viable Architecture, etc. that is essential to building such a customer-first product the way we do.
+This article summarizes the essential points of the talk, connects topics to some of my previous articles, and provides further insights into some core concepts we use.</p>
+
+<h2 id="introduction">Introduction</h2>
+
+<blockquote>
+  <p>Disclaimer: This article presents my personal opinions and perspectives on a Cloud-native development strategy, software architecture, and engineering.
+So, this is not necessary my company’s opinion.</p>
+</blockquote>
+
+<p>In a couple of articles (see, e.g.: <a href="/2022/05/10/building-an-event-driven-microservice-application.html">this article</a>), I have already explained that I am currently working at a corporate start-up.
+The company (<a href="https://www.huk-autoservice.de">HUK-Autoserivce</a>) started in 2021 to build an application for booking car services online based on a modern product and development approach such as agile development processes and a Cloud-native platform.
+In development, we, as nearly every start-up, fight with diverse challenges such as continously changing requirements, a small team implementing these changes and all the new features, an always changing software architecture, a limited budget, etc.</p>
+
+<p>Thereby, my company and its challenges are by far not special.
+Similar to my company, all start-ups typically have their challenges during the evolution and during different phases of their journey.
+When a start-up is, for example, in the initial phase of proving its business model, the start-up should focus on using rock-solid technology to build a prototype as fast and as cheaply as possible to prove the business model.
+When the start-up and the business model evolves, the journey continues and the start-up has to scale the business model, maybe having to handle millions of requests per second or/and maybe in the number of teams building the product.
+Always, there is the challenge to stay technically ahead of the business and to stay flexible with the organization.
+Randy Shoup structures this journey of start-ups and their challenges during their evolution nicely based on the business growth s-curve (see also: <a class="citation" href="#Boretos2012">[1]</a>) <a href="https://www.youtube.com/watch?v=9Q7GANXn02k">in a very good talk</a> <a class="citation" href="#Shoup2022">[2]</a>.
+In terms of software architecture and development, it boils down to the meaningful start of his talk: “There is no perfect architecture for all scales, for all phases of evolution, [and] for all problem domains.” <a class="citation" href="#Shoup2022">[2]</a></p>
+
+<p>In 2021, my employer has rather started—and is now for sure—in the scaling phase, because the business model has been proven basically earlier.
+When I have joined and the development of the product has been restarted (see also: <a href="/2022/05/10/building-an-event-driven-microservice-application.html">this article</a>, we have just slightly adapted the business model to scale.
+But how does such a start-up in the scaling phase run its business and trying to stay focussed, flexible, fast, and cost-effective?</p>
+
+<p>Back then, we have started to build an Event-Driven Architecture (EDA) based on microservices and are still continuing this approach (see also: <a href="#how-does-an-event-driven-architecture-fit-into-that">this section</a>).
+Furthermore, we follow a platform strategy (see also: <a href="#a-cloud-native-platform-as-a-basis-for-the-development">this section</a>).
+But more important: we clearly follow the idea of Minimum Viable Architecture (MVA) explained in Randy Shoup’s talk <a class="citation" href="#Shoup2022">[2]</a>.
+So, let us first dive deeper into the concept of MVA and our approach to it in the <a href="#minimum-viable-architecture-and-our-approach-to-it">next section</a>.</p>
+
+<h2 id="minimum-viable-architecture-and-our-approach-to-it">Minimum Viable Architecture and our Approach to it</h2>
+
+<p>Software architects and engineers often have to decide how much architectural design they do in the beginning of a project or product or even when developing a new feature.
+The concept of MVA focusses only on the essential architecture needed to deliver the Minimum Viable Product (MVP).
+An MVP is a version of a product with just enough features to be delivered to early customers for providing feedback as early as possible for further product development <a class="citation" href="#WikipediaMinimumViableProduct2023">[3]</a>.
+When following the concept of MVA, you should delay design decisions until they are absolutely necessary to avoid lengthy and unnecessary work.
+On top, it is better to architect for change in general <a class="citation" href="#Pureur2021">[4]</a>.
+The most memorable explanation of MVA is that you concentrate on delivering “just enough architecture” for releasing an MVP <a class="citation" href="#Caroli2015">[5]</a>, <a class="citation" href="#Karanth2016">[6]</a>, <a class="citation" href="#Pureur2021">[4]</a>, <a class="citation" href="#Erder2021">[7]</a>, <a class="citation" href="#Bittner2022">[8]</a>, or <a class="citation" href="#Shoup2022">[2]</a>.</p>
+
+<p>As already explained via the start of Randy Shoup’s talk <a class="citation" href="#Shoup2022">[2]</a> in the <a href="#introduction">previous section</a>, there is no perfect architecture that fits all scales, alls phases, and all problem domains.
+Thus, the MVA approach is, in my believe besides the MVP concept, the most essential lesson to learn for software engineers—especially when you are in a start-up: Just do enough architecture and build for change; do not overengineer your solution.
+The MVA approach, then, can help to stay focussed, flexible, and, thus, also fast.</p>
+
+<h2 id="how-does-an-event-driven-architecture-fit-into-that">How does an Event-Driven Architecture fit into that?</h2>
+
+<p>As already mentioned in <a href="#introduction">this section</a> and <a href="/2022/05/10/building-an-event-driven-microservice-application.html">this article</a> before, we have decided to go with an EDA from a 10,000 feet perspective when starting our journey.
+We use Domain-Driven Design (DDD) <a class="citation" href="#Evans2003">[9]</a> to identify and structure our business domain and the business/domain events for the EDA.
+Simply, consider the business/domain events as records of business-significant occurrences in a bounded context—when you are not familiar with the term <em>bounded context</em>, simply use the term microservice instead.
+An EDA, in general, has the following benefits <a class="citation" href="#Hohpe2003">[10]</a> and <a class="citation" href="#Jansen2020">[11]</a> (see also: <a href="/2022/05/10/building-an-event-driven-microservice-application.html">this article</a>):</p>
+
+<ol>
+  <li>Loose Coupling: Event producers and consumers in an EDA are coupled loosely and communicate asynchronously via an event broker (data format coupling only).</li>
+  <li>Partial Resiliency: The event broker separates event producers and consumers from each other and, thus, introduces partial resiliency to system parts.</li>
+  <li>Partial Scalability: Due to loosely coupled and separated producer and consumer components, we can scale our producers and consumers independently.</li>
+  <li>Single Source of Truth: Our event broker is the single source of truth which keeps domain/business events and allows us to rewrite, combine, extract, rework, … the events to feed other systems and purposes.</li>
+</ol>
+
+<p>Now, you could argue that an EDA does not fit into the MVA approach, because it is rather a complex architecture approach.
+However, we use the EDA to structure our overall system rather from a <em>10,000 feet perspective</em>.
+Think about our EDA rather from the solution or enterprise architecture perspective (see also: <a href="https://github.com/justinamiller/SoftwareArchitect#levels-of-architecture">Levels of Architecture</a>).
+On the application architecture level, we use “simpler”/other architecture approaches.
+We run independently deployable microservices/modular monoliths per team—this topic is probably a very interesting discussion for future articles ;-).
+In essence, you can think of the EDA as our integration mechanism with the overall system.
+When needed, we extend our microservices with new such domain/business events.
+Furthermore, we are able to completely restructure or rebuild the different microservices (internally) as long as we do not change the business/domain events.</p>
+
+<p>So far, this way to work with the MVA approach and the EDA went well and kept us focussed, flexible, and fast—of course there are also challenges to maintain the EDA architecture.
+For example, defining and raising the events and, then, integrating with other systems is also cumbersome sometimes.
+But no software architecture is free of any challenges.
+For more details about the EDA approach, we also refer to <a href="/2022/05/10/building-an-event-driven-microservice-application.html">this article</a>.</p>
+
+<h2 id="a-cloud-native-platform-as-a-basis-for-the-development">A Cloud-native Platform as a Basis for the Development</h2>
+
+<p>According to the Team Topologies approach <a class="citation" href="#Skelton2019">[12]</a>, <a class="citation" href="#Skelton2019a">[13]</a>, and <a class="citation" href="#Skelton2019b">[14]</a>, we try to structure our development teams into stream-aligned product and platform teams.
+The latter develops and maintains our <a href="https://tag-app-delivery.cncf.io/whitepapers/platforms/">Cloud-native platform</a> to build business applications upon it.
+The platform reduces the complexity for the stream-aligned product teams, so the stream-aligned product teams can focus on dealing with the business complexity (… and, in our case, with the <a href="#how-does-an-event-driven-architecture-fit-into-that">EDA</a>) as well as the product development processes (see also: <a class="citation" href="#Schultheiss2023">[15]</a>).
+The stream-aligned product teams, as part of the business value stream, have end-to-end responsibility for building, deploying, running, supporting, and eventually sunsetting their part of the business or that slice of service.
+They are cross-functional and consist of front- and back-end developers as well as product owners (PO) and UX/UI designers.</p>
+
+<p>The platform is built as a product and is Cloud-native.
+It is providing foundational capabilities, basic frameworks, and “experiences”/best practices to facilitate and accelerate the product development of the stream-aligned teams <a class="citation" href="#CNCF2023">[16]</a>.
+All in all, you can consider the platform as an intermediate layer between our Cloud provider(s) and the internal customers such as the stream-aligned product teams.
+The figure below depicts our (current) platform.
+The basic structure of the platform in the figure is based on the Cloud Native Computing Foundation’s (CNCF) definition of a platform as well as platform engineering in <a class="citation" href="#CNCF2023">[16]</a>.</p>
+
+<p><img src="/assets/our-development-platform.svg" alt="Our Cloud-native Development Platform" /></p>
+
+<p>Our basic Cloud providers are <a href="https://aws.amazon.com">Amazon Web Services (AWS)</a>, <a href="https://www.github.com">GitHub</a>, <a href="https://www.atlassian.com">Atlassian</a>, and some further providers that are not shown in the figure.
+This foundational basis is visible at the bottom of the figure.</p>
+
+<p>Using the foundational basis, our platform provides its platform capabilities to be able to provision resources, to provide authentication and authorization services, to deliver Continous Integration and Delivery (CI/CD), etc.
+The platform capabilities to provision resources are provided via <a href="https://kubernetes.io/">Kubernetes</a> as our container runtime (<a href="https://aws.amazon.com/eks/">Amazon Elastic Kubernetes Service</a>; we only run containerized applications so far) as well as <a href="https://helm.sh">Helm</a>.
+We are able to provision diverse databases (data capabilities) via <a href="https://aws.amazon.com/rds/">Amazon Relational Database Service</a>.
+For the EDA, the platform provides our event broker, <a href="https://kafka.apache.org">Apache Kafka</a>, via <a href="https://aws.amazon.com/msk/">Amazon Managed Streaming for Apache Kafka</a>.
+Last but not least, <a href="https://www.keycloak.org/">Keycloak</a> is used to serve authentication and authorization services.</p>
+
+<p>For the platform interfaces, we provide documentation via the bug tracker, <a href="https://www.atlassian.com/software/jira">Atlassian Jira</a>, and a wiki for documentation (<a href="https://www.atlassian.com/software/confluence">Atlassian Confluence</a>).
+Technical documentation is also done in readme files in GitHub repositories.</p>
+
+<p>Additionally, we have basic environment and project templates in GitHub repositories as well as <a href="https://www.terraform.io">Terraform</a> and Helm templates, etc.
+Our CI/CD bases on GitHub and <a href="https://github.com/features/actions">GitHub Actions</a>.
+For more information on our CI/CD, we refer to <a href="/2022/10/13/with-four-key-metrics-towards-development-excellence.html">this article</a>.
+Logging, monitoring, and tracing are delivered via Kibana, Grafana, etc.</p>
+
+<p>For us, this thin platform works well with the stream-aligned product teams to build our applications.
+As a product, the platform is under continous development and improvement of the platform team.
+With the best practices “baked into” our platform as well as setup of environments and projects, we are able to come up with new containers/microservices in a couple of minutes and develop our applications fast.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Sometimes we, as engineers, software architects, etc., tend to extend needlessly—or rather overengineer—products and services.
+The MVP and MVA approaches can help us to concentrate on delivering the necessary things (see also: <a href="#minimum-viable-architecture-and-our-approach-to-it">this section</a>).
+Especially in the context of a start-up, those concepts are essential, as there are always evolutionary steps and changes you cannot forsee and should not pre-consider because you would waste time and money.
+For my team and me at a corporate start-up, the MVP and MVA concepts definitely help to stay focussed, flexible, and fast—simply, it prevents us from doing unnecessary work.</p>
+
+<p>To work focussed, flexible, and fast, we rely on an EDA (see also: <a href="#how-does-an-event-driven-architecture-fit-into-that">this section</a>).
+The MVA is our approach to concentrate on necessary things when running, developing, and driving the EDA.
+The EDA works as our integration mechanism from a 10,000 feet perspective.
+When we need new domain/business events, we integrate them into the EDA and connect the other microservices and systems with it—let it be SAP, the new CRM, another microservice, or another system of a provider.
+On lower levels, our EDA works with microservices that are independently deployable units.
+Overall, the MVP and MVA concepts are key to our way to work with the EDA as well as our microservices implementing the EDA.</p>
+
+<p>The EDA is running on a Cloud-native platform developed and maintained by the platform team (see also: <a href="#a-cloud-native-platform-as-a-basis-for-the-development">this section</a>).
+The Cloud-native platform reduces the complexity to the stream-aligned product teams and helps them to concentrate on implementing business applications upon it.
+The foundational capabilities, basic frameworks, and “experiences”/best practices of the platform work well in our business context.
+At the moment, two DevOps/Site Reliability Engineers and an expert for authentication and authorization services are maintaining the platform and serving eight+ developers (front-end and back-end), two PO, and two UX/UI designers—overall, I would say a small but agile, powerful, and cost-effective team in total.</p>
+
+<p>Essentially, this is our way to build and run our application/overall system for delivering car services to you: MVP, MVA, EDA, and a powerful platform.</p>
+
+<h2 id="references">References</h2>
+
+<ol class="bibliography"><li><span id="Boretos2012">G. P. Boretos, <a href="https://www.forecastingnet.com/Alert_0212_34-39.pdf">“S-curves and their Applications in Marketing, Business, and the Economy,”</a> <i>Marketing Research Association Alert</i>, Dec. 2012.</span></li>
+<li><span id="Shoup2022">R. Shoup, <a href="https://www.youtube.com/watch?v=9Q7GANXn02k">“Minimum Viable Architecture.”</a> Dec-2022.</span></li>
+<li><span id="WikipediaMinimumViableProduct2023">Wikipedia contributors, <a href="https://en.wikipedia.org/w/index.php?title=Minimum_viable_product&amp;oldid=1165514083">“Minimum viable product.”</a> Jul-2023.</span></li>
+<li><span id="Pureur2021">P. Pureur, <a href="https://continuousarchitecture.com/2021/12/21/minimum-viable-architecture-how-to-continuously-evolve-an-architectural-design-over-time/">“Minimum Viable Architecture: How To Continuously Evolve an Architectural Design over Time.”</a> 21-Dec-2021.</span></li>
+<li><span id="Caroli2015">P. Caroli, <a href="https://caroli.org/en/minimum-viable-architecture-mva/">“Minimum Viable Architecture (MVA).”</a> 14-Dec-2015.</span></li>
+<li><span id="Karanth2016">D. Karanth, <a href="https://dzone.com/articles/minimum-viable-architecture">“How to Create a Minimum Viable Architecture.”</a> 23-Feb-2016.</span></li>
+<li><span id="Erder2021">M. Erder, E. Woods, and P. Pureur, <i>Continuous Architecture in Practice - Software Architecture in the Age of Agility and Devops</i>. Addison-Wesley Professional, 2021.</span></li>
+<li><span id="Bittner2022">K. Bittner and P. Pureur, <a href="https://www.infoq.com/articles/minimum-viable-architecture/">“A Minimum Viable Product Needs a Minimum Viable Architecture.”</a> 08-Jun-2022.</span></li>
+<li><span id="Evans2003">E. J. Evans, <i>Domain-Driven Design</i>. Addison Wesley, 2003.</span></li>
+<li><span id="Hohpe2003">G. Hohpe and B. Woolf, <a href="https://www.enterpriseintegrationpatterns.com/patterns/messaging/IntegrationStylesIntro.html">“Enterprise Integration Patterns - Introduction to Integration Styles.”</a> 2003.</span></li>
+<li><span id="Jansen2020">G. Jansen and J. Saladas, <a href="https://developer.ibm.com/articles/advantages-of-an-event-driven-architecture/">“Advantages of the event-driven architecture pattern - What is event-driven architecture and why use it?”</a> 17-Jun-2020.</span></li>
+<li><span id="Skelton2019">M. Skelton and M. Pais, <i>Team Topologies - Organizing Business and Technology Teams for Fast Flow</i>. It Revolution Press, 2019.</span></li>
+<li><span id="Skelton2019a">M. Skelton and M. Pais, <a href="https://itrevolution.com/team-cognitive-load-team-topologies/">“Monoliths vs Microservices is Missing the Point—Start with Team Cognitive Load.”</a> Sep-2019.</span></li>
+<li><span id="Skelton2019b">M. Skelton and M. Pais, <a href="https://www.youtube.com/watch?v=haejb5rzKsM">“Monoliths vs Microservices is Missing the Point—Start with Team Cognitive Load - Team Topologies.”</a> Jul-2019.</span></li>
+<li><span id="Schultheiss2023">M. Schultheiss and D. Gehrke, “Produktorganisationen - Wie erfolgreiche Unternehmen ihre Produktorganisation als unfairen Vorteil einsetzen,” in <i>Digitales Produktmanagement: Methoden – Instrumente – Praxisbeispiele</i>, S. Hoffmann, Ed. Springer Gabler Wiesbaden, 2023.</span></li>
+<li><span id="CNCF2023">Cloud Native Computing Foundation, <a href="https://tag-app-delivery.cncf.io/whitepapers/platforms/">“CNCF Platforms White Paper.”</a> 28-Mar-2023.</span></li></ol>
+
+<h2 id="acknowledgements">Acknowledgements</h2>
+
+<p>Huge thanks go to the entire product and development team of <a href="https://www.huk-autoservice.de">HUK-Autoservice</a> for the awesome work.</p>
+
+  </div></div>
+
+    </section>
+    <footer class="condensed">
+      <ul class="social about-footer condensed"><a href="https://github.com/steffenmueller4" target="_blank">
+          <li>
+            <i class="icon-github-circled"></i>
+          </li>
+        </a><a href="https://www.linkedin.com/in/steffen-mueller-139b8b191" target="_blank">
+          <li>
+            <i class="icon-linkedin-squared"></i>
+          </li>
+        </a></ul><p class="about-footer condensed">&copy;
+        2024</p>
+    </footer>
+  </main>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CD0VW38PQP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-CD0VW38PQP');
+  </script>
+  <script src="/assets/js/simple-jekyll-search.min.js"></script>
+  <script src="/assets/js/search.js"></script>
+  
+</body>
+
+</html>

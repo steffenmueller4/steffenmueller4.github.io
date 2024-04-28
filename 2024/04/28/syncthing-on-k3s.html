@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href="https://fonts.googleapis.com/css?family=Merriweather:300|Raleway:400,700" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<title>Deploying Syncthing on a k3s Cluster with Rook</title>
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Deploying Syncthing on a k3s Cluster with Rook | Steffen’s Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Deploying Syncthing on a k3s Cluster with Rook" />
+<meta name="author" content="Steffen Mueller" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Roughly four years ago, I have fallen in love with Syncthing. First, it was just a partial replacement for Dropbox. More and more, it grew to be the “data backbone” of my private life. Recently, I needed to change my Syncthing setup to a Kubernetes-based Syncthing deployment. So, this article shows how to deploy Syncthing on a Kubernetes cluster with a distributed storage—in my case, this is a three node k3s cluster running Ceph via Rook." />
+<meta property="og:description" content="Roughly four years ago, I have fallen in love with Syncthing. First, it was just a partial replacement for Dropbox. More and more, it grew to be the “data backbone” of my private life. Recently, I needed to change my Syncthing setup to a Kubernetes-based Syncthing deployment. So, this article shows how to deploy Syncthing on a Kubernetes cluster with a distributed storage—in my case, this is a three node k3s cluster running Ceph via Rook." />
+<link rel="canonical" href="https://steffenmueller4.github.io/2024/04/28/syncthing-on-k3s.html" />
+<meta property="og:url" content="https://steffenmueller4.github.io/2024/04/28/syncthing-on-k3s.html" />
+<meta property="og:site_name" content="Steffen’s Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-04-28T10:20:10+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Deploying Syncthing on a k3s Cluster with Rook" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Steffen Mueller"},"dateModified":"2024-04-28T10:20:10+00:00","datePublished":"2024-04-28T10:20:10+00:00","description":"Roughly four years ago, I have fallen in love with Syncthing. First, it was just a partial replacement for Dropbox. More and more, it grew to be the “data backbone” of my private life. Recently, I needed to change my Syncthing setup to a Kubernetes-based Syncthing deployment. So, this article shows how to deploy Syncthing on a Kubernetes cluster with a distributed storage—in my case, this is a three node k3s cluster running Ceph via Rook.","headline":"Deploying Syncthing on a k3s Cluster with Rook","mainEntityOfPage":{"@type":"WebPage","@id":"https://steffenmueller4.github.io/2024/04/28/syncthing-on-k3s.html"},"url":"https://steffenmueller4.github.io/2024/04/28/syncthing-on-k3s.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+</head><body>
+  <main class="container">
+    <section class="about">
+      <div class="about-header condensed">
+      <div class="about-title">
+      <a href="/">
+        
+        <img src="/assets/me.jpg" alt="Steffen Mueller" />
+        
+      </a>
+      <h2 id="title">
+        <a href="/">Steffen Mueller</a>
+      </h2>
+      </div><p class="tagline">Software Engineer</p></div>
+      
+      <ul class="social about-footer condensed"><a href="https://github.com/steffenmueller4" target="_blank">
+          <li>
+            <i class="icon-github-circled"></i>
+          </li>
+        </a><a href="https://www.linkedin.com/in/steffen-mueller-139b8b191" target="_blank">
+          <li>
+            <i class="icon-linkedin-squared"></i>
+          </li>
+        </a></ul><p class="about-footer condensed">&copy;
+        2024</p>
+    </section>
+    <section class="content">
+      <div class="post-container">
+  <a class="post-link" href="/2024/04/28/syncthing-on-k3s.html">
+    <img src="/assets/hero-syncthing_on_k3s_with_rook.svg" class="post-heroimage" alt="Deploying Syncthing on a k3s Cluster with Rook"><h1 class="post-title">Deploying Syncthing on a k3s Cluster with Rook</h1>
+  </a>
+  <div class="post-meta">
+    <div class="post-date"><i class="icon-calendar"></i>Apr 28, 2024</div><ul class="post-categories"><li>HowTo</li><li>Raspberry Pi</li><li>Syncthing</li></ul></div>
+  <div class="post">
+    <p>Roughly four years ago, I have fallen in love with <a href="https://syncthing.net">Syncthing</a>.
+First, it was just a partial replacement for <a href="https://www.dropbox.com">Dropbox</a>.
+More and more, it grew to be the “data backbone” of my private life.
+Recently, I needed to change my Syncthing setup to a Kubernetes-based Syncthing deployment.
+So, this article shows how to deploy Syncthing on a Kubernetes cluster with a distributed storage—in my case, this is a three node <a href="https://k3s.io">k3s</a> cluster running Ceph via <a href="https://rook.io">Rook</a>.</p>
+
+<h2 id="introduction-and-requirements">Introduction and Requirements</h2>
+
+<p>Since 2020, I have run <a href="https://syncthing.net">Syncthing</a> on a Raspberry Pi 3 Model B storing the data on a 1 terrabyte spinning hard drive which was backed up via <a href="https://duplicity.gitlab.io">Duplicity</a> (see also: <a href="/2020/12/31/duplicity-on-raspberry-pi-from-source.html">this article</a>).
+Recently, I have replaced the Raspberry Pi 3 Model B and the spinning hard drive with a three node Raspberry Pi 4 Model B <a href="https://k3s.io">k3s</a> cluster running <a href="https://rook.io">Rook</a> as a distributed storage solution.
+On this new “lightweight” Kubernetes cluster with Rook, I also wanted to run Syncthing.</p>
+
+<p>However, there were only a few tutorials about running Syncthing on Kubernetes.
+Essentially, there are some Syncthing forum entries such as <a href="https://forum.syncthing.net/t/syncthing-on-kubernetes-with-reverse-proxy/16689">this</a>, a <a href="https://scvalex.net/posts/53/">blog post from Alexandru Scvorțov</a>, and a <a href="https://claus.beerta.net/articles/syncthing-hugo-kubernetes-put-to-work/">blog post from Claus Beerta</a>.
+For my specific configuration with k3s and Rook, I have not found a proper tutorial so far.
+<a href="https://scvalex.net/posts/53/">Alexandru Scvorțov’s setup</a> adds a Nginx for making the files browsable, and <a href="https://claus.beerta.net/articles/syncthing-hugo-kubernetes-put-to-work/">Claus Beerta’s setup</a> synchronizes Content Management System (CMS) files between systems.</p>
+
+<p>Furthermore, <a href="https://scvalex.net/posts/53/">Alexandru Scvorțov’s setup</a> uses specific high ports, TCP and UDP port 32222, for Syncthing that are available to <a href="https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport">NodePort Kubernetes services</a>—NodePort services require ports to be in the range of 30000 to 32767.
+I would like to use the Syncthing default ports, TCP/22000, UDP/22000, and Syncthing’s Local Discovery port UDP/21027 (see also: <a href="https://docs.syncthing.net/users/firewall.html">Syncthing Firewall Setup</a>), with my setup.
+Also, Syncthing’s Dashboard—by default TCP/8384—should be available via HTTPS exposed via k3s’ default Ingress Controller, Traefik (see also: <a href="https://docs.k3s.io/networking/networking-services#traefik-ingress-controller">k3s’ Traefik Ingress Controller</a>).</p>
+
+<p>In sum, the requirements for my solution are:</p>
+<ul>
+  <li>Run Syncthing on a Kubernetes cluster, k3s, with the distributed storage Rook.</li>
+  <li>In contrast to <a href="https://scvalex.net/posts/53/">Alexandru Scvorțov’s setup</a>, I want to use Syncthing’s default ports TCP/22000, UDP/22000, and UDP/21027.</li>
+  <li>As I am running a k3s cluster with a Traefik Ingress Controller, I want to make use of the Traefik Ingress Controller for Syncthing’s Dashboard and ports.</li>
+  <li>Specifically, Syncthing’s Dashboard should run on HTTPS at a specific path, <code class="language-plaintext highlighter-rouge">https://K3S_CLUSTER_DNS_NAME/syncthing-dashboard/</code>, as there are further dashboards provided by other tools on the k3s cluster via HTTPS.</li>
+</ul>
+
+<p>The entire Kubernetes deployment descriptors of my setup are available as a <a href="https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d">GitHub Gist</a>.
+When you download the file <code class="language-plaintext highlighter-rouge">k3s-syncthing.yaml</code>, you can deploy Syncthing on your own k3s cluster via <code class="language-plaintext highlighter-rouge">kubectl apply -f k3s-syncthing.yaml</code>.
+But I rather recommend to modify the deployment descriptors based on your requirements.
+In order to understand the setup and being able to change it, we will go through the Kubernetes deployment descriptors in detail.</p>
+
+<p>In the <a href="#architecture-overview">next section</a>, we will shortly go through the overall architecture of the entire solution.</p>
+
+<h2 id="architecture-overview">Architecture Overview</h2>
+
+<p>The entire architecture of the Syncthing Kubernetes setup on my k3s cluster is depicted in the figure below.</p>
+
+<p><img src="/assets/syncthing-deployment-architecture.svg" alt="Syncthing Deployment Architecture" /></p>
+
+<p>The basis of the Syncthing Kubernetes setup is the three k3s nodes (Node1, Node2, and Node3) running Rook.
+Each node has a solid state disks which Rook uses to store data (Ceph Object Storage Deamons (OSD)).
+Rook is running the Rook Operator and further components—for more information, we refer to <a href="https://rook.io/docs/rook/latest-release/Getting-Started/storage-architecture/">Rook’ Storage Architecture</a>.</p>
+
+<p>Rook, as a distributed storage, allows us to provide a Kubernetes Persistent Volume Claim (PVC) and Persistent Volume (PV) (see: <a href="#persistent-volume-claim">this section</a>).
+The PV is mounted in the Syncthing deployment to store Syncthing’s configuration and the synchronized data (see: <a href="#stateful-set--syncthing-pod">this section</a>).</p>
+
+<p>The Syncthing deployment provides, as already mentioned, ports for synchronizing data—the Syncthing Protocol—at TCP/22000, UDP/22000, and UDP/21027.
+Additionally, there is the Syncthing Dashboard on port TCP/8384 (see: <a href="#stateful-set--syncthing-pod">this section</a>).
+Those ports are exposed by the deployment and exposed via Kubernetes Services (<code class="language-plaintext highlighter-rouge">ClusterIP</code>) in the k3s cluster (see: <a href="#services--clusterip">this section</a>).</p>
+
+<p>As we want to use the Traefik Ingress Controller for exposing the services (see also: <a href="#introduction-and-requirements">this section</a>), we expose Traefik EntryPoints and wire those EntryPoints with the Kubernetes Services via Kubernetes <code class="language-plaintext highlighter-rouge">IngressRoute</code> resources (see: <a href="#traefik-ingress-controller-modification-for-exposing-standard-syncthing-ports">this section</a>).</p>
+
+<p>In the next sections, we describe the details of the Kubernetes Deployment Descriptors.</p>
+
+<h2 id="namespace">Namespace</h2>
+
+<p>All resources for Syncthing in my setup are running in the namespace <code class="language-plaintext highlighter-rouge">syncthing</code>.
+The namespace is the first resource created in the <a href="https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d">GitHub Gist</a> (see: <a href="https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L2-L7">line 2-7</a>).</p>
+
+<h2 id="persistent-volume-claim">Persistent Volume Claim</h2>
+
+<p>One of the most important resources for Syncthing is the PVC and the PV.
+Syncthing stores its configuration and all synchronized files on its storage—per default at <code class="language-plaintext highlighter-rouge">/var/syncthing</code> (see also: <a href="https://github.com/syncthing/syncthing/blob/main/README-Docker.md#docker-container-for-syncthing">Docker Container for Syncthing</a>).
+Without the PV, you lose all your files with every shutdown or restart of the Pod.
+A PVC and PV can be provided by different storage solutions (<code class="language-plaintext highlighter-rouge">StorageClass</code>) such as local storage or distributed storage solutions—for more information about Kubernetes Storage, we refer to the <a href="https://kubernetes.io/docs/concepts/storage/">documentation</a>.
+With Rook, I am running a distributed storage solution on my k3s cluster.
+Another option for a distributed storage solution is <a href="https://longhorn.io/">Longhorn</a>.
+A local storage solution with Syncthing is—I am sure—not impossible, but not described in this article, as you need to make sure you do not loose the data and make sure that the Syncting deployment is always running on a specific node with the respective PV.</p>
+
+<p>In the <a href="https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d">Gist</a>, the PVC declaration starts at <a href="https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L9">line 9</a>.
+My PVC uses <code class="language-plaintext highlighter-rouge">rook-ceph-block</code> as Kubernetes <code class="language-plaintext highlighter-rouge">StorageClass</code> (see: <a href="https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L15">line 15</a>) which is a Ceph Block Storage with access mode <code class="language-plaintext highlighter-rouge">ReadWriteOnce</code> (RWO) (see: <a href="https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L17">line 17</a>, see also: <a href="https://rook.io/docs/rook/latest-release/Getting-Started/quickstart/#storage">Ceph Storage documentation</a>).
+The PVC claims 100 Gigabyte of the Ceph Block Storage (see: <a href="https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L21">line 21</a>).</p>
+
+<h2 id="stateful-set--syncthing-pod">Stateful Set / Syncthing Pod</h2>
+
+<p>Now, it is time to take care of the Syncthing Pod.
+For that, we define <code class="language-plaintext highlighter-rouge">syncthing</code> as a Kubernetes <code class="language-plaintext highlighter-rouge">StatefulSet</code> (see: <a href="https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L23-L67">line 23-67</a>).</p>
+
+<p>Due to Syncthing’s nature, you should not run more than one replica (see: <a href="https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L33">line 33</a>).
+As the Pod binds the PVC, it is a <code class="language-plaintext highlighter-rouge">StatefulSet</code>.</p>
+
+<p>The Pod uses always the latest Syncthing release (see: <a href="https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L42">line 42</a>).
+It exposes the ports for the Syncthing Dashboard, TCP/8384 (see: <a href="https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L44-L45">line 44-45</a>), for the Syncthing Protocol via TCP, TCP/22000 (see: <a href="https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L46-L48">line 46-48</a>), for the Syncthing Protocol via QUIC, UDP/22000 (see: <a href="https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L49-L51">line 49-51</a>), and for Syncthing’s Local Discovery Protocol, UDP/21027 (see: <a href="https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L52-L54">line 52-54</a>).</p>
+
+<p>The PVC is referenced at the end of the PVC deployment descriptor (see: <a href="https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L63-L67">line 63-67</a>.
+The PV is mounted at Syncthing’s default storage path <code class="language-plaintext highlighter-rouge">/var/syncthing</code> (see: <a href="https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L55-L57">line 55-57</a>), as already explained in <a href="#persistent-volume-claim">this section</a>.</p>
+
+<h2 id="services--clusterip">Services / ClusterIP</h2>
+
+<p>In order to expose the Syncthing ports, we define two Kubernetes Services.
+The Syncthing Dashboard is exposed via the Service <code class="language-plaintext highlighter-rouge">syncthing-dashboard</code> of type <code class="language-plaintext highlighter-rouge">ClusterIP</code> (see: <a href="https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L69-L82">line 69-82</a>).
+It exposes Syncthing’s Dashboard on port TCP/8384 (see: <a href="https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L80">line 80</a>).</p>
+
+<p>The Syncthing Protocol ports are exposed via the Service <code class="language-plaintext highlighter-rouge">syncthing-protocol</code> of type <code class="language-plaintext highlighter-rouge">ClusterIP</code> (see: <a href="https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L84-L105">line 84-105</a>).
+It exposes the ports TCP/22000 as <code class="language-plaintext highlighter-rouge">syncthing-tcp</code>, UDP/22000 as <code class="language-plaintext highlighter-rouge">syncthing-udp</code>, and UDP/21027 as <code class="language-plaintext highlighter-rouge">syncthing-disc</code>.
+Both services could be merged into one Kubernetes deployment descriptor, but I prefered to keep the Dashboard and the Protocol Services separated.</p>
+
+<p>In contrast to my solution, you also could use Kubernetes Services of type <code class="language-plaintext highlighter-rouge">NodePort</code> or <code class="language-plaintext highlighter-rouge">LoadBalancer</code> instead of <code class="language-plaintext highlighter-rouge">ClusterIP</code>, so you can directly expose ports in the range of 30000 to 32767 (see also: <a href="https://scvalex.net/posts/53/">Alexandru Scvorțov’s setup</a>) or via a Cloud’s load balancer.
+But as mentioned in <a href="#introduction-and-requirements">this section</a> already, I want to have the Syncthing standard ports exposed via the Traefik Ingress Controller.
+In the <a href="#traefik-ingress-controller-modification-for-exposing-standard-syncthing-ports">next section</a>, we will describe that setup which is specific to k3s and its Traefik Ingress Controller installed by default.
+When you are happy with Syncthing running on a high port in the range of 30000 to 32767 or do not have a k3s with its Traefik Ingress Controller, simply change the Service type to <code class="language-plaintext highlighter-rouge">NodePort</code>, adapt the rest of the Service deployment descriptor accordingly, and skip the <a href="#traefik-ingress-controller-modification-for-exposing-standard-syncthing-ports">next section</a>.</p>
+
+<h2 id="traefik-ingress-controller-modification-for-exposing-standard-syncthing-ports">Traefik Ingress Controller Modification for Exposing Standard Syncthing Ports</h2>
+
+<p>As mentioned already, k3s installs the Traefik Ingress Controller by default.
+So, I want to use Traefik to expose Syncthing’s standard ports.
+Also, I want to have Syncthing’s Dashboard exposed via HTTPS at a specific path (<code class="language-plaintext highlighter-rouge">https://K3S_CLUSTER_DNS_NAME/syncthing-dashboard/</code>).
+For that, we need, first, to modify k3s’ default Traefik Helm Chart configuration (see also: <a href="https://docs.k3s.io/helm#customizing-packaged-components-with-helmchartconfig">Customizing Packaged Components with HelmChartConfig</a>) to expose further <a href="https://doc.traefik.io/traefik/routing/entrypoints/">Traefik EntryPoints</a>: TCP/22000, UDP/22000, and UDP/21027.
+Second, we can bind the <code class="language-plaintext highlighter-rouge">ClusterIP</code> Services via <code class="language-plaintext highlighter-rouge">IngressRoute</code> resources to those EntryPoints.</p>
+
+<p>Let us start with the modification of k3s’ default Traefik Helm Chart configuration.
+We can add the EntryPoints via specifying the resource <code class="language-plaintext highlighter-rouge">HelmChartConfig</code> (see: <a href="https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L107-L133">line 107-133</a>).
+We simply expose further ports (see: <a href="https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L118-L133">line 118-133</a>).
+We add the EntryPoint <code class="language-plaintext highlighter-rouge">syncthing-tcp</code> at port TCP/22000 (see: <a href="https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L119-L123">line 119-123</a>), the EntryPoint <code class="language-plaintext highlighter-rouge">syncthing-udp</code> at port UDP/22000 (see: <a href="https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L124-L128">line 124-128</a>), and the EntryPoint <code class="language-plaintext highlighter-rouge">syncthing-disc</code> at port UDP/21027 (see: <a href="https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L129-L133">line 129-133</a>).
+As the standard HTTPS port is exposed anyway (EntryPoint <code class="language-plaintext highlighter-rouge">websecure</code>), we do not need to add that EntryPoint for Syncthing’s Dashboard.</p>
+
+<p>Now, we need to connect the EntryPoints via <code class="language-plaintext highlighter-rouge">IngressRoute</code> resources to the exposed Service ports.
+First, we wire the EntryPoint <code class="language-plaintext highlighter-rouge">syncthing-tcp</code> with the port <code class="language-plaintext highlighter-rouge">syncthing-tcp</code> of the <code class="language-plaintext highlighter-rouge">ClusterIP</code> Service <code class="language-plaintext highlighter-rouge">syncthing-protocol</code> via an <code class="language-plaintext highlighter-rouge">IngressRouteTCP</code> (see: <a href="https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L135-L149">line 135-149</a>).
+Second, we connect the EntryPoint <code class="language-plaintext highlighter-rouge">syncthing-udp</code> to the port <code class="language-plaintext highlighter-rouge">syncthing-udp</code> of the Service <code class="language-plaintext highlighter-rouge">syncthing-protocol</code> via an <code class="language-plaintext highlighter-rouge">IngressRouteUDP</code> (see: <a href="https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L151-L164">line 151-164</a>).
+Third, we do so with the EntryPoint <code class="language-plaintext highlighter-rouge">syncthing-disc</code> via an <code class="language-plaintext highlighter-rouge">IngressRouteUDP</code> (see: <a href="https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L166-L179">line 166-179</a>).</p>
+
+<p>For connecting the HTTPS EntryPoint (by default: <code class="language-plaintext highlighter-rouge">websecure</code>), we connect the EntryPoint <code class="language-plaintext highlighter-rouge">websecure</code> to the port <code class="language-plaintext highlighter-rouge">syncthing-dashboard</code> of the <code class="language-plaintext highlighter-rouge">ClusterIP</code> service <code class="language-plaintext highlighter-rouge">syncthing-dashboard</code> via an <code class="language-plaintext highlighter-rouge">IngressRoute</code> (see: <a href="https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L181-L201">line 181-201</a>).
+As mentioned already, Syncthing’s Dashboard should be exposed at <code class="language-plaintext highlighter-rouge">https://K3S_CLUSTER_DNS_NAME/syncthing-dashboard/</code>.
+To achive that, we add a path prefix to the <code class="language-plaintext highlighter-rouge">IngressRoute</code> (see: <a href="https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L194-L201">line 194-201</a>).
+Furthermore, we define a <a href="https://doc.traefik.io/traefik/middlewares/overview/">Traefik Middleware</a> to replace the path prefix with every request (see: <a href="https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L199-L201">line 199-201</a> and <a href="https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L203-L212">line 203-212</a>).</p>
+
+<h2 id="summary">Summary</h2>
+
+<p>In this article, we discussed a Syncthing deployment on a k3s cluster with Rook.
+We exposed Syncthing’s default ports via Traefik’s Ingress Controller which is installed by default with k3s.
+All in all, not too difficult, but it can take you a long time to figure out the details about Syncthing, the Traefik Ingress Controller, etc.
+So, I hope the tutorial is helpful to you.</p>
+
+<p>As with every howto/tutorial, updates to the software may change the entire approach and solution.
+So, please reason about the steps when reading and applying them.
+If you want to report issues with the steps/Kubernetes deployment descriptors (I cannot promise that I will fix them all ;-)), please use the <a href="https://github.com/steffenmueller4/steffenmueller4.github.io/issues">issues functionality at the underlying GitHub repository</a>.
+If you have questions about the setup, use the <a href="https://github.com/steffenmueller4/steffenmueller4.github.io/discussions">discussions functionality</a>.</p>
+
+
+  </div></div>
+
+    </section>
+    <footer class="condensed">
+      <ul class="social about-footer condensed"><a href="https://github.com/steffenmueller4" target="_blank">
+          <li>
+            <i class="icon-github-circled"></i>
+          </li>
+        </a><a href="https://www.linkedin.com/in/steffen-mueller-139b8b191" target="_blank">
+          <li>
+            <i class="icon-linkedin-squared"></i>
+          </li>
+        </a></ul><p class="about-footer condensed">&copy;
+        2024</p>
+    </footer>
+  </main>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CD0VW38PQP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-CD0VW38PQP');
+  </script>
+  <script src="/assets/js/simple-jekyll-search.min.js"></script>
+  <script src="/assets/js/search.js"></script>
+  
+</body>
+
+</html>

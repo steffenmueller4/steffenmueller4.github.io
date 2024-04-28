@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href="https://fonts.googleapis.com/css?family=Merriweather:300|Raleway:400,700" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<title>Backups to AWS S3 with Duplicity built from source on a Raspberry Pi</title>
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Backups to AWS S3 with Duplicity built from source on a Raspberry Pi | Steffen’s Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Backups to AWS S3 with Duplicity built from source on a Raspberry Pi" />
+<meta name="author" content="Steffen Mueller" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Recently, my Raspberry Pi and the attached hard drive crashed. Both, I am using as a network attached storage for storing a lot of my data. Fortunately, I was able to restore most of the data. As a lesson-learned from that incident, I started to look out for a backup solution for my freshly set up Raspberry Pi (Raspbian Buster). This post is my howto for setting up backups with Duplicity using AWS Simple Storage Service (S3) as the remote backup destination on Raspbian Buster built from source with Python 3 and Boto3." />
+<meta property="og:description" content="Recently, my Raspberry Pi and the attached hard drive crashed. Both, I am using as a network attached storage for storing a lot of my data. Fortunately, I was able to restore most of the data. As a lesson-learned from that incident, I started to look out for a backup solution for my freshly set up Raspberry Pi (Raspbian Buster). This post is my howto for setting up backups with Duplicity using AWS Simple Storage Service (S3) as the remote backup destination on Raspbian Buster built from source with Python 3 and Boto3." />
+<link rel="canonical" href="https://steffenmueller4.github.io/2020/12/31/duplicity-on-raspberry-pi-from-source.html" />
+<meta property="og:url" content="https://steffenmueller4.github.io/2020/12/31/duplicity-on-raspberry-pi-from-source.html" />
+<meta property="og:site_name" content="Steffen’s Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-12-31T04:29:36+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Backups to AWS S3 with Duplicity built from source on a Raspberry Pi" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Steffen Mueller"},"dateModified":"2020-12-31T04:29:36+00:00","datePublished":"2020-12-31T04:29:36+00:00","description":"Recently, my Raspberry Pi and the attached hard drive crashed. Both, I am using as a network attached storage for storing a lot of my data. Fortunately, I was able to restore most of the data. As a lesson-learned from that incident, I started to look out for a backup solution for my freshly set up Raspberry Pi (Raspbian Buster). This post is my howto for setting up backups with Duplicity using AWS Simple Storage Service (S3) as the remote backup destination on Raspbian Buster built from source with Python 3 and Boto3.","headline":"Backups to AWS S3 with Duplicity built from source on a Raspberry Pi","mainEntityOfPage":{"@type":"WebPage","@id":"https://steffenmueller4.github.io/2020/12/31/duplicity-on-raspberry-pi-from-source.html"},"url":"https://steffenmueller4.github.io/2020/12/31/duplicity-on-raspberry-pi-from-source.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+</head><body>
+  <main class="container">
+    <section class="about">
+      <div class="about-header condensed">
+      <div class="about-title">
+      <a href="/">
+        
+        <img src="/assets/me.jpg" alt="Steffen Mueller" />
+        
+      </a>
+      <h2 id="title">
+        <a href="/">Steffen Mueller</a>
+      </h2>
+      </div><p class="tagline">Software Engineer</p></div>
+      
+      <ul class="social about-footer condensed"><a href="https://github.com/steffenmueller4" target="_blank">
+          <li>
+            <i class="icon-github-circled"></i>
+          </li>
+        </a><a href="https://www.linkedin.com/in/steffen-mueller-139b8b191" target="_blank">
+          <li>
+            <i class="icon-linkedin-squared"></i>
+          </li>
+        </a></ul><p class="about-footer condensed">&copy;
+        2024</p>
+    </section>
+    <section class="content">
+      <div class="post-container">
+  <a class="post-link" href="/2020/12/31/duplicity-on-raspberry-pi-from-source.html"><h1 class="post-title">Backups to AWS S3 with Duplicity built from source on a Raspberry Pi</h1>
+  </a>
+  <div class="post-meta">
+    <div class="post-date"><i class="icon-calendar"></i>Dec 31, 2020</div><ul class="post-categories"><li>Backup</li><li>HowTo</li><li>Raspberry Pi</li></ul></div>
+  <div class="post">
+    <p>Recently, my Raspberry Pi and the attached hard drive crashed. Both, I am using as a network attached storage for storing a lot of my data. Fortunately, I was able to restore most of the data. As a lesson-learned from that incident, I started to look out for a backup solution for my freshly set up Raspberry Pi (Raspbian Buster). This post is my howto for setting up backups with <a href="http://duplicity.nongnu.org/">Duplicity</a> using <a href="https://aws.amazon.com/s3/">AWS Simple Storage Service (S3)</a> as the remote backup destination on Raspbian Buster built from source with Python 3 and Boto3.</p>
+
+<h1 id="requirements">Requirements</h1>
+
+<p>My requirements for the backup solution are:</p>
+<ul>
+  <li>The backups should be automatable/run every night.</li>
+  <li>The backup solution should be able to use different remote backup destinations. Preferrably, I wanted to use AWS S3 or <a href="https://cloud.google.com/storage">Google Cloud Storage (GCS)</a> in order to have a safe storage location - safe in the sense of no hard drive crashes I have to deal with. Eventually, I decided to go for AWS S3.</li>
+  <li>The backups should be encrypted because of the previous requirement for storing the backups on AWS S3.</li>
+  <li>Due to the sheer size of the different backups and using AWS S3 as a remote backup destination, the backup solution should be able to run incremental backups to reduce the amount of data that has to be uploaded every day to AWS S3.</li>
+</ul>
+
+<h1 id="solution-duplicity">Solution: Duplicity</h1>
+
+<p>Based on my requirements, I decided to go for Duplicity. Duplicity has a strong support for encrypting the backups based on <a href="https://gnupg.org/">GnuPGP</a> (see also: <a href="http://duplicity.nongnu.org/">Duplicity</a>). It is able to use different backends such as AWS S3, GCS, etc. Furthermore, Duplicity seemed to be available as a Debian/Raspbian package for a simple installation (more details later in this post). For further details about Duplicity, please refer to the Duplicity <a href="http://duplicity.nongnu.org/">site</a> and documentation.</p>
+
+<p>If you want to have a look at some other people’s howtos and tutorials to set up Duplicity, please refer to:</p>
+<ul>
+  <li><a href="https://wiki.debian.org/Duplicity">Debian Duplicity documentation</a></li>
+  <li><a href="https://help.ubuntu.com/community/DuplicityBackupHowto">Ubuntu Duplicity documentation</a></li>
+  <li><a href="https://icicimov.github.io/blog/devops/Duplicity-encrypted-backups-to-Amazon-S3/">Igor Cicimov’s post about using Duplicity with AWS S3</a> or</li>
+  <li><a href="https://feeding.cloud.geek.nz/posts/backing-up-to-s3-with-duplicity/">François Marier’s post about using Duplicity with AWS S3</a>.</li>
+</ul>
+
+<h1 id="installation">Installation</h1>
+
+<p>As explained, for example, in <a href="https://icicimov.github.io/blog/devops/Duplicity-encrypted-backups-to-Amazon-S3/">Igor Cicimov’s post about using AWS S3 with Duplicity</a>, you can install Duplicity with AWS S3 support on Debian/Raspbian Buster easily via:</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install</span> <span class="nt">-y</span> duplicity python-boto
+</code></pre></div></div>
+
+<p>At the time of writing this howto (2020-12-31), this simple installation does, unfortunately, not work when you want to use latest AWS S3 features or, for example, a bucket in the Frankfurt AWS data center (eu-central-1). The main reason for that, is the outdated <a href="https://github.com/boto/boto">Boto</a> library which is used by Duplicity series 0.7 to access AWS. Boto has been updated last in 2018 - in IT a long time ago. When you try to use Duplicity series 0.7 and the Boto version packaged with the <code class="language-plaintext highlighter-rouge">Python-boto</code> Debian/Raspbian package, you may encounter different errors such as: <code class="language-plaintext highlighter-rouge">The authorization mechanism you have provided is not supported. Please use AWS4-HMAC-SHA256.</code> (see also: <a href="https://github.com/boto/boto/issues/2741">Boto Issue - S3 bucket lookup / get_bucket broken for eu-central-1 (Frankfurt)</a>). To make use of latest AWS S3 features, you should use <a href="https://github.com/boto/boto3">Boto3</a>, a new Boto implementation. Using Boto3, seems, however, to require Duplicity series 0.8. I was not able to make Duplicity series 0.7 work with <code class="language-plaintext highlighter-rouge">Python-boto3</code> Debian/Raspbian package.</p>
+
+<p>The next section is about diverse issues with the given simple way to install Duplicity, and gives you the reasoning why I, eventually, decided to build and install Duplicity from source on my own.</p>
+
+<h2 id="issues-with-the-duplicitypython-boto-debianraspbian-packages-as-of-2020-12-31">Issues with the Duplicity/Python-boto Debian/Raspbian Packages (as of 2020-12-31)</h2>
+
+<p>As of 2020-12-31, the Debian/Raspbian package <code class="language-plaintext highlighter-rouge">Duplicity</code> is based on <a href="https://packages.debian.org/buster/duplicity">Duplicity 0.7.18.2-1</a> (series 0.7). The Debian/Raspbian package <code class="language-plaintext highlighter-rouge">Python-boto</code> is based on <a href="https://packages.debian.org/buster/python-boto">Boto 2.44.0-1.1</a>. When you want to use newer AWS S3 features such as <a href="https://aws.amazon.com/s3/features/?nc=sn&amp;loc=2">storage class Infrequent Access or Glacier</a> to save costs, you need to use a newer Boto version (&gt;= Boto 2.7.0, see also: <a href="http://duplicity.nongnu.org/">Duplicity</a>). You may be able to install this combination via installing Duplicity and newest Boto version via <a href="https://en.wikipedia.org/wiki/Pip_(package_manager)">Pip - a Python package installer</a> instead of the Debian/Raspbian package <code class="language-plaintext highlighter-rouge">Python-boto</code> via the apt command given in the previous section (Warning: I did not try this out eventually, so it may not work completely):</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>duplicity python-pip
+pip <span class="nb">install </span>boto
+</code></pre></div></div>
+
+<p>This, however, will very likely still not work when you want to use, for example, an AWS S3 bucket in the Frankfurt data center (eu-central-1). As already explained, Duplicity series 0.7 uses Boto. On top of that, Duplicity series 0.7 and Boto do not use the latest AWS authentication mechanism, <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html">AWS Signature Version 4</a> (see also: <a href="https://github.com/boto/boto/issues/2741">Boto Issue - S3 bucket lookup / get_bucket broken for eu-central-1 (Frankfurt)</a>), and a lot of other changes on AWS APIs. Using Duplicity 0.7.18.2-1 and Boto, will then probably lead to this error: <code class="language-plaintext highlighter-rouge">The authorization mechanism you have provided is not supported. Please use AWS4-HMAC-SHA256.</code> Although I am sure that there is also a way to fix Duplicity series 0.7 and Boto when using the Frankfurt data center, I eventually decided to go for Duplicity series 0.8 and <a href="https://github.com/boto/boto3">Boto3</a>, the newer version of Boto due all the issues with Duplicity series 0.7 and Boto.</p>
+
+<p>While it seems that there is a new Debian/Raspbian package based on Duplicity 0.8.17-1+b1 on the way (as of 2020-12-31), I do not want to wait until the release of the new Debian/Raspbian package. I decided to build and install Duplicity series 0.8 with Python 3 and Boto3 on my own. The next section is about doing that.</p>
+
+<h2 id="build-duplicity-series-08-with-python-3-and-boto3-from-source">Build Duplicity series 0.8 with Python 3 and Boto3 from source</h2>
+
+<p>For building and installing Duplicity series 0.8 with Python 3 and Boto3 from source, you can run the following commands (tested on an up-to-date Raspbian Buster on 2020-12-30 - run as root user):</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Install various dependencies such as curl, tar, and Pip as well as</span>
+<span class="c"># build dependencies for Duplicity such as the Python3 development library</span>
+apt <span class="nb">install</span> <span class="nt">-y</span> curl <span class="nb">tar </span>python3-pip python3-dev librsync-dev gettext
+
+<span class="c"># Download Duplicity 0.8.17 to user's home directory</span>
+curl <span class="nt">-o</span> ~/duplicity.tar.gz https://gitlab.com/duplicity/duplicity/-/archive/rel.0.8.17/duplicity-rel.0.8.17.tar.gz
+
+<span class="c"># Create a Duplicity source directory in user's home directry and extract Duplicity</span>
+<span class="nb">mkdir</span> <span class="nt">-p</span> ~/duplicity
+<span class="nb">tar</span> <span class="nt">-xzf</span> ~/duplicity.tar.gz <span class="nt">-C</span> ~/duplicity <span class="nt">--strip-components</span> 1
+<span class="nb">cd</span> ~/duplicity <span class="o">||</span> <span class="nb">exit</span>
+
+<span class="c"># Install Python 3 requirements for Duplicity including Boto3</span>
+pip3 <span class="nb">install </span>fasteners future boto3
+
+<span class="c"># Build and install Duplicity 0.8.17</span>
+python3 setup.py <span class="nb">install</span> <span class="nt">--prefix</span><span class="o">=</span>/usr
+</code></pre></div></div>
+
+<h1 id="duplicity-backup-configuration">Duplicity Backup Configuration</h1>
+
+<p>After the torture of installation, the fun part comes now: configuring the actual backups.</p>
+
+<h2 id="configuring-an-aws-s3-bucket-and-gnupgp">Configuring an AWS S3 Bucket and GnuPGP</h2>
+
+<p>Before pushing backups to AWS S3, an AWS S3 bucket needs to be configured properly. For doing so, I refer to <a href="https://feeding.cloud.geek.nz/posts/backing-up-to-s3-with-duplicity/">François Marier’s post about using Duplicity with AWS S3</a>. Additionally, you need to configure GnuPGP - here <a href="https://icicimov.github.io/blog/devops/Duplicity-encrypted-backups-to-Amazon-S3/">Igor Cicimov’s post about using Duplicity with AWS S3</a> may be of help for you.</p>
+
+<h2 id="configuring-backups">Configuring Backups</h2>
+
+<p>In order to not expose credentials and reuse them in other backup scripts, I created a separate credentials file in the root user’s home directory (backup will be run as root) at <code class="language-plaintext highlighter-rouge">/root/backup_auth.cfg</code>:</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Passphrase for accessing the GPG key, see also: Igor Cicimov's post about using Duplicity with AWS S3</span>
+<span class="nv">PASSPHRASE</span><span class="o">=</span><span class="s2">"&lt;A_SECURE_PASSPHRASE&gt;"</span>
+<span class="c"># The GPG key id for encrypting the backup</span>
+<span class="nv">ENCRKEY</span><span class="o">=</span><span class="s2">"&lt;THE_GPG_KEY_ID&gt;"</span>
+<span class="nv">SIGNKEY</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">ENCRKEY</span><span class="k">}</span><span class="s2">"</span>
+<span class="c"># AWS credentials for the backup user</span>
+<span class="nv">AWS_ACCESS_KEY_ID</span><span class="o">=</span><span class="s2">"&lt;THE_AWS_ACCESS_KEY_ID&gt;"</span>
+<span class="nv">AWS_SECRET_ACCESS_KEY</span><span class="o">=</span><span class="s2">"&lt;THE_AWS_SECRET_ACCESS_KEY&gt;"</span>
+</code></pre></div></div>
+<p>Please set the values for the variables according to your values.</p>
+
+<p>Next, I created a bash script to run the actual backup at <code class="language-plaintext highlighter-rouge">/root/backup.sh</code>:</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="nb">set</span> +eu
+
+<span class="c"># Source the separate credentials file</span>
+<span class="c"># shellcheck disable=SC1091</span>
+<span class="nb">.</span> /root/backup_auth.cfg
+
+<span class="c"># Export all environment variables from the separate credentials file</span>
+<span class="nb">export </span><span class="nv">PASSPHRASE</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">PASSPHRASE</span><span class="k">}</span><span class="s2">"</span>
+<span class="nb">export </span><span class="nv">ENCRKEY</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">ENCRKEY</span><span class="k">}</span><span class="s2">"</span>
+<span class="nb">export </span><span class="nv">SIGNKEY</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">SIGNKEY</span><span class="k">}</span><span class="s2">"</span>
+<span class="nb">export </span><span class="nv">AWS_ACCESS_KEY_ID</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">AWS_ACCESS_KEY_ID</span><span class="k">}</span><span class="s2">"</span>
+<span class="nb">export </span><span class="nv">AWS_SECRET_ACCESS_KEY</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">AWS_SECRET_ACCESS_KEY</span><span class="k">}</span><span class="s2">"</span>
+
+<span class="nv">DUPOPTS</span><span class="o">=</span><span class="s2">""</span>
+<span class="c"># Preparing the actual duplicity command</span>
+<span class="c"># Please refer to http://duplicity.nongnu.org/vers8/duplicity.1.html for finding out about the options</span>
+<span class="nv">DUPEXEC</span><span class="o">=</span><span class="s2">"duplicity --encrypt-key </span><span class="k">${</span><span class="nv">ENCRKEY</span><span class="k">}</span><span class="s2"> --sign-key </span><span class="k">${</span><span class="nv">SIGNKEY</span><span class="k">}</span><span class="s2"> --s3-use-new-style --s3-use-ia --s3-use-multiprocessing </span><span class="nv">$DUPOPTS</span><span class="s2">"</span>
+<span class="nv">BACKUP_SOURCE</span><span class="o">=</span><span class="s2">"&lt;SOME_DIRECTORY_YOU_WOULD_LIKE_TO_BACKUP"</span>
+<span class="nv">BACKUP_DESTINATION</span><span class="o">=</span><span class="s2">"boto3+s3://&lt;THE_AWS_S3_BUCKET_NAME&gt;/&lt;SOME_SUBDIRECTORY_YOU_WANT_TO_USE&gt;"</span>
+
+<span class="c"># Doing a monthly full backup (1M), otherwise doing incremental backups</span>
+<span class="nb">eval</span> <span class="s2">"</span><span class="k">${</span><span class="nv">DUPEXEC</span><span class="k">}</span><span class="s2"> --full-if-older-than 1M </span><span class="k">${</span><span class="nv">BACKUP_SOURCE</span><span class="k">}</span><span class="s2"> </span><span class="k">${</span><span class="nv">BACKUP_DESTINATION</span><span class="k">}</span><span class="s2">"</span>
+
+<span class="c"># Cleaning the remote backup space (deleting backups older than 6 months (6M, alternatives would 1Y fo 1 year etc.)</span>
+<span class="nb">eval</span> <span class="s2">"</span><span class="k">${</span><span class="nv">DUPEXEC</span><span class="k">}</span><span class="s2"> remove-older-than 6M --force </span><span class="k">${</span><span class="nv">BACKUP_DESTINATION</span><span class="k">}</span><span class="s2">"</span>
+
+<span class="c"># Remove all environment variables we set before</span>
+<span class="nb">unset </span>PASSPHRASE
+<span class="nb">unset </span>ENCRKEY
+<span class="nb">unset </span>SIGNKEY
+<span class="nb">unset </span>AWS_ACCESS_KEY_ID
+<span class="nb">unset </span>AWS_SECRET_ACCESS_KEY
+</code></pre></div></div>
+<p>Please replace the values for the variables <code class="language-plaintext highlighter-rouge">BACKUP_SOURCE</code> and <code class="language-plaintext highlighter-rouge">BACKUP_DESTINATION</code> in the above script according to your requirements.</p>
+
+<p>Finally, I created a crontab entry via <code class="language-plaintext highlighter-rouge">crontab -e</code> to run the backups every night at 01:30:</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">[</span>...]
+<span class="c"># For more information see the manual pages of crontab(5) and cron(8)</span>
+<span class="c">#</span>
+<span class="c"># m h  dom mon dow   command</span>
+30  1   <span class="k">*</span>   <span class="k">*</span>   <span class="k">*</span>    /bin/bash <span class="nt">-c</span> <span class="s2">"/root/backup.sh"</span> <span class="o">&gt;&gt;</span>/var/log/duplicity/backup.log
+</code></pre></div></div>
+
+<h1 id="summary">Summary</h1>
+
+<p>That is it. In this howto, I described how to backup files from a Raspberry Pi (Raspbian Buster - up-to-date on 2020-12-30) with Duplicity to AWS S3. For that, I installed Duplicity 0.8.17 from source with Python 3 and Boto3 due to Debian/Raspbian Duplicity and Python-boto packages being out of date for my purposes.</p>
+
+<p>As with every howto/tutorial, updates to the used software may change the entire approach and solution. So, please reason about the steps when reading and applying the howto. If you want to report issues with the steps/scripts (I cannot promise that I will fix them ;-)), please use the issues functionality at the <a href="https://github.com/steffenmueller4/steffenmueller4.github.io/issues">underlying GitHub repository</a>.</p>
+
+
+  </div></div>
+
+    </section>
+    <footer class="condensed">
+      <ul class="social about-footer condensed"><a href="https://github.com/steffenmueller4" target="_blank">
+          <li>
+            <i class="icon-github-circled"></i>
+          </li>
+        </a><a href="https://www.linkedin.com/in/steffen-mueller-139b8b191" target="_blank">
+          <li>
+            <i class="icon-linkedin-squared"></i>
+          </li>
+        </a></ul><p class="about-footer condensed">&copy;
+        2024</p>
+    </footer>
+  </main>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CD0VW38PQP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-CD0VW38PQP');
+  </script>
+  <script src="/assets/js/simple-jekyll-search.min.js"></script>
+  <script src="/assets/js/search.js"></script>
+  
+</body>
+
+</html>

@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href="https://fonts.googleapis.com/css?family=Merriweather:300|Raleway:400,700" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<title>Overview of different Software Architecture Review Processes</title>
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Overview of different Software Architecture Review Processes | Steffen’s Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Overview of different Software Architecture Review Processes" />
+<meta name="author" content="Steffen Mueller" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Recently, I have been asked about what software architecture review processes exist to steer architecture work. An architecture review aims at different goals such as finding software design issues early in the development before they get costly. Architecture review processes, for example, formalize different steps. They, furthermore, define input and output to/from architecture reviews. This article describes the different architecture review process approaches." />
+<meta property="og:description" content="Recently, I have been asked about what software architecture review processes exist to steer architecture work. An architecture review aims at different goals such as finding software design issues early in the development before they get costly. Architecture review processes, for example, formalize different steps. They, furthermore, define input and output to/from architecture reviews. This article describes the different architecture review process approaches." />
+<link rel="canonical" href="https://steffenmueller4.github.io/2021/07/30/overview-of-architecture-review-processes.html" />
+<meta property="og:url" content="https://steffenmueller4.github.io/2021/07/30/overview-of-architecture-review-processes.html" />
+<meta property="og:site_name" content="Steffen’s Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-07-30T06:50:08+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Overview of different Software Architecture Review Processes" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Steffen Mueller"},"dateModified":"2021-07-30T06:50:08+00:00","datePublished":"2021-07-30T06:50:08+00:00","description":"Recently, I have been asked about what software architecture review processes exist to steer architecture work. An architecture review aims at different goals such as finding software design issues early in the development before they get costly. Architecture review processes, for example, formalize different steps. They, furthermore, define input and output to/from architecture reviews. This article describes the different architecture review process approaches.","headline":"Overview of different Software Architecture Review Processes","mainEntityOfPage":{"@type":"WebPage","@id":"https://steffenmueller4.github.io/2021/07/30/overview-of-architecture-review-processes.html"},"url":"https://steffenmueller4.github.io/2021/07/30/overview-of-architecture-review-processes.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+</head><body>
+  <main class="container">
+    <section class="about">
+      <div class="about-header condensed">
+      <div class="about-title">
+      <a href="/">
+        
+        <img src="/assets/me.jpg" alt="Steffen Mueller" />
+        
+      </a>
+      <h2 id="title">
+        <a href="/">Steffen Mueller</a>
+      </h2>
+      </div><p class="tagline">Software Engineer</p></div>
+      
+      <ul class="social about-footer condensed"><a href="https://github.com/steffenmueller4" target="_blank">
+          <li>
+            <i class="icon-github-circled"></i>
+          </li>
+        </a><a href="https://www.linkedin.com/in/steffen-mueller-139b8b191" target="_blank">
+          <li>
+            <i class="icon-linkedin-squared"></i>
+          </li>
+        </a></ul><p class="about-footer condensed">&copy;
+        2024</p>
+    </section>
+    <section class="content">
+      <div class="post-container">
+  <a class="post-link" href="/2021/07/30/overview-of-architecture-review-processes.html">
+    <img src="/assets/hero-overview_of_architecture_review_processes.svg" class="post-heroimage" alt="Overview of different Software Architecture Review Processes"><h1 class="post-title">Overview of different Software Architecture Review Processes</h1>
+  </a>
+  <div class="post-meta">
+    <div class="post-date"><i class="icon-calendar"></i>Jul 30, 2021</div><ul class="post-categories"><li>Architecture</li><li>Organization</li><li>Architecture Review Process</li></ul></div>
+  <div class="post">
+    <p>Recently, I have been asked about what software architecture review processes exist to steer architecture work.
+An architecture review aims at different goals such as finding software design issues early in the development before they get costly.
+Architecture review processes, for example, formalize different steps.
+They, furthermore, define input and output to/from architecture reviews.
+This article describes the different architecture review process approaches.</p>
+
+<h2 id="what-are-architecture-reviews-and-architecture-review-processes">What are Architecture Reviews and Architecture Review Processes?</h2>
+
+<p>An architecture review, in a nutshell, is a mechanism for increasing the likelihood that a software/system architecture will be complete, consistent, and, thus, good <a class="citation" href="#Maranzano2005">[1]</a>.
+Good software architecture is important, otherwise the development speed can slow down.
+It can get more expensive to add new features in the future.
+High internal quality, on the other side, can lead to faster delivery of new features; simply, because there is less cruft to get in the way <a class="citation" href="#Fowler2019">[2]</a>.</p>
+
+<p>Essentially, architecture reviews aim at <a class="citation" href="#Maranzano2005">[1]</a>:</p>
+<ol>
+  <li>finding software design problems early in development before they get costly.</li>
+  <li>building projects based on best practices and transfer this knowledge across the organization.</li>
+  <li>improving the organization’s software quality and operations (-&gt; documentation).</li>
+</ol>
+
+<p>Therefore, architecture review processes formalize different steps, the parties involved, or input and output to architecture reviews.
+Over the last decades, different architecture review processes have emerged.</p>
+
+<p>Every such process can be modified and adapted to the unique requirements of a specific organization.
+We will focus on three different prototypical processes that are described in literature:</p>
+<ol>
+  <li>The “Classical” Architecture Review process.</li>
+  <li>The Architecture Decision Records.</li>
+  <li>The Lightweight Request for Comment/Design Document approach.</li>
+</ol>
+
+<p>In the next sections, we will describe these three different prototypical architecture review processes.</p>
+
+<h2 id="the-classical-architecture-review-process">The “Classical” Architecture Review Process</h2>
+
+<p>The “Classical” Architecture Review process is described by Maranzano et al. in a paper based on common architecture review processes at AT&amp;T, Avaya, Lucent, and Millenium Services <a class="citation" href="#Maranzano2005">[1]</a>.
+The paper stems from 2005, the idea is based on AT&amp;T’s practices from the late 1980s.
+A lot of established organizations (still) use this approach in some variation.</p>
+
+<h3 id="parties">Parties</h3>
+
+<p>The approach considers three primary parties in an architecture review <a class="citation" href="#Maranzano2005">[1]</a>:</p>
+<ol>
+  <li>The project team which requests the architecture review.</li>
+  <li>The review team which consists of experts assembled for the review on the basis of their expertise, their independence from the specific project, and their ability to conduct themselves appropriately in a potentially difficult interpersonal situation.</li>
+  <li>The Architecture Review Board (ARB) which is a standing team that oversees the review process and its effect on the organization.</li>
+</ol>
+
+<p>Moreover, there are further roles in the overall process—depending on the size of the organization and if these roles are required:</p>
+<ol>
+  <li>The review client which is often the project team. The review client pays for the development or is the architecture review’s sponsor.</li>
+  <li>The project members who present the architecture to the review team in the process.</li>
+  <li>The project management encompasses all the managers responsible for the project’s success.</li>
+  <li>The review angel is selected by the ARB being responsible to work with the project team addressing any organizational or political issues that may arise.</li>
+  <li>The ARB chair is the architecture review process advocate. The ARB chair is responsible for ensuring the effectiveness of the review.</li>
+</ol>
+
+<h3 id="process">Process</h3>
+
+<p>The review process follows four phases <a class="citation" href="#Maranzano2005">[1]</a>.
+The process is depicted in the figure below.</p>
+
+<p><img src="/assets/classical-architecture-review-process-overview.png" alt="Overview of the &quot;classical&quot; architecture review process" /></p>
+
+<p>The Screening Phase starts with the project team requesting a review.
+The project staff and ARB review the request to determine whether a review would benefit the project.
+If a review should be conducted, the ARB selects a review angel to oversee the project’s review process.</p>
+
+<p>In the Preparation Phase, the ARB selects a review team and a review leader.
+Togehter with the project team, they determine the number of reviews and the initial review’s date and agenda.
+The review team, review leader, project team, and review angel verify that the project which should be reviewed has a clearly defined problem statement (goal) driving the architecture.
+Furthermore, they check for an appropriate documentation as a basis for the review.</p>
+
+<p>In the Review Meeting Phase, the project team presents the mentioned problem statement and how the proposed architecture solves it.
+The review team asks further questions to figure out issues they believe could make the project an incomplete or inadequate solution to the problem statement.
+Afterwards, the review team meets privately and generates a report which is then presented to the project team.
+Additionally, management alerts can be raised by the review team about problems with the project.</p>
+
+<p>The final phase, the Follow-Up Phase, starts with the review team delivering the final review report to the project team.
+This should be done within a certain time frame such as 15 days after the review meetings are done.
+The goal of this phase is to address issues that arose from the review.
+The project team (and, if a management alert has been raised, the management) must respond to the report within two weeks.</p>
+
+<h3 id="artifacts">Artifacts</h3>
+
+<p>Three different types of artifacts are getting created <a class="citation" href="#Maranzano2005">[1]</a>:</p>
+<ol>
+  <li>There are checklists for architects to prepare for the review and checklists for the reviewers to do the review and figure out more of the architecture. The checklists serve as a collection of organizational knowledge and should be maintained.</li>
+  <li>There is input to the review. This can be documentation of the system requirements, functional requirements, or informal documentation. The architecture should be designed based on a clear problem statement (goal) tackling the functional and qualitative requirements, the costs, and the timeline.</li>
+  <li>There is output from the review such as the review report, an optional management alert letter, an optional set of issues that the project team has to work on.</li>
+</ol>
+
+<h3 id="conclusion">Conclusion</h3>
+
+<p>The “Classical” Architecture Review process is a well-established and formalized process.
+It is (still) widely used.
+Especially, bigger organization or, at least, organizations with dedicated architects often make use of this process in some variation.</p>
+
+<p>On the one hand, the formalized process as well as the clear roles within the process help to achieve the goals of architecture reviews.
+Also, there are different options to vary the process in order to, for example, have less parties involved.
+In some organizations, there is, for instance, no ARB or review team but an architecture guild (see, e.g.: <a href="https://tech.trivago.com/2016/03/24/team-work-made-simple-with-guilds/">this article about guilds</a>) which is performing architecture reviews instead.
+Another option is to reduce the number of artifacts and only give a presentation about the architecture to be reviewed—however, I personally think that there should be a written architecture/design document.</p>
+
+<p>On the other hand, the formalized process and the overall overhead of the “Classical” Architecture Review process is also often the point to be critizied mostly.
+Running through the overall process, may take too much time for smaller projects or architecture changes which have to be reviewed.
+In the paper, Maranzano et al. mention that the review preparation time may take up to 6 weeks, the review itself between 1 and 5 days.
+So, the overhead can be substantial to an organization.</p>
+
+<p>In sum, the entire prototypical approach does not appear to be very agile, but there are also ways to improve the overall process.
+Nevertheless, it has the potential to balance architectural as well as political aspects in an organiztion.</p>
+
+<h2 id="architecture-decision-records">Architecture Decision Records</h2>
+
+<p>Architecture Decision Records (ADR) were initially proposed by Nygard in 2011 in <a class="citation" href="#Nygard2011">[3]</a>.
+Nygard stated that architecture in an agile context has to be described and defined differently in comparison to the practice steming from the times before the agile movement.
+In an agile context, decisions are made step by step alongside the project progress.
+They will not be made at once, they will also not be made when the project begins.
+So, the architecture documentation should also be done incrementally.
+Nygard states that this is also supported by the fact that nobody ever reads large documents <a class="citation" href="#Nygard2011">[3]</a>.</p>
+
+<p>Therefore, Nygard proposes ADR as small documents which concentrate on tracking the motivation, rationale, and consequences behind certain architectural decisions made during different points in time in the project in a very structured and agile way.
+“We will keep a collection of records for ‘architecturally significant’ decisions: those that affect the structure, non-functional characteristics, dependencies, interfaces, or construction techniques.” (Nygard, 2011)
+Essentially, the small and structured ADR help to find out about motivation, rationale, and consequences of previous decisions at the time being written and reviewed as well as later on.
+The ADR form a “decision log” <a class="citation" href="#ADR2021">[4]</a>.</p>
+
+<p>For more information, we refer to <a href="https://adr.github.io/">https://adr.github.io/</a>.</p>
+
+<h3 id="parties-1">Parties</h3>
+
+<p>When working with ADR, we can distiguish the following parties:</p>
+<ol>
+  <li>The project team/creator(s) of an ADR,</li>
+  <li>The ADR reviewer(s)</li>
+</ol>
+
+<h3 id="process-1">Process</h3>
+
+<p>When there is an architecturally significant decision to be made, the project team, the involved architect, or—in general—persons who are involved in the decision making create an ADR.
+An ADR typically contains 5 sections <a class="citation" href="#Nygard2011">[3]</a>:</p>
+<ul>
+  <li>Title: It is typically describing the architecture decision shortly.</li>
+  <li>Status: May be “Proposed”, “Request for Comment”, “Accepted”, or “Superseded”.</li>
+  <li>Context: The reasons of the decision to be made.</li>
+  <li>Decision: A description of the decision itself and its justification.</li>
+  <li>Consequences: The impact of the decision such as the benefits and downsides regarding architecture characteristics, etc.</li>
+</ul>
+
+<p>In general, it is a good idea to let others review an ADR.
+For that, you use the status of the ADR.
+A newly created ADR, then, can be in status “Proposed”.
+When you want other to review the ADR, you can set the status to “Request for Comment”.
+The ADR can be reviewed by other parties such as other project members, other teams, the (lead) architect, the architecture guild, or persons in the organization who are good in architecture work.
+As soon as the review is done, the ADR status can be changed to “Accepted” and should be stored somewhere at a public location.</p>
+
+<p><img src="/assets/architecture-decision-record-process.png" alt="Overview of the Architecture Decision Record review process" /></p>
+
+<p>ADR can be stored in GIT or in a wiki.
+There are tools for managing ADR in GIT, e.g., <a href="https://github.com/npryce/adr-tools">https://github.com/npryce/adr-tools</a>.
+In my personal opinion, it is recommendable to store ADR in a public location such as a wiki for better accessibility from an potentially interested audience.
+However, the tool should be able to track changes to the ADR in a history to identify authors and revert changes if needed.
+Moreover, a comment functionality for reviewing an ADR is beneficial.</p>
+
+<p>Every ADR and, thus, every decision is an own small document (see also: “Decision log” in the previous section).
+ADR can get an ID and be referenced in other documentation or wiki pages.
+New ADR can change aspects of previous ADR.
+If that happens, they can change the status of the previous ADR to “Superseded”.</p>
+
+<h3 id="artifacts-1">Artifacts</h3>
+
+<p>The ADR itself is the only artifact in this prototypical architecture review process.
+Reviews on the ADR should be done on the ADR itself when the ADR is created.</p>
+
+<p>In recent years, different templates have appeared for ADR.
+In <a class="citation" href="#Henderson2021">[5]</a>, Henderson gathered <a href="https://github.com/joelparkerhenderson/architecture-decision-record#adr-example-templates">different ADR example templates</a>.
+However, ADR can be combined with other ways to document architectures such as Design Documents (see also: Lightweight Request for Comment/Design Document Approach):
+“A decision record should not be used to try and capture all of the information relevant to an architecture or design topic. […] The creators of an architecture or design should author a document that describes it in detail (whether facilitated by a guild or not).” <a class="citation" href="#Kuenzli2019">[6]</a></p>
+
+<h3 id="conclusion-1">Conclusion</h3>
+
+<p>ADR are well-suited and widely accepted for documenting architecture decisions <a class="citation" href="#Richards2020">[7]</a>.
+The decision log formed by ADR can be a very essential part to understand the history and the current state of an architecture.
+Based on the history and the current state, you can make better decisions in the future.
+ADR and their proposed templates condense architecture decisions to the essential parts.
+Specifically, when they are stored publicly accessible as a basis for discussions, they are a very good tool for architecture work.</p>
+
+<p>ADR and their strict templates are limited when it comes to the bigger picture of changes.
+A good ADR should be written neatly and to the point.
+This, however, may lead to important aspects of changes not being properly described in an ADR.
+“The ADR is a snapshot of information uncovered during the creation process.” <a class="citation" href="#Kuenzli2019">[6]</a>
+Kuenzli suggests in <a class="citation" href="#Kuenzli2019">[6]</a> that also other types of documents should be created in an architecture design process in addition to the ADR.
+For example, Design Documents can complement ADR.
+Design Documents are more verbose and capture more information gathered during research phases.
+The ADR can be created as the outcome of the overall architecture design process.</p>
+
+<h2 id="lightweight-request-for-commentdesign-document-approach">Lightweight Request for Comment/Design Document Approach</h2>
+
+<p>Another approach is the Lightweight Request for Comment (RFC)/Design Document (DD) approach.
+The approach is called differently by various authors—sometimes Lightweight RFC (or only RFC) and sometimes DD.
+Ubl <a class="citation" href="#Ubl2020">[8]</a> and Winters et al. <a class="citation" href="#Winters2020">[9]</a> describe it from the perspective of Google (called DD).
+Orosz mentions the approach in <a class="citation" href="#Orosz2020">[10]</a> and <a class="citation" href="#Orosz2021">[11]</a> from the perspective of Uber (called RFC, Lightweight RFC, or DD).
+Zimmermann <a class="citation" href="#Zimmermann2019">[12]</a> and Gonchar <a class="citation" href="#Gonchar2020">[13]</a> mention it from the perspective of Casper (called RFC) and from eBay (called Lightweight RFC).
+The approach has also been mentioned in the ThoughWorks Tech Radar Vol. 24 trial area as Lightweight RFC approach <a class="citation" href="#ThoughtWorks2021">[14]</a>.</p>
+
+<p>Essentially, the Lightweight RFC/DD approach is about writing a DD as the review artifact, sharing this document across the organization, and discussing as well as improving the DD—and the system in design—together with the reviewers.
+It is a more informal way of documenting software architecture at a certain point in time <a class="citation" href="#Ubl2020">[8]</a>—originally, considered for the design phase but can be applied to any rework of architectural aspects (solution idea) before the actual (code) work is done.</p>
+
+<p>The approach bases on the strong belief that the community knows more than an individual.
+Thus, the entire developer community at an organization should be included into the design of the systems.
+Ubl explains the thoughts behind that nicely in <a class="citation" href="#Ubl2020">[8]</a>.
+He states that “[…] it did establish a relatively uniform software design culture across the company [at Google].” <a class="citation" href="#Ubl2020">[8]</a>
+Orosz additionally states that the “[…] type of information pushed to people in an organization shapes the culture considerably. […] [It] sets a tone of trust and responsibility.” <a class="citation" href="#Orosz2020">[10]</a></p>
+
+<p>On top of that community thinking, the approach considers the power of the written word.
+“Writing and sharing that writing with others creates accountability. It also almost always leads to more thorough decisions.” <a class="citation" href="#Orosz2020">[10]</a></p>
+
+<h3 id="parties-2">Parties</h3>
+
+<p>The DD should be written by the team actually working on the solution idea during the work on finding the solution idea, but before implementating the solution (see also: <a class="citation" href="#Ubl2020">[8]</a> and <a class="citation" href="#Orosz2021">[11]</a>).</p>
+
+<p>As soon as the solution idea stabilizes, the DD is shared with the entire organization—or at least with a huge amount of interested people.
+The interested people should review and discuss the DD and the solution idea to improve it in an open and lightweight process.</p>
+
+<h3 id="process-2">Process</h3>
+
+<p>Ubl <a class="citation" href="#Ubl2020">[8]</a> and Orosz <a class="citation" href="#Orosz2021">[11]</a> suggest roughly the following process (see: <a class="citation" href="#Ubl2020">[8]</a> and <a class="citation" href="#Orosz2021">[11]</a>):</p>
+<ol>
+  <li>The team starts with the business problem and brainstorms solution ideas. During that phase, the DD should be started and iterated rapidly within the team itself until the solution idea/DD stabilizes.</li>
+  <li>The stable DD should be shared with the organization or, at least, with a wider audience of interested people who review the DD and the solution idea in multiple rounds of feedback.</li>
+  <li>“When things have progressed sufficiently to have confidence that further reviews are unlikely to require major changes to the design, it is time to begin implementation.” <a class="citation" href="#Ubl2020">[8]</a></li>
+</ol>
+
+<p><img src="/assets/lightweight-rfc-dd-review-process.png" alt="Overview of the Lightweight RFC/DD process" /></p>
+
+<h3 id="artifacts-2">Artifacts</h3>
+
+<p>The entire Lightweight RFC/DD approach is about the DD.
+Main goal of the DD is the communication aspect: A DD should identify issues of a solution idea as early as possible in the project lifecycle, help to achieve consensus around a design in the organization, ensure the consideration of cross-cutting concerns, distribute knowledge about solution ideas, and document the solution.
+In order to achieve that, a certain structure has emerged focusing on architecturally important aspects of a solution idea at Google (see, e.g.: <a class="citation" href="#Ubl2020">[8]</a>):</p>
+<ul>
+  <li>Context and Scope</li>
+  <li>Goals and Non-goals</li>
+  <li>The actual Design
+    <ul>
+      <li>System-context Diagram</li>
+      <li>APIs</li>
+      <li>Data Storage</li>
+      <li>etc.</li>
+    </ul>
+  </li>
+  <li>Alternatives Considered</li>
+  <li>Cross-cutting Concerns</li>
+</ul>
+
+<p>Thereby, the template is not fixed and sections are optional depending on the actual solution idea.
+Also, solution ideas may require other aspects to be described.
+In general, the DD should focus on the discussion of trade-offs of the solution ideas that were considered during decisions.</p>
+
+<p>“Design docs should be sufficiently detailed but short enough to actually be read by busy people.” <a class="citation" href="#Ubl2020">[8]</a>
+Recommendations reach from 1 up to 20 pages depending on the problem and solution idea.
+As writing a DD is overhead, the decision whether to write a DD comes down to the core trade-off of deciding whether a review is beneficial.
+If there are benefits in an organizational consensus around a design, a documentation or in having a review from other parties, the extra work of a design doc is worth the effort.</p>
+
+<p>An example DD is available <a href="https://www.industrialempathy.com/posts/design-doc-a-design-doc/">here</a>.</p>
+
+<h3 id="conclusion-2">Conclusion</h3>
+
+<p>The Lightweight RFC/DD approach is a good way to let the entire organization participate in and improve the design of the organization’s systems.
+Examples from big software companies such as Google show that this approach works well and can produce good system designs while spreading the knowledge in the organization.</p>
+
+<p>However, the approach requires active participation of people in the organization.
+Not every organization is ready for such an approach—this may also originate from a different working style or culture such as a very hierarchical organization with a strong and well-established architecture team that does not want to involve other parties.</p>
+
+<p>Another challenge for the Lightweight RFC/DD approach is the question about when a DD should be created and how much work should be put into a DD.
+Here, an organization needs to allow teams to spend time in writing DD and gathering the feedback.
+If that is not possible, the entire approach may not work well.
+Adaptations to the process may prescribe the when to write a DD and how much time for feedback is allowed.</p>
+
+<h2 id="summary">Summary</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left">“Classical” Architecture Review Process</th>
+      <th style="text-align: left">Architecture Decision Records</th>
+      <th style="text-align: left">Lightweight RFC/DD Approach</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Parties</td>
+      <td style="text-align: left">Project team, review team, ARB, and further roles</td>
+      <td style="text-align: left">Project team/Creator(s) of an ADR and ADR reviewer(s)</td>
+      <td style="text-align: left">Project team/Creator(s) of a DD and DD reviewer(s)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Process</td>
+      <td style="text-align: left">Well-established and formalized process with four phases (Screening, Preparation, Review Meeting, and Follow-Up Phase). In the different phases, there are different tasks to be done by the different parties (see also: figure about the process).</td>
+      <td style="text-align: left">Process that starts over and over again when there is an architecturally significant decision. When there is an architecturally significant decision, an ADR is created. Afterwards, the ADR is published and reviewed.</td>
+      <td style="text-align: left">Team starts to work on the solution idea to a business problem (Design Phase). During that phase, the DD should be started and iterated rapidly within the team itself until the solution idea and DD stabilizes (DD Creation Phase). The stable DD is shared and reviewed (DD Review Phase). If further reviews are unlikely to require major changes to the design, the implementation of the solution can start (Implementation Phase).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Artifacts</td>
+      <td style="text-align: left">Checklists for architects to prepare for the review and checklists for the reviewers to do the review. Furthermore, there is input to the review such as documentation of the system requirements, functional requirements, or informal documentation. Finally, there is the output of the review: review report and optional artifacts such as management alert letters.</td>
+      <td style="text-align: left">The ADR is the main artifact. The ADR can have different states such as “Proposed”, “Accepted”, or “Superseded”. The list of ADR form a “decision log” per project. Moreover, there may be further documentation.</td>
+      <td style="text-align: left">The DD is the main artifact. It is created for a point in time. Additionally, there may be further documentation.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Main References</td>
+      <td style="text-align: left">Maranzano et al. <a class="citation" href="#Maranzano2005">[1]</a> published 2005</td>
+      <td style="text-align: left">Nygard <a class="citation" href="#Nygard2011">[3]</a> published 2011 and <a href="https://adr.github.io/">https://adr.github.io/</a></td>
+      <td style="text-align: left">Ubl <a class="citation" href="#Ubl2020">[8]</a> and Winters et al. <a class="citation" href="#Winters2020">[9]</a> published 2020 as well as Orosz <a class="citation" href="#Orosz2021">[11]</a> published 2021</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="references">References</h2>
+
+<ol class="bibliography"><li><span id="Maranzano2005">J. F. Maranzano, S. Rozsypal, G. H. Zimmerman, G. W. Warnken, P. E. Wirth, and D. Weiss, “Architecture Reviews: Practice and Experience,” <i>Software, IEEE</i>, vol. 22, pp. 34–43, Apr. 2005.</span></li>
+<li><span id="Fowler2019">M. Fowler, <a href="https://martinfowler.com/architecture/">“Software Architecture Guide.”</a> Aug-2019.</span></li>
+<li><span id="Nygard2011">M. Nygard, <a href="https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions">“Documenting Architecture Decisions.”</a> Nov-2011.</span></li>
+<li><span id="ADR2021">ADR GitHub organization, <a href="https://adr.github.io/">“adr.github.io - Homepage of the ADR GitHub organization.”</a> ADR GitHub organization, May-2021.</span></li>
+<li><span id="Henderson2021">J. P. Henderson, <a href="https://github.com/joelparkerhenderson/architecture-decision-record">“Architecture decision record (ADR).”</a> Jul-2021.</span></li>
+<li><span id="Kuenzli2019">S. Kuenzli, <a href="https://nodramadevops.com/2019/05/adrs-are-not-the-only-doc-in-an-architecture-process/">“ADRs are not the only doc in an Architecture process.”</a> May-2019.</span></li>
+<li><span id="Richards2020">M. Richards and N. Ford, <i>Fundamentals of Software Architecture</i>. O’Reilly, 2020.</span></li>
+<li><span id="Ubl2020">M. Ubl, <a href="https://www.industrialempathy.com/posts/design-docs-at-google/">“Design Docs at Google.”</a> 2020.</span></li>
+<li><span id="Winters2020">T. Winters, T. Manshreck, and H. Wright, <i>Software Engineering at Google: Lessons Learned from Programming Over Time</i>. O’Reilly UK Ltd., 2020.</span></li>
+<li><span id="Orosz2020">G. Orosz, <a href="https://blog.pragmaticengineer.com/scaling-engineering-teams-via-writing-things-down-rfcs/">“Scaling Engineering Teams via RFCs: Writing Things Down.”</a> Aug-2020.</span></li>
+<li><span id="Orosz2021">G. Orosz, <a href="https://blog.pragmaticengineer.com/software-architecture-is-overrated/">“Software Architecture is Overrated, Clear and Simple Design is Underrated.”</a> Apr-2021.</span></li>
+<li><span id="Zimmermann2019">C. Zimmermann, <a href="https://medium.com/caspertechteam/rfcs-lightweight-technical-designs-a508d93ccd34">“RFCs: Lightweight Technical Designs.”</a> Aug-2019.</span></li>
+<li><span id="Gonchar2020">G. Gonchar, <a href="https://ebaytech.berlin/making-healthy-technical-decisions-1f52a2df47a9">“Making healthy technical decisions.”</a> Ebay Tech, Apr-2020.</span></li>
+<li><span id="ThoughtWorks2021">ThoughtWorks Inc., <a href="https://www.thoughtworks.com/radar/techniques?blipid=202104044">“Technology Radar Volume 24 - Lightweight approach to RFCs.”</a> Jun-2021.</span></li></ol>
+
+<h2 id="acknowledgements">Acknowledgements</h2>
+
+<p>Huge thanks go to <a href="https://andygrunwald.com/">Andy Grunwald</a> who helped me to improve this article by reviewing it.</p>
+
+  </div></div>
+
+    </section>
+    <footer class="condensed">
+      <ul class="social about-footer condensed"><a href="https://github.com/steffenmueller4" target="_blank">
+          <li>
+            <i class="icon-github-circled"></i>
+          </li>
+        </a><a href="https://www.linkedin.com/in/steffen-mueller-139b8b191" target="_blank">
+          <li>
+            <i class="icon-linkedin-squared"></i>
+          </li>
+        </a></ul><p class="about-footer condensed">&copy;
+        2024</p>
+    </footer>
+  </main>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CD0VW38PQP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-CD0VW38PQP');
+  </script>
+  <script src="/assets/js/simple-jekyll-search.min.js"></script>
+  <script src="/assets/js/search.js"></script>
+  
+</body>
+
+</html>

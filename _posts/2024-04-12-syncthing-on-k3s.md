@@ -36,7 +36,7 @@ In sum, the requirements for my solution are:
  * As I am running a k3s cluster with a Traefik Ingress Controller, I want to make use of the Traefik Ingress Controller for Syncthing's Dashboard and ports.
  * Specifically, Syncthing's Dashboard should run on HTTPS at a specific path, `https://K3S_CLUSTER_DNS_NAME/syncthing-dashboard/`, as there are further dashboards provided by other tools on the k3s cluster via HTTPS.
 
-The entire Kubernetes deployment descriptors of my setup are available as a [GitHub Gist](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d).
+The entire Kubernetes deployment descriptors of my setup are available as a [GitHub Gist][gist].
 When you download the file `k3s-syncthing.yaml`, you can deploy Syncthing on your own k3s cluster via `kubectl apply -f k3s-syncthing.yaml`.
 But I rather recommend to modify the deployment descriptors based on your requirements.
 In order to understand the setup and being able to change it, we will go through the Kubernetes deployment descriptors in detail.
@@ -56,7 +56,7 @@ Rook is running the Rook Operator and further components—for more information,
 Rook, as a distributed storage, allows us to provide a Kubernetes Persistent Volume Claim (PVC) and Persistent Volume (PV) (see: [this section](#persistent-volume-claim)).
 The PV is mounted in the Syncthing deployment to store Syncthing's configuration and the synchronized data (see: [this section](#stateful-set--syncthing-pod)).
 
-The Syncthing deployment provides, as already mentioned, ports for syncing data—the Syncthing protoocol—at TCP/22000, UDP/22000, and UDP/21027.
+The Syncthing deployment provides, as already mentioned, ports for syncing data—the Syncthing protocol—at TCP/22000, UDP/22000, and UDP/21027.
 Additionally, there is the Syncthing Dashboard on port TCP/8384 (see: [this section](#stateful-set--syncthing-pod)).
 Those ports are exposed by the deployment and exposed via Kubernetes Services (`ClusterIP`) in the k3s cluster (see: [this section](#services--clusterip)).
 
@@ -66,103 +66,35 @@ In the next sections, we describe the details of the Kubernetes Deployment Descr
 
 ## Namespace
 
-All the resources for Syncthing in the [Gist](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d) are placed in the namespace `syncthing`.
-The namespace is the first resource created at [line 2](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L2):
-```yaml
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: syncthing
-  labels:
-    name: syncthing
-```
+All resources for Syncthing in my setup are running in the namespace `syncthing`.
+The namespace is the first resource created in the [GitHub Gist][gist] (see: [line 2](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L2)).
 
 ## Persistent Volume Claim
 
-One of the most important resources for Syncthing is the Persistent Volume Claim (PVC) and Persistent Volume (PV).
-Syncthing stores all the files and its configuration on its storage—per default at `/var/syncthing`.
+One of the most important resources for Syncthing is the PVC and the PV.
+Syncthing stores its configuration and all synchronized files on its storage—per default at `/var/syncthing` (see also: [Docker Container for Syncthing](https://github.com/syncthing/syncthing/blob/main/README-Docker.md#docker-container-for-syncthing)).
 Without the PV, you lose all your files with every shutdown or restart of the Pod.
-For storing Syncthing files and its configuration on a PV, you need a distributed storage on your Kubernetes cluster such as [Rook](https://rook.io/), [Longhorn](https://longhorn.io/), etc.
-In my case, this is, as mentioned before, Rook:
-```yaml
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: syncthing-pv-claim
-  namespace: syncthing
-spec:
-  storageClassName: rook-ceph-block
-  accessModes:
-    - ReadWriteOnce
-  volumeMode: Filesystem
-  resources:
-    requests:
-      storage: 100G
-```
+A PVC and PV can be provided by different storage solutions (`StorageClass`) such as local storage or distributed storage solutions—for more information about Kubernetes Storage, we refer to the [documentation](https://kubernetes.io/docs/concepts/storage/).
+With Rook, I am running a distributed storage solution on my k3s cluster.
+Another option for a distributed storage solution is [Longhorn](https://longhorn.io/).
+A local storage solution with Syncthing is—I am sure—not impossible, but not described in this article, as you need to make sure you do not loose the data and make sure that the Syncting deployment is always running on a specific node with the respective PV.
 
-In the Gist, the PVC declaration starts at [line 9](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L9).
-My PVC uses the Kubernetes StorageClass `rook-ceph-block` (see: [line 15](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L15)) which is a Ceph Block Storage with access mode `ReadWriteOnce` (RWO) (see: [here](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L17), see also: [Ceph Storage documentation](https://rook.io/docs/rook/latest-release/Getting-Started/quickstart/#storage)).
-The PVC claims 100 Gigabyte of the Ceph Block Storage.
+In the [Gist][gist], the PVC declaration starts at [line 9](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L9).
+My PVC uses `rook-ceph-block` as Kubernetes `StorageClass` (see: [line 15](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L15)) which is a Ceph Block Storage with access mode `ReadWriteOnce` (RWO) (see: [line 17](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L17), see also: [Ceph Storage documentation](https://rook.io/docs/rook/latest-release/Getting-Started/quickstart/#storage)).
+The PVC claims 100 Gigabyte of the Ceph Block Storage (see: [line 21](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L21)).
 
 ## Stateful Set / Syncthing Pod
 
 Now, it is time to take care of the Syncthing Pod.
-For that, we define the Stateful Set `syncthing`.
-```yaml
-apiVersion: apps/v1
-kind: StatefulSet
-metadata:
-  name: syncthing
-  namespace: syncthing
-spec:
-  selector:
-    matchLabels:
-      app: syncthing
-  serviceName: syncthing
-  replicas: 1
-  template:
-    metadata:
-      labels:
-        app: syncthing
-    spec:
-      terminationGracePeriodSeconds: 60
-      containers:
-      - name: syncthing
-        image: syncthing/syncthing:latest
-        ports:
-        - name: web-ui
-          containerPort: 8384
-        - name: syncthing-tcp
-          containerPort: 22000
-          protocol: TCP
-        - name: syncthing-udp
-          containerPort: 22000
-          protocol: UDP
-        - name: syncthing-disc
-          containerPort: 21027
-          protocol: UDP
-        volumeMounts:
-        - name: syncthing
-          mountPath: /var/syncthing
-        env:
-        - name: PUID
-          value: "1000"
-        - name: PGID
-          value: "1000"
-      volumes:
-      - name: syncthing
-        persistentVolumeClaim:
-          claimName: syncthing-pv-claim
-          readOnly: false
-```
+For that, we define `syncthing` as a Kubernetes `StatefulSet` (see: [line 24](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L24)).
 
-Due to Syncthing's nature, you should not run more than one Replica (see: [here](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L33)).
+Due to Syncthing's nature, you should not run more than one replica (see: [line 33](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L33)).
 As the Pod binds the PVC, it is a Stateful Set.
 
-The Pod uses always the latest Syncthing release (see: [here](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L42)).
-And it exposes the ports for the Web UI, TCP/8384 (see: [here](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L44)), for the Syncthing protocol via TCP, TCP/22000 (see: [here](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L46)), for the Syncthing protocol via QUIC, UDP/22000 (see: [here](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L49)), and for Syncthing's local discovery protocol, UDP/21027 (see: [here](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L52)).
+The Pod uses always the latest Syncthing release (see: [line 42](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L42)).
+It exposes the ports for the Syncthing Dashboard, TCP/8384 (see: [line 44](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L44)), for the Syncthing protocol via TCP, TCP/22000 (see: [line 46](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L46)), for the Syncthing protocol via QUIC, UDP/22000 (see: [line 49](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L49)), and for Syncthing's local discovery protocol, UDP/21027 (see: [line 52](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L52)).
 
-The PVC is mounted [here](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L55) at Syncthing's default storage path `/var/syncthing`, as already explained in [this section](#persistent-volume-claim).
+The PVC is mounted at [line 55](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d#file-k3s-syncthing-yaml-L55) at Syncthing's default storage path `/var/syncthing`, as already explained in [this section](#persistent-volume-claim).
 
 ## Services / ClusterIP
 
@@ -215,3 +147,4 @@ Furthermore, we define a Traefik Middleware to replace the path prefix (see: [he
 [Rook]: https://rook.io
 [alexandru-syncthing]: https://scvalex.net/posts/53/
 [claus-syncthing]: https://claus.beerta.net/articles/syncthing-hugo-kubernetes-put-to-work/
+[gist]: https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d

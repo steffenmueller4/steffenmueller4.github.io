@@ -107,10 +107,10 @@ The Syncthing Protocol ports are exposed via the Service `syncthing-protocol` of
 It exposes the ports TCP/22000 as `syncthing-tcp`, UDP/22000 as `syncthing-udp`, and UDP/21027 as `syncthing-disc`.
 Both services could be merged into one Kubernetes deployment descriptor, but I prefered to keep the Dashboard and the Protocol Services separated.
 
-Furthermore, you also could use Kubernetes Services of type `NodePort` or `LoadBalancer` instead of `ClusterIP`, so you can directly expose ports in the range of 30000 to 32767 or via a Cloud's load balancer.
+In contrast to my solution, you also could use Kubernetes Services of type `NodePort` or `LoadBalancer` instead of `ClusterIP`, so you can directly expose ports in the range of 30000 to 32767 (see also: [Alexandru Scvorțov's setup][alexandru-syncthing]) or via a Cloud's load balancer.
 But as mentioned in [this section](#introduction-and-requirements) already, I want to have the Syncthing standard ports exposed via the Traefik Ingress Controller.
 In the [next section](#traefik-ingress-controller-modification-for-exposing-standard-syncthing-ports), we will describe that setup which is specific to k3s and its Traefik Ingress Controller installed by default.
-When you are happy with Syncthing running on a high port in the range of 30000 to 32767 or do not have a k3s with its Traefik Ingress Controller, simply change the Service type to `NodePort`, adapt the rest of the Service deployment descriptor accordingly (see also: [Alexandru Scvorțov's setup][alexandru-syncthing]), and skip the [next section](#traefik-ingress-controller-modification-for-exposing-standard-syncthing-ports).
+When you are happy with Syncthing running on a high port in the range of 30000 to 32767 or do not have a k3s with its Traefik Ingress Controller, simply change the Service type to `NodePort`, adapt the rest of the Service deployment descriptor accordingly, and skip the [next section](#traefik-ingress-controller-modification-for-exposing-standard-syncthing-ports).
 
 ## Traefik Ingress Controller Modification for Exposing Standard Syncthing Ports
 

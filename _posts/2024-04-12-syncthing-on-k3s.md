@@ -45,9 +45,11 @@ In the [next section](#architecture-overview), we will shortly go through the ov
 
 ## Architecture Overview
 
-The entire architecture of the Syncthing Kubernetes deployment on my k3s cluster is depicted in the figure below.
+The entire architecture of the Syncthing Kubernetes setup on my k3s cluster is depicted in the figure below.
 
 ![Syncthing Deployment Architecture](/assets/syncthing-deployment-architecture.svg)
+
+
 
 ## Namespace
 

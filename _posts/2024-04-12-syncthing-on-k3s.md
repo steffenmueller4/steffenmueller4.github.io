@@ -145,7 +145,7 @@ So, I hope the tutorial is helpful to you.
 
 As with every howto/tutorial, updates to the software may change the entire approach and solution.
 So, please reason about the steps when reading and applying them.
-If you want to report issues with the steps/Kubernetes deployment descriptors (I cannot promise that I will fix them ;-)), please use the [issues functionality at the underlying GitHub repository](https://github.com/steffenmueller4/steffenmueller4.github.io/issues).
+If you want to report issues with the steps/Kubernetes deployment descriptors (I cannot promise that I will fix them all ;-)), please use the [issues functionality at the underlying GitHub repository](https://github.com/steffenmueller4/steffenmueller4.github.io/issues).
 If you have questions about the setup, use the [discussions functionality](https://github.com/steffenmueller4/steffenmueller4.github.io/discussions).
 
 [//]: # (#)

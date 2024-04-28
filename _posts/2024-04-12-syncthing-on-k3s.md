@@ -10,30 +10,34 @@ published: true
 hero_image: "/assets/hero-syncthing_on_k3s_with_rook.svg"
 ---
 Roughly four years ago, I have fallen in love with [Syncthing](https://syncthing.net).
-First, it was just a partial replacement for [Dropbox](https://www.dropbox.com) I just wanted to try out.
+First, it was just a partial replacement for [Dropbox](https://www.dropbox.com).
 More and more, it grew to be the "data backbone" of my private life.
-This article shows how to deploy Syncthing on a Kubernetes cluster with a distributed storage—in my case, this is a three node [k3s](https://k3s.io) cluster running [Rook](https://rook.io).
+Recently, I needed to change my Syncthing setup to a Kubernetes-based Syncthing deployment.
+So, this article shows how to deploy Syncthing on a Kubernetes cluster with a distributed storage—in my case, this is a three node [k3s](https://k3s.io) cluster running Ceph via [Rook](https://rook.io).
 
 ## Introduction and Requirements
 
 Since 2020, I have run Syncthing on a Raspberry Pi 3 Model B storing the data on a 1 terrabyte spinning hard drive which was backed up via [Duplicity](https://duplicity.gitlab.io) (see also: [this article]({% post_url 2020-12-31-duplicity-on-raspberry-pi-from-source %})).
-Recently, I have replaced the Raspberry Pi 3 Model B and the spinning HDD with a three node Raspberry Pi 4 Model B [k3s](https://k3s.io) cluster where I installed [Rook](https://rook.io) as a distributed storage solution.
+Recently, I have replaced the Raspberry Pi 3 Model B and the spinning hard drive with a three node Raspberry Pi 4 Model B [k3s](https://k3s.io) cluster running [Rook](https://rook.io) as a distributed storage solution.
 On this new "lightweight" Kubernetes cluster with Rook, I also wanted to run Syncthing.
 
-There are not many tutorials about running Syncthing on Kubernetes.
+However, there were not many tutorials about running Syncthing on Kubernetes.
 Essentially, there are a few Syncthing forum entries, a [blog post from Alexandru Scvorțov](https://scvalex.net/posts/53/), and a [blog post from Claus Beerta](https://claus.beerta.net/articles/syncthing-hugo-kubernetes-put-to-work/).
 For my specific configuration with k3s and Rook, I have not found a proper tutorial so far.
-Thereby, Alexandru Scvorțov uses specific high ports, TCP and UDP port 32222, for Syncthing that are available to [NodePort Kubernetes services](https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport)—NodePort services require ports to be in the range of 30000 to 32767.
+Furthermore, [Alexandru Scvorțov's setup](https://scvalex.net/posts/53/) uses specific high ports, TCP and UDP port 32222, for Syncthing that are available to [NodePort Kubernetes services](https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport)—NodePort services require ports to be in the range of 30000 to 32767.
 I would like to use the default ports with my setup.
+That is something I did not want. 
 
-The requirements for my solution are:
- * Run Syncthing on a Kubernetes cluster with the distributed storage Rook
- * In contrast to [Alexandru Scvorțov's setup](https://scvalex.net/posts/53/), I want to use Syncthing's default ports, TCP/22000, UDP/22000, and the Syncthing local discovery port UDP/21
+All in all, the requirements for my solution are:
+ * Run Syncthing on a Kubernetes cluster, k3s, with the distributed storage Rook.
+ * In contrast to [Alexandru Scvorțov's setup](https://scvalex.net/posts/53/), I want to use Syncthing's default ports TCP/22000, UDP/22000, and Syncthing's local discovery port UDP/21027.
  * As I am running [a k3s cluster which ships a Traefik Ingress Gateway per default](https://docs.k3s.io/networking/networking-services#traefik-ingress-controller), I want to make use of the Traefik Ingress Gateway for the Syncthing Dashboard and Syncthing ports
+ * Additionally, Syncthing's Dashboard should run on HTTPS on a specific path, `https://K3S_CLUSTER_DNS_NAME/syncthing-dashboard/`, as there are further dashboards provided via HTTPS.
 
-The entire Kubernetes deployment descriptors are available as a Gist [here](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d).
+The entire Kubernetes deployment descriptors of my setup are available as a [GitHub Gist](https://gist.github.com/steffenmueller4/e8ddf4eab6d8910875a47df5d1dbff5d).
 When you download the file `k3s-syncthing.yaml`, you can deploy Syncthing on your own k3s cluster via `kubectl apply -f k3s-syncthing.yaml`.
-Feel free to modify the deployment descriptors based on your requirements.
+I rather recommend to modify the deployment descriptors based on your requirements.
+In order to understand the setup, we will go through the setup.
 
 In the next sections, we go through the Kubernetes deployment descriptors in detail.
 The overall architecture of the entire solution is summarized in [this section](#architecture-overview).

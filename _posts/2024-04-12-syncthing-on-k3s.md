@@ -138,7 +138,15 @@ Furthermore, we define a [Traefik Middleware](https://doc.traefik.io/traefik/mid
 
 ## Summary
 
+In this article, we discussed a Syncthing deployment on a k3s cluster with Rook.
+We exposed Syncthing's default ports via Traefik's Ingress Controller which is installed by default with k3s.
+All in all, not too difficult, but it can take you a long time to figure out the details about Syncthing, the Traefik Ingress Controller, etc.
+So, I hope the tutorial is helpful to you.
 
+As with every howto/tutorial, updates to the software may change the entire approach and solution.
+So, please reason about the steps when reading and applying them.
+If you want to report issues with the steps/Kubernetes deployment descriptors (I cannot promise that I will fix them ;-)), please use the [issues functionality at the underlying GitHub repository](https://github.com/steffenmueller4/steffenmueller4.github.io/issues).
+If you have questions about the setup, use the [discussions functionality](https://github.com/steffenmueller4/steffenmueller4.github.io/discussions).
 
 [//]: # (#)
 [//]: # (References)

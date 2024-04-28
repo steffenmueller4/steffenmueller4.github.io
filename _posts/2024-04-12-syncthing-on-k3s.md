@@ -49,7 +49,20 @@ The entire architecture of the Syncthing Kubernetes setup on my k3s cluster is d
 
 ![Syncthing Deployment Architecture](/assets/syncthing-deployment-architecture.svg)
 
+The basis of the Syncthing Kubernetes setup is the three k3s nodes (Node1, Node2, and Node3) running Rook.
+Each node has a solid state disks which Rook uses to store data (Ceph Object Storage Deamons (OSD)).
+Rook is running the Rook Operator and further components—for more information, we refer to [Rook][Rook].
 
+Rook, as a distributed storage, allows us to provide a Kubernetes Persistent Volume Claim (PVC) and Persistent Volume (PV) (see: [this section](#persistent-volume-claim)).
+The PV is mounted in the Syncthing deployment to store Syncthing's configuration and the synchronized data (see: [this section](#stateful-set--syncthing-pod)).
+
+The Syncthing deployment provides, as already mentioned, ports for syncing data—the Syncthing protoocol—at TCP/22000, UDP/22000, and UDP/21027.
+Additionally, there is the Syncthing Dashboard on port TCP/8384 (see: [this section](#stateful-set--syncthing-pod)).
+Those ports are exposed by the deployment and exposed via Kubernetes Services (`ClusterIP`) in the k3s cluster (see: [this section](#services--clusterip)).
+
+As we want to use the Traefik Ingress Controller for exposing the services (see also: [this section](#introduction-and-requirements)), we expose Traefik EntryPoints and wire those EntryPoints with the Kubernetes Services via Kubernetes `IngressRoute` resources (see: [this section](#traefik-ingress-controller-modification-for-exposing-standard-syncthing-ports)).
+
+In the next sections, we describe the details of the Kubernetes Deployment Descriptors.
 
 ## Namespace
 

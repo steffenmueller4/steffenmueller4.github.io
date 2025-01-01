@@ -1,0 +1,37 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/25.0.2 Chrome/128.0.6613.186 Electron/32.2.5 Safari/537.36" version="25.0.2">
+  <diagram id="sfGkyqJ-wVHbOri7GWkh" name="Seite-1">
+    <mxGraphModel dx="1100" dy="894" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="nMVIfYfNS6cF1Cbamtte-1" value="" style="rounded=0;whiteSpace=wrap;html=1;imageWidth=200;imageHeight=24;fillColor=#FFCCCC;strokeColor=#DBAFB8;gradientDirection=west;imageAspect=0;" parent="1" vertex="1">
+          <mxGeometry x="20" y="40" width="768" height="432" as="geometry" />
+        </mxCell>
+        <mxCell id="syaPfJO266UAXvkZv1LS-2" value="" style="sketch=0;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.databases.database_cube;fillColor=#2072B8;" vertex="1" parent="1">
+          <mxGeometry x="50" y="110" width="570" height="350" as="geometry" />
+        </mxCell>
+        <mxCell id="syaPfJO266UAXvkZv1LS-4" value="Architecture Trend 2025" style="shape=hexagon;strokeWidth=4;html=1;fillColor=#F5AB50;strokeColor=#ffffff;shadow=0;fontSize=10;fontColor=#FFFFFF;align=center;fontStyle=0;whiteSpace=wrap;spacing=10;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="480" y="111" width="112" height="102" as="geometry" />
+        </mxCell>
+        <mxCell id="syaPfJO266UAXvkZv1LS-5" value="Less maintenance overhead for a smaller team" style="shape=hexagon;strokeWidth=4;html=1;fillColor=#E85642;strokeColor=#ffffff;shadow=0;fontSize=10;fontColor=#FFFFFF;align=center;fontStyle=0;whiteSpace=wrap;spacing=10;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="480" y="213" width="112" height="102" as="geometry" />
+        </mxCell>
+        <mxCell id="syaPfJO266UAXvkZv1LS-6" value="&amp;nbsp;Opinionated technical arrangement of an application" style="shape=hexagon;strokeWidth=4;html=1;fillColor=#12AAB5;strokeColor=#ffffff;shadow=0;fontSize=10;fontColor=#FFFFFF;align=center;fontStyle=0;whiteSpace=wrap;spacing=10;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="564" y="162" width="112" height="102" as="geometry" />
+        </mxCell>
+        <mxCell id="syaPfJO266UAXvkZv1LS-7" value="Spring Boot Modulith" style="shape=hexagon;strokeWidth=4;html=1;fillColor=#1699D3;strokeColor=#ffffff;shadow=0;fontSize=10;fontColor=#FFFFFF;align=center;fontStyle=0;whiteSpace=wrap;spacing=10;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="564" y="60" width="112" height="102" as="geometry" />
+        </mxCell>
+        <mxCell id="syaPfJO266UAXvkZv1LS-8" value="No PRs split over multiple repositories" style="shape=hexagon;strokeWidth=4;html=1;fillColor=#736CA8;strokeColor=#ffffff;shadow=0;fontSize=10;fontColor=#FFFFFF;align=center;fontStyle=0;whiteSpace=wrap;spacing=10;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="648" y="111" width="112" height="102" as="geometry" />
+        </mxCell>
+        <mxCell id="syaPfJO266UAXvkZv1LS-9" value="Strong separation of modules" style="shape=hexagon;strokeWidth=4;html=1;fillColor=#2F5B7C;strokeColor=#ffffff;shadow=0;fontSize=10;fontColor=#FFFFFF;align=center;fontStyle=0;whiteSpace=wrap;spacing=10;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="648" y="213" width="112" height="102" as="geometry" />
+        </mxCell>
+        <mxCell id="syaPfJO266UAXvkZv1LS-10" value="Modules are the second best way to separate different concerns" style="shape=hexagon;strokeWidth=4;html=1;fillColor=#777777;strokeColor=#ffffff;shadow=0;fontSize=10;fontColor=#FFFFFF;align=center;fontStyle=0;whiteSpace=wrap;spacing=10;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="564" y="264" width="112" height="102" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

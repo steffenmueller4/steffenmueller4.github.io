@@ -1,7 +1,7 @@
 ---
 layout: post
 date: 2024-12-31 13:15:10 +0100
-title: "Modulith Trend - Yes, we are following that trend, too"
+title: "Trend to Moduliths - Yes, we are following that trend, too"
 categories:
   - Architecture
   - Microservices
@@ -29,7 +29,7 @@ The external partner did an amazing job and helped us through all the years befo
 However, the complexity of our processes and integrations with our internal systems has grown so much in recent years that those processes and integrations have been becoming too complex to be managed properly by all the internal parties (maybe, this is another article soon).
 The results were ineffective and inefficient processes.
 
-Besides the decision about new development endeavor, there is the additional challenge to cope with a smaller development team in future.
+Besides the decision about the new development endeavor with HUK-Autowelt, there is the additional challenge to cope with a smaller development team in future.
 As we are not different to other companies, we also have to cope with the "new reality" in tech industry: the "[...] demise of 0% interest rates [...]" {% cite Orosz2024 %}.
 This simply means that also our development efforts need to count in opportunity costs and have to consider their Total Cost of Ownership, again.
 When we started with all the developments with HUK-Autoservice in the 0% interest rate phase, the team was up to 15 developers in peak times.

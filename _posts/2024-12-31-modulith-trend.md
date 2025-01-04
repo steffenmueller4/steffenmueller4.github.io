@@ -1,7 +1,7 @@
 ---
 layout: post
 date: 2024-12-31 13:15:10 +0100
-title: "Trend to Moduliths - Yes, we are following that trend, too"
+title: "Trend: Moduliths - Why we follow it, too"
 categories:
   - Architecture
   - Microservices
@@ -34,6 +34,29 @@ As we are not different to other companies, we also have to cope with the "new r
 This simply means that also our development efforts need to count in opportunity costs and have to consider their Total Cost of Ownership, again.
 When we started with all the developments with HUK-Autoservice in the 0% interest rate phase, the team was up to 15 developers in peak times.
 In recent months, we had to reduce the development team size—fortunately, we were able to shrink organically in the development team without layoffs—and need to run our new developments with a smaller team.
+
+## What is a Modular Monolith/Modulith?
+
+In general, modular monoliths—short: modulith—want to combine the benefits of monoliths and microservices {% cite Su2024 %}.
+The major benefit of microservices is the independent deployability and scalability of microservices.
+The major benefit of monoliths compared to microservices is the easier maintainability.
+
+Short example about the difficulites about maintaining multiple microservices:
+When we developed the environment for HUK-Autoservice, we started with two teams.
+Both teams developed an essential part of HUK-Autoservice: [we developed a core backend for the booking process and an account backend]({% post_url 2022-05-10-building-an-event-driven-microservice-application %}).
+In recent year, we maintained all our microservices within just one team.
+Especially, changes that require updates in both microservices, were quite difficult to team members: A pull request to the first repository, a pull request to a common library that is used for Kafka messages, and a pull request to the account microservice and/or further microservices.
+
+With the new development endeavor, we decided to use [Spring Modulith](https://spring.io/projects/spring-modulith) to ease our development within the small team.
+Specifically, working with events—we did this manually before via Kafka—is much easier with Spring Modulith.
+
+## What benefits does a Modulith bring us?
+
+Todo
+
+## Summary
+
+Todo
 
 ## References
 

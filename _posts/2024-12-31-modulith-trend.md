@@ -39,6 +39,9 @@ In recent months, we had to reduce the development team size—fortunately, we w
 In general, modular monoliths—in short: moduliths—want to combine the benefits of monoliths and microservices {% cite Su2024 %}.
 The major benefit of microservices is the independent deployability and scalability of microservices.
 The major benefit of monoliths compared to microservices is the easier maintainability.
+The syntheses is bad deployability and bad maintainability—oh, wait... wrong :-)—of course, we want to achieve the modularity of microservices and the easier maintainability.
+The modularity should be achieved via encapsulating domains.
+The maintainability should be supported by having those encapsulated modules in a monolithic architecture.
 
 Let us examine a short example about the difficulites about maintaining multiple microservices:
 When we developed the environment for HUK-Autoservice, we started with two teams.
@@ -46,15 +49,22 @@ Both teams developed an essential part of HUK-Autoservice: [we developed a core 
 Over the years, we have grown further teams, then merged teams, and essentially have come up with just one development team.
 But the microservices architecture with core backend and an account backed stayed even with one team.
 We maintained both microservices, but changes that required updates in both microservices, were quite difficult to team members: A pull request to the first repository, a pull request to a common library that is used for Kafka messages, and a pull request to the account microservice and/or further microservices.
-On top, we often needed to coordinate the go-live of those three pull requests.
+On top, we often had to coordinate the rollouts of those three pull requests.
 
 With the new development endeavor, we decided to use [Spring Modulith](https://spring.io/projects/spring-modulith) to ease our development within the small team.
 For now, we will stay with just one development team.
 Specifically, working with events—we did this manually before via Kafka—is much easier with Spring Modulith.
+A good tutorial to learn about Spring Modulith is available at [baeldung.com](https://www.baeldung.com/spring-modulith).
 
 ## What benefits does a Modulith bring us?
 
-Todo
+For us, the major benefit of a modulith is the better maintainability.
+We have just one development team.
+This team does not need to work in different repositories and applications, so nobody has to create pull requests in different repositories.
+We, additionally, do not have to coordinate rollouts of pull requests.
+There is just one application and one setup.
+
+Furthermore, 
 
 ## Summary
 

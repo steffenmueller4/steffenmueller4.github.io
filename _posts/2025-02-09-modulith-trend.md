@@ -30,15 +30,16 @@ The results were ineffective and inefficient processes as well as nobody being a
 
 Besides the decision about the new development endeavor with HUK-Autowelt, we also have to cope with the additional challenge of a smaller development team compared to the previous development team in HUK-Autoservice.
 As we are not different to other companies, we also have to handle the "new reality" in tech industry: the "[...] demise of 0% interest rates [...]" {% cite Orosz2024 %}.
-This simply means that we have to consider Total Cost of Ownership (TCO) for our development endeavors again and providing short term positive cash flow.
+This simply means that we must consider Total Cost of Ownership (TCO) for our development endeavors and provide short term positive cash flow.
 As a result, we had to reduce the development team size compared to the HUK-Autoservice development team where we peaked with 15 developers.
 Fortunately, we were able to shrink organically without layoffs.
 
 ## What is a Modular Monolith/Modulith?
 
-In general, modular monoliths (moduliths) want to combine the benefits of monoliths and microservices {% cite Su2024 %}.
+In general, modular monoliths (in short: moduliths) want to combine the benefits of monoliths and microservices {% cite Su2024 %}, {% cite Su2023 %}.
+The major benefit of monoliths is the easier maintainability and, thus, often faster development speed, because virtually everything in a monolith is accessible in one application while in microservices architectures different domains are separated into different microservices.
 The major benefit of microservices is the independent deployability and scalability of microservices.
-The major benefit of monoliths compared to microservices is the easier maintainability.
+
 The syntheses is bad deployability and bad maintainability—oh, wait... wrong :-)—of course, we want to achieve the modularity of microservices and the easier maintainability.
 The modularity should be achieved via encapsulating domains.
 The maintainability should be supported by having those encapsulated modules in a monolithic architecture.

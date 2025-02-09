@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2024-12-31 13:15:10 +0100
+date: 2025-02-09 10:15:10 +0100
 title: "Trend: Moduliths - Why we follow it, too"
 categories:
   - Architecture

@@ -38,12 +38,36 @@ Fortunately, we were able to shrink development team size organically without la
 ## What is a Modular Monolith/Modulith?
 
 In general, modular monoliths (in short: moduliths) want to combine the benefits of monoliths and microservices {% cite Su2024 %}, {% cite Su2023 %}.
-The major benefit of monoliths is the easier maintainability/less complexity and, thus, often faster development speed, because a monolith is a less distributed solution compared to microservices architectures where different domains are separated into different microservices.
+The major benefit of monoliths is the easier maintainability/less complexity and, thus, often faster development speed, because a monolith is a less distributed system compared to microservices architectures where different domains are separated into different microservices.
 The major benefits of microservices is scalability, independent deployability, and modularity (if you design them properly via, e.g., separating domains; see also: [here]({% post_url 2022-05-10-building-an-event-driven-microservice-application %}) or {% cite Newman2019 %}).
 
-The synthesis of a modulith is, therefore, bad deployability and bad maintainability—oh, wait... wrong :-)—of course, we want to achieve modularity comparable to microservices and easier maintainability/less complexity due to a less distributed solution such as in monoliths.
-The modularity is achievable via enforcing modules.
-The easier maintainability should be supported by having those encapsulated modules in a monolithic architecture.
+Thus, a modulith comprises bad deployability and bad maintainability—oh, wait... wrong me ;-)—of course, we want to achieve modularity comparable to microservices and easier maintainability/less complexity due to a less distributed system such as in monoliths {% cite Su2024 %}, {% cite Su2023 %}.
+The modularity can be achieved via splitting the system into separate modules, not only in layers.
+The easier maintainability can be supported by having those encapsulated modules in a monolithic architecture, not in microservices.
+
+Thereby, modularization is not a new concept in software architecture but in moduliths, modularization is key to being able to achieve maintainability by different teams in the monolithic system {% cite Su2024 %}, {% cite Su2023 %}.
+Modules should be loosely coupled as well as have clear boundaries and well-defined dependencies on other modules.
+The goal of modularization in moduliths is indepencence and isolation of each module.
+The modules should focus on business domains comparable to proper microservices design, and, ideally, they can be migrated to microservices if indepentent deployability or scalability is needed.
+
+In sum, moduliths is an architectural style that is a different approach between monolithic and microservices architectures.
+Su et al. in {% cite Su2024 %} summarize the characteristics of moduliths as:
+ * They have separate and independent modules with a clear own domain and autonomy from other modules.
+ * They should be loosely coupled between modules and should have strong cohesion inside a module. Communication between modules should happen through well-defined API or asynchronously via message brokers.
+ * They have a unified database schema contrary to microservices where every microservice should have its own database schema (see also: {% cite Newman2019 %}).
+ * They have a monolithic deployement structure and are deployed as one application.
+ * They have a unified application process similar to monoliths.
+ * They have enhanced maintainability.
+
+## What benefits does a Modulith bring us?
+
+For us, the major benefit of a modulith is the better maintainability.
+We have just one development team.
+This team does not need to work in different repositories and applications, so nobody has to create pull requests in different repositories.
+We, additionally, do not have to coordinate rollouts of pull requests.
+There is just one application and one setup.
+
+Furthermore, 
 
 Let us examine a short example about the difficulites about maintaining multiple microservices:
 When we developed the environment for HUK-Autoservice, we started with two teams.
@@ -57,16 +81,6 @@ With the new development endeavor, we decided to use [Spring Modulith](https://s
 For now, we will stay with just one development team.
 Specifically, working with events—we did this manually before via Kafka—is much easier with Spring Modulith.
 A good tutorial to learn about Spring Modulith is available at [baeldung.com](https://www.baeldung.com/spring-modulith).
-
-## What benefits does a Modulith bring us?
-
-For us, the major benefit of a modulith is the better maintainability.
-We have just one development team.
-This team does not need to work in different repositories and applications, so nobody has to create pull requests in different repositories.
-We, additionally, do not have to coordinate rollouts of pull requests.
-There is just one application and one setup.
-
-Furthermore, 
 
 ## Summary
 

@@ -32,17 +32,18 @@ Besides the decision about the new development endeavor with HUK-Autowelt, we al
 As we are not different to other companies, we also have to handle the "new reality" in tech industry: the "[...] demise of 0% interest rates [...]" {% cite Orosz2024 %}.
 This simply means that we must consider Total Cost of Ownership (TCO) for our development endeavors and provide short term positive cash flow.
 As a result, we had to reduce the development team size compared to the HUK-Autoservice development team where we peaked with 15 developers.
-Fortunately, we were able to shrink organically without layoffs in the tech area.
+Addionally, we just run one development team—we have already merged some time ago.
+Fortunately, we were able to shrink development team size organically without layoffs.
 
 ## What is a Modular Monolith/Modulith?
 
 In general, modular monoliths (in short: moduliths) want to combine the benefits of monoliths and microservices {% cite Su2024 %}, {% cite Su2023 %}.
-The major benefit of monoliths is the easier maintainability and, thus, often faster development speed, because virtually everything in a monolith is accessible in one application while in microservices architectures different domains are separated into different microservices.
-The major benefit of microservices is the independent deployability and scalability of microservices.
+The major benefit of monoliths is the easier maintainability/less complexity and, thus, often faster development speed, because a monolith is a less distributed solution compared to microservices architectures where different domains are separated into different microservices.
+The major benefits of microservices is scalability, independent deployability, and modularity (if you design them properly via, e.g., separating domains; see also: [here]({% post_url 2022-05-10-building-an-event-driven-microservice-application %}) or {% cite Newman2019 %}).
 
-The syntheses is bad deployability and bad maintainability—oh, wait... wrong :-)—of course, we want to achieve the modularity of microservices and the easier maintainability.
-The modularity should be achieved via encapsulating domains.
-The maintainability should be supported by having those encapsulated modules in a monolithic architecture.
+The synthesis of a modulith is, therefore, bad deployability and bad maintainability—oh, wait... wrong :-)—of course, we want to achieve modularity comparable to microservices and easier maintainability/less complexity due to a less distributed solution such as in monoliths.
+The modularity is achievable via enforcing modules.
+The easier maintainability should be supported by having those encapsulated modules in a monolithic architecture.
 
 Let us examine a short example about the difficulites about maintaining multiple microservices:
 When we developed the environment for HUK-Autoservice, we started with two teams.

@@ -32,7 +32,7 @@ Besides the decision about the new development endeavor with HUK-Autowelt, we al
 As we are not different to other companies, we also have to handle the "new reality" in tech industry: the "[...] demise of 0% interest rates [...]" {% cite Orosz2024 %}.
 This simply means that we must consider Total Cost of Ownership (TCO) for our development endeavors and provide short term positive cash flow.
 As a result, we had to reduce the development team size compared to the HUK-Autoservice development team where we peaked with 15 developers.
-Fortunately, we were able to shrink organically without layoffs.
+Fortunately, we were able to shrink organically without layoffs in the tech area.
 
 ## What is a Modular Monolith/Modulith?
 

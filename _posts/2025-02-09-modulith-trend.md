@@ -30,10 +30,10 @@ The results were ineffective and inefficient processes as well as nobody being a
 
 Besides the decision about the new development endeavor with HUK-Autowelt, we also have to cope with the additional challenge of a smaller development team compared to the previous development team in HUK-Autoservice.
 As we are not different to other companies, we also have to handle the "new reality" in tech industry: the "[...] demise of 0% interest rates [...]" {% cite Orosz2024 %}.
-This simply means that we must consider Total Cost of Ownership (TCO) for our development endeavors and provide short term positive cash flow.
+This simply means that we must consider Total Cost of Ownership for our development endeavors and provide short term positive cash flow.
 As a result, we had to reduce the development team size compared to the HUK-Autoservice development team where we peaked with 15 developers.
 Addionally, we just run one development team—we have already merged some time ago.
-Fortunately, we were able to shrink development team size organically without layoffs.
+Fortunately, we were able to shrink development team size without layoffs organically.
 
 ## What is a Modular Monolith/Modulith?
 
@@ -61,15 +61,11 @@ Su et al. in {% cite Su2024 %} summarize the characteristics of moduliths as:
 
 ## What benefits does a Modulith bring us?
 
-For us, the major benefit of a modulith is the better maintainability.
-We have just one development team.
-This team does not need to work in different repositories and applications, so nobody has to create pull requests in different repositories.
-We, additionally, do not have to coordinate rollouts of pull requests.
-There is just one application and one setup.
+For us, the major benefit of a modulith is easier maintainability.
+As explained above, we just have one development team and one application
+Working in different repositories and applications and making pull requests in different repositories is rather a burden for us.
 
-Furthermore, 
-
-Let us examine a short example about the difficulites about maintaining multiple microservices:
+To fully understand why a modulith is an improvement for us, let us examine a short example about the difficulites about maintaining multiple microservices:
 When we developed the environment for HUK-Autoservice, we started with two teams.
 Both teams developed an essential part of HUK-Autoservice: [we developed a core backend for the booking process and an account backend]({% post_url 2022-05-10-building-an-event-driven-microservice-application %}).
 Over the years, we have grown further teams, then merged teams, and essentially have come up with just one development team.

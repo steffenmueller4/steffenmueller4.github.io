@@ -60,8 +60,8 @@ Su et al. in {% cite Su2024 %} summarize the characteristics of moduliths as:
 
 ## What benefits does a Modulith bring us?
 
-For us, the major benefit of a modulith is the maintainability.
-As explained above, we just have a single development team and one application
+For us, the major benefit of a modulith is the enhanced maintainability.
+As explained above, we just have one joint development team and one application in HUK-Autowelt.
 Working in different repositories and applications and making pull requests in different repositories is rather a burden for us.
 
 To fully understand why a modulith is an improvement for us, let us examine a short example about the difficulites about maintaining multiple microservices:

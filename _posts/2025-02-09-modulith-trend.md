@@ -14,7 +14,7 @@ Simple reason is that my company started a new development endeavor with renewin
 We will do the renewal of the site step by step.
 The first step was the renewal of the journey to figure out a car's price of potential customers who want to sell their cars to us (car buy journey, [here](https://bewertung.huk-autowelt.de)).
 For the new backend application, we are using [Spring Modulith](https://spring.io/projects/spring-modulith), one of the options mentioned in the InfoQ newsletter (see: {% cite InfoQ2024 %}).
-This article is about our experiences and our reasons to go for a modular monolith in the new HUK-Autowelt backend.
+This article is about our experiences and our reasons to go for a modular monolith in the new backend.
 
 ## Background
 
@@ -37,10 +37,10 @@ This smaller team has also required the adaptation of our previous approach of m
 ## What is a Modular Monolith/Modulith?
 
 In general, modular monoliths (in short: moduliths) want to combine the benefits of monoliths and microservices {% cite Su2024 %}, {% cite Su2023 %}.
-The major benefit of monoliths is the easier maintainability/less complexity and, thus, often faster development speed, because a monolith is a less distributed system compared to microservices architectures where different domains are separated into different microservices.
+The major benefit of monoliths is the enhanced maintainability/less complexity and, thus, often faster development speed, because a monolith is a less distributed system compared to microservices architectures where different domains are separated into different microservices.
 The major benefits of microservices is scalability, independent deployability, and modularity (if you design them properly via, e.g., separating domains; see also: [here]({% post_url 2022-05-10-building-an-event-driven-microservice-application %}) or {% cite Newman2019 %}).
 
-Thus, a modulith comprises bad deployability and bad maintainability—oh, wait... wrong me ;-)—of course, we want to achieve modularity comparable to microservices and easier maintainability/less complexity due to a less distributed system such as in monoliths {% cite Su2024 %}, {% cite Su2023 %}.
+Thus, a modulith comprises bad deployability and bad maintainability—oh, wait... wrong me ;-)—of course, we want to achieve modularity comparable to microservices and enhanced maintainability/less complexity due to a less distributed system such as in monoliths {% cite Su2024 %}, {% cite Su2023 %}.
 The modularity can be achieved via splitting the system into separate modules, not only in layers.
 The easier maintainability can be supported by having those encapsulated modules in a monolithic architecture, not in microservices.
 

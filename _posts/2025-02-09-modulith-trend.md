@@ -41,7 +41,7 @@ This article explains the background of moduliths, why we have chosen that when 
 ## What is a Modular Monolith/Modulith?
 
 In general, modular monoliths (in short: moduliths) are a software architecture pattern that wants to combine the benefits of monoliths and microservices {% cite Su2024 %}, {% cite Su2023 %}.
-Here, "monolith" means that the software is composed all in one piece—somehow like one "executable" or "runnable".
+Here, "monolith" or "monolithic" means that the software is composed all in one piece—somehow like one "executable" or "runnable".
 While previously tiering and layering (tiers such as application server or database; layers such as presentation, business, and data access layer) have been used in monolithic architectures, the basic idea of a modulith is now to structure a monolith into modules (modularization).
 
 Thereby, modularization is not a new concept in software architecture but in moduliths, modularization is key to being able to achieve maintainability by different teams in the monolith {% cite Su2024 %}, {% cite Su2023 %}.
@@ -52,7 +52,7 @@ The modules should focus on business domains comparable to proper microservices 
 The major benefit of monoliths is the enhanced maintainability/less complexity and, thus, often faster development speed, because a monolith is a less distributed software system compared to microservices where different domains are separated into different microservices.
 The major benefits of microservices is scalability, independent deployability, and modularity (if you design them properly via, e.g., separating domains; see also: [here]({% post_url 2022-05-10-building-an-event-driven-microservice-application %}) or {% cite Newman2019 %}).
 
-Thus, a modulith comprises bad deployability and bad maintainability—oh, wait... wrong me ;-)—of course, we want to achieve modularity comparable to microservices and enhanced maintainability/less complexity due to a less distributed system such as in monoliths {% cite Su2024 %}, {% cite Su2023 %}.
+Thus, a modulith comprises bad deployability and bad maintainability—oh... wrong me ;-)—of course, we want to achieve modularity comparable to microservices as well as enhanced maintainability/less complexity due to a less distributed system such as in monoliths {% cite Su2024 %}, {% cite Su2023 %}.
 The modularity can be achieved via splitting the system into separate modules, not only in layers.
 The easier maintainability can be supported by having those encapsulated modules in a monolithic architecture, not in microservices.
 
@@ -64,6 +64,8 @@ Su et al. in {% cite Su2024 %} summarize the characteristics of moduliths as:
  * They have a monolithic deployement structure and are deployed as one application.
  * They have a unified application process similar to monoliths.
  * They have enhanced maintainability.
+
+In the next section, let us look at the benefits a modulith brings to my team and me and to why we have chosen this architectural style over microservices now.
 
 ## What benefits does a Modulith bring us?
 

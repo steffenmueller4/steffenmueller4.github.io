@@ -10,7 +10,7 @@ published: true
 hero_image: "/assets/hero-modulith_trend.svg"
 ---
 On 2024-12-27, the article "Modular Monolith: Is This the Trend in Software Architecture?" {% cite InfoQ2024 %} of the InfoQ's The Software Architects' Newsletter December 2024 dragged my attention.
-Simple reason is that my company started a new development endeavor with renewing the entire site of [HUK-Autowelt](https://www.huk-autowelt.de) (before we were working on [HUK-Autoservice](https://www.huk-autoservice.de), you can read the stories about that, e.g., [here]({% post_url 2023-08-04-tales-from-a-startup-and-its-evolving-architecture %})), and we are also following the modular monolith approach with the new endeavor.
+Simple reason is that my team and me started a new development endeavor with renewing the entire site of [HUK-Autowelt](https://www.huk-autowelt.de) (before we were working on [HUK-Autoservice](https://www.huk-autoservice.de), you can read the stories about that, e.g., [here]({% post_url 2023-08-04-tales-from-a-startup-and-its-evolving-architecture %})), and we are also following the modular monolith approach with the new endeavor.
 We will do the renewal of the site step by step.
 The first step was the renewal of the journey to figure out a car's price of potential customers who want to sell their cars to us (car buy journey, [here](https://bewertung.huk-autowelt.de)).
 For the new backend application, we are using [Spring Modulith](https://spring.io/projects/spring-modulith), one of the options mentioned in the InfoQ newsletter (see: {% cite InfoQ2024 %}).
@@ -18,21 +18,25 @@ This article is about our experiences and our reasons to go for a modular monoli
 
 ## Background
 
-In October 2024, my company, HUK-COBURG Autowelt GmbH (HUK-Autowelt), decided to start a new development endeavor with renewing the site of [HUK-Autowelt](https://www.huk-autowelt.de).
-The main reason was to have control over data and all the core processes of the company.
-This encompasses the integrations of all systems with the core process.
+In October 2024, we decided to start a new development endeavor with renewing the site of [HUK-Autowelt](https://www.huk-autowelt.de).
+The main reason was to have control over data and all the core processes.
+This encompasses the renewal of all customer-facing application, the integrations of all systems in the background, and the core processes connected to those applications and systems.
 
 Before, the entire development of HUK-Autowelt—compared to our previous development endeavor of HUK-Autoservice; you can read stories about that, e.g., [here]({% post_url 2023-08-04-tales-from-a-startup-and-its-evolving-architecture %})—was done by an external partner.
-The partner has done an amazing job and helped us through all the years before.
+The partner has done an amazing job and has driven our business all the years before.
 However, the complexity of our processes and integrations with our internal systems has grown so much in recent years that those processes and integrations have been becoming enormously complex (maybe, this is another article soon).
 The results were ineffective and inefficient processes as well as nobody being able to overlook the processes and challenges when changing them.
 
-Besides the decision about the new development endeavor with HUK-Autowelt, we also have to cope with the additional challenge of a smaller development team compared to the previous development team in HUK-Autoservice.
+Besides the decision about the new development endeavor, we also have to cope with the additional challenge of a smaller development team compared to the previous development team in HUK-Autoservice.
 As we are not different to other companies, we also have to handle the "new reality" in tech industry: the "[...] demise of 0% interest rates [...]" {% cite Orosz2024 %}.
-This simply means that we must consider Total Cost of Ownership for our select development and provide short term positive cash flow contrary to previous development activities.
-As a result, we had to reduce the development team size compared to the HUK-Autoservice development team where we peaked with 15 developers in different teams.
-Now, we just run one development team—we have already merged some time ago—and, fortunately, we were able to shrink development team size organically without layoffs.
-This smaller team has also required the adaptation of our previous approach of microservices per domain what we used before—we will discuss that later, again.
+This simply means that we must reconsider Total Cost of Ownership for our select development and provide short term positive cash flow contrary to previous development activities.
+As a result, we had to reduce the development team compared to before where we peaked with 15 developers in different sub-teams.
+Now, we are just running one development team—we have already merged some time ago.
+And, fortunately, we have been able to shrink development team size organically without layoffs.
+
+The smaller team has also required the adaptation of our previous approach of microservices per domain connected via message queues that we used before.
+We now use the modular monolith—or short "modulith"—approach.
+This article explains the background of moduliths, why we have chosen that when starting the new development endeavor, and our first experiences.
 
 ## What is a Modular Monolith/Modulith?
 

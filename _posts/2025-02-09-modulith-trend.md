@@ -67,19 +67,19 @@ Su et al. in {% cite Su2024 %} summarize the characteristics of moduliths as:
 
 In the next section, let us look at the benefits a modulith brings to my team and me and to why we have chosen this architectural style over microservices now.
 
-## What benefits does a Modulith bring us?
+## What benefits does a Modulith bring to us?
+
+To understand why a modulith is an improvement to us, let us examine a short example about the difficulites of maintaining multiple microservices:
+When we developed the environment for HUK-Autoservice, we started with two teams.
+Both teams developed an essential part of HUK-Autoservice: [we developed a core backend to run the booking process as well as an account backend to run everything about accounts of users]({% post_url 2022-05-10-building-an-event-driven-microservice-application %}).
+Over the years, we have grown further teams, then merged teams, and essentially have come up with just one development team.
+But the microservices architecture with core backend, account backed, and further microservices stayed even with one team.
+We maintained the microservices, but changes that required updates in two or more microservices, were quite difficult to the team members: A pull request to the core backend repository, a pull request to a common library that is used for Kafka messages, and a pull request to the account backend repositoriy and/or further microservices.
+On top, we often had to coordinate rollouts of those pull requests.
 
 For us, the major benefit of a modulith is the enhanced maintainability.
-As explained above, we just have one joint development team and one application in HUK-Autowelt.
-Working in different repositories and applications and making pull requests in different repositories is rather a burden for us.
-
-To fully understand why a modulith is an improvement for us, let us examine a short example about the difficulites about maintaining multiple microservices:
-When we developed the environment for HUK-Autoservice, we started with two teams.
-Both teams developed an essential part of HUK-Autoservice: [we developed a core backend for the booking process and an account backend]({% post_url 2022-05-10-building-an-event-driven-microservice-application %}).
-Over the years, we have grown further teams, then merged teams, and essentially have come up with just one development team.
-But the microservices architecture with core backend and an account backed stayed even with one team.
-We maintained both microservices, but changes that required updates in both microservices, were quite difficult to team members: A pull request to the first repository, a pull request to a common library that is used for Kafka messages, and a pull request to the account microservice and/or further microservices.
-On top, we often had to coordinate the rollouts of those three pull requests.
+As explained above, we just have one joint development team, one application in HUK-Autowelt, and just one repository.
+Working in different repositories and applications as well as making pull requests in different repositories has been rather a burden for us for a long time.
 
 With the new development endeavor, we decided to use [Spring Modulith](https://spring.io/projects/spring-modulith) to ease our development within the small team.
 For now, we will stay with just one development team.

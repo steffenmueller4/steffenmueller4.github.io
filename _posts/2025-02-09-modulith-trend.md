@@ -69,21 +69,21 @@ In the next section, let us look at the benefits a modulith brings to my team an
 
 ## What benefits does a Modulith bring to us?
 
-To understand why a modulith is an improvement to us, let us examine a short example about the difficulites of maintaining multiple microservices:
+To understand why a modulith is an improvement for us, let us examine a short example of the difficulties in maintaining multiple microservices:
 When we developed the environment for HUK-Autoservice, we started with two teams.
-Both teams developed an essential part of HUK-Autoservice: [we developed a core backend to run the booking process as well as an account backend to run everything about accounts of users]({% post_url 2022-05-10-building-an-event-driven-microservice-application %}).
-Over the years, we have grown further teams, then merged teams, and essentially have come up with just one development team.
-But the microservices architecture with core backend, account backed, and further microservices stayed even with one team.
-We maintained the microservices, but changes that required updates in two or more microservices, were quite difficult to the team members: A pull request to the core backend repository, a pull request to a common library that is used for Kafka messages, and a pull request to the account backend repositoriy and/or further microservices.
-On top, we often had to coordinate rollouts of those pull requests.
+Both teams developed essential parts of HUK-Autoservice: [we developed a core backend to run the booking process as well as an account backend to manage everything related to user accounts]({% post_url 2022-05-10-building-an-event-driven-microservice-application %}).
+Over the years, we grew additional teams, then merged teams, and eventually ended up with just one development team.
+However, the microservices architecture—with the core backend, account backend, and additional microservices—remained in place, even with just one team.
+We maintained the microservices, but changes requiring updates in two or more microservices were quite challenging for the team members: A pull request to the core backend repository, a pull request to a common library used for Kafka messages, and a pull request to the account backend repository and/or other microservices.
+On top of that, we often had to coordinate rollouts for these pull requests.
 
 For us, the major benefit of a modulith is the enhanced maintainability.
-As explained above, we just have one joint development team, one application in HUK-Autowelt, and just one repository.
-Working in different repositories and applications as well as making pull requests in different repositories has been rather a burden for us for a long time.
+As explained above, we now have just one unified development team, one application for HUK-Autowelt, and just one repository.
+Working across multiple repositories and applications, as well as creating pull requests in different repositories, had been a significant burden for us for a long time.
 
-With the new development endeavor, we decided to use [Spring Modulith](https://spring.io/projects/spring-modulith) to ease our development within the small team.
-For now, we will stay with just one development team.
-Specifically, working with events—we did this manually before via Kafka—is much easier with Spring Modulith.
+With the new development endeavor, we decided to use [Spring Modulith](https://spring.io/projects/spring-modulith) to simplify our development process within the smaller team.
+For now, we will stick with just one development team.
+Specifically, working with events—which we previously handled manually via Kafka—is much easier with Spring Modulith.
 A good tutorial to learn about Spring Modulith is available at [baeldung.com](https://www.baeldung.com/spring-modulith).
 
 ## Summary

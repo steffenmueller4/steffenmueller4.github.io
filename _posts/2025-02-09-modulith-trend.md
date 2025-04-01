@@ -83,7 +83,7 @@ For us, the major benefit of a modulith is the enhanced maintainability.
 As explained above, we now have just one development team, one application for HUK-Autowelt, and just one repository.
 Working across multiple repositories and applications as well as creating pull requests in different repositories, had been a significant burden for us for a long time.
 
-## Technical Support for Moduliths
+## Technical Side of Moduliths
 
 With the new development endeavor, we decided to use [Spring Modulith](https://spring.io/projects/spring-modulith) to simplify our development process within the smaller team.
 For now, we will stick with just one development team.

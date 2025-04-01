@@ -70,16 +70,19 @@ In the next section, let us look at the benefits a modulith brings to my team an
 ## What benefits does a Modulith bring to us?
 
 To understand why a modulith is an improvement for us, let us examine a short example of the difficulties in maintaining multiple microservices:
-When we developed the environment for HUK-Autoservice, we started with two teams.
+When we developed the HUK-Autoservice, we started with two development teams.
 Both teams developed essential parts of HUK-Autoservice: [we developed a core backend to run the booking process as well as an account backend to manage everything related to user accounts]({% post_url 2022-05-10-building-an-event-driven-microservice-application %}).
 Over the years, we grew additional teams, then merged teams, and eventually ended up with just one development team.
 However, the microservices architecture—with the core backend, account backend, and additional microservices—remained in place, even with just one team.
-We maintained the microservices, but changes requiring updates in two or more microservices were quite challenging for the team members: A pull request to the core backend repository, a pull request to a common library used for Kafka messages, and a pull request to the account backend repository and/or other microservices.
+We maintained the microservices, but changes requiring updates in two or more microservices were quite challenging for the team members.
+Such updates, for example, looked like: A pull request to the core backend repository, a pull request to a common library for the Kafka messages used to have a common message definition in all Kafka producers and consumers, and a pull request to the account backend repository.
 On top of that, we often had to coordinate rollouts for these pull requests.
 
 For us, the major benefit of a modulith is the enhanced maintainability.
-As explained above, we now have just one unified development team, one application for HUK-Autowelt, and just one repository.
-Working across multiple repositories and applications, as well as creating pull requests in different repositories, had been a significant burden for us for a long time.
+As explained above, we now have just one development team, one application for HUK-Autowelt, and just one repository.
+Working across multiple repositories and applications as well as creating pull requests in different repositories, had been a significant burden for us for a long time.
+
+## Technical Support for Moduliths
 
 With the new development endeavor, we decided to use [Spring Modulith](https://spring.io/projects/spring-modulith) to simplify our development process within the smaller team.
 For now, we will stick with just one development team.

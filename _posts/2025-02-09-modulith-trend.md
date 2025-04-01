@@ -9,12 +9,13 @@ categories:
 published: true
 hero_image: "/assets/hero-modulith_trend.svg"
 ---
-On 2024-12-27, the article "Modular Monolith: Is This the Trend in Software Architecture?" {% cite InfoQ2024 %} of the InfoQ's The Software Architects' Newsletter December 2024 dragged my attention.
-Simple reason is that my team and me started a new development endeavor with renewing the entire site of [HUK-Autowelt](https://www.huk-autowelt.de) (before we were working on [HUK-Autoservice](https://www.huk-autoservice.de), you can read the stories about that, e.g., [here]({% post_url 2023-08-04-tales-from-a-startup-and-its-evolving-architecture %})), and we are also following the modular monolith approach with the new endeavor.
-We will do the renewal of the site step by step.
-The first step was the renewal of the journey to figure out a car's price of potential customers who want to sell their cars to us (car buy journey, [here](https://bewertung.huk-autowelt.de)).
-For the new backend application, we are using [Spring Modulith](https://spring.io/projects/spring-modulith), one of the options mentioned in the InfoQ newsletter (see: {% cite InfoQ2024 %}).
-This article is about our experiences and our reasons to go for a modular monolith in the new backend.
+On 2024-12-27, the article "Modular Monolith: Is This the Trend in Software Architecture?" {% cite InfoQ2024 %} in InfoQ's *The Software Architects' Newsletter* caught my attention.
+The reason is simple: my team and I recently embarked on a new development endeavor to renew the entire site of [HUK-Autowelt](https://www.huk-autowelt.de).
+Previously, we worked on [HUK-Autoservice](https://www.huk-autoservice.de), and you can read about that journey [here]({% post_url 2023-08-04-tales-from-a-startup-and-its-evolving-architecture %}). For this new project, we are also adopting the modular monolith approach.
+The renewal of the site will be done step by step.
+The first milestone was revamping the car-buying journey, which allows customers to determine the price of their cars ([car buy journey](https://bewertung.huk-autowelt.de)).
+For the new backend application, we chose [Spring Modulith](https://spring.io/projects/spring-modulith), one of the options highlighted in the InfoQ newsletter (see: {% cite InfoQ2024 %}). 
+This article shares our experiences and explains why we opted for a modular monolith for the new backend.
 
 ## Background
 

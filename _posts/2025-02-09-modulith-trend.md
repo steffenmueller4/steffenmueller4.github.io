@@ -1,11 +1,11 @@
 ---
 layout: post
 date: 2025-02-09 10:15:10 +0100
-title: "Trend: Moduliths - Why we follow it, too"
+title: "Trend Modular Monolith - Why we follow the Trend, too"
 categories:
   - Architecture
   - Microservices
-  - Modulith
+  - Modular Monolith
 published: true
 hero_image: "/assets/hero-modulith_trend.svg"
 ---
@@ -41,7 +41,7 @@ This article explains the background of moduliths, why we have chosen that when 
 
 ## What is a Modular Monolith/Modulith?
 
-In general, modular monoliths (in short: moduliths) are a software architecture pattern that wants to combine the benefits of monoliths and microservices {% cite Su2024 %}, {% cite Su2023 %}.
+In general, modular monoliths/moduliths are a software architecture pattern that wants to combine the benefits of monoliths and microservices {% cite Su2024 %}, {% cite Su2023 %}.
 Here, "monolith" or "monolithic" means that the software is composed all in one piece—somehow like one "executable" or "runnable".
 While previously tiering and layering (tiers such as application server or database; layers such as presentation, business, and data access layer) have been used in monolithic architectures, the basic idea of a modulith is now to structure a monolith into modules (modularization).
 
@@ -53,7 +53,7 @@ The modules should focus on business domains comparable to proper microservices 
 The major benefit of monoliths is the enhanced maintainability/less complexity and, thus, often faster development speed, because a monolith is a less distributed software system compared to microservices where different domains are separated into different microservices.
 The major benefits of microservices is scalability, independent deployability, and modularity (if you design them properly via, e.g., separating domains; see also: [here]({% post_url 2022-05-10-building-an-event-driven-microservice-application %}) or {% cite Newman2019 %}).
 
-Thus, a modulith comprises bad deployability and bad maintainability—oh... wrong me ;-)—of course, we want to achieve modularity comparable to microservices as well as enhanced maintainability/less complexity due to a less distributed system such as in monoliths {% cite Su2024 %}, {% cite Su2023 %}.
+Thus, a modular monolith comprises modularity comparable to microservices as well as enhanced maintainability/less complexity due to a less distributed system such as in monoliths {% cite Su2024 %}, {% cite Su2023 %}.
 The modularity can be achieved via splitting the system into separate modules, not only in layers.
 The easier maintainability can be supported by having those encapsulated modules in a monolithic architecture, not in microservices.
 
@@ -83,14 +83,17 @@ For us, the major benefit of a modulith is the enhanced maintainability.
 As explained above, we now have just one development team, one application for HUK-Autowelt, and just one repository.
 Working across multiple repositories and applications as well as creating pull requests in different repositories, had been a significant burden for us for a long time.
 
-## Technical Side of Moduliths
+## Technical Side of our Modulith
 
-With the new development endeavor, we decided to use [Spring Modulith](https://spring.io/projects/spring-modulith) to simplify our development process within the smaller team.
-For now, we will stick with just one development team.
-Specifically, working with events—which we previously handled manually via Kafka—is much easier with Spring Modulith.
+With the new development endeavor, the smaller development team, and using a modular monolith architecture, we decided for [Spring Modulith](https://spring.io/projects/spring-modulith) from a technical perspective.
+The benefits of Spring Modulith are an easy support for working with events—which we previously handled manually via Kafka, a common message library, and Kafka consumers (see also: [here]({% post_url 2022-05-10-building-an-event-driven-microservice-application %}) and [here]({% post_url 2023-08-04-tales-from-a-startup-and-its-evolving-architecture %}))—and support for [strong module separation via ArchUnit tests](https://docs.spring.io/spring-modulith/reference/verification.html).
 A good tutorial to learn about Spring Modulith is available at [baeldung.com](https://www.baeldung.com/spring-modulith).
 
-## Summary
+So far, we are happy with our choice.
+But it is also already becoming apparent that we soon will face issues stemming from monolithic architectures such as a huge amount of dependencies to external systems and libraries.
+Again, it is getting obvious that we simply have to make our trade-offs in software architecture.
+
+## Conclusion
 
 Todo
 

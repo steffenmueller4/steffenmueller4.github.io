@@ -95,7 +95,17 @@ Again, it is getting obvious that we simply have to make our trade-offs in softw
 
 ## Conclusion
 
-Todo
+The modular monolith, or "modulith," has proven to be a valuable architectural choice for our team at HUK-Autowelt.
+By adopting this approach, we have been able to simplify our development processes, improve maintainability, and adapt to the constraints of a smaller development team.
+Spring Modulith has provided us with the tools to enforce strong module separation and streamline event handling compared to our microservices-based architecture previously.
+
+However, as with any architectural decision, trade-offs are inevitable.
+While the modulith has addressed many of our pain points, we are aware of potential challenges, such as managing dependencies and scaling as the application.
+These are considerations we will continue to monitor and address.
+
+Ultimately, the decision to move to a modulith was driven by our specific context and constraints.
+For teams facing similar challenges, the modulith offers a compelling middle ground between the "simplicity" of monoliths and the modularity of microservices.
+We hope our experiences provide valuable insights for others exploring this architectural style.
 
 ## References
 

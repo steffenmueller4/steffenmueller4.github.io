@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2025-02-09 10:15:10 +0100
+date: 2025-04-06 09:15:10 +0100
 title: "Trend Modular Monolith - Why We Follow the Trend, Too"
 categories:
   - Architecture

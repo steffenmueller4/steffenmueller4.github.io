@@ -1,6 +1,18 @@
 [
   
     {
+      "title"    : "Trend Modular Monolith - Why We Follow the Trend, Too",
+      "title-lower"    : "trend modular monolith - why we follow the trend, too",
+      "sub-titile" : "",
+      "sub-titile-lower" : "",
+      "categories" : "ArchitectureMicroservicesModular Monolith",
+      "tags"     : "",
+      "url"      : "/2025/04/06/modulith-trend.html",
+      "date"     : "2025-04-06 10:15:10 +0200",
+      "content"     : "On 2024-12-27, the article “Modular Monolith: Is This the Trend in Software Architecture?” [1] in InfoQ’s The Software Architects’ Newsletter caught my attention.The reason is simple: my team and I..."
+    } ,
+  
+    {
       "title"    : "Deploying Syncthing on a k3s Cluster with Rook",
       "title-lower"    : "deploying syncthing on a k3s cluster with rook",
       "sub-titile" : "",
@@ -8,7 +20,7 @@
       "categories" : "HowToRaspberry PiSyncthing",
       "tags"     : "",
       "url"      : "/2024/04/28/syncthing-on-k3s.html",
-      "date"     : "2024-04-28 10:20:10 +0000",
+      "date"     : "2024-04-28 12:20:10 +0200",
       "content"     : "Roughly four years ago, I have fallen in love with Syncthing.First, it was just a partial replacement for Dropbox.More and more, it grew to be the “data backbone” of my private life.Recently, I nee..."
     } ,
   
@@ -20,7 +32,7 @@
       "categories" : "StrategyArchitectureEvent-Driven ArchitectureCloud Platform",
       "tags"     : "",
       "url"      : "/2023/08/04/tales-from-a-startup-and-its-evolving-architecture.html",
-      "date"     : "2023-08-04 15:40:10 +0000",
+      "date"     : "2023-08-04 17:40:10 +0200",
       "content"     : "Recently, I have been giving a talk to students at TU Berlin about Cloud-native engineering and software architecture as a part of Prof. Tai’s lecture “Cloud Native Engineering and Architecture”.I ..."
     } ,
   
@@ -32,7 +44,7 @@
       "categories" : "DevOpsKPIDevelopmentCulture",
       "tags"     : "",
       "url"      : "/2022/10/13/with-four-key-metrics-towards-development-excellence.html",
-      "date"     : "2022-10-13 19:14:15 +0000",
+      "date"     : "2022-10-13 21:14:15 +0200",
       "content"     : "In an article about why technology matters more and more for companies, Gary O’Brien and Mike Mason mention Continous Delivery (CD) and applied DevOps practices as one of five key factors for a com..."
     } ,
   
@@ -44,7 +56,7 @@
       "categories" : "ArchitectureMicroservicesEvent-Driven ArchitectureDomain-Driven Design",
       "tags"     : "",
       "url"      : "/2022/05/10/building-an-event-driven-microservice-application.html",
-      "date"     : "2022-05-10 18:02:30 +0000",
+      "date"     : "2022-05-10 20:02:30 +0200",
       "content"     : "In August/October 2021, we have begun to build a completely new web application which aimed to be a substitution for a former application.When we have started to plan the new application, it was al..."
     } ,
   
@@ -56,7 +68,7 @@
       "categories" : "ArchitectureOrganizationArchitecture Review Process",
       "tags"     : "",
       "url"      : "/2021/07/30/overview-of-architecture-review-processes.html",
-      "date"     : "2021-07-30 06:50:08 +0000",
+      "date"     : "2021-07-30 08:50:08 +0200",
       "content"     : "Recently, I have been asked about what software architecture review processes exist to steer architecture work.An architecture review aims at different goals such as finding software design issues ..."
     } ,
   
@@ -68,7 +80,7 @@
       "categories" : "BackupHowToRaspberry Pi",
       "tags"     : "",
       "url"      : "/2020/12/31/duplicity-on-raspberry-pi-from-source.html",
-      "date"     : "2020-12-31 04:29:36 +0000",
+      "date"     : "2020-12-31 05:29:36 +0100",
       "content"     : "Recently, my Raspberry Pi and the attached hard drive crashed. Both, I am using as a network attached storage for storing a lot of my data. Fortunately, I was able to restore most of the data. As a..."
     } ,
   
@@ -80,7 +92,7 @@
       "categories" : "Thoughts",
       "tags"     : "",
       "url"      : "/2020/12/30/welcome.html",
-      "date"     : "2020-12-30 11:00:36 +0000",
+      "date"     : "2020-12-30 12:00:36 +0100",
       "content"     : "Welcome to my site. I am Steffen. Here, I will try to blog a little bit about different personal experiences, will share tutorials and howto’s about things I am interested in, etc. Let’s see…"
     } 
   

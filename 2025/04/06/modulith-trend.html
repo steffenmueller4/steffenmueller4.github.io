@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href="https://fonts.googleapis.com/css?family=Merriweather:300|Raleway:400,700" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<title>Trend Modular Monolith - Why We Follow the Trend, Too</title>
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Trend Modular Monolith - Why We Follow the Trend, Too | Steffen’s Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Trend Modular Monolith - Why We Follow the Trend, Too" />
+<meta name="author" content="Steffen Mueller" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="On 2024-12-27, the article “Modular Monolith: Is This the Trend in Software Architecture?” [5] in InfoQ’s The Software Architects’ Newsletter caught my attention. The reason is simple: my team and I recently embarked on a new development endeavor to renew the entire site of HUK-Autowelt. Previously, we worked on HUK-Autoservice, and you can read about that journey here. For this new project, we are also adopting the modular monolith approach. The first milestone of the project was revamping the car-buying journey, which allows customers to determine the price of their cars (car-buying journey). For the new backend application, we chose Spring Modulith, one of the options highlighted in the InfoQ newsletter (see: [5]). This article shares our experiences and explains why we opted for a modular monolith for the new backend." />
+<meta property="og:description" content="On 2024-12-27, the article “Modular Monolith: Is This the Trend in Software Architecture?” [5] in InfoQ’s The Software Architects’ Newsletter caught my attention. The reason is simple: my team and I recently embarked on a new development endeavor to renew the entire site of HUK-Autowelt. Previously, we worked on HUK-Autoservice, and you can read about that journey here. For this new project, we are also adopting the modular monolith approach. The first milestone of the project was revamping the car-buying journey, which allows customers to determine the price of their cars (car-buying journey). For the new backend application, we chose Spring Modulith, one of the options highlighted in the InfoQ newsletter (see: [5]). This article shares our experiences and explains why we opted for a modular monolith for the new backend." />
+<link rel="canonical" href="https://steffenmueller4.github.io/2025/04/06/modulith-trend.html" />
+<meta property="og:url" content="https://steffenmueller4.github.io/2025/04/06/modulith-trend.html" />
+<meta property="og:site_name" content="Steffen’s Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-04-06T10:15:10+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Trend Modular Monolith - Why We Follow the Trend, Too" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Steffen Mueller"},"dateModified":"2025-04-06T10:15:10+02:00","datePublished":"2025-04-06T10:15:10+02:00","description":"On 2024-12-27, the article “Modular Monolith: Is This the Trend in Software Architecture?” [5] in InfoQ’s The Software Architects’ Newsletter caught my attention. The reason is simple: my team and I recently embarked on a new development endeavor to renew the entire site of HUK-Autowelt. Previously, we worked on HUK-Autoservice, and you can read about that journey here. For this new project, we are also adopting the modular monolith approach. The first milestone of the project was revamping the car-buying journey, which allows customers to determine the price of their cars (car-buying journey). For the new backend application, we chose Spring Modulith, one of the options highlighted in the InfoQ newsletter (see: [5]). This article shares our experiences and explains why we opted for a modular monolith for the new backend.","headline":"Trend Modular Monolith - Why We Follow the Trend, Too","mainEntityOfPage":{"@type":"WebPage","@id":"https://steffenmueller4.github.io/2025/04/06/modulith-trend.html"},"url":"https://steffenmueller4.github.io/2025/04/06/modulith-trend.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+</head><body>
+  <main class="container">
+    <section class="about">
+      <div class="about-header condensed">
+      <div class="about-title">
+      <a href="/">
+        
+        <img src="/assets/me.jpg" alt="Steffen Mueller" />
+        
+      </a>
+      <h2 id="title">
+        <a href="/">Steffen Mueller</a>
+      </h2>
+      </div><p class="tagline">Software Engineer</p></div>
+      
+      <ul class="social about-footer condensed"><a href="https://github.com/steffenmueller4" target="_blank">
+          <li>
+            <i class="icon-github-circled"></i>
+          </li>
+        </a><a href="https://www.linkedin.com/in/steffen-mueller-139b8b191" target="_blank">
+          <li>
+            <i class="icon-linkedin-squared"></i>
+          </li>
+        </a></ul><p class="about-footer condensed">&copy;
+        2025</p>
+    </section>
+    <section class="content">
+      <div class="post-container">
+  <a class="post-link" href="/2025/04/06/modulith-trend.html">
+    <img src="/assets/hero-modulith_trend.svg" class="post-heroimage" alt="Trend Modular Monolith - Why We Follow the Trend, Too"><h1 class="post-title">Trend Modular Monolith - Why We Follow the Trend, Too</h1>
+  </a>
+  <div class="post-meta">
+    <div class="post-date"><i class="icon-calendar"></i>Apr 6, 2025</div><ul class="post-categories"><li>Architecture</li><li>Microservices</li><li>Modular Monolith</li></ul></div>
+  <div class="post">
+    <p>On 2024-12-27, the article “Modular Monolith: Is This the Trend in Software Architecture?” <a class="citation" href="#InfoQ2024">[1]</a> in InfoQ’s <em>The Software Architects’ Newsletter</em> caught my attention.
+The reason is simple: my team and I recently embarked on a new development endeavor to renew the entire site of <a href="https://www.huk-autowelt.de">HUK-Autowelt</a>.
+Previously, we worked on <a href="https://www.huk-autoservice.de">HUK-Autoservice</a>, and you can read about that journey <a href="/2023/08/04/tales-from-a-startup-and-its-evolving-architecture.html">here</a>.
+For this new project, we are also adopting the modular monolith approach.
+The first milestone of the project was revamping the car-buying journey, which allows customers to determine the price of their cars (<a href="https://bewertung.huk-autowelt.de">car-buying journey</a>).
+For the new backend application, we chose <a href="https://spring.io/projects/spring-modulith">Spring Modulith</a>, one of the options highlighted in the InfoQ newsletter (see: <a class="citation" href="#InfoQ2024">[1]</a>).
+This article shares our experiences and explains why we opted for a modular monolith for the new backend.</p>
+
+<h2 id="background">Background</h2>
+
+<p>In October 2024, we decided to start a new development endeavor to renew the site of <a href="https://www.huk-autowelt.de">HUK-Autowelt</a>.
+The main reason was to gain control over our data and core processes.
+This encompasses the renewal of all customer-facing applications, the integration of all background systems, and the core processes connected to those applications and systems.</p>
+
+<p>Previously, the entire development of HUK-Autowelt—unlike our earlier development of HUK-Autoservice (you can read about that <a href="/2023/08/04/tales-from-a-startup-and-its-evolving-architecture.html">here</a>)—was handled by an external partner.
+While the partner did an excellent job and supported our business for many years, the growing complexity of our processes and integrations with internal systems made it increasingly difficult to manage.
+This complexity led to inefficient processes and challenges in making changes.</p>
+
+<p>In addition to starting this new development endeavor, we faced the challenge of working with a smaller development team compared to the one we had for HUK-Autoservice.
+Like many other companies, we had to adapt to the “new reality” in the tech industry: the “[…] demise of 0% interest rates […]” <a class="citation" href="#Orosz2024">[2]</a>.
+This required us to reconsider the Total Cost of Ownership for our development efforts and focus on achieving short-term positive cash flow.
+As a result, we reduced our development team size compared to before where we peaked with 15 developers in different sub-teams.
+Now, we are just running one development team.
+Fortunately, we managed this reduction organically without layoffs.</p>
+
+<p>The smaller team also necessitated a shift in our architectural approach.
+Previously, we used microservices per domain connected via message queues.
+Now, we have adopted the modular monolith—or “modulith”—approach.
+This article explains the concept of moduliths, why we chose this architecture for our new development endeavor, and our initial experiences.</p>
+
+<h2 id="what-is-a-modular-monolithmodulith">What is a Modular Monolith/Modulith?</h2>
+
+<p>A modular monolith, or modulith, is a software architecture pattern that combines the benefits of monoliths and microservices <a class="citation" href="#Su2024">[3]</a>, <a class="citation" href="#Su2023">[4]</a>.
+In this context, “monolith” refers to software composed as a single, unified application—similar to one “executable” or “runnable”.
+While traditional monolithic architectures often relied on tiers and layers (tiers such as application server or database; layers such as presentation, business, and data access layer), a modulith emphasizes on modularizing a monolith.</p>
+
+<p>Modularization is not a new concept in software architecture.
+In moduliths, it is, however, a key principle for achieving maintainability by different teams in the monolith <a class="citation" href="#Su2024">[3]</a>, <a class="citation" href="#Su2023">[4]</a>.
+Modules should be loosely coupled, have clear boundaries, and define dependencies explicitly.
+The goal of modularization in moduliths is indepencence and isolation of each module.
+Ideally, these modules align with business domains, similar to microservices design, and can be migrated to microservices if independent deployability or scalability becomes necessary.</p>
+
+<p>The primary advantage of monoliths is their enhanced maintainability/less complexity, as they are less distributed than microservices.
+This often results in faster development speeds.
+On the other hand, microservices offer scalability, independent deployability, and modularity—when they are designed properly, e.g., by separating domains <a class="citation" href="#Newman2019">[5]</a>.</p>
+
+<p>In sum, moduliths is an architectural style that is a different approach between monolithic and microservices architectures.
+Key characteristics of moduliths include <a class="citation" href="#Su2024">[3]</a>, <a class="citation" href="#Su2023">[4]</a>:</p>
+<ul>
+  <li>Separate and independent modules with clear domains and autonomy from other modules.</li>
+  <li>Loose coupling between modules and strong cohesion within modules. Communication between modules occurs through well-defined APIs or asynchronously via message brokers.</li>
+  <li>A unified database schema—unlike microservices where each service should have its own schema (see also: <a class="citation" href="#Newman2019">[5]</a>).</li>
+  <li>A unified application process similar to monoliths.</li>
+  <li>Enhanced maintainability due to the encapsulation of modules within a monolithic architecture.</li>
+</ul>
+
+<h2 id="what-benefits-does-a-modulith-bring-to-us">What Benefits Does a Modulith Bring to Us?</h2>
+
+<p>The modulith has significantly improved our development processes.
+When we developed HUK-Autoservice, we started with two development teams.
+Having two microservices, was necessary to be able to deploy independently.
+Over time, we grew additional teams, merged them, and eventually ended up with just one team.
+However, the microservices architecture—with the core backend, account backend, and additional microservices—remained in place, requiring us to maintain multiple repositories and coordinate changes across them.
+This often involved creating pull requests in multiple repositories and coordinating rollouts, which was time-consuming and error-prone.</p>
+
+<p>For us, the major benefit of a modulith is the enhanced maintainability.
+With just one development team, we have a single application and repository.
+The modulith has greatly simplified our workflows and reduced the overhead of managing multiple repositories.</p>
+
+<h2 id="technical-side-of-our-modulith">Technical Side of Our Modulith</h2>
+
+<p>With the new development endeavor, the smaller development team, and using a modular monolith architecture, we chose <a href="https://spring.io/projects/spring-modulith">Spring Modulith</a> for our new backend.
+Spring Modulith provides built-in support for working with events—something we previously handled manually using Kafka, a common message library, and Kafka consumers(see also: <a href="/2022/05/10/building-an-event-driven-microservice-application.html">here</a> and <a href="/2023/08/04/tales-from-a-startup-and-its-evolving-architecture.html">here</a>)—and also supports strong module separation through <a href="https://docs.spring.io/spring-modulith/reference/verification.html">ArchUnit tests</a>.
+A good tutorial on Spring Modulith is available at <a href="https://www.baeldung.com/spring-modulith">Baeldung.com</a>.</p>
+
+<p>So far, we are happy with our choice.
+However, it is also already becoming apparent that we soon will face issues stemming from monolithic architectures such as the sheer amount of dependencies to external systems and libraries.
+These are trade-offs we will continue to evaluate as our application evolves.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>The modular monolith, or “modulith,” has proven to be a valuable architectural choice for our team at HUK-Autowelt.
+By adopting this approach, we have simplified our development processes, improved maintainability, and adapted to the constraints of a smaller development team.
+Spring Modulith has provided us with the tools to enforce strong module separation and streamlined event handling which was challenging in our microservices-based architecture before.</p>
+
+<p>However, as with any architectural decision, trade-offs are inevitable.
+While the modulith has addressed many of our pain points, we are aware of potential challenges, such as managing dependencies and scaling the application.
+These are considerations we will continue to monitor and address as needed.</p>
+
+<p>Ultimately, the decision to move to a modulith was driven by our specific context and constraints.
+For teams facing similar challenges, the modulith offers a compelling middle ground between the “simplicity” of monoliths and the modularity of microservices.
+We hope our experiences provide valuable insights for others exploring this architectural style.</p>
+
+<h2 id="references">References</h2>
+
+<ol class="bibliography"><li><span id="InfoQ2024">InfoQ, <a href="https://assets.infoq.com/newsletter/architect/en/newsletter_sample/89Architects_NL_December2024.html">“The Software Architects’ NewsletterDecember 2024.”</a> Dec-2024.</span></li>
+<li><span id="Orosz2024">G. Orosz, <a href="https://newsletter.pragmaticengineer.com/p/what-is-old-is-new-again">“What is Old is New Again.”</a> Jul-2024.</span></li>
+<li><span id="Su2024">R. Su and X. Li, <a href="https://arxiv.org/abs/2401.11867">“Modular Monolith: Is This the Trend in Software Architecture?”</a> 2024.</span></li>
+<li><span id="Su2023">R. Su, X. Li, and D. Taibi, <a href="https://arxiv.org/abs/2308.15281">“Back to the Future: From Microservice to Monolith.”</a> 29-Aug-2023.</span></li>
+<li><span id="Newman2019">S. Newman, <i>Monolith to Microservices</i>. O’Reilly, 2019.</span></li></ol>
+
+<h2 id="acknowledgements">Acknowledgements</h2>
+
+<p>Huge thanks go to the entire product and development team of <a href="https://www.huk-autowelt.de">HUK-Autowelt</a> for their outstanding work.</p>
+
+  </div></div>
+
+    </section>
+    <footer class="condensed">
+      <ul class="social about-footer condensed"><a href="https://github.com/steffenmueller4" target="_blank">
+          <li>
+            <i class="icon-github-circled"></i>
+          </li>
+        </a><a href="https://www.linkedin.com/in/steffen-mueller-139b8b191" target="_blank">
+          <li>
+            <i class="icon-linkedin-squared"></i>
+          </li>
+        </a></ul><p class="about-footer condensed">&copy;
+        2025</p>
+    </footer>
+  </main>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CD0VW38PQP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-CD0VW38PQP');
+  </script>
+  <script src="/assets/js/simple-jekyll-search.min.js"></script>
+  <script src="/assets/js/search.js"></script>
+  
+</body>
+
+</html>

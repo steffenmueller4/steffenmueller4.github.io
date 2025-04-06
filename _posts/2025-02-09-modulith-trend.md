@@ -1,7 +1,7 @@
 ---
 layout: post
 date: 2025-02-09 10:15:10 +0100
-title: "Trend Modular Monolith - Why we follow the Trend, too"
+title: "Trend Modular Monolith - Why We Follow the Trend, Too"
 categories:
   - Architecture
   - Microservices
@@ -11,97 +11,90 @@ hero_image: "/assets/hero-modulith_trend.svg"
 ---
 On 2024-12-27, the article "Modular Monolith: Is This the Trend in Software Architecture?" {% cite InfoQ2024 %} in InfoQ's *The Software Architects' Newsletter* caught my attention.
 The reason is simple: my team and I recently embarked on a new development endeavor to renew the entire site of [HUK-Autowelt](https://www.huk-autowelt.de).
-Previously, we worked on [HUK-Autoservice](https://www.huk-autoservice.de), and you can read about that journey [here]({% post_url 2023-08-04-tales-from-a-startup-and-its-evolving-architecture %}). For this new project, we are also adopting the modular monolith approach.
-The renewal of the site will be done step by step.
-The first milestone was revamping the car-buying journey, which allows customers to determine the price of their cars ([car buy journey](https://bewertung.huk-autowelt.de)).
-For the new backend application, we chose [Spring Modulith](https://spring.io/projects/spring-modulith), one of the options highlighted in the InfoQ newsletter (see: {% cite InfoQ2024 %}). 
+Previously, we worked on [HUK-Autoservice](https://www.huk-autoservice.de), and you can read about that journey [here]({% post_url 2023-08-04-tales-from-a-startup-and-its-evolving-architecture %}).
+For this new project, we are also adopting the modular monolith approach.
+The first milestone of the project was revamping the car-buying journey, which allows customers to determine the price of their cars ([car-buying journey](https://bewertung.huk-autowelt.de)).
+For the new backend application, we chose [Spring Modulith](https://spring.io/projects/spring-modulith), one of the options highlighted in the InfoQ newsletter (see: {% cite InfoQ2024 %}).
 This article shares our experiences and explains why we opted for a modular monolith for the new backend.
 
 ## Background
 
-In October 2024, we decided to start a new development endeavor with renewing the site of [HUK-Autowelt](https://www.huk-autowelt.de).
-The main reason was to have control over data and all the core processes.
-This encompasses the renewal of all customer-facing application, the integrations of all systems in the background, and the core processes connected to those applications and systems.
+In October 2024, we decided to start a new development endeavor to renew the site of [HUK-Autowelt](https://www.huk-autowelt.de).
+The main reason was to gain control over our data and core processes.
+This encompasses the renewal of all customer-facing applications, the integration of all background systems, and the core processes connected to those applications and systems.
 
-Before, the entire development of HUK-Autowelt—compared to our previous development endeavor of HUK-Autoservice; you can read stories about that, e.g., [here]({% post_url 2023-08-04-tales-from-a-startup-and-its-evolving-architecture %})—was done by an external partner.
-The partner has done an amazing job and has driven our business all the years before.
-However, the complexity of our processes and integrations with our internal systems has grown so much in recent years that those processes and integrations have been becoming enormously complex (maybe, this is another article soon).
-The results were ineffective and inefficient processes as well as nobody being able to overlook the processes and challenges when changing them.
+Previously, the entire development of HUK-Autowelt—unlike our earlier development of HUK-Autoservice (you can read about that [here]({% post_url 2023-08-04-tales-from-a-startup-and-its-evolving-architecture %}))—was handled by an external partner.
+While the partner did an excellent job and supported our business for many years, the growing complexity of our processes and integrations with internal systems made it increasingly difficult to manage.
+This complexity led to inefficient processes and challenges in making changes.
 
-Besides the decision about the new development endeavor, we also have to cope with the additional challenge of a smaller development team compared to the previous development team in HUK-Autoservice.
-As we are not different to other companies, we also have to handle the "new reality" in tech industry: the "[...] demise of 0% interest rates [...]" {% cite Orosz2024 %}.
-This simply means that we must reconsider Total Cost of Ownership for our select development and provide short term positive cash flow contrary to previous development activities.
-As a result, we had to reduce the development team compared to before where we peaked with 15 developers in different sub-teams.
-Now, we are just running one development team—we have already merged some time ago.
-And, fortunately, we have been able to shrink development team size organically without layoffs.
+In addition to starting this new development endeavor, we faced the challenge of working with a smaller development team compared to the one we had for HUK-Autoservice.
+Like many other companies, we had to adapt to the "new reality" in the tech industry: the "[...] demise of 0% interest rates [...]" {% cite Orosz2024 %}.
+This required us to reconsider the Total Cost of Ownership for our development efforts and focus on achieving short-term positive cash flow.
+As a result, we reduced our development team size compared to before where we peaked with 15 developers in different sub-teams.
+Now, we are just running one development team.
+Fortunately, we managed this reduction organically without layoffs.
 
-The smaller team has also required the adaptation of our previous approach of microservices per domain connected via message queues that we used before.
-We now use the modular monolith—or short "modulith"—approach.
-This article explains the background of moduliths, why we have chosen that when starting the new development endeavor, and our first experiences.
+The smaller team also necessitated a shift in our architectural approach.
+Previously, we used microservices per domain connected via message queues.
+Now, we have adopted the modular monolith—or "modulith"—approach.
+This article explains the concept of moduliths, why we chose this architecture for our new development endeavor, and our initial experiences.
 
 ## What is a Modular Monolith/Modulith?
 
-In general, modular monoliths/moduliths are a software architecture pattern that wants to combine the benefits of monoliths and microservices {% cite Su2024 %}, {% cite Su2023 %}.
-Here, "monolith" or "monolithic" means that the software is composed all in one piece—somehow like one "executable" or "runnable".
-While previously tiering and layering (tiers such as application server or database; layers such as presentation, business, and data access layer) have been used in monolithic architectures, the basic idea of a modulith is now to structure a monolith into modules (modularization).
+A modular monolith, or modulith, is a software architecture pattern that combines the benefits of monoliths and microservices {% cite Su2024 %}, {% cite Su2023 %}.
+In this context, "monolith" refers to software composed as a single, unified application—similar to one "executable" or "runnable".
+While traditional monolithic architectures often relied on tiers and layers (tiers such as application server or database; layers such as presentation, business, and data access layer), a modulith emphasizes on modularizing a monolith.
 
-Thereby, modularization is not a new concept in software architecture but in moduliths, modularization is key to being able to achieve maintainability by different teams in the monolith {% cite Su2024 %}, {% cite Su2023 %}.
-Modules should be loosely coupled as well as have clear boundaries and well-defined dependencies on other modules.
+Modularization is not a new concept in software architecture.
+In moduliths, it is, however, a key principle for achieving maintainability by different teams in the monolith {% cite Su2024 %}, {% cite Su2023 %}.
+Modules should be loosely coupled, have clear boundaries, and define dependencies explicitly.
 The goal of modularization in moduliths is indepencence and isolation of each module.
-The modules should focus on business domains comparable to proper microservices design, and, ideally, they can be migrated to microservices if indepentent deployability or scalability is needed.
+Ideally, these modules align with business domains, similar to microservices design, and can be migrated to microservices if independent deployability or scalability becomes necessary.
 
-The major benefit of monoliths is the enhanced maintainability/less complexity and, thus, often faster development speed, because a monolith is a less distributed software system compared to microservices where different domains are separated into different microservices.
-The major benefits of microservices is scalability, independent deployability, and modularity (if you design them properly via, e.g., separating domains; see also: [here]({% post_url 2022-05-10-building-an-event-driven-microservice-application %}) or {% cite Newman2019 %}).
-
-Thus, a modular monolith comprises modularity comparable to microservices as well as enhanced maintainability/less complexity due to a less distributed system such as in monoliths {% cite Su2024 %}, {% cite Su2023 %}.
-The modularity can be achieved via splitting the system into separate modules, not only in layers.
-The easier maintainability can be supported by having those encapsulated modules in a monolithic architecture, not in microservices.
+The primary advantage of monoliths is their enhanced maintainability/less complexity, as they are less distributed than microservices.
+This often results in faster development speeds.
+On the other hand, microservices offer scalability, independent deployability, and modularity—when they are designed properly, e.g., by separating domains {% cite Newman2019 %}.
 
 In sum, moduliths is an architectural style that is a different approach between monolithic and microservices architectures.
-Su et al. in {% cite Su2024 %} summarize the characteristics of moduliths as:
- * They have separate and independent modules with a clear own domain and autonomy from other modules.
- * They should be loosely coupled between modules and should have strong cohesion inside a module. Communication between modules should happen through well-defined API or asynchronously via message brokers.
- * They have a unified database schema contrary to microservices where every microservice should have its own database schema (see also: {% cite Newman2019 %}).
- * They have a monolithic deployement structure and are deployed as one application.
- * They have a unified application process similar to monoliths.
- * They have enhanced maintainability.
+Key characteristics of moduliths include {% cite Su2024 %}, {% cite Su2023 %}:
+- Separate and independent modules with clear domains and autonomy from other modules.
+- Loose coupling between modules and strong cohesion within modules. Communication between modules occurs through well-defined APIs or asynchronously via message brokers.
+- A unified database schema—unlike microservices where each service should have its own schema {% cite Newman2019 %}.
+- A unified application process similar to monoliths.
+- Enhanced maintainability due to the encapsulation of modules within a monolithic architecture.
 
-In the next section, let us look at the benefits a modulith brings to my team and me and to why we have chosen this architectural style over microservices now.
+## What Benefits Does a Modulith Bring to Us?
 
-## What benefits does a Modulith bring to us?
-
-To understand why a modulith is an improvement for us, let us examine a short example of the difficulties in maintaining multiple microservices:
-When we developed the HUK-Autoservice, we started with two development teams.
-Both teams developed essential parts of HUK-Autoservice: [we developed a core backend to run the booking process as well as an account backend to manage everything related to user accounts]({% post_url 2022-05-10-building-an-event-driven-microservice-application %}).
-Over the years, we grew additional teams, then merged teams, and eventually ended up with just one development team.
-However, the microservices architecture—with the core backend, account backend, and additional microservices—remained in place, even with just one team.
-We maintained the microservices, but changes requiring updates in two or more microservices were quite challenging for the team members.
-Such updates, for example, looked like: A pull request to the core backend repository, a pull request to a common library for the Kafka messages used to have a common message definition in all Kafka producers and consumers, and a pull request to the account backend repository.
-On top of that, we often had to coordinate rollouts for these pull requests.
+The modulith has significantly improved our development processes.
+When we developed HUK-Autoservice, we started with two development teams.
+Having two microservices, was necessary to be able to deploy independently.
+Over time, we grew additional teams, merged them, and eventually ended up with just one team.
+However, the microservices architecture—with the core backend, account backend, and additional microservices—remained in place, requiring us to maintain multiple repositories and coordinate changes across them.
+This often involved creating pull requests in multiple repositories and coordinating rollouts, which was time-consuming and error-prone.
 
 For us, the major benefit of a modulith is the enhanced maintainability.
-As explained above, we now have just one development team, one application for HUK-Autowelt, and just one repository.
-Working across multiple repositories and applications as well as creating pull requests in different repositories, had been a significant burden for us for a long time.
+With just one development team, we have a single application and repository.
+The modulith has greatly simplified our workflows and reduced the overhead of managing multiple repositories.
 
-## Technical Side of our Modulith
+## Technical Side of Our Modulith
 
-With the new development endeavor, the smaller development team, and using a modular monolith architecture, we decided for [Spring Modulith](https://spring.io/projects/spring-modulith) from a technical perspective.
-The benefits of Spring Modulith are an easy support for working with events—which we previously handled manually via Kafka, a common message library, and Kafka consumers (see also: [here]({% post_url 2022-05-10-building-an-event-driven-microservice-application %}) and [here]({% post_url 2023-08-04-tales-from-a-startup-and-its-evolving-architecture %}))—and support for [strong module separation via ArchUnit tests](https://docs.spring.io/spring-modulith/reference/verification.html).
-A good tutorial to learn about Spring Modulith is available at [baeldung.com](https://www.baeldung.com/spring-modulith).
+With the new development endeavor, the smaller development team, and using a modular monolith architecture, we chose [Spring Modulith](https://spring.io/projects/spring-modulith) for our new backend.
+Spring Modulith provides built-in support for working with events—something we previously handled manually using Kafka, a common message library, and Kafka consumers(see also: [here]({% post_url 2022-05-10-building-an-event-driven-microservice-application %}) and [here]({% post_url 2023-08-04-tales-from-a-startup-and-its-evolving-architecture %}))—and also supports strong module separation through [ArchUnit tests](https://docs.spring.io/spring-modulith/reference/verification.html).
+A good tutorial on Spring Modulith is available at [Baeldung.com](https://www.baeldung.com/spring-modulith).
 
 So far, we are happy with our choice.
-But it is also already becoming apparent that we soon will face issues stemming from monolithic architectures such as a huge amount of dependencies to external systems and libraries.
-Again, it is getting obvious that we simply have to make our trade-offs in software architecture.
+However, it is also already becoming apparent that we soon will face issues stemming from monolithic architectures such as the sheer amount of dependencies to external systems and libraries.
+These are trade-offs we will continue to evaluate as our application evolves.
 
 ## Conclusion
 
 The modular monolith, or "modulith," has proven to be a valuable architectural choice for our team at HUK-Autowelt.
-By adopting this approach, we have been able to simplify our development processes, improve maintainability, and adapt to the constraints of a smaller development team.
-Spring Modulith has provided us with the tools to enforce strong module separation and streamline event handling compared to our microservices-based architecture previously.
+By adopting this approach, we have simplified our development processes, improved maintainability, and adapted to the constraints of a smaller development team.
+Spring Modulith has provided us with the tools to enforce strong module separation and streamlined event handling which was challenging in our microservices-based architecture before.
 
 However, as with any architectural decision, trade-offs are inevitable.
-While the modulith has addressed many of our pain points, we are aware of potential challenges, such as managing dependencies and scaling as the application.
-These are considerations we will continue to monitor and address.
+While the modulith has addressed many of our pain points, we are aware of potential challenges, such as managing dependencies and scaling the application.
+These are considerations we will continue to monitor and address as needed.
 
 Ultimately, the decision to move to a modulith was driven by our specific context and constraints.
 For teams facing similar challenges, the modulith offers a compelling middle ground between the "simplicity" of monoliths and the modularity of microservices.
@@ -113,4 +106,4 @@ We hope our experiences provide valuable insights for others exploring this arch
 
 ## Acknowledgements
 
-Huge thanks go to the entire product and development team of [HUK-Autowelt](https://www.huk-autowelt.de) for the awesome work.
+Huge thanks go to the entire product and development team of [HUK-Autowelt](https://www.huk-autowelt.de) for their outstanding work.

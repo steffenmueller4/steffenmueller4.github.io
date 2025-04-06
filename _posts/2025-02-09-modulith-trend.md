@@ -59,7 +59,7 @@ In sum, moduliths is an architectural style that is a different approach between
 Key characteristics of moduliths include {% cite Su2024 %}, {% cite Su2023 %}:
 - Separate and independent modules with clear domains and autonomy from other modules.
 - Loose coupling between modules and strong cohesion within modules. Communication between modules occurs through well-defined APIs or asynchronously via message brokers.
-- A unified database schema—unlike microservices where each service should have its own schema {% cite Newman2019 %}.
+- A unified database schema—unlike microservices where each service should have its own schema (see also: {% cite Newman2019 %}).
 - A unified application process similar to monoliths.
 - Enhanced maintainability due to the encapsulation of modules within a monolithic architecture.
 

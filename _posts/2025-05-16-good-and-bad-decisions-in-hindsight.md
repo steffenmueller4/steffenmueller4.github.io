@@ -35,18 +35,22 @@ In hindsight, the decision to build and run such a "platform" was absolutely rig
 When we started in 2021, I had a lot of discussions about going full-stack or going with dedicated back-end, front-end, and devops engineers.
 Although, there are a lot of good reasons why a start-up should strive for unifying their workforce via full-stack engineers to better allocate work packages, we decided to work with dedicated back-end, front-end, and devops engineers instead of going full-stack.
 
-My simple reason to split was simply: there is no allrounder who is capable of doing everything well, so I am rather a friend of clear boundaries and responsibilities.
-The very simple split is: 1) front-end engineers create the user interface (UI) which is subject of most discussions in customer-facing products and none-tech companies.
+My simple reason to split the functions was simply: there is no allrounder who is capable of doing everything well, so I am rather a friend of clear boundaries and responsibilities.
+1) front-end engineers create the user interface (UI) which is subject of most discussions in customer-facing products and none-tech companies.
 It is something everybody sees and everybody has an opinion about it.
 So, they have to make the product, design, and user experience team happy.
 And they should not bear the complexity of dealing with other API and systems integration challenges we need in order to achieve the front-end functionalities.
-So, 2) back-end engineers have to create the API that the front-end engineers use to do their work.
+2) back-end engineers have to create the API that the front-end engineers use to do their work.
 Also, they have to do the systems integration work on the other end such as working with partner API, integrating ERP systems, etc.
-And 3) the devops engineers maintain the platform that run the code of the front-end and back-end engineers (see also: [this section](#build-a-platform-maintained-by-the-devops-team)).
+3) the devops engineers maintain the platform that run the code of the front-end and back-end engineers (see also: [this section](#build-a-platform-maintained-by-the-devops-team)).
 
 In retrospect, this decision was right, and let us move quickly in all our scenarios.
+Especially, in our new development endeavor with [HUK-Autowelt](https://www.huk-autowelt.de), this is the best decision in hindsight: The internal processes to rate a car, to create a contract when customers sell their car to us, to track the car for logistics, etc. require a lot of work to integrate different systems.
+And that is nothing you can do easily when also dealing with design and user experience challenges.
 
 ## Not managing State in the Kubernetes Cluster
+
+
 
 ## Focus on Software Development Performance
 

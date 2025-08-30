@@ -4,7 +4,7 @@ date: 2025-08-30 09:15:10 +0100
 title: "Perception is reality - why does it matter to all leads?"
 categories:
   - Leadership
-published: true
+published: false
 hero_image: "/assets/hero-modulith_trend.svg"
 ---
 Perception is reality.

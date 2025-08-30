@@ -13,3 +13,9 @@ Examples from the business world why this violates your leadership.
 
  * https://praxistipps.chip.de/perception-is-reality-wie-die-wahrnehmung-die-realitaet-beeinflusst_173909
  * https://www.psychologytoday.com/us/blog/the-power-prime/201908/perception-is-not-reality
+
+## Example: Buying the wrong type of cars
+
+## Example: Bugs, Bugs - ...wherever you look!
+
+## Solution: Check your assumptions, work data-driven, ...

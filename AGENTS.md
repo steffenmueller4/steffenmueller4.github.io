@@ -134,3 +134,10 @@ Located in `_sass/` and `assets/`.
 - `_plugins/sanitize_links_in_bib.rb` - Bibliography link sanitizer
 - `_bibliography/references.bib` - Academic citations
 - `_posts/` - Blog post content
+
+## Markdown
+
+**Style conventions:**
+
+- Every sentence is a new line in a blog post (.md files in `_posts/`)
+- Em-dashes are `—`

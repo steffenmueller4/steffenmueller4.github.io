@@ -16,6 +16,7 @@ cyan      #2aa198  strings, numbers
 green     #859900  operators, other keywords
 */
 
+@mixin styles {
 .highlight { background-color: #002b36; color: #93a1a1 }
 .highlight .c { color: #586e75 } /* Comment */
 .highlight .err { color: #93a1a1 } /* Error */
@@ -85,3 +86,4 @@ green     #859900  operators, other keywords
 .highlight .vg { color: #268bd2 } /* Name.Variable.Global */
 .highlight .vi { color: #268bd2 } /* Name.Variable.Instance */
 .highlight .il { color: #2aa198 } /* Literal.Number.Integer.Long */
+}

@@ -9,21 +9,21 @@ categories:
 published: true
 hero_image: "/assets/hero-restic-backup-for-syncthing.png"
 ---
-In [this previous article]({% post_url 2024-04-12-syncthing-on-k3s %}), you can find an howto run [Syncthing][Syncthing] on a three node [k3s][k3s] cluster running [Ceph][Ceph] via [Rook][Rook].
-The cluster runs on Raspberry Pi.
+In [this previous article]({% post_url 2024-04-12-syncthing-on-k3s %}), you can find a how-to for running [Syncthing][Syncthing] on a Raspberry Pi based three node [k3s][k3s] cluster running [Ceph][Ceph] via [Rook][Rook].
 What the previous article left open is the question of backups.
 Syncthing replicates files between devices, but replication is not a backup.
 An accidental delete or a corrupted file is happily synchronized to every peer—although Syncthing also supports some kind of versioning files and keeping a backup.
 On my old Raspberry Pi 3 setup, I used [Duplicity][duplicity] (see also: [this article]({% post_url 2020-12-31-duplicity-on-raspberry-pi-from-source %})).
-For the new k3s based setup, I have replaced Duplicity with [restic][restic] running as a Kubernetes `CronJob`.
+For the new k3s setup, I have replaced Duplicity with [restic][restic] running as a Kubernetes `CronJob`.
 This article summarizes the setup.
+By the end, you'll have a weekly, encrypted, deduplicated backup of a Syncthing PVC into any S3-compatible bucket.
 
 ## Why Restic?
 
 [Duplicity][duplicity] served me well for many years, but it has two properties that became inconvenient on the new cluster.
 First, the backup format is a chain of full and incremental archives, which means a restore requires the full backup plus every incremental on top of it.
 Second, Duplicity does not deduplicate across files—it only diffs against the previous archive.
-Since my [Syncthing][Syncthing] directories exceed the size of 1TB, those properties with the limited upload bandwith of my Internet provider is simply not ideal.
+Since my [Syncthing][Syncthing] directories exceed the size of 1TB, those properties, combined with the limited upload bandwidth of my Internet provider, are simply not ideal.
 
 [restic][restic] takes a different approach.
 It is a single Go binary, which makes it easy to package for `arm64`.
@@ -32,18 +32,20 @@ Every backup is a snapshot that can be restored independently.
 It encrypts the repository client-side and supports many backends out of the box, including any S3-compatible object store.
 
 For my setup, the combination of chunk-level deduplication, encryption, and [AWS Simple Storage Service (S3)][aws-s3] backend was the deciding factor.
+This setup reduced the backup time from hours to ca. 10-30 minutes depending on the amount of file changes in Syncthing.
 
 ## Architecture Overview
 
 The Syncthing backup setup adds a single Kubernetes `CronJob` to the existing Syncthing namespace.
-The cronjob runs once a week, mounts the Syncthing data volume as read-only, and pushes a restic snapshot to an AWS S3 bucket.
+The `CronJob` runs once a week, mounts the Syncthing data volume as read-only, and pushes a restic snapshot to an AWS S3 bucket.
 
 The relevant pieces are:
 
- * A `CronJob` that schedules the backup container.
- * A `ConfigMap` that ships the backup shell script into the pod.
- * A `Secret` (`restic-secrets`) that holds the repository URL, the repository password, and the AWS S3 credentials.
- * The existing Syncthing Persistent Volume Claim (PVC) (see also: [here]({% post_url 2024-04-12-syncthing-on-k3s %})), mounted read-only into the backup pod started by the cronjob.
+ * A small backup script (see also: [this section](#the-backup-script)).
+ * A `ConfigMap` that ships the backup script into the pod (see also: [this section](#the-backup-script)).
+ * A `Secret` (`restic-secrets`) that holds the repository URL, the repository password, and the AWS S3 credentials used in the backup script and the pod (see also: [this section](#the-secret)).
+ * A `CronJob` that schedules the backup container and runs the backup script (see also: [this section](#the-cronjob)).
+ * The existing Syncthing Persistent Volume Claim (PVC) (see also: [this article]({% post_url 2024-04-12-syncthing-on-k3s %})) mounted as read-only into the backup pod started by the cronjob (see also: [this section](#the-cronjob)).
 
 One change to the [previous Syncthing setup]({% post_url 2024-04-12-syncthing-on-k3s %}) is worth highlighting up front: the PVC is now backed by `rook-cephfs` with access mode `ReadWriteMany` instead of `rook-ceph-block` with `ReadWriteOnce`.
 Block storage with `ReadWriteOnce` only allows a single pod to mount the Persistent Volume (PV) at any time, which would force the backup job to either share the Syncthing pod or wait for it to terminate.
@@ -51,15 +53,10 @@ With [CephFS][CephFS] and `ReadWriteMany`, the backup pod can mount the same PV 
 
 In the next sections, we walk through the backup-related templates in detail.
 
-## The Backup Image
-
-The container image used for the backup is the official restic Docker image [`restic/restic`][restic-docker].
-It is a small image that bundles `restic` and the `sh`/coreutils needed by a custom backup script (see also: [here](#the-backup-script)).
-The backup script itself only depends on `restic` and a POSIX shell.
-
 ## The Backup Script
 
-The backup script is a short shell script shipped via a `ConfigMap`:
+The basic container image used for the backup is the official restic Docker image ([`restic/restic`][restic-docker]).
+It is a small image that bundles `restic` and the `sh`/coreutils needed by a custom backup script depending on `restic` and a POSIX shell:
 
 ```sh
 #!/bin/sh
@@ -83,9 +80,9 @@ echo "Backup completed successfully."
 
 Three things happen on every run:
 
- 1. **Initialize on first run.** `restic snapshots` returns non-zero if the repository does not exist yet. In that case we run `restic init`. On every subsequent run, the snapshot listing succeeds and `init` is skipped.
- 2. **Snapshot.** `restic backup /var/syncthing` walks the Syncthing data directory—mounted as read-only at the same path Syncthing uses inside its container—and uploads only the chunks it has not seen before.
- 3. **Forget and prune.** `restic forget --keep-weekly $RETENTION_WEEKS --prune` keeps the last `RETENTION_WEEKS` weekly snapshots and removes everything else, then garbage-collects the unreferenced chunks from the repository in the same step. The value is set via an environment variable in the `CronJob` deployment descriptor (see also: [here](#the-cronjob)).
+ 1. Initialize on first run: `restic snapshots` returns non-zero if the repository does not exist yet. In that case we run `restic init`. On every subsequent run, the snapshot listing succeeds and `init` is skipped.
+ 2. The backup (snapshots): `restic backup /var/syncthing` walks the Syncthing data directory—mounted as read-only at the same path Syncthing uses inside its container—and uploads only the chunks it has not seen before.
+ 3. The cleanup: `restic forget --keep-weekly $RETENTION_WEEKS --prune` keeps the last `RETENTION_WEEKS` weekly snapshots and removes everything else, then garbage-collects the unreferenced chunks from the repository in the same step. The `RETENTION_WEEKS` value is set via an environment variable in the `CronJob` deployment descriptor (see also: [here](#the-cronjob)).
 
 The `--prune` flag is what actually frees space in the AWS S3 bucket.
 Without it, `forget` only removes snapshot pointers and leaves the chunks behind.
@@ -106,8 +103,8 @@ data:
     [...]
 ```
 
-In my setup, I used [Helm][Helm] to read the script (see: [here](#the-backup-script)) from a file and embed it into the `ConfigMap`—you can also embed the backup script into the deployment descriptor.
-However, keeping the script as a separate file—rather than inlining it—means it can be edited and tested locally with normal shell tools.
+In my setup, I use [Helm][Helm] to read the script (see: [here](#the-backup-script)) from a file and embed it into the `ConfigMap`—you can also embed the backup script directly into the deployment descriptor.
+However, keeping the script as a separate file means it can be edited and tested locally with normal shell tools.
 
 ## The CronJob
 
@@ -122,7 +119,7 @@ metadata:
   labels:
     app: syncthing-backup
 spec:
-  schedule: "45 1 * * 0"
+  schedule: "30 2 * * 0"
   concurrencyPolicy: Forbid
   successfulJobsHistoryLimit: 3
   failedJobsHistoryLimit: 3
@@ -136,7 +133,6 @@ spec:
             runAsNonRoot: true
             runAsUser: 1000
             runAsGroup: 1000
-            fsGroup: 1000
             seccompProfile:
               type: RuntimeDefault
           affinity:
@@ -213,19 +209,20 @@ spec:
               emptyDir: {}
 ```
 
-A few details deserve a closer look.
+A few details deserve a closer look in the next sections.
 
 ### Schedule and Concurrency
 
-The schedule is set to `45 1 * * 0` and runs every Sunday at 01:45 in `Europe/Berlin` (set via the `TZ` environment variable).
-For a private Syncthing instance, weekly snapshots are a good balance between restore granularity, bucket cost, and my Internet upload speed.
+The schedule is set to `30 2 * * 0` and runs every Sunday at 02:30 in `Europe/Berlin` (set via the `TZ` environment variable).
+For me, weekly snapshots are a good balance between restore granularity, bucket costs, and my Internet upload speed.
+Daily snapshots would tighten the recovery window but multiply AWS S3 costs and saturate my upstream link.
 
-`concurrencyPolicy: Forbid` ensures that a another run is not overlapping the current run—i.e., it prevents running multiple jobs in parallel and, thus, filesystem read-write conflicts.
+`concurrencyPolicy: Forbid` ensures that another run does not overlap the current one—i.e., it prevents running multiple jobs in parallel and, thus, filesystem read-write conflicts.
 Combined with `backoffLimit: 2`, a transient failure is retried twice before the job is marked failed, and `successfulJobsHistoryLimit` / `failedJobsHistoryLimit` keep three of each around for inspection via `kubectl get jobs -n syncthing`.
 
 ### Pod Affinity
 
-The `podAffinity` rule schedules the backup pod onto the same K3s node as the Syncthing pod (`topologyKey: kubernetes.io/hostname`).
+The `podAffinity` rule schedules the backup pod onto the same k3s node as the Syncthing pod.
 With CephFS this is not strictly required for correctness, but it keeps the read traffic of a backup local to one node instead of pulling all data through the network from a different node.
 For a Raspberry Pi cluster on a 1 GbE switch, that matters.
 
@@ -238,9 +235,9 @@ The Syncthing container itself runs with the same UID, so the read-only mount at
 
 Three volumes are mounted:
 
- * `syncthing-data` is the Syncthing PVC, mounted read-only at `/var/syncthing`. Read-only is essential—the backup must never be able to corrupt the data it is supposed to protect.
- * `backup-script` is the `ConfigMap` from the previous section (see also: [here](#the-backup-script)), mounted at `/scripts` with mode `0755` so the shell can execute it.
- * `cache` is an `emptyDir` mounted at `/.cache`. restic uses this directory to cache pack file metadata between runs—this setup uses a memory-backed empty directory for every pod start.
+ * `syncthing-data` is the Syncthing PVC with access mode `ReadWriteMany`, mounted read-only at `/var/syncthing`. Read-only is essential—the backup must never be able to corrupt the data it is supposed to protect.
+ * `backup-script` is the `ConfigMap` from the previous section (see also: [this section](#the-backup-script)), mounted at `/scripts` with mode `0755` so the shell can execute it.
+ * `cache` is an `emptyDir` mounted at `/.cache`. restic uses this directory to cache pack file metadata between runs—this setup uses a node-local scratch directory recreated on every pod start.
 
 ## The Secret
 
@@ -258,7 +255,7 @@ kubectl create secret generic restic-secrets \
 Two notes on the values:
 
  * `RESTIC_REPOSITORY` follows the [restic S3 URL format][restic-s3]: `s3:<endpoint>/<bucket>[/<path>]`. Any S3-compatible provider works—AWS S3, Backblaze B2 via its S3 endpoint, MinIO, Hetzner Object Storage, etc.
- * **Store the `RESTIC_PASSWORD` somewhere outside the cluster.** It is the only thing standing between the encrypted bucket and a usable restore. If you lose it, the backup is unreadable. Please do not use AI to generate the password as they do not create secure passwords by design (see also: [Vibe Password Generation: Predictable by Design](https://www.irregular.com/publications/vibe-password-generation))
+ * **Store the `RESTIC_PASSWORD` somewhere outside the cluster.** It is the only thing standing between the encrypted bucket and a usable restore. If you lose it, the backup is unreadable. Please do not use an LLM to generate the password—LLMs do not produce cryptographically secure randomness by design (see also: [Vibe Password Generation: Predictable by Design](https://www.irregular.com/publications/vibe-password-generation)).
 
 ## Restoring
 
@@ -281,7 +278,7 @@ kubectl run restic-restore -n syncthing -it --rm --restart=Never \
   }'
 ```
 
-"SSH" into the pod via `kubectl exec -n syncthing ...` and run:
+Inside the shell that opens, run:
 
 ```sh
 restic snapshots                       # list available snapshots
@@ -294,10 +291,11 @@ For a full disaster recovery into a fresh cluster, mount the new Syncthing PVC i
 
 In this article, I described a small backup solution for a Syncthing deployment on k3s.
 A weekly Kubernetes `CronJob` runs restic, snapshots the Syncthing data volume, and pushes encrypted, deduplicated chunks to an AWS S3 bucket.
-A specific retention (12 weeks in my case) with `forget --prune` keeps the AWS S3 bucket bounded.
+A bounded retention window (12 weeks in my case) combined with `forget --prune` keeps the AWS S3 bucket size in check.
 Switching the underlying PVC from `rook-ceph-block` to `rook-cephfs` (`ReadWriteMany`) is what makes it possible to back up *while* Syncthing keeps running.
 
-As always, this is a snapshot of a setup that works for me on my Raspberry Pi based k3s cluster with Ceph—your bucket, retention, and schedule should follow your own data and risk tolerance.
+As always, this is a snapshot of a setup that works for me on my Raspberry Pi based k3s cluster with Ceph.
+Your setup—especially the retention time and schedule—should follow your own data and risk tolerance.
 If you want to report issues or have questions, please use the [issues](https://github.com/steffenmueller4/steffenmueller4.github.io/issues) and [discussions](https://github.com/steffenmueller4/steffenmueller4.github.io/discussions) functionality at the underlying GitHub repository.
 
 [//]: # (#)

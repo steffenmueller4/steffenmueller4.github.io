@@ -9,7 +9,7 @@ categories:
 published: true
 hero_image: "/assets/hero-restic-backup-for-syncthing.png"
 ---
-In [this previous article]({% post_url 2024-04-12-syncthing-on-k3s %}), you can find a how-to for running [Syncthing][Syncthing] on a Raspberry Pi based three node [k3s][k3s] cluster running [Ceph][Ceph] via [Rook][Rook].
+In [that previous article]({% post_url 2024-04-12-syncthing-on-k3s %}), you can find a how-to for running [Syncthing][Syncthing] on a Raspberry Pi based three node [k3s][k3s] cluster running [Ceph][Ceph] via [Rook][Rook].
 What the previous article left open is the question of backups.
 Syncthing replicates files between devices, but replication is not a backup.
 An accidental delete or a corrupted file is happily synchronized to every peer—although Syncthing also supports some kind of versioning files and keeping a backup.
@@ -32,7 +32,7 @@ Every backup is a snapshot that can be restored independently.
 It encrypts the repository client-side and supports many backends out of the box, including any S3-compatible object store.
 
 For my setup, the combination of chunk-level deduplication, encryption, and [AWS Simple Storage Service (S3)][aws-s3] backend was the deciding factor.
-This setup reduced the backup time from hours to ca. 10-30 minutes depending on the amount of file changes in Syncthing.
+This setup reduced the backup time from hours to ca. 10-30 minutes depending on the amount of file changes in Syncthing—not too many in my case.
 
 ## Architecture Overview
 

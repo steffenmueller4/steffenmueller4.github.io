@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2026-02-22 09:15:10 +0100
+date: 2026-05-15 08:15:10 +0100
 title: "How does Leading a Team Change in the Age of AI?"
 categories:
   - Leadership
@@ -14,6 +14,16 @@ Yesterday, I have been reading a LinkedIn post from Ralf Plattfaut based on thei
 Key findings of the article are 1) leaders need to navigate the technological adoption with clear communication, targeted training, and patience; 2) leaders must account for the interdependencies between humans and GenAI; 3) leaders become more and more orchestrators of human-AI collaboration.
 This article summarizes my experiences with the changes on how to lead a development team in the age of AI recently.
 My experiences support the findings Erguen et al. found {% cite Erguen2026 %}.
+
+## Introduction
+
+How leadership changes in the age of Generative AI (GenAI) {% cite Erguen2026 %}.
+
+What currently changes: {% cite BloombergTelevision2026 %}
+
+How to integrate AI in organizational settings: {% cite Alkfairy2025 %}
+
+{% cite Nakash2025 %}
 
 ## The Short-Term Reality: Traditional Challenges
 

@@ -25,9 +25,13 @@ How to integrate AI in organizational settings: {% cite Alkfairy2025 %}
 
 {% cite Nakash2025 %}
 
+{% cite Houck2026 %} and {% cite Butler2026 %}
+
 ## The Short-Term Reality: Traditional Challenges
 
 In the early stages of GenAI adoption, organizations face familiar hurdles. These mirror traditional technology adoption challenges: resistance to change, training gaps, and the initial productivity dip as teams learn new workflows. Leaders navigate these waters much as they always have—through clear communication, targeted training, and patience.
+
+Pull-Request perspective from {% cite Newman2026 %}
 
 ## The Mid-Term Transformation: A Complete Reboot
 
